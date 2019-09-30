@@ -63,15 +63,15 @@
 <meta property="og:site_name" content="IOTTS">
 <meta property="og:description" content="将Lua解释器移植到STM32 最近在一个在做一个PLC项目，对于PLC需要根据不同场景实现不同的功能，因此为了保持系统的稳定性决定做一个脚本配置的方案。开始的时候自己写了一个脚本解析程序，系统运行不错，就是脚本有点长，易读性比较差，今天突然想到Lua,决定把Lua移植到STM32上去，网上查了一下相关资料，说实话，关于STM32Lua的工程应用还是比较少的，决定自己移植一下">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://iotts.top/.top//fig3.png">
-<meta property="og:image" content="http://iotts.top/.top//fig4.png">
-<meta property="og:image" content="http://iotts.top/.top//fig1.png">
-<meta property="og:image" content="http://iotts.top/.top//fig2.png">
+<meta property="og:image" content="http://iotts.top/2019/09/30/STM32FXX之Lua解释器移植/fig3.png">
+<meta property="og:image" content="http://iotts.top/2019/09/30/STM32FXX之Lua解释器移植/fig4.png">
+<meta property="og:image" content="http://iotts.top/2019/09/30/STM32FXX之Lua解释器移植/fig1.png">
+<meta property="og:image" content="http://iotts.top/2019/09/30/STM32FXX之Lua解释器移植/fig2.png">
 <meta property="og:updated_time" content="2019-09-30T21:01:33.876Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="STM32FXX之Lua解释器移植">
 <meta name="twitter:description" content="将Lua解释器移植到STM32 最近在一个在做一个PLC项目，对于PLC需要根据不同场景实现不同的功能，因此为了保持系统的稳定性决定做一个脚本配置的方案。开始的时候自己写了一个脚本解析程序，系统运行不错，就是脚本有点长，易读性比较差，今天突然想到Lua,决定把Lua移植到STM32上去，网上查了一下相关资料，说实话，关于STM32Lua的工程应用还是比较少的，决定自己移植一下">
-<meta name="twitter:image" content="http://iotts.top/.top//fig3.png">
+<meta name="twitter:image" content="http://iotts.top/2019/09/30/STM32FXX之Lua解释器移植/fig3.png">
   <link rel="canonical" href="http://iotts.top/2019/09/30/STM32FXX之Lua解释器移植/">
 
 
@@ -298,12 +298,12 @@
 <p>前期准备<br>Lua源码包：<br>目前最新版本是5.3.4 ，下载链接：<a href="http://www.lua.org/ftp/lua-5.3.4.tar.gz" target="_blank" rel="noopener">http://www.lua.org/ftp/lua-5.3.4.tar.gz</a><br>Stm32f103工程模板：<br>我已经做好的工程模板，主要有一个LED驱动，串口驱动<br>下载连接：</p>
 <p>开始移植<br>我用的KEIL 5.17，板子用的STM32f103板子</p>
 <p>1.Lua源码解压会得到一个src文件夹，把src下的源码添加到STM32的工程里，设置好包含路径，注意lua.c 和 luac.c 这两个文件是不包含的（它们包含PC上Lua解释器和编译器的main函数）,将这两个文件删除。</p>
-<p><img src="/.top//fig3.png" alt="fig3.png"></p>
-<p><img src="/.top//fig4.png" alt="fig4.png"></p>
+<p><img src="fig3.png" alt="fig3.png"></p>
+<p><img src="fig4.png" alt="fig4.png"></p>
 <p>2.Lua硬件要求<br>l RAM &gt;= 7.5Kb，建议16KB以上<br>l ROM &gt;= 65kb，建议128kb以上<br>改动堆栈大小：堆最小为5.5kb，栈最小是1.5kb。在启动文件里把堆(Heap_Size)设置的足够大，我设置的0x00008000(32KB)是没问题的，其实要不了这么多。建议把栈设置的大一点（1KB足够）</p>
-<p><img src="/.top//fig1.png" alt="fig1.png"></p>
+<p><img src="fig1.png" alt="fig1.png"></p>
 <p>把MicroLib的勾打上了，如下图：</p>
-<p><img src="/.top//fig2.png" alt="fig2.png"></p>
+<p><img src="fig2.png" alt="fig2.png"></p>
 <p>然后我写了一个简单的函数来实现解释器：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/* 测试的Lua代码字符串 */</span><br><span class="line">const char lua_test[] = &#123; </span><br><span class="line">    &quot;print(\&quot;Hello,I am lua!\\n--this is newline printf\&quot;)\n&quot;</span><br><span class="line">    &quot;function foo()\n&quot;</span><br><span class="line">    &quot;  local i = 0\n&quot;</span><br><span class="line">    &quot;  local sum = 1\n&quot;</span><br><span class="line">    &quot;  while i &lt;= 10 do\n&quot;</span><br><span class="line">    &quot;    sum = sum * 2\n&quot;</span><br><span class="line">    &quot;    i = i + 1\n&quot;</span><br><span class="line">    &quot;  end\n&quot;</span><br><span class="line">    &quot;return sum\n&quot;</span><br><span class="line">    &quot;end\n&quot;</span><br><span class="line">    &quot;print(\&quot;sum =\&quot;, foo())\n&quot;</span><br><span class="line">    &quot;print(\&quot;and sum = 2^11 =\&quot;, 2 ^ 11)\n&quot;</span><br><span class="line">    &quot;print(\&quot;exp(200) =\&quot;, math.exp(200))\n&quot;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
