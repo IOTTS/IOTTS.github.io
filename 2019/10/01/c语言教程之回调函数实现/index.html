@@ -55,28 +55,33 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="IOTTS">
-<meta property="og:url" content="http://iotts.top/index.html">
+  <meta name="description" content="回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。 123456789101112131415161718192021222324252627282930313233343536373">
+<meta name="keywords" content="C语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c语言教程之回调函数实现">
+<meta property="og:url" content="http://iotts.top/2019/10/01/c语言教程之回调函数实现/index.html">
 <meta property="og:site_name" content="IOTTS">
+<meta property="og:description" content="回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。 123456789101112131415161718192021222324252627282930313233343536373">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-30T22:30:38.191Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IOTTS">
-  <link rel="canonical" href="http://iotts.top/">
+<meta name="twitter:title" content="c语言教程之回调函数实现">
+<meta name="twitter:description" content="回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。 123456789101112131415161718192021222324252627282930313233343536373">
+  <link rel="canonical" href="http://iotts.top/2019/10/01/c语言教程之回调函数实现/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>IOTTS</title>
+  <title>c语言教程之回调函数实现 | IOTTS</title>
   
 
 
@@ -206,12 +211,13 @@
 
           <div id="content" class="content">
             
+
   <div id="posts" class="posts-expand">
-        <article itemscope itemtype="http://schema.org/Article">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block home">
+  <div class="post-block post">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/10/01/c语言教程之回调函数实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -224,9 +230,8 @@
       <meta itemprop="name" content="IOTTS">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/01/c语言教程之回调函数实现/" class="post-title-link" itemprop="url">c语言教程之回调函数实现</a>
+        <h1 class="post-title" itemprop="name headline">c语言教程之回调函数实现
+
           
         </h1>
 
@@ -273,7 +278,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。</p>
+        <p>回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * @file c语言实现回调函数</span><br><span class="line"> * @detial 在java等更高级的语言中往往已经给我们封装好了回调函数的调用方式，直接用就可以了。</span><br><span class="line"> * 而C语言中并没有这种直接可以操作的回调方式，我们用函数指针来实现回调原理。</span><br><span class="line"> */</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">// 将函数名作为指针的格式为：int (*ptr)(char *p) 即：返回值(指针名)(参数列表)</span><br><span class="line">typedef int (*callbackfun)(char *str); // 回调函数的名称为 callback，参数是char *p</span><br><span class="line"></span><br><span class="line">// functionA的格式符合 callback 的格式，因此可以看作是一个 callback类型</span><br><span class="line">int functionA(char *str)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;回调 functionA(char *str) 函数:%s!\n&quot;, str);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// functionB的格式符合 callback 的格式，因此也可以看作是一个 callback类型</span><br><span class="line">int functionB(char *str)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;回调 functionB(char *str) 函数:%s!\n&quot;, str);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 调用回调函数，方式一：通过命名方式</span><br><span class="line">int test1(callbackfun p_callback, char *str)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;test1:\n不调用回调函数打印:%s!\n&quot;, str);</span><br><span class="line">    p_callback(str);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 调用回调函数，方式二：直接通过函数指针</span><br><span class="line">int test2(int (*ptr)(), char *str)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;test2:\n不调用回调函数打印:%s!\n&quot;, str);</span><br><span class="line">    (*ptr)(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char *str = &quot;hello world!&quot;;</span><br><span class="line"></span><br><span class="line">    test1(functionA, str);</span><br><span class="line">    test1(functionB, str);</span><br><span class="line">    test2(functionA, str);</span><br><span class="line">    test2(functionB, str);</span><br><span class="line">    </span><br><span class="line">    printf(&quot;test3:\n&quot;);</span><br><span class="line">    callbackfun test3 = functionB;</span><br><span class="line">    test3(str);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>运行结果如下：</p>
@@ -284,317 +289,52 @@
 
 <p>运行结果如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~$ ./a.out </span><br><span class="line">Hello jack lu</span><br><span class="line">123</span><br></pre></td></tr></table></figure>
-        
-      
     </div>
 
     
     
     
-      <footer class="post-footer">
-          <div class="post-eof"></div>
         
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/09/30/STM32FXX之Lua解释器移植/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/30/STM32FXX之Lua解释器移植/" class="post-title-link" itemprop="url">STM32FXX之Lua解释器移植</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-30 21:00:57" itemprop="dateCreated datePublished" datetime="2019-09-30T21:00:57+08:00">2019-09-30</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-01 05:01:33" itemprop="dateModified" datetime="2019-10-01T05:01:33+08:00">2019-10-01</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/STM32/" itemprop="url" rel="index"><span itemprop="name">STM32</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <p>将Lua解释器移植到STM32</p>
-<p>最近在一个在做一个PLC项目，对于PLC需要根据不同场景实现不同的功能，因此为了保持系统的稳定性决定做一个脚本配置的方案。开始的时候自己写了一个脚本解析程序，系统运行不错，就是脚本有点长，易读性比较差，今天突然想到Lua,决定把Lua移植到STM32上去，网上查了一下相关资料，说实话，关于STM32Lua的工程应用还是比较少的，决定自己移植一下</p>
-          <!--noindex-->
+
+      <footer class="post-footer">
           
-            <div class="post-button">
-              <a class="btn" href="/2019/09/30/STM32FXX之Lua解释器移植/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/C语言/" rel="tag"># C语言</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/30/STM32FXX之Lua解释器移植/" rel="next" title="STM32FXX之Lua解释器移植">
+                  <i class="fa fa-chevron-left"></i> STM32FXX之Lua解释器移植
+                </a>
+              
             </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
         
       </footer>
+    
   </div>
   
   
   
   </article>
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/09/30/hexo-新建一篇文章给它添加分类和标签/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/30/hexo-新建一篇文章给它添加分类和标签/" class="post-title-link" itemprop="url">hexo 新建一篇文章给它添加分类和标签</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-30 20:51:07 / 修改时间：20:52:27" itemprop="dateCreated datePublished" datetime="2019-09-30T20:51:07+08:00">2019-09-30</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>新建一篇文章</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;Hexo教程&quot;</span><br></pre></td></tr></table></figure>
-
-<p>通过vim编辑器或者其他编辑器打开：添加tags和categories</p>
-<p>修改如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: title #文章标题</span><br><span class="line">date: 2016-06-01 23:47:44 #文章生成时间</span><br><span class="line">categories: &quot;Hexo教程&quot; #文章分类目录 可以省略</span><br><span class="line">tags: #文章标签 可以省略</span><br><span class="line">     - 标签1</span><br><span class="line">     - 标签2</span><br><span class="line"> description: #对本页的描述 可以省略</span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
   </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/09/30/Hexo新建文章/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/30/Hexo新建文章/" class="post-title-link" itemprop="url">Hexo新建文章</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-30 17:43:58" itemprop="dateCreated datePublished" datetime="2019-09-30T17:43:58+08:00">2019-09-30</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-01 06:04:39" itemprop="dateModified" datetime="2019-10-01T06:04:39+08:00">2019-10-01</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>新建一篇博客，在cmd执行命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post “博客名”</span><br></pre></td></tr></table></figure>
-
-<p>这时候在文件夹_posts目录下将会看到已经创建的文件<br>使用编辑器编好文章，那么就可以使用命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-  </div>
-
-  
 
 
           </div>
@@ -613,6 +353,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
