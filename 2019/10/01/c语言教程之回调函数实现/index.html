@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。 123456789101112131415161718192021222324252627282930313233343536373">
+  <meta name="description" content="回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。">
 <meta name="keywords" content="C语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c语言教程之回调函数实现">
 <meta property="og:url" content="http://iotts.top/2019/10/01/c语言教程之回调函数实现/index.html">
 <meta property="og:site_name" content="IOTTS">
-<meta property="og:description" content="回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。 123456789101112131415161718192021222324252627282930313233343536373">
+<meta property="og:description" content="回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-30T22:30:38.191Z">
+<meta property="og:updated_time" content="2019-09-30T22:33:18.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c语言教程之回调函数实现">
-<meta name="twitter:description" content="回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。 123456789101112131415161718192021222324252627282930313233343536373">
+<meta name="twitter:description" content="回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。">
   <link rel="canonical" href="http://iotts.top/2019/10/01/c语言教程之回调函数实现/">
 
 
@@ -246,7 +246,7 @@
                 
               
 
-              <time title="创建时间：2019-10-01 06:24:34 / 修改时间：06:30:38" itemprop="dateCreated datePublished" datetime="2019-10-01T06:24:34+08:00">2019-10-01</time>
+              <time title="创建时间：2019-10-01 06:24:34 / 修改时间：06:33:18" itemprop="dateCreated datePublished" datetime="2019-10-01T06:24:34+08:00">2019-10-01</time>
             </span>
           
             
@@ -279,6 +279,7 @@
 
       
         <p>回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * @file c语言实现回调函数</span><br><span class="line"> * @detial 在java等更高级的语言中往往已经给我们封装好了回调函数的调用方式，直接用就可以了。</span><br><span class="line"> * 而C语言中并没有这种直接可以操作的回调方式，我们用函数指针来实现回调原理。</span><br><span class="line"> */</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">// 将函数名作为指针的格式为：int (*ptr)(char *p) 即：返回值(指针名)(参数列表)</span><br><span class="line">typedef int (*callbackfun)(char *str); // 回调函数的名称为 callback，参数是char *p</span><br><span class="line"></span><br><span class="line">// functionA的格式符合 callback 的格式，因此可以看作是一个 callback类型</span><br><span class="line">int functionA(char *str)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;回调 functionA(char *str) 函数:%s!\n&quot;, str);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// functionB的格式符合 callback 的格式，因此也可以看作是一个 callback类型</span><br><span class="line">int functionB(char *str)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;回调 functionB(char *str) 函数:%s!\n&quot;, str);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 调用回调函数，方式一：通过命名方式</span><br><span class="line">int test1(callbackfun p_callback, char *str)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;test1:\n不调用回调函数打印:%s!\n&quot;, str);</span><br><span class="line">    p_callback(str);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 调用回调函数，方式二：直接通过函数指针</span><br><span class="line">int test2(int (*ptr)(), char *str)</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;test2:\n不调用回调函数打印:%s!\n&quot;, str);</span><br><span class="line">    (*ptr)(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char *str = &quot;hello world!&quot;;</span><br><span class="line"></span><br><span class="line">    test1(functionA, str);</span><br><span class="line">    test1(functionB, str);</span><br><span class="line">    test2(functionA, str);</span><br><span class="line">    test2(functionB, str);</span><br><span class="line">    </span><br><span class="line">    printf(&quot;test3:\n&quot;);</span><br><span class="line">    callbackfun test3 = functionB;</span><br><span class="line">    test3(str);</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>运行结果如下：</p>
