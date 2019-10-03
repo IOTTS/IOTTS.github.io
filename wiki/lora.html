@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,15 +55,18 @@
   };
 </script>
 
-  <meta name="keywords" content="LORA,无线通信">
+  <meta name="description" content="模块简介说明模块外形模块参考例程">
+<meta name="keywords" content="LORA,无线通信">
 <meta property="og:type" content="website">
-<meta property="og:title" content="wiki">
+<meta property="og:title" content="LORA">
 <meta property="og:url" content="http://iotts.top/wiki/lora.html">
 <meta property="og:site_name" content="IOTTS">
+<meta property="og:description" content="模块简介说明模块外形模块参考例程">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-03T16:26:08.902Z">
+<meta property="og:updated_time" content="2019-10-03T16:29:36.951Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wiki">
+<meta name="twitter:title" content="LORA">
+<meta name="twitter:description" content="模块简介说明模块外形模块参考例程">
   <link rel="canonical" href="http://iotts.top/wiki/lora">
 
 
@@ -78,7 +81,7 @@
   };
 </script>
 
-  <title>wiki | IOTTS</title>
+  <title>LORA | IOTTS</title>
   
 
 
@@ -210,37 +213,9 @@
     <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>产品列表</a>
 
   </li>
-      <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-      </li>
-    
   </ul>
 
 </nav>
-  <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input" id="search-input"></div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="algolia-results">
-  <div id="algolia-stats"></div>
-  <div id="algolia-hits"></div>
-  <div id="algolia-pagination" class="algolia-pagination"></div>
-</div>
-
-  
-</div>
-<div class="search-pop-overlay"></div>
-
-  </div>
 </div>
     </header>
 
@@ -287,7 +262,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">wiki
+<h1 class="post-title" itemprop="name headline">LORA
 
 </h1>
 
@@ -303,7 +278,7 @@
       
       <div class="post-body">
         
-          
+          <h2 id="模块简介"><a href="#模块简介" class="headerlink" title="模块简介"></a>模块简介</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><h2 id="模块外形"><a href="#模块外形" class="headerlink" title="模块外形"></a>模块外形</h2><h2 id="模块参考例程"><a href="#模块参考例程" class="headerlink" title="模块参考例程"></a>模块参考例程</h2>
         
       </div>
       
@@ -351,6 +326,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#模块简介"><span class="nav-number">1.</span> <span class="nav-text">模块简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明"><span class="nav-number">1.1.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块外形"><span class="nav-number">2.</span> <span class="nav-text">模块外形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块参考例程"><span class="nav-number">3.</span> <span class="nav-text">模块参考例程</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -537,11 +514,6 @@
 
 
 
-
-
-  
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/js/algolia-search.js?v=7.4.0"></script>
 
 
 
