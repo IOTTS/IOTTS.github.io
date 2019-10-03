@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="前言Arduino作为比较火的开源开发板，其丰富的库可以大大缩短开发周期,Arduino编程软件为Arduino IDE,编程思路和我们平常使用的IDE有所不同，Arduino编程没有main函数，因为好多东西都被隐藏了。一直想搞清楚，以便编写自己的库文件。下面是一些在网上搜集到的关于如何建立自己的库文件 Arduino工程的初步认识1、目录规范首先创建一个空的工程，先按下ctrl+s保存一下。这">
+  <meta name="description" content="前言Arduino作为比较火的开源开发板，其丰富的库可以大大缩短开发周期,Arduino编程软件为Arduino IDE,编程思路和我们平常使用的IDE有所不同，Arduino编程没有main函数，因为好多东西都被隐藏了。一直想搞清楚，以便编写自己的库文件。下面是一些在网上搜集到的关于如何建立自己的库文件">
 <meta name="keywords" content="Arduino,单片机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Arduino教程之编写自己的Arduino库">
 <meta property="og:url" content="http://iotts.top/2019/10/04/Arduino教程之编写自己的Arduino库/index.html">
 <meta property="og:site_name" content="IOTTS">
-<meta property="og:description" content="前言Arduino作为比较火的开源开发板，其丰富的库可以大大缩短开发周期,Arduino编程软件为Arduino IDE,编程思路和我们平常使用的IDE有所不同，Arduino编程没有main函数，因为好多东西都被隐藏了。一直想搞清楚，以便编写自己的库文件。下面是一些在网上搜集到的关于如何建立自己的库文件 Arduino工程的初步认识1、目录规范首先创建一个空的工程，先按下ctrl+s保存一下。这">
+<meta property="og:description" content="前言Arduino作为比较火的开源开发板，其丰富的库可以大大缩短开发周期,Arduino编程软件为Arduino IDE,编程思路和我们平常使用的IDE有所不同，Arduino编程没有main函数，因为好多东西都被隐藏了。一直想搞清楚，以便编写自己的库文件。下面是一些在网上搜集到的关于如何建立自己的库文件">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://blog.iotts.science/2018/01/14/Arduino%E6%95%99%E7%A8%8B%E4%B9%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84Arduino%E5%BA%93/TIM%E6%88%AA%E5%9B%BE20180114003102.png">
 <meta property="og:image" content="http://blog.iotts.science/2018/01/14/Arduino%E6%95%99%E7%A8%8B%E4%B9%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84Arduino%E5%BA%93/TIM%E6%88%AA%E5%9B%BE20180114003146.png">
@@ -70,10 +70,10 @@
 <meta property="og:image" content="http://blog.iotts.science/2018/01/14/Arduino%E6%95%99%E7%A8%8B%E4%B9%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84Arduino%E5%BA%93/TIM%E6%88%AA%E5%9B%BE20180114010842.png">
 <meta property="og:image" content="http://blog.iotts.science/2018/01/14/Arduino%E6%95%99%E7%A8%8B%E4%B9%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84Arduino%E5%BA%93/%E6%97%A0%E6%A0%87%E9%A2%98.png">
 <meta property="og:image" content="http://blog.iotts.science/2018/01/14/Arduino%E6%95%99%E7%A8%8B%E4%B9%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84Arduino%E5%BA%93/TIM%E6%88%AA%E5%9B%BE20180114131535.png">
-<meta property="og:updated_time" content="2019-10-03T17:50:41.114Z">
+<meta property="og:updated_time" content="2019-10-03T17:52:06.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arduino教程之编写自己的Arduino库">
-<meta name="twitter:description" content="前言Arduino作为比较火的开源开发板，其丰富的库可以大大缩短开发周期,Arduino编程软件为Arduino IDE,编程思路和我们平常使用的IDE有所不同，Arduino编程没有main函数，因为好多东西都被隐藏了。一直想搞清楚，以便编写自己的库文件。下面是一些在网上搜集到的关于如何建立自己的库文件 Arduino工程的初步认识1、目录规范首先创建一个空的工程，先按下ctrl+s保存一下。这">
+<meta name="twitter:description" content="前言Arduino作为比较火的开源开发板，其丰富的库可以大大缩短开发周期,Arduino编程软件为Arduino IDE,编程思路和我们平常使用的IDE有所不同，Arduino编程没有main函数，因为好多东西都被隐藏了。一直想搞清楚，以便编写自己的库文件。下面是一些在网上搜集到的关于如何建立自己的库文件">
 <meta name="twitter:image" content="http://blog.iotts.science/2018/01/14/Arduino%E6%95%99%E7%A8%8B%E4%B9%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84Arduino%E5%BA%93/TIM%E6%88%AA%E5%9B%BE20180114003102.png">
   <link rel="canonical" href="http://iotts.top/2019/10/04/Arduino教程之编写自己的Arduino库/">
 
@@ -276,7 +276,7 @@
                 
               
 
-              <time title="创建时间：2019-10-04 01:47:26 / 修改时间：01:50:41" itemprop="dateCreated datePublished" datetime="2019-10-04T01:47:26+08:00">2019-10-04</time>
+              <time title="创建时间：2019-10-04 01:47:26 / 修改时间：01:52:06" itemprop="dateCreated datePublished" datetime="2019-10-04T01:47:26+08:00">2019-10-04</time>
             </span>
           
             
@@ -309,6 +309,8 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Arduino作为比较火的开源开发板，其丰富的库可以大大缩短开发周期,Arduino编程软件为Arduino IDE,编程思路和我们平常使用的IDE有所不同，Arduino编程没有main函数，因为好多东西都被隐藏了。一直想搞清楚，以便编写自己的库文件。下面是一些在网上搜集到的关于如何建立自己的库文件</p>
+<a id="more"></a>
+
 <h2 id="Arduino工程的初步认识"><a href="#Arduino工程的初步认识" class="headerlink" title="Arduino工程的初步认识"></a>Arduino工程的初步认识</h2><h3 id="1、目录规范"><a href="#1、目录规范" class="headerlink" title="1、目录规范"></a>1、目录规范</h3><p>首先创建一个空的工程，先按下ctrl+s保存一下。这个时候弹出对话框，命名工程。假如命名为IOTTS_LED，并保存在 我自己的Arduino工作目录下 <code>E:\arduino\IOTTS_Arduino\</code></p>
 <p>于是IDE会自动帮我们在IOTTS_Arduino下创建1个文件夹，并将sketch(IOTTS_LED.ino)主文件放在里面，而且主文件和文件夹同名。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IOTTS_Arduino</span><br><span class="line">|---IOTTS_LED</span><br><span class="line">    |---IOTTS_LED.ino</span><br></pre></td></tr></table></figure>
