@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: '',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -62,7 +62,7 @@
 <meta property="og:site_name" content="IOTTS">
 <meta property="og:description" content="产品分类本目录为IOTTS公司下所有产品目录，包含产品说明，操作示例等资料 模块类 CAN总线模块 LORA模块 NB模块 GPRS模块 GPS模块 网口模块 PT100测量模块USB类 USBHUB控制板（4口） USBHUB控制板（7口） USBHUB控制板（25口） USB转PCIE板 USB转SATA板 USB转TTL板物联网控制类 智能开关(WIFI-1-LINE) 智能开关(WIFI-">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-03T15:58:23.945Z">
+<meta property="og:updated_time" content="2019-10-03T16:22:45.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wiki">
 <meta name="twitter:description" content="产品分类本目录为IOTTS公司下所有产品目录，包含产品说明，操作示例等资料 模块类 CAN总线模块 LORA模块 NB模块 GPRS模块 GPS模块 网口模块 PT100测量模块USB类 USBHUB控制板（4口） USBHUB控制板（7口） USBHUB控制板（25口） USB转PCIE板 USB转SATA板 USB转TTL板物联网控制类 智能开关(WIFI-1-LINE) 智能开关(WIFI-">
@@ -212,9 +212,37 @@
     <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>产品列表</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input" id="search-input"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+  
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -280,7 +308,7 @@
           <h1 id="产品分类"><a href="#产品分类" class="headerlink" title="产品分类"></a>产品分类</h1><p>本目录为IOTTS公司下所有产品目录，包含产品说明，操作示例等资料</p>
 <h2 id="模块类"><a href="#模块类" class="headerlink" title="模块类"></a>模块类</h2><ul>
 <li>CAN总线模块</li>
-<li><a href="/CAN总线模块">LORA模块</a></li>
+<li><a href="lora.html">LORA模块</a></li>
 <li>NB模块</li>
 <li>GPRS模块</li>
 <li>GPS模块</li>
@@ -543,6 +571,11 @@
 
 
 
+
+
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css">
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js"></script><script src="/js/algolia-search.js?v=7.4.0"></script>
 
 
 
