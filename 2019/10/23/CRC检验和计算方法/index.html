@@ -55,28 +55,32 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="IOTTS">
-<meta property="og:url" content="http://iotts.top/index.html">
+  <meta name="description" content="以下代码对应的CRC模型请参照最后面的图片 1234567891011121314151617uint8_t crc4_itu(uint8_t *data, uint_len length) &amp;#123;     uint8_t i;     uint8_t crc = 0;        // Initial value     while(length--)     &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CRC检验和计算方法">
+<meta property="og:url" content="http://iotts.top/2019/10/23/CRC检验和计算方法/index.html">
 <meta property="og:site_name" content="IOTTS">
+<meta property="og:description" content="以下代码对应的CRC模型请参照最后面的图片 1234567891011121314151617uint8_t crc4_itu(uint8_t *data, uint_len length) &amp;#123;     uint8_t i;     uint8_t crc = 0;        // Initial value     while(length--)     &amp;#123;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-24T00:56:30.200Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IOTTS">
-  <link rel="canonical" href="http://iotts.top/">
+<meta name="twitter:title" content="CRC检验和计算方法">
+<meta name="twitter:description" content="以下代码对应的CRC模型请参照最后面的图片 1234567891011121314151617uint8_t crc4_itu(uint8_t *data, uint_len length) &amp;#123;     uint8_t i;     uint8_t crc = 0;        // Initial value     while(length--)     &amp;#123;">
+  <link rel="canonical" href="http://iotts.top/2019/10/23/CRC检验和计算方法/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>IOTTS</title>
+  <title>CRC检验和计算方法 | IOTTS</title>
   
 
 
@@ -228,12 +232,13 @@
 
           <div id="content" class="content">
             
+
   <div id="posts" class="posts-expand">
-        <article itemscope itemtype="http://schema.org/Article">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block home">
+  <div class="post-block post">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/10/23/CRC检验和计算方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -246,9 +251,8 @@
       <meta itemprop="name" content="IOTTS">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/23/CRC检验和计算方法/" class="post-title-link" itemprop="url">CRC检验和计算方法</a>
+        <h1 class="post-title" itemprop="name headline">CRC检验和计算方法
+
           
         </h1>
 
@@ -290,7 +294,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>以下代码对应的CRC模型请参照最后面的图片</p>
+        <p>以下代码对应的CRC模型请参照最后面的图片</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc4_itu(uint8_t *data, uint_len length) </span><br><span class="line">&#123; </span><br><span class="line">    uint8_t i; </span><br><span class="line">    uint8_t crc = 0;        // Initial value </span><br><span class="line">    while(length--) </span><br><span class="line">    &#123; </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++; </span><br><span class="line">        for (i = 0; i &lt; 8; ++i) </span><br><span class="line">        &#123; </span><br><span class="line">            if (crc &amp; 1) </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0x0C;// 0x0C = (reverse 0x03)&gt;&gt;(8-4) </span><br><span class="line">            else </span><br><span class="line">                crc = (crc &gt;&gt; 1); </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    return crc; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc5_epc(uint8_t *data, uint_len length) </span><br><span class="line">&#123; </span><br><span class="line">    uint8_t i; </span><br><span class="line">    uint8_t crc = 0x48; // Initial value: 0x48 = 0x09&lt;&lt;(8-5)  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++; // crc ^= *data; data++;  </span><br><span class="line">        for ( i = 0; i &lt; 8; i++ )  </span><br><span class="line">        &#123;  </span><br><span class="line">            if ( crc &amp; 0x80 )  </span><br><span class="line">                crc = (crc &lt;&lt; 1) ^ 0x48;  // 0x48 = 0x09&lt;&lt;(8-5)  </span><br><span class="line">            else  </span><br><span class="line">                crc &lt;&lt;= 1;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc &gt;&gt; 3;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -336,729 +340,43 @@
 <p>CRC校验-C语言实现</p>
 <p>分享：</p>
 
-        
-      
     </div>
 
     
     
     
-      <footer class="post-footer">
-          <div class="post-eof"></div>
         
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/10/04/Arduino教程之编写自己的Arduino库/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/04/Arduino教程之编写自己的Arduino库/" class="post-title-link" itemprop="url">Arduino教程之编写自己的Arduino库</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-04 01:47:26 / 修改时间：02:03:43" itemprop="dateCreated datePublished" datetime="2019-10-04T01:47:26+08:00">2019-10-04</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Arduino/" itemprop="url" rel="index"><span itemprop="name">Arduino</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Arduino作为比较火的开源开发板，其丰富的库可以大大缩短开发周期,Arduino编程软件为Arduino IDE,编程思路和我们平常使用的IDE有所不同，Arduino编程没有main函数，因为好多东西都被隐藏了。一直想搞清楚，以便编写自己的库文件。下面是一些在网上搜集到的关于如何建立自己的库文件</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/04/Arduino教程之编写自己的Arduino库/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/04/Arduino教程之编写自己的Arduino库/" rel="next" title="Arduino教程之编写自己的Arduino库">
+                  <i class="fa fa-chevron-left"></i> Arduino教程之编写自己的Arduino库
+                </a>
+              
             </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
+            <span class="post-nav-divider"></span>
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/10/01/Windows下搭建MQTT服务器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/01/Windows下搭建MQTT服务器/" class="post-title-link" itemprop="url">Windows下搭建MQTT服务器</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
+            <div class="post-nav-prev post-nav-item">
               
-                
-              
-
-              <time title="创建时间：2019-10-01 22:26:23" itemprop="dateCreated datePublished" datetime="2019-10-01T22:26:23+08:00">2019-10-01</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-02 01:28:11" itemprop="dateModified" datetime="2019-10-02T01:28:11+08:00">2019-10-02</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网/" itemprop="url" rel="index"><span itemprop="name">物联网</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网/MQTT/" itemprop="url" rel="index"><span itemprop="name">MQTT</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在项目中要使用MQTT协议，需要搭建一个MQTT服务器来进行调试，在网络上找了一天，找到的大多数都是MQTT客户端，最后发现这篇博客写的教程可以使用，特此记录。</p>
-<h2 id="寻找过程"><a href="#寻找过程" class="headerlink" title="寻找过程"></a>寻找过程</h2><p>在寻找MQTT服务器的过程中，我发现的Mosquitto是一款「An Open Source MQTT v3.1/v3.1.1 Broker」——开源的MQTT代理服务器，其下也有Windows的安装包。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/01/Windows下搭建MQTT服务器/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
             </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
+          </div>
         
       </footer>
+    
   </div>
   
   
   
   </article>
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/10/01/OpenELEC中文设置教程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/01/OpenELEC中文设置教程/" class="post-title-link" itemprop="url">OpenELEC中文设置教程</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-01 22:16:17" itemprop="dateCreated datePublished" datetime="2019-10-01T22:16:17+08:00">2019-10-01</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-02 01:24:09" itemprop="dateModified" datetime="2019-10-02T01:24:09+08:00">2019-10-02</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ELEC/" itemprop="url" rel="index"><span itemprop="name">ELEC</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>XBMC / OpenELEC 在安装后大家是不是和小编一样，发现没有中文? 可是要怎么设置成中文呢？接下来就为大家说明：</p>
-<p>1.鼠标移动到 SYSTEM然后点击 Settings</p>
-<p>Tips:也可以直接点击SYSTEM默认进入Settings</p>
-<p>2.点击Appearance</p>
-<p>3.点击左侧的International，在右侧的Language中选择Chinese (Simple)</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/01/OpenELEC中文设置教程/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
   </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/10/01/c语言教程之回调函数实现/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/01/c语言教程之回调函数实现/" class="post-title-link" itemprop="url">c语言教程之回调函数实现</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-01 06:24:34 / 修改时间：06:46:35" itemprop="dateCreated datePublished" datetime="2019-10-01T06:24:34+08:00">2019-10-01</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>回调函数就是一个通过函数指针调用的函数。如果你把函数的指针（地址）作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数。回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/01/c语言教程之回调函数实现/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/09/30/STM32FXX之Lua解释器移植/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/30/STM32FXX之Lua解释器移植/" class="post-title-link" itemprop="url">STM32FXX之Lua解释器移植</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-30 21:00:57" itemprop="dateCreated datePublished" datetime="2019-09-30T21:00:57+08:00">2019-09-30</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-04 01:54:44" itemprop="dateModified" datetime="2019-10-04T01:54:44+08:00">2019-10-04</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/STM32/" itemprop="url" rel="index"><span itemprop="name">STM32</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>将Lua解释器移植到STM32</p>
-<p>最近在一个在做一个PLC项目，对于PLC需要根据不同场景实现不同的功能，因此为了保持系统的稳定性决定做一个脚本配置的方案。开始的时候自己写了一个脚本解析程序，系统运行不错，就是脚本有点长，易读性比较差，今天突然想到Lua,决定把Lua移植到STM32上去，网上查了一下相关资料，说实话，关于STM32Lua的工程应用还是比较少的，决定自己移植一下</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/09/30/STM32FXX之Lua解释器移植/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/09/30/hexo-新建一篇文章给它添加分类和标签/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/30/hexo-新建一篇文章给它添加分类和标签/" class="post-title-link" itemprop="url">hexo 新建一篇文章给它添加分类和标签</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-30 20:51:07" itemprop="dateCreated datePublished" datetime="2019-09-30T20:51:07+08:00">2019-09-30</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-01 06:46:01" itemprop="dateModified" datetime="2019-10-01T06:46:01+08:00">2019-10-01</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>新建一篇文章</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;Hexo教程&quot;</span><br></pre></td></tr></table></figure>
-
-<p>通过vim编辑器或者其他编辑器打开：添加tags和categories</p>
-<p>修改如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: title #文章标题</span><br><span class="line">date: 2016-06-01 23:47:44 #文章生成时间</span><br><span class="line">categories: &quot;Hexo教程&quot; #文章分类目录 可以省略</span><br><span class="line">tags: #文章标签 可以省略</span><br><span class="line">     - 标签1</span><br><span class="line">     - 标签2</span><br><span class="line"> description: #对本页的描述 可以省略</span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2019/09/30/Hexo新建文章/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/30/Hexo新建文章/" class="post-title-link" itemprop="url">Hexo新建文章</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-30 17:43:58" itemprop="dateCreated datePublished" datetime="2019-09-30T17:43:58+08:00">2019-09-30</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-01 06:45:31" itemprop="dateModified" datetime="2019-10-01T06:45:31+08:00">2019-10-01</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>新建一篇博客，在cmd执行命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post “博客名”</span><br></pre></td></tr></table></figure>
-
-<p>这时候在文件夹_posts目录下将会看到已经创建的文件<br>使用编辑器编好文章，那么就可以使用命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-  </div>
-
-  
 
 
           </div>
@@ -1077,6 +395,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
