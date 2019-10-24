@@ -56,13 +56,14 @@
 </script>
 
   <meta name="description" content="以下代码对应的CRC模型请参照最后面的图片 1234567891011121314151617uint8_t crc4_itu(uint8_t *data, uint_len length) &amp;#123;     uint8_t i;     uint8_t crc = 0;        // Initial value     while(length--)     &amp;#123;">
+<meta name="keywords" content="C语言,CRC算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CRC检验和计算方法">
 <meta property="og:url" content="http://iotts.top/2019/10/23/CRC检验和计算方法/index.html">
 <meta property="og:site_name" content="IOTTS">
 <meta property="og:description" content="以下代码对应的CRC模型请参照最后面的图片 1234567891011121314151617uint8_t crc4_itu(uint8_t *data, uint_len length) &amp;#123;     uint8_t i;     uint8_t crc = 0;        // Initial value     while(length--)     &amp;#123;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-24T00:56:30.200Z">
+<meta property="og:updated_time" content="2019-10-24T15:40:06.703Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CRC检验和计算方法">
 <meta name="twitter:description" content="以下代码对应的CRC模型请参照最后面的图片 1234567891011121314151617uint8_t crc4_itu(uint8_t *data, uint_len length) &amp;#123;     uint8_t i;     uint8_t crc = 0;        // Initial value     while(length--)     &amp;#123;">
@@ -278,9 +279,22 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-24 08:56:30" itemprop="dateModified" datetime="2019-10-24T08:56:30+08:00">2019-10-24</time>
+                <time title="修改时间：2019-10-24 23:40:06" itemprop="dateModified" datetime="2019-10-24T23:40:06+08:00">2019-10-24</time>
               </span>
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -297,6 +311,7 @@
         <p>以下代码对应的CRC模型请参照最后面的图片</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc4_itu(uint8_t *data, uint_len length) </span><br><span class="line">&#123; </span><br><span class="line">    uint8_t i; </span><br><span class="line">    uint8_t crc = 0;        // Initial value </span><br><span class="line">    while(length--) </span><br><span class="line">    &#123; </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++; </span><br><span class="line">        for (i = 0; i &lt; 8; ++i) </span><br><span class="line">        &#123; </span><br><span class="line">            if (crc &amp; 1) </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0x0C;// 0x0C = (reverse 0x03)&gt;&gt;(8-4) </span><br><span class="line">            else </span><br><span class="line">                crc = (crc &gt;&gt; 1); </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    return crc; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc5_epc(uint8_t *data, uint_len length) </span><br><span class="line">&#123; </span><br><span class="line">    uint8_t i; </span><br><span class="line">    uint8_t crc = 0x48; // Initial value: 0x48 = 0x09&lt;&lt;(8-5)  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++; // crc ^= *data; data++;  </span><br><span class="line">        for ( i = 0; i &lt; 8; i++ )  </span><br><span class="line">        &#123;  </span><br><span class="line">            if ( crc &amp; 0x80 )  </span><br><span class="line">                crc = (crc &lt;&lt; 1) ^ 0x48;  // 0x48 = 0x09&lt;&lt;(8-5)  </span><br><span class="line">            else  </span><br><span class="line">                crc &lt;&lt;= 1;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc &gt;&gt; 3;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc5_itu(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint8_t crc = 0;        // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0x15;// 0x15 = (reverse 0x15)&gt;&gt;(8-5)  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -349,6 +364,17 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/C语言/" rel="tag"><i class="fa fa-tag"></i> C语言</a>
+            
+              <a href="/tags/CRC算法/" rel="tag"><i class="fa fa-tag"></i> CRC算法</a>
+            
+          </div>
+        
 
         
 
@@ -455,7 +481,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
