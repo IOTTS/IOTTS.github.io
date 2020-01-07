@@ -395,272 +395,6 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之ubuntu查看系统信息/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" class="post-title-link" itemprop="url">linux命令之ubuntu查看系统信息</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-16 21:09:58" itemprop="dateModified" datetime="2018-01-16T21:09:58+08:00">2018-01-16</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
-<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure>
-
-<p>![2018-01-16 20-46-51屏幕截图.png](2018-01-16 20-46-51屏幕截图.png)<br>也可以输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
-
-<p>输出结果：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux jacklu 4.13.0-26-generic <span class="comment">#29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux</span></span><br></pre></td></tr></table></figure>
-
-<p>![2018-01-16 20-47-17屏幕截图.png](2018-01-16 20-47-17屏幕截图.png)</p>
-<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
-
-<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 16.04.3 LTS \n \l</span><br></pre></td></tr></table></figure>
-
-<p>![2018-01-16 20-48-47屏幕截图.png](2018-01-16 20-48-47屏幕截图.png)</p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br></pre></td></tr></table></figure>
-
-<p>将输出结果：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04.3 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure>
-
-<p>![2018-01-16 20-48-27屏幕截图.png](2018-01-16 20-48-27屏幕截图.png)</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/09/linux命令之关机命令/" class="post-title-link" itemprop="url">linux命令之关机命令</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-17 21:37:14" itemprop="dateModified" datetime="2018-01-17T21:37:14+08:00">2018-01-17</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ubuntu关机和重启命令</p>
-<p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。</p>
-<h1 id="关机命令："><a href="#关机命令：" class="headerlink" title="关机命令："></a>关机命令：</h1><p>1、halt                             立刻关机<br>2、poweroff                    立刻关机<br>3、shutdown -h now     立刻关机(root用户使用)<br>4、shutdown -h 10       10分钟后自动关机 如果是通过shutdown命令设置关机的话，可以用<code>shutdown -c</code>命令取消重启</p>
-<p>#重启命令：</p>
-<p>1、reboot<br>2、shutdown -r now           立刻重启(root用户使用)<br>3、shutdown -r 10              过10分钟自动重启(root用户使用)<br>4、shutdown -r 20:35         在时间为20:35时候重启(root用户使用) 如果是通过shutdown命令设置重启的话，可以用<code>shutdown -c</code>命令取消重启</p>
-<p>下面我们来看看linux的这些具体的关机命令之间的区别和各自的用法</p>
-<h3 id="1-shutdown-安全的关机命令"><a href="#1-shutdown-安全的关机命令" class="headerlink" title="1.shutdown 安全的关机命令"></a>1.shutdown 安全的关机命令</h3><p>对于shutdown命令，它是大家都推荐的一个安全的命令，通过参数-h或-r的配合来完成关机或重启。不过在linux系统中只有拥有root权限才可以使用这个命令。所以，虽然大家都推荐用这个命令，但是这个命令用起来真的不太方便：想要用这个命令吗？先去获得root权限吧。shutdown执行关机，是送信号给init，要求它改变运行级别，以此来关机。关机或重启实际上是运行级别的调整，所以我们也可以用init直接调整运行级别来进行关机或重启。使用这个命令时，机器立即关机或重启。它也需要root权限。</p>
-<p>那么为什么说shutdown命令是安全地将系统关机呢？</p>
-<p>实际中有些用户会使用直接断掉电源的方式来关闭linux，这是十分危险的。因为linux与windows不同，其后台运行着许多进程，所以强制关机可能会导致进程的数据丢失使系统处于不稳定的状态。甚至在有的系统中会损坏硬件设备。而在系统关机前使用shutdown命令，系统管理员会通知所有登录的用户系统将要关闭。并且login指令会被冻结，即新的用户不能再登录。直接关机或者延迟一定的时间才关机都是可能的，还有可能是重启。这是由所有进程〔process〕都会收到系统所送达的信号〔signal〕决定的。</p>
-<p>shutdown执行它的工作是送信号〔signal〕给init程序，要求它改变 runlevel。runlevel 0 被用来停机〔halt〕，runlevel 6 是用来重新激活〔reboot〕系统，而 runlevel 1则是被用来让系统进入管理工作可以进行的状态，这是预设的。假定没有-h也没有-r参数给shutdown。要想了解在停机〔halt〕或者重新开机〔reboot〕过程中做了哪些动作？你可以在这个文件/etc/inittab里看到这些runlevels相关的资料。</p>
-<p>shutdown 参数说明:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">-H --halt      Halt the machine</span><br><span class="line">-P --poweroff  Power-off the machine</span><br><span class="line">-r --reboot    Reboot the machine</span><br><span class="line">-h             Equivalent to --poweroff, overridden by --halt</span><br><span class="line">-k             Don<span class="string">'t halt/power-off/reboot, just send warnings</span></span><br><span class="line"><span class="string">   --no-wall   Don'</span>t send wall message before halt/power-off/reboot</span><br><span class="line">-c             Cancel a pending shutdown</span><br></pre></td></tr></table></figure>
-
-<p>[-t] 在改变到其它runlevel之前，告诉init多久以后关机。 </p>
-<p>[-r] 重启计算器。</p>
-<p>[-k] 并不真正关机，只是送警告信号给每位登录者〔login〕。 </p>
-<p>[-h] 关机后关闭电源〔halt〕。 </p>
-<p>[-n] 不用init而是自己来关机。不鼓励使用这个选项，而且该选项所产生的后果往往不总是你所预期得到的。 </p>
-<p>[-c] cancel current process取消目前正在执行的关机程序。所以这个选项当然没有时间参数，但是可以输入一个用来解释的讯息，而这信息将会送到每位使用者。 </p>
-<p>[-f] 在重启计算器〔reboot〕时忽略fsck。 </p>
-<p>[-F] 在重启计算器〔reboot〕时强迫fsck。 </p>
-<p>[-time] 设定关机〔shutdown〕前的时间。 　　 　　<br>2.halt 最简单的关机命令</p>
-<p>用halt命令来关机时，实际调用的是shutdown -h。halt 执行时将杀死应用进程，执行sync系统调用文件系统写操作完成后就会停止内核。</p>
-<h3 id="2-halt-参数说明"><a href="#2-halt-参数说明" class="headerlink" title="2.halt 参数说明:"></a>2.halt 参数说明:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ halt --<span class="built_in">help</span></span><br><span class="line">halt [OPTIONS...]</span><br><span class="line"></span><br><span class="line">Halt the system.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --halt      Halt the machine</span><br><span class="line">  -p --poweroff  Switch off the machine</span><br><span class="line">     --reboot    Reboot the machine</span><br><span class="line">  -f --force     Force immediate halt/power-off/reboot</span><br><span class="line">  -w --wtmp-only Don<span class="string">'t halt/power-off/reboot, just write wtmp record</span></span><br><span class="line"><span class="string">  -d --no-wtmp   Don'</span>t write wtmp record</span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br></pre></td></tr></table></figure>
-
-<p>[-n] 防止sync系统调用，它用在用fsck修补根分区之后，以阻止内核用老版本的超级块〔superblock〕覆盖修补过的超级块。</p>
-<p>[-w] 并不是真正的重启或关机，只是写wtmp〔/var/log/wtmp〕纪录。 </p>
-<p>[-d] 不写wtmp纪录〔已包含在选项[-n]中〕。 </p>
-<p>[-f] 没有调用shutdown而强制关机或重启。 </p>
-<p>[-i] 关机〔或重启〕前关掉所有的网络接口。 </p>
-<p>[-p] 该选项为缺省选项。就是关机时调用poweroff。</p>
-<h3 id="3-poweroff-常用的关机命令"><a href="#3-poweroff-常用的关机命令" class="headerlink" title="3.poweroff 常用的关机命令"></a>3.poweroff 常用的关机命令</h3><p>对于poweroff，网上说它是halt命令的链接，基本用法和 halt 差不多，这里就不多说了。</p>
-<h3 id="4-init"><a href="#4-init" class="headerlink" title="4.init"></a>4.init</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ init --<span class="built_in">help</span></span><br><span class="line">init [OPTIONS...] &#123;COMMAND&#125;</span><br><span class="line"></span><br><span class="line">Send control commands to the init daemon.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Commands:</span></span><br><span class="line"><span class="string">  0              Power-off the machine</span></span><br><span class="line"><span class="string">  6              Reboot the machine</span></span><br><span class="line"><span class="string">  2, 3, 4, 5     Start runlevelX.target unit</span></span><br><span class="line"><span class="string">  1, s, S        Enter rescue mode</span></span><br><span class="line"><span class="string">  q, Q           Reload init daemon configuration</span></span><br><span class="line"><span class="string">  u, U           Reexecute init daemon</span></span><br></pre></td></tr></table></figure>
-
-<p>init是所有进程的祖先，他是Linux系统操作中不可缺少的程序之一。它的进程号始终为1，所以发送TERM信号给init会终止所有的用户进程，守护进程等。shutdown 就是使用这种机制。init定义了8个运行级别(runlevel)，init 0为关机，init 1为重启。</p>
-<h3 id="5-reboot-重启命令"><a href="#5-reboot-重启命令" class="headerlink" title="5.reboot 重启命令"></a>5.reboot 重启命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ reboot --<span class="built_in">help</span></span><br><span class="line">reboot [OPTIONS...] [ARG]</span><br><span class="line"></span><br><span class="line">Reboot the system.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --halt      Halt the machine</span><br><span class="line">  -p --poweroff  Switch off the machine</span><br><span class="line">     --reboot    Reboot the machine</span><br><span class="line">  -f --force     Force immediate halt/power-off/reboot</span><br><span class="line">  -w --wtmp-only Don<span class="string">'t halt/power-off/reboot, just write wtmp record</span></span><br><span class="line"><span class="string">  -d --no-wtmp   Don'</span>t write wtmp record</span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br></pre></td></tr></table></figure>
-
-<p>reboot的工作过程差不多跟halt一样。不过它是引发主机重启，而halt是关机。它的参数与halt相差不多。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之解压缩命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -892,6 +626,272 @@
 <p>　　这条命令是将all.rar中的所有文件解压出来</p>
 <p>　　到此为至，我们已经介绍过linux下的tar、gzip、gunzip、bzip2、bunzip2、compress、uncompress、 zip、unzip、rar、unrar等程式，你应该已经能够使用它们对.tar、.gz、.tar.gz、.tgz、.bz2、.tar.bz2、. Z、.tar.Z、.zip、.rar这10种压缩文件进行解压了，以后应该不需要为下载了一个软件而不知道如何在Linux下解开而烦恼了。而且以上方 法对于Unix也基本有效。</p>
 <p>　　本文介绍了linux下的压缩程式tar、gzip、gunzip、bzip2、bunzip2、 compress、uncompress、zip、unzip、rar、unrar等程式，以及如何使用它们对.tar、.gz、.tar.gz、. tgz、.bz2、.tar.bz2、.Z、.tar.Z、.zip、.rar这10种压缩文件进行操作</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/09/linux命令之关机命令/" class="post-title-link" itemprop="url">linux命令之关机命令</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-17 21:37:14" itemprop="dateModified" datetime="2018-01-17T21:37:14+08:00">2018-01-17</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>ubuntu关机和重启命令</p>
+<p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。</p>
+<h1 id="关机命令："><a href="#关机命令：" class="headerlink" title="关机命令："></a>关机命令：</h1><p>1、halt                             立刻关机<br>2、poweroff                    立刻关机<br>3、shutdown -h now     立刻关机(root用户使用)<br>4、shutdown -h 10       10分钟后自动关机 如果是通过shutdown命令设置关机的话，可以用<code>shutdown -c</code>命令取消重启</p>
+<p>#重启命令：</p>
+<p>1、reboot<br>2、shutdown -r now           立刻重启(root用户使用)<br>3、shutdown -r 10              过10分钟自动重启(root用户使用)<br>4、shutdown -r 20:35         在时间为20:35时候重启(root用户使用) 如果是通过shutdown命令设置重启的话，可以用<code>shutdown -c</code>命令取消重启</p>
+<p>下面我们来看看linux的这些具体的关机命令之间的区别和各自的用法</p>
+<h3 id="1-shutdown-安全的关机命令"><a href="#1-shutdown-安全的关机命令" class="headerlink" title="1.shutdown 安全的关机命令"></a>1.shutdown 安全的关机命令</h3><p>对于shutdown命令，它是大家都推荐的一个安全的命令，通过参数-h或-r的配合来完成关机或重启。不过在linux系统中只有拥有root权限才可以使用这个命令。所以，虽然大家都推荐用这个命令，但是这个命令用起来真的不太方便：想要用这个命令吗？先去获得root权限吧。shutdown执行关机，是送信号给init，要求它改变运行级别，以此来关机。关机或重启实际上是运行级别的调整，所以我们也可以用init直接调整运行级别来进行关机或重启。使用这个命令时，机器立即关机或重启。它也需要root权限。</p>
+<p>那么为什么说shutdown命令是安全地将系统关机呢？</p>
+<p>实际中有些用户会使用直接断掉电源的方式来关闭linux，这是十分危险的。因为linux与windows不同，其后台运行着许多进程，所以强制关机可能会导致进程的数据丢失使系统处于不稳定的状态。甚至在有的系统中会损坏硬件设备。而在系统关机前使用shutdown命令，系统管理员会通知所有登录的用户系统将要关闭。并且login指令会被冻结，即新的用户不能再登录。直接关机或者延迟一定的时间才关机都是可能的，还有可能是重启。这是由所有进程〔process〕都会收到系统所送达的信号〔signal〕决定的。</p>
+<p>shutdown执行它的工作是送信号〔signal〕给init程序，要求它改变 runlevel。runlevel 0 被用来停机〔halt〕，runlevel 6 是用来重新激活〔reboot〕系统，而 runlevel 1则是被用来让系统进入管理工作可以进行的状态，这是预设的。假定没有-h也没有-r参数给shutdown。要想了解在停机〔halt〕或者重新开机〔reboot〕过程中做了哪些动作？你可以在这个文件/etc/inittab里看到这些runlevels相关的资料。</p>
+<p>shutdown 参数说明:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">-H --halt      Halt the machine</span><br><span class="line">-P --poweroff  Power-off the machine</span><br><span class="line">-r --reboot    Reboot the machine</span><br><span class="line">-h             Equivalent to --poweroff, overridden by --halt</span><br><span class="line">-k             Don<span class="string">'t halt/power-off/reboot, just send warnings</span></span><br><span class="line"><span class="string">   --no-wall   Don'</span>t send wall message before halt/power-off/reboot</span><br><span class="line">-c             Cancel a pending shutdown</span><br></pre></td></tr></table></figure>
+
+<p>[-t] 在改变到其它runlevel之前，告诉init多久以后关机。 </p>
+<p>[-r] 重启计算器。</p>
+<p>[-k] 并不真正关机，只是送警告信号给每位登录者〔login〕。 </p>
+<p>[-h] 关机后关闭电源〔halt〕。 </p>
+<p>[-n] 不用init而是自己来关机。不鼓励使用这个选项，而且该选项所产生的后果往往不总是你所预期得到的。 </p>
+<p>[-c] cancel current process取消目前正在执行的关机程序。所以这个选项当然没有时间参数，但是可以输入一个用来解释的讯息，而这信息将会送到每位使用者。 </p>
+<p>[-f] 在重启计算器〔reboot〕时忽略fsck。 </p>
+<p>[-F] 在重启计算器〔reboot〕时强迫fsck。 </p>
+<p>[-time] 设定关机〔shutdown〕前的时间。 　　 　　<br>2.halt 最简单的关机命令</p>
+<p>用halt命令来关机时，实际调用的是shutdown -h。halt 执行时将杀死应用进程，执行sync系统调用文件系统写操作完成后就会停止内核。</p>
+<h3 id="2-halt-参数说明"><a href="#2-halt-参数说明" class="headerlink" title="2.halt 参数说明:"></a>2.halt 参数说明:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ halt --<span class="built_in">help</span></span><br><span class="line">halt [OPTIONS...]</span><br><span class="line"></span><br><span class="line">Halt the system.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --halt      Halt the machine</span><br><span class="line">  -p --poweroff  Switch off the machine</span><br><span class="line">     --reboot    Reboot the machine</span><br><span class="line">  -f --force     Force immediate halt/power-off/reboot</span><br><span class="line">  -w --wtmp-only Don<span class="string">'t halt/power-off/reboot, just write wtmp record</span></span><br><span class="line"><span class="string">  -d --no-wtmp   Don'</span>t write wtmp record</span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br></pre></td></tr></table></figure>
+
+<p>[-n] 防止sync系统调用，它用在用fsck修补根分区之后，以阻止内核用老版本的超级块〔superblock〕覆盖修补过的超级块。</p>
+<p>[-w] 并不是真正的重启或关机，只是写wtmp〔/var/log/wtmp〕纪录。 </p>
+<p>[-d] 不写wtmp纪录〔已包含在选项[-n]中〕。 </p>
+<p>[-f] 没有调用shutdown而强制关机或重启。 </p>
+<p>[-i] 关机〔或重启〕前关掉所有的网络接口。 </p>
+<p>[-p] 该选项为缺省选项。就是关机时调用poweroff。</p>
+<h3 id="3-poweroff-常用的关机命令"><a href="#3-poweroff-常用的关机命令" class="headerlink" title="3.poweroff 常用的关机命令"></a>3.poweroff 常用的关机命令</h3><p>对于poweroff，网上说它是halt命令的链接，基本用法和 halt 差不多，这里就不多说了。</p>
+<h3 id="4-init"><a href="#4-init" class="headerlink" title="4.init"></a>4.init</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ init --<span class="built_in">help</span></span><br><span class="line">init [OPTIONS...] &#123;COMMAND&#125;</span><br><span class="line"></span><br><span class="line">Send control commands to the init daemon.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Commands:</span></span><br><span class="line"><span class="string">  0              Power-off the machine</span></span><br><span class="line"><span class="string">  6              Reboot the machine</span></span><br><span class="line"><span class="string">  2, 3, 4, 5     Start runlevelX.target unit</span></span><br><span class="line"><span class="string">  1, s, S        Enter rescue mode</span></span><br><span class="line"><span class="string">  q, Q           Reload init daemon configuration</span></span><br><span class="line"><span class="string">  u, U           Reexecute init daemon</span></span><br></pre></td></tr></table></figure>
+
+<p>init是所有进程的祖先，他是Linux系统操作中不可缺少的程序之一。它的进程号始终为1，所以发送TERM信号给init会终止所有的用户进程，守护进程等。shutdown 就是使用这种机制。init定义了8个运行级别(runlevel)，init 0为关机，init 1为重启。</p>
+<h3 id="5-reboot-重启命令"><a href="#5-reboot-重启命令" class="headerlink" title="5.reboot 重启命令"></a>5.reboot 重启命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ reboot --<span class="built_in">help</span></span><br><span class="line">reboot [OPTIONS...] [ARG]</span><br><span class="line"></span><br><span class="line">Reboot the system.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --halt      Halt the machine</span><br><span class="line">  -p --poweroff  Switch off the machine</span><br><span class="line">     --reboot    Reboot the machine</span><br><span class="line">  -f --force     Force immediate halt/power-off/reboot</span><br><span class="line">  -w --wtmp-only Don<span class="string">'t halt/power-off/reboot, just write wtmp record</span></span><br><span class="line"><span class="string">  -d --no-wtmp   Don'</span>t write wtmp record</span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br></pre></td></tr></table></figure>
+
+<p>reboot的工作过程差不多跟halt一样。不过它是引发主机重启，而halt是关机。它的参数与halt相差不多。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之ubuntu查看系统信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" class="post-title-link" itemprop="url">linux命令之ubuntu查看系统信息</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-16 21:09:58" itemprop="dateModified" datetime="2018-01-16T21:09:58+08:00">2018-01-16</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
+<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure>
+
+<p>输出结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure>
+
+<p>![2018-01-16 20-46-51屏幕截图.png](2018-01-16 20-46-51屏幕截图.png)<br>也可以输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux jacklu 4.13.0-26-generic <span class="comment">#29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux</span></span><br></pre></td></tr></table></figure>
+
+<p>![2018-01-16 20-47-17屏幕截图.png](2018-01-16 20-47-17屏幕截图.png)</p>
+<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure>
+
+<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 16.04.3 LTS \n \l</span><br></pre></td></tr></table></figure>
+
+<p>![2018-01-16 20-48-47屏幕截图.png](2018-01-16 20-48-47屏幕截图.png)</p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br></pre></td></tr></table></figure>
+
+<p>将输出结果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04.3 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure>
+
+<p>![2018-01-16 20-48-27屏幕截图.png](2018-01-16 20-48-27屏幕截图.png)</p>
 
         
       
@@ -1346,7 +1346,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/简单实用的双向电平转换电路/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JackLu">
@@ -1360,7 +1360,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2018/01/08/经典电路之惠斯通电桥原理及应用/" class="post-title-link" itemprop="url">经典电路之惠斯通电桥原理及应用</a>
+            <a href="/2018/01/08/简单实用的双向电平转换电路/" class="post-title-link" itemprop="url">简单实用的双向电平转换电路</a>
           
         </h1>
 
@@ -1375,11 +1375,19 @@
                 
               
 
-              <time title="创建时间：2018-01-08 18:09:04 / 修改时间：21:00:32" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-17 21:21:06" itemprop="dateModified" datetime="2018-01-17T21:21:06+08:00">2018-01-17</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -1395,7 +1403,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index"><span itemprop="name">经典电路</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/电平转换电路/" itemprop="url" rel="index"><span itemprop="name">电平转换电路</span></a></span>
 
                 
                 
@@ -1414,13 +1422,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="1-电阻桥定义解释"><a href="#1-电阻桥定义解释" class="headerlink" title="1. 电阻桥定义解释"></a>1. 电阻桥定义解释</h2><p>   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。</p>
-<p> <img src="110945pzcuhva3gm2cpncy.jpg" alt="110945pzcuhva3gm2cpncy"></p>
-<p>   在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通过采集电压的变化就可以知道环境中物理量的变化，而从实现测量的目的。下面举例介绍电桥电路的计算方式。</p>
-<h2 id="2-电阻桥相关计算"><a href="#2-电阻桥相关计算" class="headerlink" title="2. 电阻桥相关计算"></a>2. 电阻桥相关计算</h2><p>   假设流过R1，R2桥臂的电流为I1，流过R3，Rx桥臂的电流为I2，电桥供电电压为VCC，如下图所示。<br><img src="fig1.png" alt="fig1"><br>   通过欧姆定律可以计算出每个电阻两端的电压。在R1和R2这两个桥臂上，R1，R2将VCC电压分压，R2电阻两端得到的电压即为V1；在R3和Rx这个桥臂上，R3，Rx将VCC电压分压，R3电阻两端得到的电压即为V2。下面分别用欧姆定律计算V1和V2。</p>
-<p>   流过电阻R1和R2的电流I1:<br>$$\ I1=\frac{VCC}{R1+R2}$$</p>
-<p>   R2两端的电压V1：<br>$$\ V1=I1\cdot R2=VCC\cdot\frac{R2}{R1+R2}$$<br>   流过电阻R3和Rx的电流I2:<br>$$\ I2=\frac{VCC}{R3+Rx}$$<br>   R3两端的电压：<br>$$\ V2=I2\cdot R3=VCC\cdot\frac{R3}{R3+Rx}$$<br>   V1和V2的电压差：<br>$$\Delta V=V1-V2=VCC\cdot(\frac{R2}{R1+R2}-\frac{R3}{R3+Rx})$$<br>进一步计算得到：<br>$$\Delta V=VCC\cdot(\frac{R2\cdot Rx-R3\cdot R1}{(R1+R2)(R3+Rx)})$$<br>由此可以看出：<br>如果4个电阻都相等，即R1=R2=R3=Rx，那么ΔV=0，即电桥处于平衡状态；　Rx发生变化会导致△V发生变化；</p>
-<h2 id="3-电阻桥的应用"><a href="#3-电阻桥的应用" class="headerlink" title="3.电阻桥的应用"></a>3.电阻桥的应用</h2><p>   在实际使用中，我们通常将其中三个电阻值固定，而将另外一个电阻换成热敏电阻、压敏电阻、PT100等，这时候就可以用电桥来测物理量了。如果将PT100接入电桥，随着环境温度的变化，PT100的阻值发生变化导致ΔV发生变化，将差分电压ΔV通过差分运放放大后进入单片机的AD采样，再对照PT100的电阻-温度对应表就可以知道当前环境的温度了。</p>
+          <p>当你使用3.3V的单片机的时候，电平转换就在所难免了，经常会遇到3.3转5V或者5V转3.3V的情况，这里介绍一个简单的电路，他可以实现两个电平的相互转换(注意是相互哦，双向的，不是单向的!).电路十分简单，仅由3个电阻加一个MOS管构成。</p>
+<p>　　电路图如下:<br> <img src="1.png" alt="1"></p>
+<p>上图中，S1，S2为两个信号端，VCC_S1和VCC_S2为这两个信号的高电平电压.另外限制条件为:<br>　　1，VCC_S1&lt;=VCC_S2.<br>　　2，S1的低电平门限大于0.7V左右(视NMOS内的二极管压降而定).<br>　　3，Vgs&lt;=VCC_S1.<br>　　4，Vds&lt;=VCC_S2<br>　　对于3.3V和5V/12V等电路的相互转换，NMOS管选择AP2306即可.原理比较简单，大家自行分析吧!此电路我已在多处应用，效果很好.</p>
+<p> <img src="2.png" alt="2"></p>
+<p>I2C<br>　　类似这种吧，只是不知道这种电路的速率能达到多少<br>　　电平转换器的操作<br>　　在电平转换器的操作中要考虑下面的三种状态：<br>　　1 没有器件下拉总线线路。“低电压”部分的总线线路通过上拉电阻Rp 上拉至3.3V。 MOS-FET 管的门极和源极都是3.3V， 所以它的VGS 低于阀值电压，MOS-FET 管不导通。这就允许“高电压”部分的总线线路通过它的上拉电阻Rp 拉到5V。 此时两部分的总线线路都是高电平，只是电压电平不同。<br>　　2 一个3.3V器件下拉总线线路到低电平。MOS-FET管的源极也变成低电平，而门极是3.3V。VGS上升高于阀值，MOS-FET管开始导通。然后“高电压”部分的总线线路通过导通的MOS-FET管被3.3V器件下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　3 一个5V的器件下拉总线线路到低电平。MOS-FET管的漏极基底二极管“低电压”部分被下拉直到VGS超过阀值，MOS-FET管开始导通。“低电压”部分的总线线路通过导通的MOS-FET管被5V的器件进一步下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　这三种状态显示了逻辑电平在总线系统的两个方向上传输，与驱动的部分无关。状态1执行了电平转换功能。状态2和3按照I2C总线规范的要求在两部分的总线线路之间实现“线与”的功能。<br>　　除了3.3V VDD1和5V VDD2的电源电压外，还可以是例如：2V VDD1和10V VDD2。在正常操作中，VDD2必须等于或高于VDD1(在开关电源时允许VDD2低于VDD1)。<br>　　MOS-N场效应管双向电平转换电路–适用于低频信号电平转换的简单应用</p>
+<p> <img src="3.png" alt="3"></p>
+<p>如上图所示，是MOS-N场效应管双向电平转换电路。<br>　　双向传输原理：<br>　　为了方便讲述，定义 3.3V 为 A 端，5.0V 为 B 端。<br>　　A端输出低电平时(0V)，MOS管导通，B端输出是低电平(0V)<br>　　A端输出高电平时(3.3V)，MOS管截至，B端输出是高电平(5V)<br>　　A端输出高阻时(OC) ，MOS管截至，B端输出是高电平(5V)<br>　　B端输出低电平时(0V)，MOS管内的二极管导通，从而使MOS管导通，A端输出是低电平(0V)<br>　　B端输出高电平时(5V)，MOS管截至，A端输出是高电平(3.3V)<br>　　B端输出高阻时(OC) ，MOS管截至，A端输出是高电平(3.3V)<br>　　优点：<br>　　1、适用于低频信号电平转换，价格低廉。<br>　　2、导通后，压降比三极管小。<br>　　3、正反向双向导通，相当于机械开关。<br>　　4、电压型驱动，当然也需要一定的驱动电流，而且有的应用也许比三极管大。</p>
 
         
       
@@ -1579,7 +1587,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/简单实用的双向电平转换电路/">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JackLu">
@@ -1593,7 +1601,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2018/01/08/简单实用的双向电平转换电路/" class="post-title-link" itemprop="url">简单实用的双向电平转换电路</a>
+            <a href="/2018/01/08/经典电路之惠斯通电桥原理及应用/" class="post-title-link" itemprop="url">经典电路之惠斯通电桥原理及应用</a>
           
         </h1>
 
@@ -1608,19 +1616,11 @@
                 
               
 
-              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+              <time title="创建时间：2018-01-08 18:09:04 / 修改时间：21:00:32" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-17 21:21:06" itemprop="dateModified" datetime="2018-01-17T21:21:06+08:00">2018-01-17</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -1636,7 +1636,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/电平转换电路/" itemprop="url" rel="index"><span itemprop="name">电平转换电路</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index"><span itemprop="name">经典电路</span></a></span>
 
                 
                 
@@ -1655,13 +1655,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>当你使用3.3V的单片机的时候，电平转换就在所难免了，经常会遇到3.3转5V或者5V转3.3V的情况，这里介绍一个简单的电路，他可以实现两个电平的相互转换(注意是相互哦，双向的，不是单向的!).电路十分简单，仅由3个电阻加一个MOS管构成。</p>
-<p>　　电路图如下:<br> <img src="1.png" alt="1"></p>
-<p>上图中，S1，S2为两个信号端，VCC_S1和VCC_S2为这两个信号的高电平电压.另外限制条件为:<br>　　1，VCC_S1&lt;=VCC_S2.<br>　　2，S1的低电平门限大于0.7V左右(视NMOS内的二极管压降而定).<br>　　3，Vgs&lt;=VCC_S1.<br>　　4，Vds&lt;=VCC_S2<br>　　对于3.3V和5V/12V等电路的相互转换，NMOS管选择AP2306即可.原理比较简单，大家自行分析吧!此电路我已在多处应用，效果很好.</p>
-<p> <img src="2.png" alt="2"></p>
-<p>I2C<br>　　类似这种吧，只是不知道这种电路的速率能达到多少<br>　　电平转换器的操作<br>　　在电平转换器的操作中要考虑下面的三种状态：<br>　　1 没有器件下拉总线线路。“低电压”部分的总线线路通过上拉电阻Rp 上拉至3.3V。 MOS-FET 管的门极和源极都是3.3V， 所以它的VGS 低于阀值电压，MOS-FET 管不导通。这就允许“高电压”部分的总线线路通过它的上拉电阻Rp 拉到5V。 此时两部分的总线线路都是高电平，只是电压电平不同。<br>　　2 一个3.3V器件下拉总线线路到低电平。MOS-FET管的源极也变成低电平，而门极是3.3V。VGS上升高于阀值，MOS-FET管开始导通。然后“高电压”部分的总线线路通过导通的MOS-FET管被3.3V器件下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　3 一个5V的器件下拉总线线路到低电平。MOS-FET管的漏极基底二极管“低电压”部分被下拉直到VGS超过阀值，MOS-FET管开始导通。“低电压”部分的总线线路通过导通的MOS-FET管被5V的器件进一步下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　这三种状态显示了逻辑电平在总线系统的两个方向上传输，与驱动的部分无关。状态1执行了电平转换功能。状态2和3按照I2C总线规范的要求在两部分的总线线路之间实现“线与”的功能。<br>　　除了3.3V VDD1和5V VDD2的电源电压外，还可以是例如：2V VDD1和10V VDD2。在正常操作中，VDD2必须等于或高于VDD1(在开关电源时允许VDD2低于VDD1)。<br>　　MOS-N场效应管双向电平转换电路–适用于低频信号电平转换的简单应用</p>
-<p> <img src="3.png" alt="3"></p>
-<p>如上图所示，是MOS-N场效应管双向电平转换电路。<br>　　双向传输原理：<br>　　为了方便讲述，定义 3.3V 为 A 端，5.0V 为 B 端。<br>　　A端输出低电平时(0V)，MOS管导通，B端输出是低电平(0V)<br>　　A端输出高电平时(3.3V)，MOS管截至，B端输出是高电平(5V)<br>　　A端输出高阻时(OC) ，MOS管截至，B端输出是高电平(5V)<br>　　B端输出低电平时(0V)，MOS管内的二极管导通，从而使MOS管导通，A端输出是低电平(0V)<br>　　B端输出高电平时(5V)，MOS管截至，A端输出是高电平(3.3V)<br>　　B端输出高阻时(OC) ，MOS管截至，A端输出是高电平(3.3V)<br>　　优点：<br>　　1、适用于低频信号电平转换，价格低廉。<br>　　2、导通后，压降比三极管小。<br>　　3、正反向双向导通，相当于机械开关。<br>　　4、电压型驱动，当然也需要一定的驱动电流，而且有的应用也许比三极管大。</p>
+          <h2 id="1-电阻桥定义解释"><a href="#1-电阻桥定义解释" class="headerlink" title="1. 电阻桥定义解释"></a>1. 电阻桥定义解释</h2><p>   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。</p>
+<p> <img src="110945pzcuhva3gm2cpncy.jpg" alt="110945pzcuhva3gm2cpncy"></p>
+<p>   在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通过采集电压的变化就可以知道环境中物理量的变化，而从实现测量的目的。下面举例介绍电桥电路的计算方式。</p>
+<h2 id="2-电阻桥相关计算"><a href="#2-电阻桥相关计算" class="headerlink" title="2. 电阻桥相关计算"></a>2. 电阻桥相关计算</h2><p>   假设流过R1，R2桥臂的电流为I1，流过R3，Rx桥臂的电流为I2，电桥供电电压为VCC，如下图所示。<br><img src="fig1.png" alt="fig1"><br>   通过欧姆定律可以计算出每个电阻两端的电压。在R1和R2这两个桥臂上，R1，R2将VCC电压分压，R2电阻两端得到的电压即为V1；在R3和Rx这个桥臂上，R3，Rx将VCC电压分压，R3电阻两端得到的电压即为V2。下面分别用欧姆定律计算V1和V2。</p>
+<p>   流过电阻R1和R2的电流I1:<br>$$\ I1=\frac{VCC}{R1+R2}$$</p>
+<p>   R2两端的电压V1：<br>$$\ V1=I1\cdot R2=VCC\cdot\frac{R2}{R1+R2}$$<br>   流过电阻R3和Rx的电流I2:<br>$$\ I2=\frac{VCC}{R3+Rx}$$<br>   R3两端的电压：<br>$$\ V2=I2\cdot R3=VCC\cdot\frac{R3}{R3+Rx}$$<br>   V1和V2的电压差：<br>$$\Delta V=V1-V2=VCC\cdot(\frac{R2}{R1+R2}-\frac{R3}{R3+Rx})$$<br>进一步计算得到：<br>$$\Delta V=VCC\cdot(\frac{R2\cdot Rx-R3\cdot R1}{(R1+R2)(R3+Rx)})$$<br>由此可以看出：<br>如果4个电阻都相等，即R1=R2=R3=Rx，那么ΔV=0，即电桥处于平衡状态；　Rx发生变化会导致△V发生变化；</p>
+<h2 id="3-电阻桥的应用"><a href="#3-电阻桥的应用" class="headerlink" title="3.电阻桥的应用"></a>3.电阻桥的应用</h2><p>   在实际使用中，我们通常将其中三个电阻值固定，而将另外一个电阻换成热敏电阻、压敏电阻、PT100等，这时候就可以用电桥来测物理量了。如果将PT100接入电桥，随着环境温度的变化，PT100的阻值发生变化导致ΔV发生变化，将差分电压ΔV通过差分运放放大后进入单片机的AD采样，再对照PT100的电阻-温度对应表就可以知道当前环境的温度了。</p>
 
         
       
