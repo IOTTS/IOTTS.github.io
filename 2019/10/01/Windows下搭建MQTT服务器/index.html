@@ -325,7 +325,7 @@
 <p>最后参考了前面博客说的，搭建了Apollo服务器，这里使用的Apollo 1.7.1。</p>
 <p>官网：<a href="http://activemq.apache.org/index.html" target="_blank" rel="noopener">http://activemq.apache.org/index.html</a><br>下载地址：<a href="http://activemq.apache.org/apollo/download.html" target="_blank" rel="noopener">http://activemq.apache.org/apollo/download.html</a><br>快速开始教程：<a href="http://activemq.apache.org/apollo/documentation/getting-started.html" target="_blank" rel="noopener">http://activemq.apache.org/apollo/documentation/getting-started.html</a></p>
 <h2 id="搭建MQTT服务器"><a href="#搭建MQTT服务器" class="headerlink" title="搭建MQTT服务器"></a>搭建MQTT服务器</h2><p>使用Apollo搭建MQTT服务器步骤：</p>
-<p>下载Apollo服务器并解压，在CMD环境运行其工作目录下的<strong>…\bin\apollo.cmd</strong>，命令后面带上参数<strong>create mybroker</strong>，创建服务器实例。这里需要Java环境，系统环境变量下要有JAVA_HOME。<br>创建实例之后会在bin目录下生成mybroker文件夹，其中<strong>…\etc\apollo.xml</strong>文件下是配置服务器信息的文件，<strong>…\etc\users.properties</strong> 文件包含连接MQTT服务器时用到的用户名和密码，初始默认帐号是admin，密码password；<br>进入<strong>…\mybroker\bin\ </strong>目录，在CMD输入命令<strong>apollo-broker.cmd run</strong>，可以使用TAB键自动补全，运行后输出信息如下：</p>
+<p>下载Apollo服务器并解压，在CMD环境运行其工作目录下的<strong>…\bin\apollo.cmd</strong>，命令后面带上参数<strong>create mybroker</strong>，创建服务器实例。这里需要Java环境，系统环境变量下要有JAVA_HOME。<br>创建实例之后会在bin目录下生成mybroker文件夹，其中<strong>…\etc\apollo.xml</strong>文件下是配置服务器信息的文件，<strong>…\etc\users.properties</strong> 文件包含连接MQTT服务器时用到的用户名和密码，初始默认帐号是admin，密码password；<br>进入<strong>…\mybroker\bin </strong>目录，在CMD输入命令<strong>apollo-broker.cmd run</strong>，可以使用TAB键自动补全，运行后输出信息如下：</p>
 <p><img src="20161120143250439.png" alt="MQTT服务运行信息"><br>其中我们要留意的：</p>
 <p>MQTT服务器TCP连接端口：tcp://0.0.0.0:61613</p>
 <p>后台Web管理页面：<a href="https://127.0.0.1:61681/或http://127.0.0.1:61680/" target="_blank" rel="noopener">https://127.0.0.1:61681/或http://127.0.0.1:61680/</a></p>
@@ -623,6 +623,8 @@
 
 
 
+
+  
 
   
 
