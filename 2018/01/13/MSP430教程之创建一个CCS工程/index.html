@@ -63,18 +63,18 @@
 <meta property="og:site_name" content="IOTTS">
 <meta property="og:description" content="前几天花了4.3美元在TI官网买了一开MSP430FR2433 LaunchPad™ Development Kit(MSPEXP430FR2433)，今天花一点时间来个简单的入门。板子很简单见下图  开发板自带一个调试工具和串口调试工具，性价比还是挺高的。开发板的资源见下图：  首先我们先来一个简单的点灯例程，接下来从新建工程----编写点灯程序----效果演示顺序开始介绍 创建一个CCS工程C">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM%E6%88%AA%E5%9B%BE20180113204831.png">
-<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM%E6%88%AA%E5%9B%BE20180113205502.png">
-<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM%E6%88%AA%E5%9B%BE20180113193424.png">
-<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM%E6%88%AA%E5%9B%BE20180113194545.png">
-<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM%E6%88%AA%E5%9B%BE20180113203355.png">
-<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM%E6%88%AA%E5%9B%BE20180113203408.png">
-<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM%E6%88%AA%E5%9B%BE20180113203554.png">
+<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM截图20180113204831.png">
+<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM截图20180113205502.png">
+<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM截图20180113193424.png">
+<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM截图20180113194545.png">
+<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM截图20180113203355.png">
+<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM截图20180113203408.png">
+<meta property="og:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM截图20180113203554.png">
 <meta property="og:updated_time" content="2018-01-13T15:50:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MSP430教程之创建一个CCS工程">
 <meta name="twitter:description" content="前几天花了4.3美元在TI官网买了一开MSP430FR2433 LaunchPad™ Development Kit(MSPEXP430FR2433)，今天花一点时间来个简单的入门。板子很简单见下图  开发板自带一个调试工具和串口调试工具，性价比还是挺高的。开发板的资源见下图：  首先我们先来一个简单的点灯例程，接下来从新建工程----编写点灯程序----效果演示顺序开始介绍 创建一个CCS工程C">
-<meta name="twitter:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM%E6%88%AA%E5%9B%BE20180113204831.png">
+<meta name="twitter:image" content="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/TIM截图20180113204831.png">
   <link rel="canonical" href="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/">
 
 
@@ -315,9 +315,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>前几天花了4.3美元在TI官网买了一开MSP430FR2433 LaunchPad™ Development Kit<br>(MSPEXP430FR2433)，今天花一点时间来个简单的入门。板子很简单见下图<br> <img src="TIM%E6%88%AA%E5%9B%BE20180113204831.png" alt="TIM截图20180113204831.png"></p>
+        <p>前几天花了4.3美元在TI官网买了一开MSP430FR2433 LaunchPad™ Development Kit<br>(MSPEXP430FR2433)，今天花一点时间来个简单的入门。板子很简单见下图<br> <img src="TIM截图20180113204831.png" alt="TIM截图20180113204831.png"></p>
 <p>开发板自带一个调试工具和串口调试工具，性价比还是挺高的。<br>开发板的资源见下图：</p>
-<p><img src="TIM%E6%88%AA%E5%9B%BE20180113205502.png" alt="TIM截图20180113205502.png"></p>
+<p><img src="TIM截图20180113205502.png" alt="TIM截图20180113205502.png"></p>
 <p>首先我们先来一个简单的点灯例程，接下来从<code>新建工程----编写点灯程序----效果演示</code>顺序开始介绍</p>
 <h2 id="创建一个CCS工程"><a href="#创建一个CCS工程" class="headerlink" title="创建一个CCS工程"></a>创建一个CCS工程</h2><p>CCS其实就是eclipse安装了TI的一些开发插件，CCS的安装教程就不提了比较简单，从TI官网下载CCS，选择单片机的型号，接下来基本上是<code>下一步</code>就行了。接下来主要讲如何新建工程</p>
 <p><code>File &gt; New &gt; CCS Project</code><br>具体配置如下：</p>
@@ -332,22 +332,17 @@
 </ul>
 <ul>
 <li><p>Project templates and examples : Empty Project(with main.c)</p>
-<p><img src="TIM%E6%88%AA%E5%9B%BE20180113193424.png" alt="FIG2"></p>
+<p><img src="TIM截图20180113193424.png" alt="FIG2"></p>
 </li>
 </ul>
-<h2 id="开始编写自己的程序"><a href="#开始编写自己的程序" class="headerlink" title="开始编写自己的程序"></a>开始编写自己的程序</h2><p>上面我们创建好了MSP430的工程，具体如下：<br> <img src="TIM%E6%88%AA%E5%9B%BE20180113194545.png" alt="fig3"><br>创建工程后系统已经添加好了msp430的头文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;msp430.h&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>当然也可以自己根据具体型号添加头文件，我用的是MSP430FR2433,所以我们可以改成<code>#include &lt;msp430fr2433.h&gt;</code>这个头文件包含了 MSP430FR2433 的寄存器定义和内置函数。<br>main函数部分，以下是闪灯的程序，也是CCS自带的示例代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int main(void) &#123;</span><br><span class="line">    WDTCTL = WDTPW | WDTHOLD;	    // Stop watchdog timer</span><br><span class="line">    PM5CTL0 &amp;= ~LOCKLPM5;           // Disable the GPIO power-on default high-impedance mode</span><br><span class="line">    P1DIR |= BIT0;					// Set P1.0 to output direction</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(;;) &#123;</span><br><span class="line">		volatile unsigned int i;	// volatile to prevent optimization</span><br><span class="line"></span><br><span class="line">		P1OUT ^= 0x01;				// Toggle P1.0 using exclusive-OR</span><br><span class="line"></span><br><span class="line">		i = 10000;					// SW Delay</span><br><span class="line">		<span class="keyword">do</span> i--;</span><br><span class="line">		<span class="keyword">while</span>(i != 0);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="开始编写自己的程序"><a href="#开始编写自己的程序" class="headerlink" title="开始编写自己的程序"></a>开始编写自己的程序</h2><p>上面我们创建好了MSP430的工程，具体如下：<br> <img src="TIM截图20180113194545.png" alt="fig3"><br>创建工程后系统已经添加好了msp430的头文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;msp430.h&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>当然也可以自己根据具体型号添加头文件，我用的是MSP430FR2433,所以我们可以改成<code>#include &lt;msp430fr2433.h&gt;</code>这个头文件包含了 MSP430FR2433 的寄存器定义和内置函数。<br>main函数部分，以下是闪灯的程序，也是CCS自带的示例代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int main(void) &#123;</span><br><span class="line">    WDTCTL = WDTPW | WDTHOLD;	    // Stop watchdog timer</span><br><span class="line">    PM5CTL0 &amp;= ~LOCKLPM5;           // Disable the GPIO power-on default high-impedance mode</span><br><span class="line">    P1DIR |= BIT0;					// Set P1.0 to output direction</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(;;) &#123;</span><br><span class="line">		volatile unsigned int i;	// volatile to prevent optimization</span><br><span class="line"></span><br><span class="line">		P1OUT ^= 0x01;				// Toggle P1.0 using exclusive-OR</span><br><span class="line"></span><br><span class="line">		i = 10000;					// SW Delay</span><br><span class="line">		<span class="keyword">do</span> i--;</span><br><span class="line">		<span class="keyword">while</span>(i != 0);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P1DIR |= BIT0;</span><br></pre></td></tr></table></figure>
-
 <p>这一行中,我们将 P1.0 引脚设置为输出(P1.0 与开发板上 Led1 相连)。在 MSP430 中,P1DIR 是一个控制 Port1 引脚方 向的八位寄存器。如果你把某一位配置为 0,则它作输入用,反之 是输出。BIT0 是一个系统定义的常量,即 0x0001（详见<code>&lt;msp430fr2433.h&gt;</code>）。</p>
 <p>如果一切顺利的话,现在我们可以把我们的程序下载到单片机运行了。</p>
-<h2 id="将程序下载到单片机"><a href="#将程序下载到单片机" class="headerlink" title="将程序下载到单片机"></a>将程序下载到单片机</h2><p> <img src="TIM%E6%88%AA%E5%9B%BE20180113203355.png" alt="TIM截图20180113203355">编译按钮</p>
-<p> <img src="TIM%E6%88%AA%E5%9B%BE20180113203408.png" alt="TIM截图20180113203408">Debug 按钮,编译通过之后,我们按这个按钮会下载程序并进入 DEBUG 模式</p>
-<p> <img src="TIM%E6%88%AA%E5%9B%BE20180113203554.png" alt="TIM截图20180113203554">红色按钮终止 DEBUG 模式</p>
+<h2 id="将程序下载到单片机"><a href="#将程序下载到单片机" class="headerlink" title="将程序下载到单片机"></a>将程序下载到单片机</h2><p> <img src="TIM截图20180113203355.png" alt="TIM截图20180113203355">编译按钮</p>
+<p> <img src="TIM截图20180113203408.png" alt="TIM截图20180113203408">Debug 按钮,编译通过之后,我们按这个按钮会下载程序并进入 DEBUG 模式</p>
+<p> <img src="TIM截图20180113203554.png" alt="TIM截图20180113203554">红色按钮终止 DEBUG 模式</p>
 <p>LED 程序已经下载到单片机中,如果你观察到红色的 LED 灯会随着按键亮灭,那么恭喜你,你已经完成了第一 个 MSP430的项目。</p>
 <center>
 <iframe height="498" width="510" src="http://player.youku.com/embed/XMzMxNTg1NjM2MA==" frameborder="0" 'allowfullscreen'></iframe>

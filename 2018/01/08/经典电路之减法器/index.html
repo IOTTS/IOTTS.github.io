@@ -55,20 +55,20 @@
   };
 </script>
 
-  <meta name="description" content="减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现 1.输入信号实现反相实现减法器 2.差分电路实现减法器我使用差分减法器比较多，主要用于电流、电压的测量其计算输出电压的公式如下：$$ V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})$$若令R1=R2,R3=R4,上式可简化">
+  <meta name="description" content="减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现 1.输入信号实现反相实现减法器 2.差分电路实现减法器我使用差分减法器比较多，主要用于电流、电压的测量其计算输出电压的公式如下： V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})若令R1=R2,R3=R4,上式可简化为： V">
 <meta name="keywords" content="电路设计,减法器电路">
 <meta property="og:type" content="article">
 <meta property="og:title" content="经典电路之减法器">
 <meta property="og:url" content="http://iotts.top/2018/01/08/经典电路之减法器/index.html">
 <meta property="og:site_name" content="IOTTS">
-<meta property="og:description" content="减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现 1.输入信号实现反相实现减法器 2.差分电路实现减法器我使用差分减法器比较多，主要用于电流、电压的测量其计算输出电压的公式如下：$$ V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})$$若令R1=R2,R3=R4,上式可简化">
+<meta property="og:description" content="减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现 1.输入信号实现反相实现减法器 2.差分电路实现减法器我使用差分减法器比较多，主要用于电流、电压的测量其计算输出电压的公式如下： V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})若令R1=R2,R3=R4,上式可简化为： V">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://iotts.top/2018/01/08/经典电路之减法器/543cf225x7ca35edcb97b&690.jpg">
 <meta property="og:image" content="http://iotts.top/2018/01/08/经典电路之减法器/543cf225x72dd2aab7ff5&690.jpg">
 <meta property="og:updated_time" content="2018-01-08T14:43:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="经典电路之减法器">
-<meta name="twitter:description" content="减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现 1.输入信号实现反相实现减法器 2.差分电路实现减法器我使用差分减法器比较多，主要用于电流、电压的测量其计算输出电压的公式如下：$$ V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})$$若令R1=R2,R3=R4,上式可简化">
+<meta name="twitter:description" content="减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现 1.输入信号实现反相实现减法器 2.差分电路实现减法器我使用差分减法器比较多，主要用于电流、电压的测量其计算输出电压的公式如下： V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})若令R1=R2,R3=R4,上式可简化为： V">
 <meta name="twitter:image" content="http://iotts.top/2018/01/08/经典电路之减法器/543cf225x7ca35edcb97b&690.jpg">
   <link rel="canonical" href="http://iotts.top/2018/01/08/经典电路之减法器/">
 
@@ -311,9 +311,10 @@
 
       
         <p>减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现</p>
-<h3 id="1-输入信号实现反相实现减法器"><a href="#1-输入信号实现反相实现减法器" class="headerlink" title="1.输入信号实现反相实现减法器"></a>1.输入信号实现反相实现减法器</h3><p><img src="543cf225x7ca35edcb97b&690.jpg" alt="543cf225x7ca35edcb97b&amp;690.jpg"></p>
-<h3 id="2-差分电路实现减法器"><a href="#2-差分电路实现减法器" class="headerlink" title="2.差分电路实现减法器"></a>2.差分电路实现减法器</h3><p><img src="543cf225x72dd2aab7ff5&690.jpg" alt="543cf225x72dd2aab7ff5&amp;690.jpg"><br>我使用差分减法器比较多，主要用于电流、电压的测量<br>其计算输出电压的公式如下：<br>$$ V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})$$<br>若令<strong>R1=R2,R3=R4</strong>,上式可简化为：<br> $$V_o=\frac{R3}{R2}(V_{i2}-V_{i1})$$</p>
-
+<h3 id="1-输入信号实现反相实现减法器"><a href="#1-输入信号实现反相实现减法器" class="headerlink" title="1.输入信号实现反相实现减法器"></a>1.输入信号实现反相实现减法器</h3><p><img src="543cf225x7ca35edcb97b&amp;690.jpg" alt="543cf225x7ca35edcb97b&amp;690.jpg"></p>
+<h3 id="2-差分电路实现减法器"><a href="#2-差分电路实现减法器" class="headerlink" title="2.差分电路实现减法器"></a>2.差分电路实现减法器</h3><p><img src="543cf225x72dd2aab7ff5&amp;690.jpg" alt="543cf225x72dd2aab7ff5&amp;690.jpg"><br>我使用差分减法器比较多，主要用于电流、电压的测量<br>其计算输出电压的公式如下：</p>
+<script type="math/tex; mode=display">V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})</script><p>若令<strong>R1=R2,R3=R4</strong>,上式可简化为：</p>
+<script type="math/tex; mode=display">V_o=\frac{R3}{R2}(V_{i2}-V_{i1})</script>
     </div>
 
     

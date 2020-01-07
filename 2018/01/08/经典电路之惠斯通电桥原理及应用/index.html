@@ -314,8 +314,13 @@
 <p> <img src="110945pzcuhva3gm2cpncy.jpg" alt="110945pzcuhva3gm2cpncy"></p>
 <p>   在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通过采集电压的变化就可以知道环境中物理量的变化，而从实现测量的目的。下面举例介绍电桥电路的计算方式。</p>
 <h2 id="2-电阻桥相关计算"><a href="#2-电阻桥相关计算" class="headerlink" title="2. 电阻桥相关计算"></a>2. 电阻桥相关计算</h2><p>   假设流过R1，R2桥臂的电流为I1，流过R3，Rx桥臂的电流为I2，电桥供电电压为VCC，如下图所示。<br><img src="fig1.png" alt="fig1"><br>   通过欧姆定律可以计算出每个电阻两端的电压。在R1和R2这两个桥臂上，R1，R2将VCC电压分压，R2电阻两端得到的电压即为V1；在R3和Rx这个桥臂上，R3，Rx将VCC电压分压，R3电阻两端得到的电压即为V2。下面分别用欧姆定律计算V1和V2。</p>
-<p>   流过电阻R1和R2的电流I1:<br>$$\ I1=\frac{VCC}{R1+R2}$$</p>
-<p>   R2两端的电压V1：<br>$$\ V1=I1\cdot R2=VCC\cdot\frac{R2}{R1+R2}$$<br>   流过电阻R3和Rx的电流I2:<br>$$\ I2=\frac{VCC}{R3+Rx}$$<br>   R3两端的电压：<br>$$\ V2=I2\cdot R3=VCC\cdot\frac{R3}{R3+Rx}$$<br>   V1和V2的电压差：<br>$$\Delta V=V1-V2=VCC\cdot(\frac{R2}{R1+R2}-\frac{R3}{R3+Rx})$$<br>进一步计算得到：<br>$$\Delta V=VCC\cdot(\frac{R2\cdot Rx-R3\cdot R1}{(R1+R2)(R3+Rx)})$$<br>由此可以看出：<br>如果4个电阻都相等，即R1=R2=R3=Rx，那么ΔV=0，即电桥处于平衡状态；　Rx发生变化会导致△V发生变化；</p>
+<p>   流过电阻R1和R2的电流I1: </p>
+<script type="math/tex; mode=display">\ I1=\frac{VCC}{R1+R2}</script><p>   R2两端的电压V1：</p>
+<script type="math/tex; mode=display">\ V1=I1\cdot R2=VCC\cdot\frac{R2}{R1+R2}</script><p>   流过电阻R3和Rx的电流I2:</p>
+<script type="math/tex; mode=display">\ I2=\frac{VCC}{R3+Rx}</script><p>   R3两端的电压：</p>
+<script type="math/tex; mode=display">\ V2=I2\cdot R3=VCC\cdot\frac{R3}{R3+Rx}</script><p>   V1和V2的电压差：</p>
+<script type="math/tex; mode=display">\Delta V=V1-V2=VCC\cdot(\frac{R2}{R1+R2}-\frac{R3}{R3+Rx})</script><p>进一步计算得到：</p>
+<script type="math/tex; mode=display">\Delta V=VCC\cdot(\frac{R2\cdot Rx-R3\cdot R1}{(R1+R2)(R3+Rx)})</script><p>由此可以看出：<br>如果4个电阻都相等，即R1=R2=R3=Rx，那么ΔV=0，即电桥处于平衡状态；　Rx发生变化会导致△V发生变化；</p>
 <h2 id="3-电阻桥的应用"><a href="#3-电阻桥的应用" class="headerlink" title="3.电阻桥的应用"></a>3.电阻桥的应用</h2><p>   在实际使用中，我们通常将其中三个电阻值固定，而将另外一个电阻换成热敏电阻、压敏电阻、PT100等，这时候就可以用电桥来测物理量了。如果将PT100接入电桥，随着环境温度的变化，PT100的阻值发生变化导致ΔV发生变化，将差分电压ΔV通过差分运放放大后进入单片机的AD采样，再对照PT100的电阻-温度对应表就可以知道当前环境的温度了。</p>
 
     </div>
@@ -344,8 +349,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2018/01/08/简单实用的双向电平转换电路/" rel="next" title="简单实用的双向电平转换电路">
-                  <i class="fa fa-chevron-left"></i> 简单实用的双向电平转换电路
+                <a href="/2018/01/07/ubuntu下ReText编辑器安装与配置/" rel="next" title="ubuntu下ReText编辑器安装与配置">
+                  <i class="fa fa-chevron-left"></i> ubuntu下ReText编辑器安装与配置
                 </a>
               
             </div>
@@ -354,8 +359,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2018/01/08/经典电路之运算放大器基本电路/" rel="prev" title="经典电路之运算放大器基本电路">
-                  经典电路之运算放大器基本电路 <i class="fa fa-chevron-right"></i>
+                <a href="/2018/01/08/简单实用的双向电平转换电路/" rel="prev" title="简单实用的双向电平转换电路">
+                  简单实用的双向电平转换电路 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>

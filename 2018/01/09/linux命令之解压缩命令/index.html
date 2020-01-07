@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Linux下的压缩解压缩命令详解及实例 实例：压缩服务器上当前目录的内容为xxx.zip文件 1zip -r xxx.zip ./*  解压zip文件到当前目录 1unzip filename.zip  另：有些服务器没有安装zip包执行不了zip命令，但基本上都可以用tar命令的，实例如下： 1tar -zcvf /home/zdzlibs.tar.gz /home/zdz/java/zdzli">
+  <meta name="description" content="Linux下的压缩解压缩命令详解及实例 实例：压缩服务器上当前目录的内容为xxx.zip文件1zip -r xxx.zip ./* 解压zip文件到当前目录1unzip filename.zip 另：有些服务器没有安装zip包执行不了zip命令，但基本上都可以用tar命令的，实例如下： 1tar -zcvf /home/zdzlibs.tar.gz /home/zdz/java/zdzlibs/">
 <meta name="keywords" content="linux命令,解压缩">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux命令之解压缩命令">
 <meta property="og:url" content="http://iotts.top/2018/01/09/linux命令之解压缩命令/index.html">
 <meta property="og:site_name" content="IOTTS">
-<meta property="og:description" content="Linux下的压缩解压缩命令详解及实例 实例：压缩服务器上当前目录的内容为xxx.zip文件 1zip -r xxx.zip ./*  解压zip文件到当前目录 1unzip filename.zip  另：有些服务器没有安装zip包执行不了zip命令，但基本上都可以用tar命令的，实例如下： 1tar -zcvf /home/zdzlibs.tar.gz /home/zdz/java/zdzli">
+<meta property="og:description" content="Linux下的压缩解压缩命令详解及实例 实例：压缩服务器上当前目录的内容为xxx.zip文件1zip -r xxx.zip ./* 解压zip文件到当前目录1unzip filename.zip 另：有些服务器没有安装zip包执行不了zip命令，但基本上都可以用tar命令的，实例如下： 1tar -zcvf /home/zdzlibs.tar.gz /home/zdz/java/zdzlibs/">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-01-09T15:54:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux命令之解压缩命令">
-<meta name="twitter:description" content="Linux下的压缩解压缩命令详解及实例 实例：压缩服务器上当前目录的内容为xxx.zip文件 1zip -r xxx.zip ./*  解压zip文件到当前目录 1unzip filename.zip  另：有些服务器没有安装zip包执行不了zip命令，但基本上都可以用tar命令的，实例如下： 1tar -zcvf /home/zdzlibs.tar.gz /home/zdz/java/zdzli">
+<meta name="twitter:description" content="Linux下的压缩解压缩命令详解及实例 实例：压缩服务器上当前目录的内容为xxx.zip文件1zip -r xxx.zip ./* 解压zip文件到当前目录1unzip filename.zip 另：有些服务器没有安装zip包执行不了zip命令，但基本上都可以用tar命令的，实例如下： 1tar -zcvf /home/zdzlibs.tar.gz /home/zdz/java/zdzlibs/">
   <link rel="canonical" href="http://iotts.top/2018/01/09/linux命令之解压缩命令/">
 
 
@@ -308,15 +308,10 @@
 
       
         <p>Linux下的压缩解压缩命令详解及实例</p>
-<p>实例：压缩服务器上当前目录的内容为xxx.zip文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r xxx.zip ./*</span><br></pre></td></tr></table></figure>
-
-<p>解压zip文件到当前目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip filename.zip</span><br></pre></td></tr></table></figure>
-
+<p>实例：压缩服务器上当前目录的内容为xxx.zip文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r xxx.zip ./*</span><br></pre></td></tr></table></figure></p>
+<p>解压zip文件到当前目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip filename.zip</span><br></pre></td></tr></table></figure></p>
 <p>另：有些服务器没有安装zip包执行不了zip命令，但基本上都可以用tar命令的，实例如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf /home/zdzlibs.tar.gz /home/zdz/java/zdzlibs/</span><br></pre></td></tr></table></figure>
-
 <p>linux zip命令</p>
 <p>zip -r myfile.zip ./*<br>将当前目录下的所有文件和文件夹全部压缩成myfile.zip文件,－r表示递归压缩子目录下所有文件.</p>
 <p>2.unzip<br>unzip -o -d /home/sunny myfile.zip<br>把myfile.zip文件解压到 /home/sunny/<br>-o:不提示的情况下覆盖文件；<br>-d:-d /home/sunny 指明将文件解压缩到/home/sunny目录下；</p>

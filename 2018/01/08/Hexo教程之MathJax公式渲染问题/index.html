@@ -311,129 +311,131 @@
 <h1 id="出现问题的原因"><a href="#出现问题的原因" class="headerlink" title="出现问题的原因"></a>出现问题的原因</h1><p>hexo默认使用hexo-renderer-marked引擎去渲染网页，它会把利用Markdown语法写的文本去转换为相应的html标签。在利用Markdown写MathJax公式的时候，经常会用到下划线<code>_</code>表示下标，但是下划线<code>_</code>会被hexo的默认引擎hexo-renderer-marked渲染成html中的<code>&lt;em&gt;</code>标签，表示斜体，这样一来，我们写的MathJax公式就被错误渲染了，也就没办法正确显示出来。</p>
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>从上面的分析，我们可以知道问题或许出在hexo的渲染引擎上，如果渲染引擎不把公式中的一些特殊字符渲染成html标签，也就避免了这个问题。当然已经有人意识到了这个问题，并且对原先的渲染引擎进行了改进，生成了新的<code>hexo-renderer-kramed</code>引擎，这里是它的Github页面，所以我们只需要卸载默认引擎，并安装这个新的渲染引擎即可。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
-
-<p>当我把渲染引擎更换之后，发现大部分公式都正确渲染了，而从网上其他人的叙述中，也同样提到了这个问题，即是行间公式都没有问题，但是个别行内公式还会出现渲染出错，从网上找到了一个方法，解决了这一问题。<br>定位到你的博客根目录，找到../node_modules/kramed/lib/rules/inline.js文件，<br>进行部分修改：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()<span class="comment">#$+\-.!_&gt;])/,      第11行，将其修改为</span></span><br><span class="line">escape: /^\\([`*\[\]()<span class="comment">#$+\-.!_&gt;])/,</span></span><br><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,    第20行，将其修改为</span><br><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure>
-
-<p>它取消了该渲染引擎对 <strong>,{,}</strong> 的转义，然后再</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
+<p>当我把渲染引擎更换之后，发现大部分公式都正确渲染了，而从网上其他人的叙述中，也同样提到了这个问题，即是行间公式都没有问题，但是个别行内公式还会出现渲染出错，从网上找到了一个方法，解决了这一问题。<br>定位到你的博客根目录，找到../node_modules/kramed/lib/rules/inline.js文件，<br>进行部分修改：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()<span class="comment">#$+\-.!_&gt;])/,      第11行，将其修改为</span></span><br><span class="line">escape: /^\\([`*\[\]()<span class="comment">#$+\-.!_&gt;])/,</span></span><br><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,    第20行，将其修改为</span><br><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure></p>
+<p>它取消了该渲染引擎对 <strong>\,{,}</strong> 的转义，然后再<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure></p>
 <p>重新部署，即可解决问题。</p>
-<p>另外需要注意一点，对于需要用到MathJax公式的文章，要在Front-matter中打开MathJax开关，例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">date: 2017/8/3 18:20:00</span><br><span class="line">tags: hexo</span><br><span class="line">mathjax: <span class="literal">true</span></span><br><span class="line">title: hexo博客MathJax公式渲染</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
+<p>另外需要注意一点，对于需要用到MathJax公式的文章，要在Front-matter中打开MathJax开关，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">date: 2017/8/3 18:20:00</span><br><span class="line">tags: hexo</span><br><span class="line">mathjax: <span class="literal">true</span></span><br><span class="line">title: hexo博客MathJax公式渲染</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
 <h1 id="MathJax公式语法"><a href="#MathJax公式语法" class="headerlink" title="MathJax公式语法"></a>MathJax公式语法</h1><p><a href="lshort-zh-cn.pdf">LaTeX语法</a><br>下面呢，我整理总结了一番比较常用的MathJax公式语法，同时也可以用来测试一下渲染效果。</p>
-<h2 id="gt-添加公式的方法"><a href="#gt-添加公式的方法" class="headerlink" title="&gt;添加公式的方法"></a>&gt;添加公式的方法</h2><h3 id="1-行内公式"><a href="#1-行内公式" class="headerlink" title="1.行内公式"></a>1.行内公式</h3><pre><code>$行内公式$</code></pre><h3 id="2-行间公式"><a href="#2-行间公式" class="headerlink" title="2.行间公式"></a>2.行间公式</h3><pre><code>$$行间公式$$</code></pre><h2 id="gt-常用的MathJax公式语法"><a href="#gt-常用的MathJax公式语法" class="headerlink" title="&gt;常用的MathJax公式语法"></a>&gt;常用的MathJax公式语法</h2><table>
+<h2 id="gt-添加公式的方法"><a href="#gt-添加公式的方法" class="headerlink" title="&gt;添加公式的方法"></a>&gt;添加公式的方法</h2><h3 id="1-行内公式"><a href="#1-行内公式" class="headerlink" title="1.行内公式"></a>1.行内公式</h3><pre><code>$行内公式$
+</code></pre><h3 id="2-行间公式"><a href="#2-行间公式" class="headerlink" title="2.行间公式"></a>2.行间公式</h3><pre><code>$$行间公式$$
+</code></pre><h2 id="gt-常用的MathJax公式语法"><a href="#gt-常用的MathJax公式语法" class="headerlink" title="&gt;常用的MathJax公式语法"></a>&gt;常用的MathJax公式语法</h2><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>符号</th>
-<th align="center">释义</th>
-<th align="left">测试用例</th>
-<th align="left">最终效果</th>
+<th style="text-align:center">释义</th>
+<th style="text-align:left">测试用例</th>
+<th style="text-align:left">最终效果</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>^{}</td>
-<td align="center">上标</td>
-<td align="left">x^{y^z}=(1+e^x)^{-2xy^w}</td>
-<td align="left">$x^{y^z}=(1+e^x)^{-2xy^w}$</td>
+<td style="text-align:center">上标</td>
+<td style="text-align:left">x^{y^z}=(1+e^x)^{-2xy^w}</td>
+<td style="text-align:left">$x^{y^z}=(1+e^x)^{-2xy^w}$</td>
 </tr>
 <tr>
 <td>_{}</td>
-<td align="center">下标</td>
-<td align="left">CO_2</td>
-<td align="left">$CO_2$</td>
+<td style="text-align:center">下标</td>
+<td style="text-align:left">CO_2</td>
+<td style="text-align:left">$CO_2$</td>
 </tr>
 <tr>
 <td>\frac{分子}{分母} or 分子 \over 分母</td>
-<td align="center">分数</td>
-<td align="left">f(x,y,z)=3y^2z(3+\frac{7x+5}{1+y^2})</td>
-<td align="left">$f(x,y,z)=3y^2z(3+\frac{7x+5}{1+y^2})$</td>
+<td style="text-align:center">分数</td>
+<td style="text-align:left">f(x,y,z)=3y^2z(3+\frac{7x+5}{1+y^2})</td>
+<td style="text-align:left">$f(x,y,z)=3y^2z(3+\frac{7x+5}{1+y^2})$</td>
 </tr>
 <tr>
 <td>\sqrt[根指数，省略时为2]{被开方数}</td>
-<td align="center">开方</td>
-<td align="left">\sqrt{2}、\sqrt[3]{9}</td>
-<td align="left">$\sqrt{2}$ $\sqrt[3]{9}$</td>
+<td style="text-align:center">开方</td>
+<td style="text-align:left">\sqrt{2}、\sqrt[3]{9}</td>
+<td style="text-align:left">$\sqrt{2}$ $\sqrt[3]{9}$</td>
 </tr>
 <tr>
 <td>\ldots</td>
-<td align="center">与文本底线对齐的省略号</td>
-<td align="left">x_1x_2{\ldots}x_n</td>
-<td align="left">$x_1x_2{\ldots}x_n$</td>
+<td style="text-align:center">与文本底线对齐的省略号</td>
+<td style="text-align:left">x_1x_2{\ldots}x_n</td>
+<td style="text-align:left">$x_1x_2{\ldots}x_n$</td>
 </tr>
 <tr>
 <td>\cdots</td>
-<td align="center">与文本中线对齐的省略号</td>
-<td align="left">x_1x_2{\cdots}x_n</td>
-<td align="left">$x_1x_2{\cdots}x_n$</td>
+<td style="text-align:center">与文本中线对齐的省略号</td>
+<td style="text-align:left">x_1x_2{\cdots}x_n</td>
+<td style="text-align:left">$x_1x_2{\cdots}x_n$</td>
 </tr>
 <tr>
 <td>\int_积分下限^积分上限(被积表达式)</td>
-<td align="center">积分</td>
-<td align="left">\int_1^n{x^2}dx</td>
-<td align="left">$\int_1^n{x^2}dx$</td>
+<td style="text-align:center">积分</td>
+<td style="text-align:left">\int_1^n{x^2}dx</td>
+<td style="text-align:left">$\int_1^n{x^2}dx$</td>
 </tr>
 <tr>
 <td>\sum_{下标表达式}^{上标表达式} {累加表达式}</td>
-<td align="center">累加</td>
-<td align="left">\sum_{i=1}^n \frac{1}{i^2}</td>
-<td align="left">$\sum_{i=1}^n \frac{1}{i^2}$</td>
+<td style="text-align:center">累加</td>
+<td style="text-align:left">\sum_{i=1}^n \frac{1}{i^2}</td>
+<td style="text-align:left">$\sum_{i=1}^n \frac{1}{i^2}$</td>
 </tr>
 <tr>
-<td>, or ; or \quad or \qquad</td>
-<td align="center">不同宽度的空格</td>
-<td align="left">a , b \mid a ; b \mid a \quad b \mid a</td>
-<td align="left">$\qquad b    a,b∣a;b∣ab∣aba,b∣a;b∣ab∣ab$</td>
+<td>\, or ; or \quad or \qquad</td>
+<td style="text-align:center">不同宽度的空格</td>
+<td style="text-align:left">a , b \mid a ; b \mid a \quad b \mid a</td>
+<td style="text-align:left">$\qquad b    a,b∣a;b∣ab∣aba,b∣a;b∣ab∣ab$</td>
 </tr>
 <tr>
 <td>\color{颜色}{文字}</td>
-<td align="center">更改文字颜色</td>
-<td align="left">\color{red}{红色}</td>
-<td align="left">$\color{red}{红色}$</td>
+<td style="text-align:center">更改文字颜色</td>
+<td style="text-align:left">\color{red}{红色}</td>
+<td style="text-align:left">$\color{red}{红色}$</td>
 </tr>
-<tr>
-<td>上面的一些基本语法使用了行内公式， 渲染效果没有问题，下面再利用行间公式写一些较为复杂的公式。</td>
-<td align="center"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-</tbody></table>
-<h3 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h3><p>分段函数格式为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(x)=\begin&#123;cases&#125;语句1\\语句2\\...\end&#123;cases&#125;</span><br></pre></td></tr></table></figure>
-
+</tbody>
+</table>
+</div>
+<p>上面的一些基本语法使用了行内公式， 渲染效果没有问题，下面再利用行间公式写一些较为复杂的公式。</p>
+<h3 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h3><p>分段函数格式为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(x)=\begin&#123;cases&#125;语句1\\语句2\\...\end&#123;cases&#125;</span><br></pre></td></tr></table></figure></p>
 <p>\text{文字}中仍可以使用$公式$去插入其他公式，所以可以将其结合分段函数一起使用。</p>
-<p>实例：<br>md文本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> $$ </span><br><span class="line">f(n)=\begin&#123;cases&#125;</span><br><span class="line">n/2, &amp; \text&#123;如果$ x&lt;=2 $&#125;\\</span><br><span class="line">3n+1, &amp; \text&#123;如果$ x&gt;2 $&#125;</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-
+<p>实例：<br>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> $$ </span><br><span class="line">f(n)=\begin&#123;cases&#125;</span><br><span class="line">n/2, &amp; \text&#123;如果$ x&lt;=2 $&#125;\\</span><br><span class="line">3n+1, &amp; \text&#123;如果$ x&gt;2 $&#125;</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
 <p>最终效果:</p>
-<p>$$<br>f(n)=\begin{cases}<br>n/2, &amp; \text{如果$ x&lt;=2 $}\<br>3n+1, &amp; \text{如果$ x&gt;2 $}<br>\end{cases}<br>$$</p>
-<h3 id="大括号和小括号"><a href="#大括号和小括号" class="headerlink" title="大括号和小括号"></a>大括号和小括号</h3><p>()、[]、{}表示的即是符号本身，使用{}来表示{}。但是如果要显示大号的括号时，需要使用\left和\right命令。</p>
+<script type="math/tex; mode=display">
+f(n)=\begin{cases}
+n/2, & \text{如果$ x<=2 $}\\
+3n+1, & \text{如果$ x>2 $}
+\end{cases}</script><h3 id="大括号和小括号"><a href="#大括号和小括号" class="headerlink" title="大括号和小括号"></a>大括号和小括号</h3><p>()、[]、{}表示的即是符号本身，使用{}来表示{}。但是如果要显示大号的括号时，需要使用\left和\right命令。</p>
 <p>实例：</p>
-<p>正常括号<br>md文本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> $$</span><br><span class="line">f([\frac&#123;1+\&#123;x,y\&#125;&#125;&#123;(\frac&#123;x&#125;&#123;y&#125;+\frac&#123;y&#125;&#123;x&#125;)(u+1)&#125;+a]^&#123;3\2&#125;)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-
+<p>正常括号<br>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> $$</span><br><span class="line">f([\frac&#123;1+\&#123;x,y\&#125;&#125;&#123;(\frac&#123;x&#125;&#123;y&#125;+\frac&#123;y&#125;&#123;x&#125;)(u+1)&#125;+a]^&#123;3\2&#125;)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
 <p>最终效果</p>
-<p> $$<br>f([\frac{1+{x,y}}{(\frac{x}{y}+\frac{y}{x})(u+1)}+a]^{3\2})<br>$$</p>
-<p>大括号<br>md文本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    $$</span><br><span class="line">f\left(</span><br><span class="line">    \left[</span><br><span class="line">        \frac&#123;</span><br><span class="line">            1+\left\&#123;x,y\right\&#125;</span><br><span class="line">        &#125;&#123;</span><br><span class="line">        \left(</span><br><span class="line">            \frac&#123;x&#125;&#123;y&#125;+\frac&#123;y&#125;&#123;x&#125;</span><br><span class="line">        \right)</span><br><span class="line">        \left(u+1\right)</span><br><span class="line">        &#125;+a</span><br><span class="line">    \right]^&#123;3\2&#125;</span><br><span class="line">\right)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-
+<script type="math/tex; mode=display">
+f([\frac{1+\{x,y\}}{(\frac{x}{y}+\frac{y}{x})(u+1)}+a]^{3\2})</script><p>大括号<br>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    $$</span><br><span class="line">f\left(</span><br><span class="line">    \left[</span><br><span class="line">        \frac&#123;</span><br><span class="line">            1+\left\&#123;x,y\right\&#125;</span><br><span class="line">        &#125;&#123;</span><br><span class="line">        \left(</span><br><span class="line">            \frac&#123;x&#125;&#123;y&#125;+\frac&#123;y&#125;&#123;x&#125;</span><br><span class="line">        \right)</span><br><span class="line">        \left(u+1\right)</span><br><span class="line">        &#125;+a</span><br><span class="line">    \right]^&#123;3\2&#125;</span><br><span class="line">\right)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
 <p>最终效果</p>
-<p>$$<br>f\left(<br>    \left[<br>        \frac{<br>            1+\left{x,y\right}<br>        }{<br>        \left(<br>            \frac{x}{y}+\frac{y}{x}<br>        \right)<br>        \left(u+1\right)<br>        }+a<br>    \right]^{3\2}<br>\right)<br>$$</p>
-<h3 id="添加删除线"><a href="#添加删除线" class="headerlink" title="添加删除线"></a>添加删除线</h3><p>使用删除线功能必须使用行间公式，删除线分为片段删除线和整段删除线，样式比较多，在这里我只列举一种比较常用的水平删除线，它属于整段删除线的一种。</p>
+<script type="math/tex; mode=display">
+f\left(
+    \left[
+        \frac{
+            1+\left\{x,y\right\}
+        }{
+        \left(
+            \frac{x}{y}+\frac{y}{x}
+        \right)
+        \left(u+1\right)
+        }+a
+    \right]^{3\2}
+\right)</script><h3 id="添加删除线"><a href="#添加删除线" class="headerlink" title="添加删除线"></a>添加删除线</h3><p>使用删除线功能必须使用行间公式，删除线分为片段删除线和整段删除线，样式比较多，在这里我只列举一种比较常用的水平删除线，它属于整段删除线的一种。</p>
 <p>整段删除线使用<code>\require{enclose}</code>来显示，声明整段删除线后，使用<code>\enclose{删除线效果}{字符}</code>来实现删除线效果，而水平删除线效果用关键字horizontalstrike。</p>
 <p>实例：</p>
-<p>md文本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\require&#123;enclose&#125;\begin&#123;array&#125;&#123;&#125;</span><br><span class="line">\enclose&#123;horizontalstrike&#125;&#123;x+y&#125;\\</span><br><span class="line">\enclose&#123;horizontalstrike&#125;&#123;x*y&#125;\\</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-
+<p>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\require&#123;enclose&#125;\begin&#123;array&#125;&#123;&#125;</span><br><span class="line">\enclose&#123;horizontalstrike&#125;&#123;x+y&#125;\\</span><br><span class="line">\enclose&#123;horizontalstrike&#125;&#123;x*y&#125;\\</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
 <p>最终效果</p>
-<p>$$<br>\require{enclose}\begin{array}{}<br>\enclose{horizontalstrike}{x+y}\<br>\enclose{horizontalstrike}{x*y}\<br>\end{array}<br>$$</p>
-<h3 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h3><p><code>\begin{align}</code>用于开头，<code>\end{align}</code>用于结尾，对齐的位置用<code>&amp;</code>开始，用<code>\\</code>结束<br>输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\begin&#123;align&#125;</span><br><span class="line">f(x) &amp;=a+b+a\\</span><br><span class="line">&amp; = 2a+b</span><br><span class="line">\end&#123;align&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
-
+<script type="math/tex; mode=display">
+\require{enclose}\begin{array}{}
+\enclose{horizontalstrike}{x+y}\\
+\enclose{horizontalstrike}{x*y}\\
+\end{array}</script><h3 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h3><p><code>\begin{align}</code>用于开头，<code>\end{align}</code>用于结尾，对齐的位置用<code>&amp;</code>开始，用<code>\\</code>结束<br>输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\begin&#123;align&#125;</span><br><span class="line">f(x) &amp;=a+b+a\\</span><br><span class="line">&amp; = 2a+b</span><br><span class="line">\end&#123;align&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
 <p>输出： </p>
-<p>$$<br>\begin{align}<br>f(x) &amp;=a+b+a\<br>&amp; = 2a+b<br>\end{align}<br>$$</p>
-
+<script type="math/tex; mode=display">
+\begin{align}
+f(x) &=a+b+a\\
+& = 2a+b
+\end{align}</script>
     </div>
 
     
