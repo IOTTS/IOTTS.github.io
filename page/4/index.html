@@ -234,383 +234,6 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/10/c语言教程之枚举类型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/10/c语言教程之枚举类型/" class="post-title-link" itemprop="url">c语言教程之枚举类型</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-10 16:53:23 / 修改时间：17:13:02" itemprop="dateCreated datePublished" datetime="2018-01-10T16:53:23+08:00">2018-01-10</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/C语言教程/" itemprop="url" rel="index"><span itemprop="name">C语言教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://www.cnblogs.com/JCSU/articles/1299051.html" target="_blank" rel="noopener">原文链接</a><br>注：以下全部代码的执行环境为VC++ 6.0</p>
-<p>在程序中，可能需要为某些整数定义一个别名，我们可以利用预处理指令#define来完成这项工作，您的代码可能是：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#define MON  1</span></span><br><span class="line"><span class="comment">#define TUE   2</span></span><br><span class="line"><span class="comment">#define WED  3</span></span><br><span class="line"><span class="comment">#define THU   4</span></span><br><span class="line"><span class="comment">#define FRI    5</span></span><br><span class="line"><span class="comment">#define SAT   6</span></span><br><span class="line"><span class="comment">#define SUN   7</span></span><br></pre></td></tr></table></figure>
-<p>在此，我们定义一种新的数据类型，希望它能完成同样的工作。这种新的数据类型叫枚举型。</p>
-<h2 id="1-定义一种新的数据类型-枚举型"><a href="#1-定义一种新的数据类型-枚举型" class="headerlink" title="1. 定义一种新的数据类型 - 枚举型"></a>1. 定义一种新的数据类型 - 枚举型</h2><p> 以下代码定义了这种新的数据类型 - 枚举型<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>(1) 枚举型是一个集合，集合中的元素(枚举成员)是一些命名的整型常量，元素之间用逗号,隔开。</p>
-<p>(2) DAY是一个标识符，可以看成这个集合的名字，是一个可选项，即是可有可无的项。</p>
-<p>(3) 第一个枚举成员的默认值为整型的0，后续枚举成员的值在前一个成员上加1。</p>
-<p>(4) 可以人为设定枚举成员的值，从而自定义某个范围内的整数。</p>
-<p>(5) 枚举型是预处理指令#define的替代。</p>
-<p>(6) 类型定义以分号;结束。</p>
-<h2 id="2-使用枚举类型对变量进行声明"><a href="#2-使用枚举类型对变量进行声明" class="headerlink" title="2. 使用枚举类型对变量进行声明"></a>2. 使用枚举类型对变量进行声明</h2><p>新的数据类型定义完成后，它就可以使用了。我们已经见过最基本的数据类型，如：整型int, 单精度浮点型float, 双精度浮点型double, 字符型char, 短整型short等等。用这些基本数据类型声明变量通常是这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">char     a; //变量a的类型均为字符型char</span><br><span class="line">char     letter;</span><br><span class="line">int        x,</span><br><span class="line">           y,</span><br><span class="line">           z; //变量x,y和z的类型均为整型int</span><br><span class="line">int       number;</span><br><span class="line">double  m, n;</span><br><span class="line">double  result; //变量result的类型为双精度浮点型double</span><br></pre></td></tr></table></figure></p>
-<p>既然枚举也是一种数据类型，那么它和基本数据类型一样也可以对变量进行声明。</p>
-<h4 id="方法一：枚举类型的定义和变量的声明分开"><a href="#方法一：枚举类型的定义和变量的声明分开" class="headerlink" title="方法一：枚举类型的定义和变量的声明分开"></a>方法一：枚举类型的定义和变量的声明分开</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY yesterday;</span><br><span class="line">enum DAY today;</span><br><span class="line">enum DAY tomorrow; //变量tomorrow的类型为枚举型enum DAY</span><br><span class="line">enum DAY good_day, bad_day; //变量good_day和bad_day的类型均为枚举型enum DAY</span><br></pre></td></tr></table></figure>
-<h4 id="方法二：类型定义与变量声明同时进行："><a href="#方法二：类型定义与变量声明同时进行：" class="headerlink" title="方法二：类型定义与变量声明同时进行："></a>方法二：类型定义与变量声明同时进行：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">enum //跟第一个定义不同的是，此处的标号DAY省略，这是允许的。</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //变量workday的类型为枚举型enum DAY</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum week &#123; Mon=1, Tue, Wed, Thu, Fri Sat, Sun&#125; days; //变量days的类型为枚举型enum week</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum BOOLEAN &#123; <span class="literal">false</span>, <span class="literal">true</span> &#125; end_flag, match_flag; //定义枚举类型并声明了两个枚举型变量</span><br></pre></td></tr></table></figure>
-<h4 id="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："><a href="#方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：" class="headerlink" title="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："></a>方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
-<p>enum workday中的workday可以省略：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
-<p>也可以用这种方式：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
-<p>注意：同一个程序中不能定义同名的枚举类型，不同的枚举类型中也不能存在同名的命名常量。错误示例如下所示：</p>
-<p>$\color{red}{错误声明一：}$存在同名的枚举类型</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
-<p>$\color{red}{错误声明二：}$存在同名的枚举成员</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday_1;</span><br><span class="line"></span><br><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday_2;</span><br></pre></td></tr></table></figure>
-<h2 id="3-使用枚举类型的变量"><a href="#3-使用枚举类型的变量" class="headerlink" title="3.使用枚举类型的变量"></a>3.使用枚举类型的变量</h2><h3 id="3-1-对枚举型的变量赋值。"><a href="#3-1-对枚举型的变量赋值。" class="headerlink" title="3.1 对枚举型的变量赋值。"></a>3.1 对枚举型的变量赋值。</h3><p>实例将枚举类型的赋值与基本数据类型的赋值进行了对比：</p>
-<h4 id="方法一：先声明变量，再对变量赋值"><a href="#方法一：先声明变量，再对变量赋值" class="headerlink" title="方法一：先声明变量，再对变量赋值"></a>方法一：先声明变量，再对变量赋值</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量，然后对变量赋值 */</span><br><span class="line">    int x, y, z;</span><br><span class="line">    </span><br><span class="line">    x = 10;</span><br><span class="line">    y = 20;</span><br><span class="line">    z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量，再对枚举型变量赋值 */</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line">    </span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法二：声明变量的同时赋初值"><a href="#方法二：声明变量的同时赋初值" class="headerlink" title="方法二：声明变量的同时赋初值"></a>方法二：声明变量的同时赋初值</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量同时对变量赋初值 */</span><br><span class="line">    int x=10, y=20, z=30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量同时对枚举型变量赋初值 */</span><br><span class="line">    enum DAY yesterday = MON, </span><br><span class="line">                        today = TUE,</span><br><span class="line">                   tomorrow = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法三：定义类型的同时声明变量，然后对变量赋值。"><a href="#方法三：定义类型的同时声明变量，然后对变量赋值。" class="headerlink" title="方法三：定义类型的同时声明变量，然后对变量赋值。"></a>方法三：定义类型的同时声明变量，然后对变量赋值。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，它们都为全局变量 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125; yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，它们都为全局变量 */</span><br><span class="line">int x, y, z;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 对基本数据类型的变量赋值 */</span><br><span class="line">    x = 10;  y = 20;  z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 对枚举型的变量赋值 */</span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法四：类型定义，变量声明，赋初值同时进行。"><a href="#方法四：类型定义，变量声明，赋初值同时进行。" class="headerlink" title="方法四：类型定义，变量声明，赋初值同时进行。"></a>方法四：类型定义，变量声明，赋初值同时进行。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，并赋初值。它们都为全局变量 */</span><br><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">    MON=1, </span><br><span class="line">    TUE,</span><br><span class="line">    WED,</span><br><span class="line">    THU,</span><br><span class="line">    FRI,</span><br><span class="line">    SAT,</span><br><span class="line">    SUN </span><br><span class="line">&#125;</span><br><span class="line">yesterday = MON, today = TUE, tomorrow = WED;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，并赋初值。它们都为全局变量 */</span><br><span class="line">int x = 10, y = 20, z = 30;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-对枚举型的变量赋整数值时，需要进行类型转换。"><a href="#3-2-对枚举型的变量赋整数值时，需要进行类型转换。" class="headerlink" title="3.2 对枚举型的变量赋整数值时，需要进行类型转换。"></a>3.2 对枚举型的变量赋整数值时，需要进行类型转换。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">    yesterday = TUE;</span><br><span class="line">    today = (enum DAY) (yesterday + 1); //类型转换</span><br><span class="line">    tomorrow = (enum DAY) 30; //类型转换</span><br><span class="line">    //tomorrow = 3; //错误</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：2 3 30</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-3-使用枚举型变量"><a href="#3-3-使用枚举型变量" class="headerlink" title="3.3 使用枚举型变量"></a>3.3 使用枚举型变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum</span><br><span class="line">&#123; </span><br><span class="line">    BELL          = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB         = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN      = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE    = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB         = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE       = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int index = 0;</span><br><span class="line">    int count_of_letter = 0;</span><br><span class="line">    int count_of_space = 0;</span><br><span class="line">    </span><br><span class="line">    char str[] = <span class="string">"I'm Ely efod"</span>;</span><br><span class="line">    </span><br><span class="line">    match_flag = FALSE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(; str[index] != <span class="string">'\0'</span>; index++)</span><br><span class="line">        <span class="keyword">if</span>( SPACE != str[index] )</span><br><span class="line">            count_of_letter++;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            match_flag = (enum BOOLEAN) 1;</span><br><span class="line">            count_of_space++;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s %d times %c"</span>, match_flag ? <span class="string">"match"</span> : <span class="string">"not match"</span>, count_of_space, NEWLINE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"count of letters: %d %c%c"</span>, count_of_letter, NEWLINE, RETURN);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">match 2 <span class="built_in">times</span></span><br><span class="line">count of letters: 10</span><br><span class="line">Press any key to <span class="built_in">continue</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="4-枚举类型与sizeof运算符"><a href="#4-枚举类型与sizeof运算符" class="headerlink" title="4. 枚举类型与sizeof运算符"></a>4. 枚举类型与sizeof运算符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum escapes</span><br><span class="line">&#123; </span><br><span class="line">    BELL      = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB      = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN    = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE   = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB      = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE     = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum escapes)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(escapes)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(match_flag)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(SPACE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(NEWLINE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(FALSE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(0)); //4 bytes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-综合举例"><a href="#5-综合举例" class="headerlink" title="5. 综合举例"></a>5. 综合举例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum Season</span><br><span class="line">&#123;</span><br><span class="line">    spring, summer=100, fall=96, winter</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</span><br><span class="line">&#125;</span><br><span class="line">Weekday;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* Season */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, spring); // 0</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %c \n"</span>, summer, summer); // 100, d</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, fall+winter); // 193</span><br><span class="line">    </span><br><span class="line">    Season mySeason=winter;</span><br><span class="line">    <span class="keyword">if</span>(winter==mySeason)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"mySeason is winter \n"</span>); // mySeason is winter</span><br><span class="line">    </span><br><span class="line">    int x=100;</span><br><span class="line">    <span class="keyword">if</span>(x==summer)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"x is equal to summer\n"</span>); // x is equal to summer</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes\n"</span>, sizeof(spring)); // 4 bytes</span><br><span class="line">    </span><br><span class="line">    /* Weekday */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"sizeof Weekday is: %d \n"</span>, sizeof(Weekday)); //sizeof Weekday is: 4</span><br><span class="line">    </span><br><span class="line">    Weekday today = Saturday;</span><br><span class="line">    Weekday tomorrow;</span><br><span class="line">    <span class="keyword">if</span>(today == Monday)</span><br><span class="line">        tomorrow = Tuesday;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        tomorrow = (Weekday) (today + 1); //remember to convert from int to Weekday</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/09/linux命令之关机命令/" class="post-title-link" itemprop="url">linux命令之关机命令</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-17 21:37:14" itemprop="dateModified" datetime="2018-01-17T21:37:14+08:00">2018-01-17</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ubuntu关机和重启命令</p>
-<p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。</p>
-<h1 id="关机命令："><a href="#关机命令：" class="headerlink" title="关机命令："></a>关机命令：</h1><p>1、halt                             立刻关机<br>2、poweroff                    立刻关机<br>3、shutdown -h now     立刻关机(root用户使用)<br>4、shutdown -h 10       10分钟后自动关机 如果是通过shutdown命令设置关机的话，可以用<code>shutdown -c</code>命令取消重启</p>
-<h1 id="重启命令："><a href="#重启命令：" class="headerlink" title="重启命令："></a>重启命令：</h1><p>1、reboot<br>2、shutdown -r now           立刻重启(root用户使用)<br>3、shutdown -r 10              过10分钟自动重启(root用户使用)<br>4、shutdown -r 20:35         在时间为20:35时候重启(root用户使用) 如果是通过shutdown命令设置重启的话，可以用<code>shutdown -c</code>命令取消重启</p>
-<p>下面我们来看看linux的这些具体的关机命令之间的区别和各自的用法</p>
-<h3 id="1-shutdown-安全的关机命令"><a href="#1-shutdown-安全的关机命令" class="headerlink" title="1.shutdown 安全的关机命令"></a>1.shutdown 安全的关机命令</h3><p>对于shutdown命令，它是大家都推荐的一个安全的命令，通过参数-h或-r的配合来完成关机或重启。不过在linux系统中只有拥有root权限才可以使用这个命令。所以，虽然大家都推荐用这个命令，但是这个命令用起来真的不太方便：想要用这个命令吗？先去获得root权限吧。shutdown执行关机，是送信号给init，要求它改变运行级别，以此来关机。关机或重启实际上是运行级别的调整，所以我们也可以用init直接调整运行级别来进行关机或重启。使用这个命令时，机器立即关机或重启。它也需要root权限。</p>
-<p>那么为什么说shutdown命令是安全地将系统关机呢？</p>
-<p>实际中有些用户会使用直接断掉电源的方式来关闭linux，这是十分危险的。因为linux与windows不同，其后台运行着许多进程，所以强制关机可能会导致进程的数据丢失使系统处于不稳定的状态。甚至在有的系统中会损坏硬件设备。而在系统关机前使用shutdown命令，系统管理员会通知所有登录的用户系统将要关闭。并且login指令会被冻结，即新的用户不能再登录。直接关机或者延迟一定的时间才关机都是可能的，还有可能是重启。这是由所有进程〔process〕都会收到系统所送达的信号〔signal〕决定的。</p>
-<p>shutdown执行它的工作是送信号〔signal〕给init程序，要求它改变 runlevel。runlevel 0 被用来停机〔halt〕，runlevel 6 是用来重新激活〔reboot〕系统，而 runlevel 1则是被用来让系统进入管理工作可以进行的状态，这是预设的。假定没有-h也没有-r参数给shutdown。要想了解在停机〔halt〕或者重新开机〔reboot〕过程中做了哪些动作？你可以在这个文件/etc/inittab里看到这些runlevels相关的资料。</p>
-<p>shutdown 参数说明:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">-H --halt      Halt the machine</span><br><span class="line">-P --poweroff  Power-off the machine</span><br><span class="line">-r --reboot    Reboot the machine</span><br><span class="line">-h             Equivalent to --poweroff, overridden by --halt</span><br><span class="line">-k             Don<span class="string">'t halt/power-off/reboot, just send warnings</span></span><br><span class="line"><span class="string">   --no-wall   Don'</span>t send wall message before halt/power-off/reboot</span><br><span class="line">-c             Cancel a pending shutdown</span><br></pre></td></tr></table></figure></p>
-<p>[-t] 在改变到其它runlevel之前，告诉init多久以后关机。 </p>
-<p>[-r] 重启计算器。</p>
-<p>[-k] 并不真正关机，只是送警告信号给每位登录者〔login〕。 </p>
-<p>[-h] 关机后关闭电源〔halt〕。 </p>
-<p>[-n] 不用init而是自己来关机。不鼓励使用这个选项，而且该选项所产生的后果往往不总是你所预期得到的。 </p>
-<p>[-c] cancel current process取消目前正在执行的关机程序。所以这个选项当然没有时间参数，但是可以输入一个用来解释的讯息，而这信息将会送到每位使用者。 </p>
-<p>[-f] 在重启计算器〔reboot〕时忽略fsck。 </p>
-<p>[-F] 在重启计算器〔reboot〕时强迫fsck。 </p>
-<p>[-time] 设定关机〔shutdown〕前的时间。 　　 　　<br>2.halt 最简单的关机命令</p>
-<p>用halt命令来关机时，实际调用的是shutdown -h。halt 执行时将杀死应用进程，执行sync系统调用文件系统写操作完成后就会停止内核。</p>
-<h3 id="2-halt-参数说明"><a href="#2-halt-参数说明" class="headerlink" title="2.halt 参数说明:"></a>2.halt 参数说明:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ halt --<span class="built_in">help</span></span><br><span class="line">halt [OPTIONS...]</span><br><span class="line"></span><br><span class="line">Halt the system.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --halt      Halt the machine</span><br><span class="line">  -p --poweroff  Switch off the machine</span><br><span class="line">     --reboot    Reboot the machine</span><br><span class="line">  -f --force     Force immediate halt/power-off/reboot</span><br><span class="line">  -w --wtmp-only Don<span class="string">'t halt/power-off/reboot, just write wtmp record</span></span><br><span class="line"><span class="string">  -d --no-wtmp   Don'</span>t write wtmp record</span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br></pre></td></tr></table></figure>
-<p>[-n] 防止sync系统调用，它用在用fsck修补根分区之后，以阻止内核用老版本的超级块〔superblock〕覆盖修补过的超级块。</p>
-<p>[-w] 并不是真正的重启或关机，只是写wtmp〔/var/log/wtmp〕纪录。 </p>
-<p>[-d] 不写wtmp纪录〔已包含在选项[-n]中〕。 </p>
-<p>[-f] 没有调用shutdown而强制关机或重启。 </p>
-<p>[-i] 关机〔或重启〕前关掉所有的网络接口。 </p>
-<p>[-p] 该选项为缺省选项。就是关机时调用poweroff。</p>
-<h3 id="3-poweroff-常用的关机命令"><a href="#3-poweroff-常用的关机命令" class="headerlink" title="3.poweroff 常用的关机命令"></a>3.poweroff 常用的关机命令</h3><p>对于poweroff，网上说它是halt命令的链接，基本用法和 halt 差不多，这里就不多说了。</p>
-<h3 id="4-init"><a href="#4-init" class="headerlink" title="4.init"></a>4.init</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ init --<span class="built_in">help</span></span><br><span class="line">init [OPTIONS...] &#123;COMMAND&#125;</span><br><span class="line"></span><br><span class="line">Send control commands to the init daemon.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Commands:</span></span><br><span class="line"><span class="string">  0              Power-off the machine</span></span><br><span class="line"><span class="string">  6              Reboot the machine</span></span><br><span class="line"><span class="string">  2, 3, 4, 5     Start runlevelX.target unit</span></span><br><span class="line"><span class="string">  1, s, S        Enter rescue mode</span></span><br><span class="line"><span class="string">  q, Q           Reload init daemon configuration</span></span><br><span class="line"><span class="string">  u, U           Reexecute init daemon</span></span><br></pre></td></tr></table></figure>
-<p>init是所有进程的祖先，他是Linux系统操作中不可缺少的程序之一。它的进程号始终为1，所以发送TERM信号给init会终止所有的用户进程，守护进程等。shutdown 就是使用这种机制。init定义了8个运行级别(runlevel)，init 0为关机，init 1为重启。</p>
-<h3 id="5-reboot-重启命令"><a href="#5-reboot-重启命令" class="headerlink" title="5.reboot 重启命令"></a>5.reboot 重启命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ reboot --<span class="built_in">help</span></span><br><span class="line">reboot [OPTIONS...] [ARG]</span><br><span class="line"></span><br><span class="line">Reboot the system.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --halt      Halt the machine</span><br><span class="line">  -p --poweroff  Switch off the machine</span><br><span class="line">     --reboot    Reboot the machine</span><br><span class="line">  -f --force     Force immediate halt/power-off/reboot</span><br><span class="line">  -w --wtmp-only Don<span class="string">'t halt/power-off/reboot, just write wtmp record</span></span><br><span class="line"><span class="string">  -d --no-wtmp   Don'</span>t write wtmp record</span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br></pre></td></tr></table></figure>
-<p>reboot的工作过程差不多跟halt一样。不过它是引发主机重启，而halt是关机。它的参数与halt相差不多。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之ubuntu查看系统信息/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" class="post-title-link" itemprop="url">linux命令之ubuntu查看系统信息</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-16 21:09:58" itemprop="dateModified" datetime="2018-01-16T21:09:58+08:00">2018-01-16</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
-<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure></p>
-<p>输出结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-46-51屏幕截图.png" alt="2018-01-16 20-46-51屏幕截图.png"><br>也可以输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux jacklu 4.13.0-26-generic <span class="comment">#29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-47-17屏幕截图.png" alt="2018-01-16 20-47-17屏幕截图.png"></p>
-<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure></p>
-<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 16.04.3 LTS \n \l</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-48-47屏幕截图.png" alt="2018-01-16 20-48-47屏幕截图.png"></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br></pre></td></tr></table></figure></p>
-<p>将输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04.3 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-48-27屏幕截图.png" alt="2018-01-16 20-48-27屏幕截图.png"></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之解压缩命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -838,6 +461,228 @@
 <p>　　到此为至，我们已经介绍过linux下的tar、gzip、gunzip、bzip2、bunzip2、compress、uncompress、 zip、unzip、rar、unrar等程式，你应该已经能够使用它们对.tar、.gz、.tar.gz、.tgz、.bz2、.tar.bz2、. Z、.tar.Z、.zip、.rar这10种压缩文件进行解压了，以后应该不需要为下载了一个软件而不知道如何在Linux下解开而烦恼了。而且以上方 法对于Unix也基本有效。</p>
 <p>　　本文介绍了linux下的压缩程式tar、gzip、gunzip、bzip2、bunzip2、 compress、uncompress、zip、unzip、rar、unrar等程式，以及如何使用它们对.tar、.gz、.tar.gz、. tgz、.bz2、.tar.bz2、.Z、.tar.Z、.zip、.rar这10种压缩文件进行操作</p>
 
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之ubuntu查看系统信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" class="post-title-link" itemprop="url">linux命令之ubuntu查看系统信息</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-16 21:09:58" itemprop="dateModified" datetime="2018-01-16T21:09:58+08:00">2018-01-16</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
+<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure></p>
+<p>输出结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-46-51屏幕截图.png" alt="2018-01-16 20-46-51屏幕截图.png"><br>也可以输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux jacklu 4.13.0-26-generic <span class="comment">#29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-47-17屏幕截图.png" alt="2018-01-16 20-47-17屏幕截图.png"></p>
+<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure></p>
+<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 16.04.3 LTS \n \l</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-48-47屏幕截图.png" alt="2018-01-16 20-48-47屏幕截图.png"></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br></pre></td></tr></table></figure></p>
+<p>将输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04.3 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-48-27屏幕截图.png" alt="2018-01-16 20-48-27屏幕截图.png"></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/09/linux命令之关机命令/" class="post-title-link" itemprop="url">linux命令之关机命令</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-07 15:27:46" itemprop="dateModified" datetime="2020-01-07T15:27:46+08:00">2020-01-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>ubuntu关机和重启命令</p>
+<p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。<br>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2018/01/09/linux命令之关机命令/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1442,6 +1287,113 @@ f(x) &=a+b+a\\
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/简单实用的双向电平转换电路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/08/简单实用的双向电平转换电路/" class="post-title-link" itemprop="url">简单实用的双向电平转换电路</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-17 21:21:06" itemprop="dateModified" datetime="2018-01-17T21:21:06+08:00">2018-01-17</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/电平转换电路/" itemprop="url" rel="index"><span itemprop="name">电平转换电路</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>当你使用3.3V的单片机的时候，电平转换就在所难免了，经常会遇到3.3转5V或者5V转3.3V的情况，这里介绍一个简单的电路，他可以实现两个电平的相互转换(注意是相互哦，双向的，不是单向的!).电路十分简单，仅由3个电阻加一个MOS管构成。</p>
+<p>　　电路图如下:<br> <img src="1.png" alt="1"></p>
+<p>上图中，S1，S2为两个信号端，VCC_S1和VCC_S2为这两个信号的高电平电压.另外限制条件为:<br>　　1，VCC_S1&lt;=VCC_S2.<br>　　2，S1的低电平门限大于0.7V左右(视NMOS内的二极管压降而定).<br>　　3，Vgs&lt;=VCC_S1.<br>　　4，Vds&lt;=VCC_S2<br>　　对于3.3V和5V/12V等电路的相互转换，NMOS管选择AP2306即可.原理比较简单，大家自行分析吧!此电路我已在多处应用，效果很好.</p>
+<p> <img src="2.png" alt="2"></p>
+<p>I2C<br>　　类似这种吧，只是不知道这种电路的速率能达到多少<br>　　电平转换器的操作<br>　　在电平转换器的操作中要考虑下面的三种状态：<br>　　1 没有器件下拉总线线路。“低电压”部分的总线线路通过上拉电阻Rp 上拉至3.3V。 MOS-FET 管的门极和源极都是3.3V， 所以它的VGS 低于阀值电压，MOS-FET 管不导通。这就允许“高电压”部分的总线线路通过它的上拉电阻Rp 拉到5V。 此时两部分的总线线路都是高电平，只是电压电平不同。<br>　　2 一个3.3V器件下拉总线线路到低电平。MOS-FET管的源极也变成低电平，而门极是3.3V。VGS上升高于阀值，MOS-FET管开始导通。然后“高电压”部分的总线线路通过导通的MOS-FET管被3.3V器件下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　3 一个5V的器件下拉总线线路到低电平。MOS-FET管的漏极基底二极管“低电压”部分被下拉直到VGS超过阀值，MOS-FET管开始导通。“低电压”部分的总线线路通过导通的MOS-FET管被5V的器件进一步下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　这三种状态显示了逻辑电平在总线系统的两个方向上传输，与驱动的部分无关。状态1执行了电平转换功能。状态2和3按照I2C总线规范的要求在两部分的总线线路之间实现“线与”的功能。<br>　　除了3.3V VDD1和5V VDD2的电源电压外，还可以是例如：2V VDD1和10V VDD2。在正常操作中，VDD2必须等于或高于VDD1(在开关电源时允许VDD2低于VDD1)。<br>　　MOS-N场效应管双向电平转换电路—适用于低频信号电平转换的简单应用</p>
+<p> <img src="3.png" alt="3"></p>
+<p>如上图所示，是MOS-N场效应管双向电平转换电路。<br>　　双向传输原理：<br>　　为了方便讲述，定义 3.3V 为 A 端，5.0V 为 B 端。<br>　　A端输出低电平时(0V)，MOS管导通，B端输出是低电平(0V)<br>　　A端输出高电平时(3.3V)，MOS管截至，B端输出是高电平(5V)<br>　　A端输出高阻时(OC) ，MOS管截至，B端输出是高电平(5V)<br>　　B端输出低电平时(0V)，MOS管内的二极管导通，从而使MOS管导通，A端输出是低电平(0V)<br>　　B端输出高电平时(5V)，MOS管截至，A端输出是高电平(3.3V)<br>　　B端输出高阻时(OC) ，MOS管截至，A端输出是高电平(3.3V)<br>　　优点：<br>　　1、适用于低频信号电平转换，价格低廉。<br>　　2、导通后，压降比三极管小。<br>　　3、正反向双向导通，相当于机械开关。<br>　　4、电压型驱动，当然也需要一定的驱动电流，而且有的应用也许比三极管大。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1546,7 +1498,7 @@ f(x) &=a+b+a\\
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/简单实用的双向电平转换电路/">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/07/ubuntu下ReText编辑器安装与配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JackLu">
@@ -1560,7 +1512,7 @@ f(x) &=a+b+a\\
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2018/01/08/简单实用的双向电平转换电路/" class="post-title-link" itemprop="url">简单实用的双向电平转换电路</a>
+            <a href="/2018/01/07/ubuntu下ReText编辑器安装与配置/" class="post-title-link" itemprop="url">ubuntu下ReText编辑器安装与配置</a>
           
         </h1>
 
@@ -1575,19 +1527,11 @@ f(x) &=a+b+a\\
                 
               
 
-              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+              <time title="创建时间：2018-01-07 20:30:11 / 修改时间：21:16:34" itemprop="dateCreated datePublished" datetime="2018-01-07T20:30:11+08:00">2018-01-07</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-17 21:21:06" itemprop="dateModified" datetime="2018-01-17T21:21:06+08:00">2018-01-17</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -1596,14 +1540,14 @@ f(x) &=a+b+a\\
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/电平转换电路/" itemprop="url" rel="index"><span itemprop="name">电平转换电路</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/ReText使用教程/" itemprop="url" rel="index"><span itemprop="name">ReText使用教程</span></a></span>
 
                 
                 
@@ -1622,13 +1566,23 @@ f(x) &=a+b+a\\
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>当你使用3.3V的单片机的时候，电平转换就在所难免了，经常会遇到3.3转5V或者5V转3.3V的情况，这里介绍一个简单的电路，他可以实现两个电平的相互转换(注意是相互哦，双向的，不是单向的!).电路十分简单，仅由3个电阻加一个MOS管构成。</p>
-<p>　　电路图如下:<br> <img src="1.png" alt="1"></p>
-<p>上图中，S1，S2为两个信号端，VCC_S1和VCC_S2为这两个信号的高电平电压.另外限制条件为:<br>　　1，VCC_S1&lt;=VCC_S2.<br>　　2，S1的低电平门限大于0.7V左右(视NMOS内的二极管压降而定).<br>　　3，Vgs&lt;=VCC_S1.<br>　　4，Vds&lt;=VCC_S2<br>　　对于3.3V和5V/12V等电路的相互转换，NMOS管选择AP2306即可.原理比较简单，大家自行分析吧!此电路我已在多处应用，效果很好.</p>
-<p> <img src="2.png" alt="2"></p>
-<p>I2C<br>　　类似这种吧，只是不知道这种电路的速率能达到多少<br>　　电平转换器的操作<br>　　在电平转换器的操作中要考虑下面的三种状态：<br>　　1 没有器件下拉总线线路。“低电压”部分的总线线路通过上拉电阻Rp 上拉至3.3V。 MOS-FET 管的门极和源极都是3.3V， 所以它的VGS 低于阀值电压，MOS-FET 管不导通。这就允许“高电压”部分的总线线路通过它的上拉电阻Rp 拉到5V。 此时两部分的总线线路都是高电平，只是电压电平不同。<br>　　2 一个3.3V器件下拉总线线路到低电平。MOS-FET管的源极也变成低电平，而门极是3.3V。VGS上升高于阀值，MOS-FET管开始导通。然后“高电压”部分的总线线路通过导通的MOS-FET管被3.3V器件下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　3 一个5V的器件下拉总线线路到低电平。MOS-FET管的漏极基底二极管“低电压”部分被下拉直到VGS超过阀值，MOS-FET管开始导通。“低电压”部分的总线线路通过导通的MOS-FET管被5V的器件进一步下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　这三种状态显示了逻辑电平在总线系统的两个方向上传输，与驱动的部分无关。状态1执行了电平转换功能。状态2和3按照I2C总线规范的要求在两部分的总线线路之间实现“线与”的功能。<br>　　除了3.3V VDD1和5V VDD2的电源电压外，还可以是例如：2V VDD1和10V VDD2。在正常操作中，VDD2必须等于或高于VDD1(在开关电源时允许VDD2低于VDD1)。<br>　　MOS-N场效应管双向电平转换电路—适用于低频信号电平转换的简单应用</p>
-<p> <img src="3.png" alt="3"></p>
-<p>如上图所示，是MOS-N场效应管双向电平转换电路。<br>　　双向传输原理：<br>　　为了方便讲述，定义 3.3V 为 A 端，5.0V 为 B 端。<br>　　A端输出低电平时(0V)，MOS管导通，B端输出是低电平(0V)<br>　　A端输出高电平时(3.3V)，MOS管截至，B端输出是高电平(5V)<br>　　A端输出高阻时(OC) ，MOS管截至，B端输出是高电平(5V)<br>　　B端输出低电平时(0V)，MOS管内的二极管导通，从而使MOS管导通，A端输出是低电平(0V)<br>　　B端输出高电平时(5V)，MOS管截至，A端输出是高电平(3.3V)<br>　　B端输出高阻时(OC) ，MOS管截至，A端输出是高电平(3.3V)<br>　　优点：<br>　　1、适用于低频信号电平转换，价格低廉。<br>　　2、导通后，压降比三极管小。<br>　　3、正反向双向导通，相当于机械开关。<br>　　4、电压型驱动，当然也需要一定的驱动电流，而且有的应用也许比三极管大。</p>
+          <h1 id="1-Retext-的安装"><a href="#1-Retext-的安装" class="headerlink" title="1. Retext 的安装"></a>1. Retext 的安装</h1><p>在Ubuntu中只需要<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install retext</span><br></pre></td></tr></table></figure></p>
+<p>即可以安装该软件，其效果如下：<br><img src="2018-01-07 20-31-25屏幕截图.png" alt="2018-01-07 20-31-25屏幕截图.png"></p>
+<h1 id="2-Retext配置"><a href="#2-Retext配置" class="headerlink" title="2. Retext配置"></a>2. Retext配置</h1><h2 id="2-1-添加数学公式"><a href="#2-1-添加数学公式" class="headerlink" title="2.1 添加数学公式"></a>2.1 添加数学公式</h2><p>下载安装MathJax<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libjs-mathjax</span><br></pre></td></tr></table></figure></p>
+<p>打开ReText的设置界面，在Markdown extensions框里添加字段：mathjax</p>
+<p>编辑(Edit) –&gt; 个人偏好（Preference），打开Preferences - Retext界面，输入mathjax</p>
+<p><img src="2018-01-07 20-42-30屏幕截图.png" alt="2018-01-07 20-42-30屏幕截图.png"></p>
+<p>重启ReText之后，输入公式，在预览中不显示。此时，通过 编辑(Edit) –&gt; 使用WebKit渲染， 就可以完美解决问题。</p>
+<p>示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\frac&#123;1&#125;&#123;2x+1&#125;$或者<span class="variable">$1</span>\over&#123;2x+1&#125;$</span><br></pre></td></tr></table></figure></p>
+<p>效果：$\frac{1}{2x+1}$或者$1\over{2x+1}$</p>
+<h2 id="2-2-添加语法高亮"><a href="#2-2-添加语法高亮" class="headerlink" title="2.2 添加语法高亮"></a>2.2 添加语法高亮</h2><p>(1) 下载安装高亮支持模块python-pygments<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pygments</span><br></pre></td></tr></table></figure></p>
+<p>(2) 打开ReText的设置界面，在Markdown extensions框里添加字段 codehilite<br>需要注意：</p>
+<pre><code>1、文档里的扩展功能添加进ReText的Markdown extensions时，都必须该成小写字母，否则无效！
+
+2、两个扩展之间用英文逗号分割。
+</code></pre><h2 id="2-3-添加自定义CSS"><a href="#2-3-添加自定义CSS" class="headerlink" title="2.3 添加自定义CSS"></a>2.3 添加自定义CSS</h2><p>reText支持添加自定义的css，比如，添加 github-markdown-css 方法如下：</p>
+<p>打开 编辑 –&gt;个人偏好（Preferences），打开PreferencesReText对话框。然后在Interface下面，点击Color scheme file，选择github-markdown-css.css，重新启动即可。    </p>
+<p>其中，github-markdown.css的内容如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br></pre></td><td class="code"><pre><span class="line">@font-face &#123;</span><br><span class="line">  font-family: octicons-link;</span><br><span class="line">  src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format(<span class="string">'woff'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body &#123;</span><br><span class="line">  -ms-text-size-adjust: 100%;</span><br><span class="line">  -webkit-text-size-adjust: 100%;</span><br><span class="line">  line-height: 1.5;</span><br><span class="line">  color: <span class="comment">#333;</span></span><br><span class="line">  font-family: -apple-system, BlinkMacSystemFont, <span class="string">"Segoe UI"</span>, Roboto, Helvetica, Arial, sans-serif, <span class="string">"Apple Color Emoji"</span>, <span class="string">"Segoe UI Emoji"</span>, <span class="string">"Segoe UI Symbol"</span>;</span><br><span class="line">  font-size: 16px;</span><br><span class="line">  line-height: 1.5;</span><br><span class="line">  word-wrap: <span class="built_in">break</span>-word;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-c &#123;</span><br><span class="line">  color: <span class="comment">#969896;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-c1,</span><br><span class="line">.markdown-body .pl<span class="_">-s</span> .pl-v &#123;</span><br><span class="line">  color: <span class="comment">#0086b3;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl<span class="_">-e</span>,</span><br><span class="line">.markdown-body .pl-en &#123;</span><br><span class="line">  color: <span class="comment">#795da3;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-smi,</span><br><span class="line">.markdown-body .pl<span class="_">-s</span> .pl-s1 &#123;</span><br><span class="line">  color: <span class="comment">#333;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-ent &#123;</span><br><span class="line">  color: <span class="comment">#63a35c;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-k &#123;</span><br><span class="line">  color: <span class="comment">#a71d5d;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl<span class="_">-s</span>,</span><br><span class="line">.markdown-body .pl-pds,</span><br><span class="line">.markdown-body .pl<span class="_">-s</span> .pl-pse .pl-s1,</span><br><span class="line">.markdown-body .pl-sr,</span><br><span class="line">.markdown-body .pl-sr .pl-cce,</span><br><span class="line">.markdown-body .pl-sr .pl-sre,</span><br><span class="line">.markdown-body .pl-sr .pl-sra &#123;</span><br><span class="line">  color: <span class="comment">#183691;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-v &#123;</span><br><span class="line">  color: <span class="comment">#ed6a43;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-id &#123;</span><br><span class="line">  color: <span class="comment">#b52a1d;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-ii &#123;</span><br><span class="line">  color: <span class="comment">#f8f8f8;</span></span><br><span class="line">  background-color: <span class="comment">#b52a1d;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-sr .pl-cce &#123;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  color: <span class="comment">#63a35c;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-ml &#123;</span><br><span class="line">  color: <span class="comment">#693a17;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-mh,</span><br><span class="line">.markdown-body .pl-mh .pl-en,</span><br><span class="line">.markdown-body .pl-ms &#123;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  color: <span class="comment">#1d3e81;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-mq &#123;</span><br><span class="line">  color: <span class="comment">#008080;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-mi &#123;</span><br><span class="line">  font-style: italic;</span><br><span class="line">  color: <span class="comment">#333;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-mb &#123;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  color: <span class="comment">#333;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-md &#123;</span><br><span class="line">  color: <span class="comment">#bd2c00;</span></span><br><span class="line">  background-color: <span class="comment">#ffecec;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-mi1 &#123;</span><br><span class="line">  color: <span class="comment">#55a532;</span></span><br><span class="line">  background-color: <span class="comment">#eaffea;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-mdr &#123;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  color: <span class="comment">#795da3;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-mo &#123;</span><br><span class="line">  color: <span class="comment">#1d3e81;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .octicon &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  vertical-align: text-top;</span><br><span class="line">  fill: currentColor;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body a &#123;</span><br><span class="line">  background-color: transparent;</span><br><span class="line">  -webkit-text-decoration-skip: objects;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body a:active,</span><br><span class="line">.markdown-body a:hover &#123;</span><br><span class="line">  outline-width: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body strong &#123;</span><br><span class="line">  font-weight: inherit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body strong &#123;</span><br><span class="line">  font-weight: bolder;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h1 &#123;</span><br><span class="line">  font-size: 2em;</span><br><span class="line">  margin: 0.67em 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body img &#123;</span><br><span class="line">  border-style: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body svg:not(:root) &#123;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body code,</span><br><span class="line">.markdown-body kbd,</span><br><span class="line">.markdown-body pre &#123;</span><br><span class="line">  font-family: monospace, monospace;</span><br><span class="line">  font-size: 1em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body hr &#123;</span><br><span class="line">  box-sizing: content-box;</span><br><span class="line">  height: 0;</span><br><span class="line">  overflow: visible;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body input &#123;</span><br><span class="line">  font: inherit;</span><br><span class="line">  margin: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body input &#123;</span><br><span class="line">  overflow: visible;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body [<span class="built_in">type</span>=<span class="string">"checkbox"</span>] &#123;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  padding: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body * &#123;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body input &#123;</span><br><span class="line">  font-family: inherit;</span><br><span class="line">  font-size: inherit;</span><br><span class="line">  line-height: inherit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body a &#123;</span><br><span class="line">  color: <span class="comment">#4078c0;</span></span><br><span class="line">  text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body a:hover,</span><br><span class="line">.markdown-body a:active &#123;</span><br><span class="line">  text-decoration: underline;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body strong &#123;</span><br><span class="line">  font-weight: 600;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body hr &#123;</span><br><span class="line">  height: 0;</span><br><span class="line">  margin: 15px 0;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  background: transparent;</span><br><span class="line">  border: 0;</span><br><span class="line">  border-bottom: 1px solid <span class="comment">#ddd;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body hr::before &#123;</span><br><span class="line">  display: table;</span><br><span class="line">  content: <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body hr::after &#123;</span><br><span class="line">  display: table;</span><br><span class="line">  clear: both;</span><br><span class="line">  content: <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body table &#123;</span><br><span class="line">  border-spacing: 0;</span><br><span class="line">  border-collapse: collapse;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body td,</span><br><span class="line">.markdown-body th &#123;</span><br><span class="line">  padding: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h1,</span><br><span class="line">.markdown-body h2,</span><br><span class="line">.markdown-body h3,</span><br><span class="line">.markdown-body h4,</span><br><span class="line">.markdown-body h5,</span><br><span class="line">.markdown-body h6 &#123;</span><br><span class="line">  margin-top: 0;</span><br><span class="line">  margin-bottom: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h1 &#123;</span><br><span class="line">  font-size: 32px;</span><br><span class="line">  font-weight: 600;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h2 &#123;</span><br><span class="line">  font-size: 24px;</span><br><span class="line">  font-weight: 600;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h3 &#123;</span><br><span class="line">  font-size: 20px;</span><br><span class="line">  font-weight: 600;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h4 &#123;</span><br><span class="line">  font-size: 16px;</span><br><span class="line">  font-weight: 600;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h5 &#123;</span><br><span class="line">  font-size: 14px;</span><br><span class="line">  font-weight: 600;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h6 &#123;</span><br><span class="line">  font-size: 12px;</span><br><span class="line">  font-weight: 600;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body p &#123;</span><br><span class="line">  margin-top: 0;</span><br><span class="line">  margin-bottom: 10px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body blockquote &#123;</span><br><span class="line">  margin: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body ul,</span><br><span class="line">.markdown-body ol &#123;</span><br><span class="line">  padding-left: 0;</span><br><span class="line">  margin-top: 0;</span><br><span class="line">  margin-bottom: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body ol ol,</span><br><span class="line">.markdown-body ul ol &#123;</span><br><span class="line">  list-style-type: lower-roman;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body ul ul ol,</span><br><span class="line">.markdown-body ul ol ol,</span><br><span class="line">.markdown-body ol ul ol,</span><br><span class="line">.markdown-body ol ol ol &#123;</span><br><span class="line">  list-style-type: lower-alpha;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body dd &#123;</span><br><span class="line">  margin-left: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body code &#123;</span><br><span class="line">  font-family: Consolas, <span class="string">"Liberation Mono"</span>, Menlo, Courier, monospace;</span><br><span class="line">  font-size: 12px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body pre &#123;</span><br><span class="line">  margin-top: 0;</span><br><span class="line">  margin-bottom: 0;</span><br><span class="line">  font: 12px Consolas, <span class="string">"Liberation Mono"</span>, Menlo, Courier, monospace;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .octicon &#123;</span><br><span class="line">  vertical-align: text-bottom;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body input &#123;</span><br><span class="line">  -webkit-font-feature-settings: <span class="string">"liga"</span> 0;</span><br><span class="line">  font-feature-settings: <span class="string">"liga"</span> 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body::before &#123;</span><br><span class="line">  display: table;</span><br><span class="line">  content: <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body::after &#123;</span><br><span class="line">  display: table;</span><br><span class="line">  clear: both;</span><br><span class="line">  content: <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body&gt;*:first-child &#123;</span><br><span class="line">  margin-top: 0 !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body&gt;*:last-child &#123;</span><br><span class="line">  margin-bottom: 0 !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body a:not([href]) &#123;</span><br><span class="line">  color: inherit;</span><br><span class="line">  text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .anchor &#123;</span><br><span class="line">  <span class="built_in">float</span>: left;</span><br><span class="line">  padding-right: 4px;</span><br><span class="line">  margin-left: -20px;</span><br><span class="line">  line-height: 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .anchor:focus &#123;</span><br><span class="line">  outline: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body p,</span><br><span class="line">.markdown-body blockquote,</span><br><span class="line">.markdown-body ul,</span><br><span class="line">.markdown-body ol,</span><br><span class="line">.markdown-body dl,</span><br><span class="line">.markdown-body table,</span><br><span class="line">.markdown-body pre &#123;</span><br><span class="line">  margin-top: 0;</span><br><span class="line">  margin-bottom: 16px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body hr &#123;</span><br><span class="line">  height: 0.25em;</span><br><span class="line">  padding: 0;</span><br><span class="line">  margin: 24px 0;</span><br><span class="line">  background-color: <span class="comment">#e7e7e7;</span></span><br><span class="line">  border: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body blockquote &#123;</span><br><span class="line">  padding: 0 1em;</span><br><span class="line">  color: <span class="comment">#777;</span></span><br><span class="line">  border-left: 0.25em solid <span class="comment">#ddd;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body blockquote&gt;:first-child &#123;</span><br><span class="line">  margin-top: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body blockquote&gt;:last-child &#123;</span><br><span class="line">  margin-bottom: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body kbd &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  padding: 3px 5px;</span><br><span class="line">  font-size: 11px;</span><br><span class="line">  line-height: 10px;</span><br><span class="line">  color: <span class="comment">#555;</span></span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  background-color: <span class="comment">#fcfcfc;</span></span><br><span class="line">  border: solid 1px <span class="comment">#ccc;</span></span><br><span class="line">  border-bottom-color: <span class="comment">#bbb;</span></span><br><span class="line">  border-radius: 3px;</span><br><span class="line">  box-shadow: inset 0 -1px 0 <span class="comment">#bbb;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h1,</span><br><span class="line">.markdown-body h2,</span><br><span class="line">.markdown-body h3,</span><br><span class="line">.markdown-body h4,</span><br><span class="line">.markdown-body h5,</span><br><span class="line">.markdown-body h6 &#123;</span><br><span class="line">  margin-top: 24px;</span><br><span class="line">  margin-bottom: 16px;</span><br><span class="line">  font-weight: 600;</span><br><span class="line">  line-height: 1.25;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h1 .octicon-link,</span><br><span class="line">.markdown-body h2 .octicon-link,</span><br><span class="line">.markdown-body h3 .octicon-link,</span><br><span class="line">.markdown-body h4 .octicon-link,</span><br><span class="line">.markdown-body h5 .octicon-link,</span><br><span class="line">.markdown-body h6 .octicon-link &#123;</span><br><span class="line">  color: <span class="comment">#000;</span></span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  visibility: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h1:hover .anchor,</span><br><span class="line">.markdown-body h2:hover .anchor,</span><br><span class="line">.markdown-body h3:hover .anchor,</span><br><span class="line">.markdown-body h4:hover .anchor,</span><br><span class="line">.markdown-body h5:hover .anchor,</span><br><span class="line">.markdown-body h6:hover .anchor &#123;</span><br><span class="line">  text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h1:hover .anchor .octicon-link,</span><br><span class="line">.markdown-body h2:hover .anchor .octicon-link,</span><br><span class="line">.markdown-body h3:hover .anchor .octicon-link,</span><br><span class="line">.markdown-body h4:hover .anchor .octicon-link,</span><br><span class="line">.markdown-body h5:hover .anchor .octicon-link,</span><br><span class="line">.markdown-body h6:hover .anchor .octicon-link &#123;</span><br><span class="line">  visibility: visible;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h1 &#123;</span><br><span class="line">  padding-bottom: 0.3em;</span><br><span class="line">  font-size: 2em;</span><br><span class="line">  border-bottom: 1px solid <span class="comment">#eee;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h2 &#123;</span><br><span class="line">  padding-bottom: 0.3em;</span><br><span class="line">  font-size: 1.5em;</span><br><span class="line">  border-bottom: 1px solid <span class="comment">#eee;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h3 &#123;</span><br><span class="line">  font-size: 1.25em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h4 &#123;</span><br><span class="line">  font-size: 1em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h5 &#123;</span><br><span class="line">  font-size: 0.875em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body h6 &#123;</span><br><span class="line">  font-size: 0.85em;</span><br><span class="line">  color: <span class="comment">#777;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body ul,</span><br><span class="line">.markdown-body ol &#123;</span><br><span class="line">  padding-left: 2em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body ul ul,</span><br><span class="line">.markdown-body ul ol,</span><br><span class="line">.markdown-body ol ol,</span><br><span class="line">.markdown-body ol ul &#123;</span><br><span class="line">  margin-top: 0;</span><br><span class="line">  margin-bottom: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body li&gt;p &#123;</span><br><span class="line">  margin-top: 16px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body li+li &#123;</span><br><span class="line">  margin-top: 0.25em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body dl &#123;</span><br><span class="line">  padding: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body dl dt &#123;</span><br><span class="line">  padding: 0;</span><br><span class="line">  margin-top: 16px;</span><br><span class="line">  font-size: 1em;</span><br><span class="line">  font-style: italic;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body dl dd &#123;</span><br><span class="line">  padding: 0 16px;</span><br><span class="line">  margin-bottom: 16px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body table &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  width: 100%;</span><br><span class="line">  overflow: auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body table th &#123;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body table th,</span><br><span class="line">.markdown-body table td &#123;</span><br><span class="line">  padding: 6px 13px;</span><br><span class="line">  border: 1px solid <span class="comment">#ddd;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body table tr &#123;</span><br><span class="line">  background-color: <span class="comment">#fff;</span></span><br><span class="line">  border-top: 1px solid <span class="comment">#ccc;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body table tr:nth-child(2n) &#123;</span><br><span class="line">  background-color: <span class="comment">#f8f8f8;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body img &#123;</span><br><span class="line">  max-width: 100%;</span><br><span class="line">  box-sizing: content-box;</span><br><span class="line">  background-color: <span class="comment">#fff;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body code &#123;</span><br><span class="line">  padding: 0;</span><br><span class="line">  padding-top: 0.2em;</span><br><span class="line">  padding-bottom: 0.2em;</span><br><span class="line">  margin: 0;</span><br><span class="line">  font-size: 85%;</span><br><span class="line">  background-color: rgba(0,0,0,0.04);</span><br><span class="line">  border-radius: 3px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body code::before,</span><br><span class="line">.markdown-body code::after &#123;</span><br><span class="line">  letter-spacing: -0.2em;</span><br><span class="line">  content: <span class="string">"\00a0"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body pre &#123;</span><br><span class="line">  word-wrap: normal;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body pre&gt;code &#123;</span><br><span class="line">  padding: 0;</span><br><span class="line">  margin: 0;</span><br><span class="line">  font-size: 100%;</span><br><span class="line">  word-break: normal;</span><br><span class="line">  white-space: pre;</span><br><span class="line">  background: transparent;</span><br><span class="line">  border: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .highlight &#123;</span><br><span class="line">  margin-bottom: 16px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .highlight pre &#123;</span><br><span class="line">  margin-bottom: 0;</span><br><span class="line">  word-break: normal;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .highlight pre,</span><br><span class="line">.markdown-body pre &#123;</span><br><span class="line">  padding: 16px;</span><br><span class="line">  overflow: auto;</span><br><span class="line">  font-size: 85%;</span><br><span class="line">  line-height: 1.45;</span><br><span class="line">  background-color: <span class="comment">#f7f7f7;</span></span><br><span class="line">  border-radius: 3px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body pre code &#123;</span><br><span class="line">  display: inline;</span><br><span class="line">  max-width: auto;</span><br><span class="line">  padding: 0;</span><br><span class="line">  margin: 0;</span><br><span class="line">  overflow: visible;</span><br><span class="line">  line-height: inherit;</span><br><span class="line">  word-wrap: normal;</span><br><span class="line">  background-color: transparent;</span><br><span class="line">  border: 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body pre code::before,</span><br><span class="line">.markdown-body pre code::after &#123;</span><br><span class="line">  content: normal;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-0 &#123;</span><br><span class="line">  padding-left: 0 !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-1 &#123;</span><br><span class="line">  padding-left: 3px !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-2 &#123;</span><br><span class="line">  padding-left: 6px !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-3 &#123;</span><br><span class="line">  padding-left: 12px !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-4 &#123;</span><br><span class="line">  padding-left: 24px !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-5 &#123;</span><br><span class="line">  padding-left: 36px !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .pl-6 &#123;</span><br><span class="line">  padding-left: 48px !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .full-commit .btn-outline:not(:disabled):hover &#123;</span><br><span class="line">  color: <span class="comment">#4078c0;</span></span><br><span class="line">  border: 1px solid <span class="comment">#4078c0;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body kbd &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  padding: 3px 5px;</span><br><span class="line">  font: 11px Consolas, <span class="string">"Liberation Mono"</span>, Menlo, Courier, monospace;</span><br><span class="line">  line-height: 10px;</span><br><span class="line">  color: <span class="comment">#555;</span></span><br><span class="line">  vertical-align: middle;</span><br><span class="line">  background-color: <span class="comment">#fcfcfc;</span></span><br><span class="line">  border: solid 1px <span class="comment">#ccc;</span></span><br><span class="line">  border-bottom-color: <span class="comment">#bbb;</span></span><br><span class="line">  border-radius: 3px;</span><br><span class="line">  box-shadow: inset 0 -1px 0 <span class="comment">#bbb;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body :checked+.radio-label &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  z-index: 1;</span><br><span class="line">  border-color: <span class="comment">#4078c0;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .task-list-item &#123;</span><br><span class="line">  list-style-type: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .task-list-item+.task-list-item &#123;</span><br><span class="line">  margin-top: 3px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body .task-list-item input &#123;</span><br><span class="line">  margin: 0 0.2em 0.25em -1.6em;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.markdown-body hr &#123;</span><br><span class="line">  border-bottom-color: <span class="comment">#eee;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         
       
@@ -1701,7 +1655,7 @@ f(x) &=a+b+a\\
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1898,9 +1852,9 @@ f(x) &=a+b+a\\
       
     
       
-    
-      
         
+      
+    
       
     
       
