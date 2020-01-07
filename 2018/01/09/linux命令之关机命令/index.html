@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="ubuntu关机和重启命令 linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。 关机命令：1、halt                             立刻关机2、poweroff                    立刻关机3、shutdown -h">
+<meta name="keywords" content="linux命令,基础,关机重启">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux命令之关机命令">
+<meta property="og:url" content="http://iotts.top/2018/01/09/linux命令之关机命令/index.html">
+<meta property="og:site_name" content="IOTTS">
+<meta property="og:description" content="ubuntu关机和重启命令 linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。 关机命令：1、halt                             立刻关机2、poweroff                    立刻关机3、shutdown -h">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-17T13:37:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux命令之关机命令">
+<meta name="twitter:description" content="ubuntu关机和重启命令 linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。 关机命令：1、halt                             立刻关机2、poweroff                    立刻关机3、shutdown -h">
+  <link rel="canonical" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>linux命令之关机命令 | IOTTS</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IOTTS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-产品列表">
+      
+    
+
+    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>产品列表</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">linux命令之关机命令
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-17 21:37:14" itemprop="dateModified" datetime="2018-01-17T21:37:14+08:00">2018-01-17</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>ubuntu关机和重启命令</p>
+<p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。</p>
+<h1 id="关机命令："><a href="#关机命令：" class="headerlink" title="关机命令："></a>关机命令：</h1><p>1、halt                             立刻关机<br>2、poweroff                    立刻关机<br>3、shutdown -h now     立刻关机(root用户使用)<br>4、shutdown -h 10       10分钟后自动关机 如果是通过shutdown命令设置关机的话，可以用<code>shutdown -c</code>命令取消重启</p>
+<p>#重启命令：</p>
+<p>1、reboot<br>2、shutdown -r now           立刻重启(root用户使用)<br>3、shutdown -r 10              过10分钟自动重启(root用户使用)<br>4、shutdown -r 20:35         在时间为20:35时候重启(root用户使用) 如果是通过shutdown命令设置重启的话，可以用<code>shutdown -c</code>命令取消重启</p>
+<p>下面我们来看看linux的这些具体的关机命令之间的区别和各自的用法</p>
+<h3 id="1-shutdown-安全的关机命令"><a href="#1-shutdown-安全的关机命令" class="headerlink" title="1.shutdown 安全的关机命令"></a>1.shutdown 安全的关机命令</h3><p>对于shutdown命令，它是大家都推荐的一个安全的命令，通过参数-h或-r的配合来完成关机或重启。不过在linux系统中只有拥有root权限才可以使用这个命令。所以，虽然大家都推荐用这个命令，但是这个命令用起来真的不太方便：想要用这个命令吗？先去获得root权限吧。shutdown执行关机，是送信号给init，要求它改变运行级别，以此来关机。关机或重启实际上是运行级别的调整，所以我们也可以用init直接调整运行级别来进行关机或重启。使用这个命令时，机器立即关机或重启。它也需要root权限。</p>
+<p>那么为什么说shutdown命令是安全地将系统关机呢？</p>
+<p>实际中有些用户会使用直接断掉电源的方式来关闭linux，这是十分危险的。因为linux与windows不同，其后台运行着许多进程，所以强制关机可能会导致进程的数据丢失使系统处于不稳定的状态。甚至在有的系统中会损坏硬件设备。而在系统关机前使用shutdown命令，系统管理员会通知所有登录的用户系统将要关闭。并且login指令会被冻结，即新的用户不能再登录。直接关机或者延迟一定的时间才关机都是可能的，还有可能是重启。这是由所有进程〔process〕都会收到系统所送达的信号〔signal〕决定的。</p>
+<p>shutdown执行它的工作是送信号〔signal〕给init程序，要求它改变 runlevel。runlevel 0 被用来停机〔halt〕，runlevel 6 是用来重新激活〔reboot〕系统，而 runlevel 1则是被用来让系统进入管理工作可以进行的状态，这是预设的。假定没有-h也没有-r参数给shutdown。要想了解在停机〔halt〕或者重新开机〔reboot〕过程中做了哪些动作？你可以在这个文件/etc/inittab里看到这些runlevels相关的资料。</p>
+<p>shutdown 参数说明:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">-H --halt      Halt the machine</span><br><span class="line">-P --poweroff  Power-off the machine</span><br><span class="line">-r --reboot    Reboot the machine</span><br><span class="line">-h             Equivalent to --poweroff, overridden by --halt</span><br><span class="line">-k             Don<span class="string">'t halt/power-off/reboot, just send warnings</span></span><br><span class="line"><span class="string">   --no-wall   Don'</span>t send wall message before halt/power-off/reboot</span><br><span class="line">-c             Cancel a pending shutdown</span><br></pre></td></tr></table></figure>
+
+<p>[-t] 在改变到其它runlevel之前，告诉init多久以后关机。 </p>
+<p>[-r] 重启计算器。</p>
+<p>[-k] 并不真正关机，只是送警告信号给每位登录者〔login〕。 </p>
+<p>[-h] 关机后关闭电源〔halt〕。 </p>
+<p>[-n] 不用init而是自己来关机。不鼓励使用这个选项，而且该选项所产生的后果往往不总是你所预期得到的。 </p>
+<p>[-c] cancel current process取消目前正在执行的关机程序。所以这个选项当然没有时间参数，但是可以输入一个用来解释的讯息，而这信息将会送到每位使用者。 </p>
+<p>[-f] 在重启计算器〔reboot〕时忽略fsck。 </p>
+<p>[-F] 在重启计算器〔reboot〕时强迫fsck。 </p>
+<p>[-time] 设定关机〔shutdown〕前的时间。 　　 　　<br>2.halt 最简单的关机命令</p>
+<p>用halt命令来关机时，实际调用的是shutdown -h。halt 执行时将杀死应用进程，执行sync系统调用文件系统写操作完成后就会停止内核。</p>
+<h3 id="2-halt-参数说明"><a href="#2-halt-参数说明" class="headerlink" title="2.halt 参数说明:"></a>2.halt 参数说明:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ halt --<span class="built_in">help</span></span><br><span class="line">halt [OPTIONS...]</span><br><span class="line"></span><br><span class="line">Halt the system.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --halt      Halt the machine</span><br><span class="line">  -p --poweroff  Switch off the machine</span><br><span class="line">     --reboot    Reboot the machine</span><br><span class="line">  -f --force     Force immediate halt/power-off/reboot</span><br><span class="line">  -w --wtmp-only Don<span class="string">'t halt/power-off/reboot, just write wtmp record</span></span><br><span class="line"><span class="string">  -d --no-wtmp   Don'</span>t write wtmp record</span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br></pre></td></tr></table></figure>
+
+<p>[-n] 防止sync系统调用，它用在用fsck修补根分区之后，以阻止内核用老版本的超级块〔superblock〕覆盖修补过的超级块。</p>
+<p>[-w] 并不是真正的重启或关机，只是写wtmp〔/var/log/wtmp〕纪录。 </p>
+<p>[-d] 不写wtmp纪录〔已包含在选项[-n]中〕。 </p>
+<p>[-f] 没有调用shutdown而强制关机或重启。 </p>
+<p>[-i] 关机〔或重启〕前关掉所有的网络接口。 </p>
+<p>[-p] 该选项为缺省选项。就是关机时调用poweroff。</p>
+<h3 id="3-poweroff-常用的关机命令"><a href="#3-poweroff-常用的关机命令" class="headerlink" title="3.poweroff 常用的关机命令"></a>3.poweroff 常用的关机命令</h3><p>对于poweroff，网上说它是halt命令的链接，基本用法和 halt 差不多，这里就不多说了。</p>
+<h3 id="4-init"><a href="#4-init" class="headerlink" title="4.init"></a>4.init</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ init --<span class="built_in">help</span></span><br><span class="line">init [OPTIONS...] &#123;COMMAND&#125;</span><br><span class="line"></span><br><span class="line">Send control commands to the init daemon.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Commands:</span></span><br><span class="line"><span class="string">  0              Power-off the machine</span></span><br><span class="line"><span class="string">  6              Reboot the machine</span></span><br><span class="line"><span class="string">  2, 3, 4, 5     Start runlevelX.target unit</span></span><br><span class="line"><span class="string">  1, s, S        Enter rescue mode</span></span><br><span class="line"><span class="string">  q, Q           Reload init daemon configuration</span></span><br><span class="line"><span class="string">  u, U           Reexecute init daemon</span></span><br></pre></td></tr></table></figure>
+
+<p>init是所有进程的祖先，他是Linux系统操作中不可缺少的程序之一。它的进程号始终为1，所以发送TERM信号给init会终止所有的用户进程，守护进程等。shutdown 就是使用这种机制。init定义了8个运行级别(runlevel)，init 0为关机，init 1为重启。</p>
+<h3 id="5-reboot-重启命令"><a href="#5-reboot-重启命令" class="headerlink" title="5.reboot 重启命令"></a>5.reboot 重启命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ reboot --<span class="built_in">help</span></span><br><span class="line">reboot [OPTIONS...] [ARG]</span><br><span class="line"></span><br><span class="line">Reboot the system.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --halt      Halt the machine</span><br><span class="line">  -p --poweroff  Switch off the machine</span><br><span class="line">     --reboot    Reboot the machine</span><br><span class="line">  -f --force     Force immediate halt/power-off/reboot</span><br><span class="line">  -w --wtmp-only Don<span class="string">'t halt/power-off/reboot, just write wtmp record</span></span><br><span class="line"><span class="string">  -d --no-wtmp   Don'</span>t write wtmp record</span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br></pre></td></tr></table></figure>
+
+<p>reboot的工作过程差不多跟halt一样。不过它是引发主机重启，而halt是关机。它的参数与halt相差不多。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/linux命令/" rel="tag"><i class="fa fa-tag"></i> linux命令</a>
+            
+              <a href="/tags/基础/" rel="tag"><i class="fa fa-tag"></i> 基础</a>
+            
+              <a href="/tags/关机重启/" rel="tag"><i class="fa fa-tag"></i> 关机重启</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/01/09/MySQL忘记root密码解决方法/" rel="next" title="MySQL忘记root密码解决方法">
+                  <i class="fa fa-chevron-left"></i> MySQL忘记root密码解决方法
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" rel="prev" title="linux命令之ubuntu查看系统信息">
+                  linux命令之ubuntu查看系统信息 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关机命令："><span class="nav-number">1.</span> <span class="nav-text">关机命令：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-shutdown-安全的关机命令"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.shutdown 安全的关机命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-halt-参数说明"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.halt 参数说明:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-poweroff-常用的关机命令"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.poweroff 常用的关机命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-init"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.init</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-reboot-重启命令"><span class="nav-number">1.0.5.</span> <span class="nav-text">5.reboot 重启命令</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="JackLu">
+  <p class="site-author-name" itemprop="name">JackLu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/IOTTS" title="GitHub &rarr; https://github.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:3574311659@qq.com" title="E-Mail &rarr; mailto:3574311659@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/IOTTS" title="Weibo &rarr; https://weibo.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://youtube.com/yourname" title="YouTube &rarr; https://youtube.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://shop567664910.taobao.com" title="https://shop567664910.taobao.com" rel="noopener" target="_blank">淘宝店</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackLu</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="虚短和虚断的概念由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端的电位越接近相等。 **  “虚短”是指在分析运算放大器处于线性状态时，可把两输入端视为等电位，这一特性称为虚假短路，简称虚短。显然不能将两">
+<meta name="keywords" content="电路设计,运放">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典电路之运算放大器基本电路">
+<meta property="og:url" content="http://iotts.top/2018/01/08/经典电路之运算放大器基本电路/index.html">
+<meta property="og:site_name" content="IOTTS">
+<meta property="og:description" content="虚短和虚断的概念由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端的电位越接近相等。 **  “虚短”是指在分析运算放大器处于线性状态时，可把两输入端视为等电位，这一特性称为虚假短路，简称虚短。显然不能将两">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/2058bef8c165b781f37ad61ddfea2273.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/30f445811662fd9bb5ede4e8a0bdfcff.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/305e521499284d03efea95e20be26542.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/5a50c7dc8d8cf952cea6b74ac514a3aa.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/328abf957180223f595872ad166f0973.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/1ecbce047b1868098b7b25aa82324113.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/57422ac64debc71a6ef231f3643096d8.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/71f69b4788c78b18c48dbdf9b34f9fdd.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/22579387c644bd80ccbc24ac4127edad.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/0d28d87b2927fcff4fe820c34d4c7b90.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/36e6042c7ef601d35393aee859d5399c.jpg">
+<meta property="og:updated_time" content="2018-01-23T08:17:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="经典电路之运算放大器基本电路">
+<meta name="twitter:description" content="虚短和虚断的概念由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端的电位越接近相等。 **  “虚短”是指在分析运算放大器处于线性状态时，可把两输入端视为等电位，这一特性称为虚假短路，简称虚短。显然不能将两">
+<meta name="twitter:image" content="http://uphotos.eepw.com.cn/jackwang/pics/2058bef8c165b781f37ad61ddfea2273.jpg">
+  <link rel="canonical" href="http://iotts.top/2018/01/08/经典电路之运算放大器基本电路/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>经典电路之运算放大器基本电路 | IOTTS</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IOTTS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-产品列表">
+      
+    
+
+    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>产品列表</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之运算放大器基本电路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">经典电路之运算放大器基本电路
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-23 16:17:48" itemprop="dateModified" datetime="2018-01-23T16:17:48+08:00">2018-01-23</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index"><span itemprop="name">经典电路</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="虚短和虚断的概念"><a href="#虚短和虚断的概念" class="headerlink" title="虚短和虚断的概念"></a>虚短和虚断的概念</h2><p>由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端的电位越接近相等。</p>
+<p>**  “虚短”是指在分析运算放大器处于线性状态时，可把两输入端视为等电位，这一特性称为虚假短路，简称虚短。显然不能将两输入端真正短路。 **</p>
+<p>由于运放的差模输入电阻很大，一般通用型运算放大器的输入电阻都在1MΩ以上。因此流入运放输入端的电流往往不足1uA，远小于输入端外电路的电流。故 通常可把运放的两输入端视为开路，且输入电阻越大，两输入端越接近开路。</p>
+<p>**  “虚断”是指在分析运放处于线性状态时，可以把两输入端视为等效开路，这一特性 称为虚假开路，简称虚断。显然不能将两输入端真正断路。 **</p>
+<p>在分析运放电路工作原理时，首先请各位暂时忘掉什么同向放大、反向放大，什么加法器、减法器，什么差动输入……暂时忘掉那些输入输出关系的公式……这些东东只会干扰你，让你更糊涂﹔也请各位暂时不要理会输入偏置电流、共模抑制比、失调电压等电路参数，这是设计者要考虑的事情。我们理解的就是理想放大器（其实在维修中和大多数设计过程中，把实际放大器当做理想放大器来分析也不会有问题）。</p>
+<p>##1.反向放大器</p>
+<p><img src="http://uphotos.eepw.com.cn/jackwang/pics/2058bef8c165b781f37ad61ddfea2273.jpg" alt="img"></p>
+<p>图一运放的同向端接地=0V，反向端和同向端虚短，所以也是0V，反向输入端输入电阻很高，虚断，几乎没有电流注入和流出，那么R1和R2相当于是串联的，流过一个串联电路中的每一只组件的电流是相同的，即流过R1的电流和流过R2的电流是相同的。<br>流过R1的电流</p>
+<p>$$I1 =\frac{V_i - V_-}{R1}$$</p>
+<p>流过R2的电流</p>
+<p>$$I2 =\frac{V_– Vout}{R2}$$</p>
+<p>由虚短得<br>$$V_- = V_+ = 0 $$<br>由虚断得<br>$$I1 = I2$$<br>求解上面的初中代数方程得<br>$$Vout = -\frac{R2}{R1} \cdot Vi $$<br>这就是传说中的反向放大器的输入输出关系式了。</p>
+<p>##2.正向放大器<br><img src="http://uphotos.eepw.com.cn/jackwang/pics/30f445811662fd9bb5ede4e8a0bdfcff.jpg" alt="img"><br>图二中Vi与V-虚短，则</p>
+<p>$$ V_i = V_-$$ </p>
+<p>因为虚断，反向输入端没有电流输入输出，通过R1和R2 的电流相等，设此电流为I，由欧姆定律得：<br>$$I = \frac{Vout}{R1+R2} $$<br>Vi等于R2上的分压， 即：<br>$$Vi = I\cdot R2$$<br>由上得<br>$$Vout=Vi\cdot \frac{R1+R2}{R2}$$<br>这就是传说中的同向放大器的公式了。</p>
+<p>##3.加法器</p>
+<p><img src="http://uphotos.eepw.com.cn/jackwang/pics/305e521499284d03efea95e20be26542.jpg" alt="img"><br>图三中，<br>由虚断及基尔霍夫定律知，通过R2与R1的电流之和等于通过R3的电流，故<br>$$\frac{V_1 – V_-}{R1} + \frac{V_2 – V_-}{R2} = \frac{ V_-–V_{out} }{R3} \cdot\cdot\cdot\cdot\cdot\cdot(1)$$<br>由虚短知：<br>$$V_- = V_+ = 0            \cdot\cdot\cdot\cdot\cdot\cdot(2)$$<br>代入(2)式，(1)式变为<br>$$\frac{V_1}{R1} + \frac{V_2}{R2} = \frac{ –V_{out} }{R3}$$<br>如果取$R1=R2=R3$，则上式变为<br>$$V_{out}=-(V_1+V_2)$$<br>这就是传说中的加法器了。</p>
+<p><img src="http://uphotos.eepw.com.cn/jackwang/pics/5a50c7dc8d8cf952cea6b74ac514a3aa.jpg" alt="img"></p>
+<p>由虚断知：运放同向端没有电流流过，则流过R1和R2的电流相等，同理流过R4和R3的电流也相等。故<br>$$\frac{V_1 – V_+}{R1} =\frac{V_+ - V_2}{R2}$$<br>$$\frac{V_{out} – V_-}{R3} = \frac{V_-}{R4}$$<br>由虚短知：$$ V_+ = V_-$$<br>如果 $$R1=R2，R3=R4$$，则由以上式子可以推导出<br>$$V_+ = (V1 + V2)/2$$<br>$$V_- = V_{out}/2 $$<br>故<br>$$ V_{out} = V_1 + V_2 $$<br>也是一个加法器！</p>
+<p>##4.减法器<br><img src="http://uphotos.eepw.com.cn/jackwang/pics/328abf957180223f595872ad166f0973.jpg" alt="img"><br>图五由虚断知，通过R1的电流等于通过R2的电流，同理通过R4的电流等于R3的电流，故有<br>$$(V_2 – V_+)/R1 = V_+/R2$$<br>$$(V_1 – V_-)/R4 = (V_- - V_{out})/R3 $$<br>如果$R1=R2$， 则<br>$$V_+ = V_2/2$$<br>如果$R3=R4$， 则<br>$$V_- = (V_{out} + V_1)/2$$<br>由虚短知 $$ V_+ = V_-$$<br>所以<br>$$V_{out}=V_2-V_1 $$<br>这就是传说中的减法器了。</p>
+<p>##5.积分电路<br><img src="http://uphotos.eepw.com.cn/jackwang/pics/1ecbce047b1868098b7b25aa82324113.jpg" alt="img"><br>图六电路中<br>由虚短知，反向输入端的电压与同向端相等<br>由虚断知，通过R1的电流与通过C1的电流相等。<br>通过R1的电流<br>$$i= \frac{V_1}{R_1}$$<br>通过C1的电流<br>$$i=C\cdot \frac{dU_c}{dt}=-C1\cdot \frac{dV_{out}}{dt} $$<br>所以<br>$$Vout=\frac{-1}{R1<em>C1}\cdot \int V_1dt$$<br>输出电压与输入电压对时间的积分成正比,这就是传说中的积分电路了。<br>若V1为恒定电压U，则上式变换为<br>$$Vout = -\frac{U</em>t}{R1*C1}$$<br>t 是时间，则Vout输出电压是一条从0至负电源电压按时间变化的直线。 </p>
+<p>##6.微分电路<br><img src="http://uphotos.eepw.com.cn/jackwang/pics/57422ac64debc71a6ef231f3643096d8.jpg" alt="img"><br>图七中<br>由虚断知，通过电容C1和电阻R2的电流是相等的<br>由虚短知，运放同向端与反向端电压是相等的。则：<br>$$V_{out} = -i \cdot R2 = -(R2*C1)\frac{dV_1}{dt}$$<br>这是一个微分电路。<br>如果V1是一个突然加入的直流电压，则输出Vout对应一个方向与V1相反的脉冲。</p>
+<p>##7.差分放大电路<br><img src="http://uphotos.eepw.com.cn/jackwang/pics/71f69b4788c78b18c48dbdf9b34f9fdd.jpg" alt="img"><br>图八.由虚短知<br>$$Vx = V1 \cdot\cdot\cdot\cdot\cdot\cdot(1)$$</p>
+<p>$$ Vy = V2 \cdot\cdot\cdot\cdot\cdot\cdot(2)$$<br>由虚断知，运放输入端没有电流流过，则R1、R2、R3可视为串联，通过每一个电阻的电流是相同的， 则电流<br>$$I=\frac{V_x-V_y}{R2} \cdot\cdot\cdot\cdot\cdot\cdot(3)$$<br>则：<br>$$V_{o1}-V_{o2}=I\cdot (R1+R2+R3) =\frac{(V_x-V_y)(R1+R2+R3)}{R2} \cdot\cdot\cdot\cdot\cdot\cdot(4)$$<br>由虚断知，流过R6与流过R7的电流相等,若$R6=R7$， 则<br>$$V_w = \frac{V_{o2}}2 \cdot\cdot\cdot\cdot\cdot\cdot(5)$$<br>同理若$R4=R5$，则<br>$$V_{out} – V_u = V_u – V_{o1} \cdot\cdot\cdot\cdot\cdot\cdot(6)$$<br>故<br>$$V_u = \frac{V_{out}+V_{o1}}2 \cdot\cdot\cdot\cdot\cdot\cdot(7)$$<br>由虚短知，<br>$$V_u = V_w \cdot\cdot\cdot\cdot\cdot\cdot(8)$$<br>由(5)(7)(8)得<br>$$ V_{out} = V_{o2} – V_{o1}\cdot\cdot\cdot\cdot\cdot\cdot(9)$$<br>由(4)(9)得 </p>
+<p>$$V_{out} = \frac{(V_y –V_x)(R1+R2+R3)}{R2}$$</p>
+<p>上式中 $\frac{R1+R2+R3}{R2}$是定值，此值确定了差值$(V_y –V_x)$的放大倍数。</p>
+<p>这个电路就是传说中的差分放大电路了。</p>
+<p>##8.电流采集电路<br><img src="http://uphotos.eepw.com.cn/jackwang/pics/22579387c644bd80ccbc24ac4127edad.jpg" alt="img"><br>分析一个大家接触得较多的电路。很多控制器接受来自各种检测仪表的0<del>20mA或4</del>20mA电流，电路将此电流转换成电压后再送ADC转换成数字信号，图九就是这样一个典型电路。如图4<del>20mA电流流过采样100Ω电阻R1，在R1上会产生0.4</del>2V的电压差。<br>由虚断知，运放输入端没有电流流过，则流过R3和R5的电流相等，流过R2和R4的电流相等。故：<br>$$\frac{V_2-V_y}{R3} =\frac{V_y}{R5} \cdot\cdot\cdot\cdot\cdot\cdot(1) $$</p>
+<p>$$\frac{V_1-V_x}{R2} =\frac{V_x-V_{out}}{R4} \cdot\cdot\cdot\cdot\cdot\cdot(2)$$<br>由虚短知：<br>$$ V_x = V_y \cdot\cdot\cdot\cdot\cdot\cdot(3) $$<br>电流从0~20mA变化，则<br>$$V_1 = V_2 + \Delta I\cdot R1 \cdot\cdot\cdot\cdot\cdot\cdot(4)$$<br>由(3)(4)式代入(2)式得</p>
+<p>$$\frac{V_2 + \Delta I\cdot R1-V_y}{R2} = \frac{V_y-V_{out}}{R4} \cdot\cdot\cdot\cdot\cdot\cdot(5) $$<br>如果R3=R2，R4=R5，则由(5)-(1)得<br>$$V_{out} = -\frac{\Delta I\cdot  R1\cdot R4}{R2} $$<br>图九中R4/R2=22k/10k=2.2，则f式Vout = -(0.88<del>4.4)V<br>即是说，将4</del>20mA电流转换成了-0.88 ~ -4.4V电压，此电压可以送ADC去处理。</p>
+<p>##9.恒流源电路<br><img src="http://uphotos.eepw.com.cn/jackwang/pics/0d28d87b2927fcff4fe820c34d4c7b90.jpg" alt="img"><br>电流可以转换成电压，电压也可以转换成电流。图十就是这样一个电路。上图的负反馈没有通过电阻直接反馈，而是串联了三极管Q1的发射结，大家可不要以为是一个比较器就是了。只要是放大电路，虚短虚断的规律仍然是符合的！<br>由虚断知，运放输入端没有电流流过，<br>则<br> $$ \frac{V_i – V_1}{R2} = \frac{V_1 – V_4}{R6}  \cdot\cdot\cdot\cdot\cdot\cdot(1)$$ </p>
+<p>同理<br>$$\frac{V_3 – V_2}{R5} =  \frac{V_2}{R4}    \cdot\cdot\cdot\cdot\cdot\cdot(2)  $$</p>
+<p>由虚短知   $ V1 = V2  \cdot\cdot\cdot\cdot\cdot\cdot(3)  $<br>如果  $ R2=R6，R4=R5 $，则由(1)(2)(3)式得<br>$$V_3-V_4=V_i $$<br>上式说明R7两端的电压和输入电压Vi相等，则通过R7的电流<br>$$I=V_i/R7$$<br>如果负载<strong>RL&lt;&lt;100KΩ</strong>，则通过Rl和通过R7的电流基本相同。</p>
+<p>##10.三线制PT100前置放大电路<br><img src="http://uphotos.eepw.com.cn/jackwang/pics/36e6042c7ef601d35393aee859d5399c.jpg" alt="img"><br>图十一是一个三线制PT100前置放大电路。<br>PT100传感器引出三根材质、线径、长度完全相同的线，接法如图所示。有2V的电压加在由R14、R20、R15、Z1、PT100及其线电阻组成的桥电路上。Z1、Z2、Z3、D11、D12、D83及各电容在电路中起滤波和保护作用，静态分析时可不予理会，Z1、Z2、Z3可视为短路，D11、D12、D83及各电容可视为开路。<br>由电阻分压知， V3=2<em>R20/(R14+20)=200/1100=2/11 ……a<br>由虚短知，U8B第6、7脚 电压和第5脚电压相等 V4=V3 ……b<br>由虚断知，U8A第2脚没有电流流过，则流过R18和R19上的电流相等。<br>(V2-V4)/R19=(V5-V2)/R18 ……c<br>由虚断知，U8A第3脚没有电流流过， V1=V7 ……d<br>在桥电路中R15和Z1、PT100及线电阻串联，PT100与线电阻串联分得的电压通过电阻R17加至U8A的第3脚， V7=2</em>(Rx+2R0)/(R15+Rx+2R0) …..e<br>由虚短知，U8A第3脚和第2脚电压相等， V1=V2 ……f<br>由abcdef得， (V5-V7)/100=(V7-V3)/2.2 化简得 V5=(102.2<em>V7-100V3)/2.2 即 V5=204.4(Rx+2R0)/(1000+Rx+2R0) – 200/11 ……g<br>上式输出电压V5是Rx的函数我们再看线电阻的影响。Pt100最下端线电阻上产生的电压降经过中间的线电阻、Z2、R22，加至U8C的第10脚，<br>由虚断知， V5=V8=V9=2</em>R0/(R15+Rx+2R0) ……a<br>(V6-V10)/R25=V10/R26 ……b<br>由虚短知， V10=V5 ……c<br>由式abc得 V6=(102.2/2.2)V5=204.4R0/[2.2(1000+Rx+2R0)] ……h<br>由式gh组成的方程组知，如果测出V5、V6的值，就可算出Rx及R0，知道Rx，查pt100分度表就知道温度的大小了。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/电路设计/" rel="tag"><i class="fa fa-tag"></i> 电路设计</a>
+            
+              <a href="/tags/运放/" rel="tag"><i class="fa fa-tag"></i> 运放</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/01/08/简单实用的双向电平转换电路/" rel="next" title="简单实用的双向电平转换电路">
+                  <i class="fa fa-chevron-left"></i> 简单实用的双向电平转换电路
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/01/08/经典电路之惠斯通电桥原理及应用/" rel="prev" title="经典电路之惠斯通电桥原理及应用">
+                  经典电路之惠斯通电桥原理及应用 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚短和虚断的概念"><span class="nav-number">1.</span> <span class="nav-text">虚短和虚断的概念</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="JackLu">
+  <p class="site-author-name" itemprop="name">JackLu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/IOTTS" title="GitHub &rarr; https://github.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:3574311659@qq.com" title="E-Mail &rarr; mailto:3574311659@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/IOTTS" title="Weibo &rarr; https://weibo.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://youtube.com/yourname" title="YouTube &rarr; https://youtube.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://shop567664910.taobao.com" title="https://shop567664910.taobao.com" rel="noopener" target="_blank">淘宝店</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackLu</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

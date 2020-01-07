@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="##简介 ###Orangepi PC 香橙派平板是一款开源的单板电脑，新一代的arm开发板,它可以运行Android4.4、Ubuntu、Debian等操作系统,兼容树莓派。香橙派平板使用全志H3系统级芯片，同时拥有1GB DDR3 内存，官方网站：http://www.orangepi.cn/orangepipc/index_cn.html   Orangepi PC是基于全志H3的开源开发板">
+<meta name="keywords" content="linux,OrangePi PC,嵌入式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[OrangePi]为OrangePi-PC编译Armbian系统">
+<meta property="og:url" content="http://iotts.top/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/index.html">
+<meta property="og:site_name" content="IOTTS">
+<meta property="og:description" content="##简介 ###Orangepi PC 香橙派平板是一款开源的单板电脑，新一代的arm开发板,它可以运行Android4.4、Ubuntu、Debian等操作系统,兼容树莓派。香橙派平板使用全志H3系统级芯片，同时拥有1GB DDR3 内存，官方网站：http://www.orangepi.cn/orangepipc/index_cn.html   Orangepi PC是基于全志H3的开源开发板">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://iotts.top/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/orangepipc_info_cn.jpg">
+<meta property="og:image" content="http://iotts.top/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/%E6%97%A0%E6%A0%87%E9%A2%982.png">
+<meta property="og:image" content="http://iotts.top/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/20160730144810d6.jpg">
+<meta property="og:image" content="http://iotts.top/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/%E6%97%A0%E6%A0%87%E9%A2%98.png">
+<meta property="og:image" content="http://iotts.top/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/%E6%97%A0%E6%A0%87%E9%A2%981.png">
+<meta property="og:updated_time" content="2018-01-20T14:36:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[OrangePi]为OrangePi-PC编译Armbian系统">
+<meta name="twitter:description" content="##简介 ###Orangepi PC 香橙派平板是一款开源的单板电脑，新一代的arm开发板,它可以运行Android4.4、Ubuntu、Debian等操作系统,兼容树莓派。香橙派平板使用全志H3系统级芯片，同时拥有1GB DDR3 内存，官方网站：http://www.orangepi.cn/orangepipc/index_cn.html   Orangepi PC是基于全志H3的开源开发板">
+<meta name="twitter:image" content="http://iotts.top/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/orangepipc_info_cn.jpg">
+  <link rel="canonical" href="http://iotts.top/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>[OrangePi]为OrangePi-PC编译Armbian系统 | IOTTS</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IOTTS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-产品列表">
+      
+    
+
+    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>产品列表</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">[OrangePi]为OrangePi-PC编译Armbian系统
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-20 22:34:39 / 修改时间：22:36:02" itemprop="dateCreated datePublished" datetime="2018-01-20T22:34:39+08:00">2018-01-20</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/OrangePi-PC/" itemprop="url" rel="index"><span itemprop="name">OrangePi PC</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>##简介</p>
+<p>###Orangepi PC</p>
+<p>香橙派平板是一款开源的单板电脑，新一代的arm开发板,它可以运行Android4.4、Ubuntu、Debian等操作系统,兼容树莓派。香橙派平板使用全志H3系统级芯片，同时拥有1GB DDR3 内存，官方网站：<a href="http://www.orangepi.cn/orangepipc/index_cn.html" target="_blank" rel="noopener">http://www.orangepi.cn/orangepipc/index_cn.html</a></p>
+<p><img src="orangepipc_info_cn.jpg" alt="orangepipc_info_cn"></p>
+<p> <img src="%E6%97%A0%E6%A0%87%E9%A2%982.png" alt="无标题2"><br>Orangepi PC是基于全志H3的开源开发板，全志H3主要用于机顶盒产品，具体参数：</p>
+<p> <img src="20160730144810d6.jpg" alt="20160730144810d6"></p>
+<p> <img src="%E6%97%A0%E6%A0%87%E9%A2%98.png" alt="无标题"></p>
+<p> <img src="%E6%97%A0%E6%A0%87%E9%A2%981.png" alt="无标题1"></p>
+<p>###Armbian系统<br>Armbian是轻量级的Debian系统和为ARM开发板专门发行并重新编译的Ubuntu系统。关于armbian系统具体介绍可以查看网站<a href="https://www.armbian.com/" target="_blank" rel="noopener">https://www.armbian.com/</a></p>
+<p><strong>主要特点：</strong></p>
+<ul>
+<li>Armbian使用重新编译的Debian Wheezy，Jessie或Ubuntu，它们可靠性极佳。</li>
+<li>安装映像降低到实际的数据大小。</li>
+<li>root密码是1234。第一次登陆时你会被提示更改密码并创建登录用户。</li>
+<li>第一次启动需要较长时间（可能长达几分钟）比正常启动（20S）要慢。因为它需要更新软件包列表，获取SSH密钥和扩展系统以适应你的SD卡分区，而且它可能会自动重新启动一次。</li>
+<li>可以切换内核以适应其它系统。[1] </li>
+<li>桌面环境可以升级准备。</li>
+<li>NAND，SATA，eMMC和USB安装包含脚本（NAND SATA安装）。</li>
+<li>串行控制台启用。</li>
+<li>启用自动安全更新下载的系统。升级也可以通过apt-get等方法。</li>
+</ul>
+<p><strong>支持的芯片</strong></p>
+<p>全志 A10, A20, A31, H3, A64<br>Amlogic S805<br>Amlogic S905<br>Actionsemi S500<br>飞思卡尔/ NXP iMx6<br>Marvell Armada A380<br>三星Exynos 5422<br>RK3288</p>
+<p><strong>支持的ARM板</strong></p>
+<p>Beelink X2,<br>Orange Pi PC plus, Orange Pi Plus 2E, Orange Pi Lite, Orange Pi 2,Orange Pi One, Orange Pi PC, Orange Pi Plus 1 &amp; 2,<br>Orange Pi A20,Orange Pi mini A20,Orange Pi A31S,<br>Roseapple Pi,<br>NanoPi M1,<br>pcDuino2, pcDuino3, pcDuino3 nano,<br>Odroid C0/C1/C1+, Odroid C2,Odroid XU4,<br>Banana Pi M2+,Banana Pi, Banana Pi M2,Banana Pi PRO,Banana Pi Plus A20,<br>Hummingboard,Hummingboard 2,<br>Clearfog,<br>Lemaker Guitar,<br>Udoo Neo,<br>Cubieboard 1, Cubieboard 2,<br>Lamobo R1,<br>Olimex Lime A10, Olimex Micro, Olimex Lime 2, Olimex Lime 1,<br>Udoo quad,<br>Cubox-i,<br>Cubietruck</p>
+<p>##编译环境</p>
+<ul>
+<li>Ubuntu 16.04 LTS 64位</li>
+<li>orangepi pc开发板</li>
+</ul>
+<p>##下载源码</p>
+<p>源码下载地址：<a href="https://github.com/armbian/build" target="_blank" rel="noopener">https://github.com/armbian/build</a></p>
+<p>编译系统过程还是比较简单的</p>
+<p>(1) 搭建开发环境</p>
+<p>编译环境我用的是虚拟机安装的Ubuntu 16.04 64位的系统，新建虚拟机时硬盘空间要足够大，否则编译过程会被中断。我为Ubuntu分配了100G空间,当然物理硬盘占用不会达到100G，主要是为以后编译其他系统留点空间</p>
+<p>官方提供的编译环境说明</p>
+<p>Supported build environments:</p>
+<ul>
+<li>Ubuntu Xenial 16.04 x64 guest inside a VirtualBox or other virtualization software,</li>
+<li>Ubuntu Xenial 16.04 x64 guest managed by Vagrant. This uses Virtualbox (as above) but does so in an easily repeatable way. Please check the Armbian with Vagrant README for a quick start HOWTO,</li>
+<li>Ubuntu Xenial 16.04 x64 inside a Docker, systemd-nspawn or other container environment (example). Building full OS images inside containers may not work, so this option is mostly for the kernel compilation,</li>
+<li>Ubuntu Xenial 16.04 x64 running natively on a dedicated PC or a server (not recommended unless you build kernel only, for full OS images always use virtualization as outlined above),</li>
+<li>20GB disk space or more and 2GB RAM or more available for the VM, container or native OS,</li>
+<li>superuser rights (configured sudo or root access).</li>
+</ul>
+<p>(2) 开始编译<br>这里要注意的是网络得通畅，编译过程中会下载一下工具和源码包，一般编译下来没什么问题。我们先编译内核再编译整个系统，编译时使用root用户或者sudo</p>
+<p>Execution</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install git</span><br><span class="line">git clone https://github.com/armbian/build</span><br><span class="line">cd build</span><br><span class="line">./compile.sh</span><br></pre></td></tr></table></figure>
+
+<p>Make sure that full path to the build script does not contain spaces.<br>检查所有路径不包含空格<br>You will be prompted with a selection menu for a build option, a board name, a kernel branch and an OS release. Please check the documentation for advanced options and additional customization.<br>编译过程中会有编译选项选择，板子的名称，内核和系统版本。请查看高级选项和额外定制的文档。<br>Build process uses caching for the compilation and the debootstrap process, so consecutive runs with similar settings will be much faster.</p>
+<p><strong>具体步骤：</strong></p>
+<p>(1)首先安装git,Ctrl+Alt+T打开终端输入下面的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install git</span><br></pre></td></tr></table></figure>
+
+<p> 检查git版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<p>![2018-01-20 21-40-09屏幕截图](2018-01-20 21-40-09屏幕截图.png)</p>
+<p>(2)下载源码，在终端中输入下面的命令</p>
+<p>源码可以放在自己习惯的文件夹下，下面是我的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/iotts/</span><br><span class="line">mkdir armbian</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/armbian/build</span><br></pre></td></tr></table></figure>
+
+<p>(3)开始编译，在终端中输入下面的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">./compile.sh</span><br></pre></td></tr></table></figure>
+
+<p>![2018-01-20 21-31-30屏幕截图](2018-01-20 21-31-30屏幕截图.png)</p>
+<p> ![2018-01-20 21-32-37屏幕截图](2018-01-20 21-32-37屏幕截图.png)</p>
+<p> 安装编译工具完成后会进入配置编译配置界面![2018-01-20 21-51-53屏幕截图](2018-01-20 21-51-53屏幕截图.png)</p>
+<p>![2018-01-20 21-52-04屏幕截图](2018-01-20 21-52-04屏幕截图.png)</p>
+<p>![2018-01-20 21-52-24屏幕截图](2018-01-20 21-52-24屏幕截图.png) </p>
+<p>我们选择第二项</p>
+<p>![2018-01-20 21-52-51屏幕截图](2018-01-20 21-52-51屏幕截图.png)</p>
+<p>确定以后就开始编译内核了，编译整个系统的步骤基本类似，选择下图中的第二项</p>
+<p>![2018-01-20 21-51-53屏幕截图](2018-01-20 21-51-53屏幕截图.png)</p>
+<p>来一张编译完成的图，电脑有点慢编译时间有点长</p>
+<p>![2018-01-20 16-18-17屏幕截图](2018-01-20 16-18-17屏幕截图.png)</p>
+<p>以上就是自编译armbian系统的具体步骤</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+            
+              <a href="/tags/OrangePi-PC/" rel="tag"><i class="fa fa-tag"></i> OrangePi PC</a>
+            
+              <a href="/tags/嵌入式/" rel="tag"><i class="fa fa-tag"></i> 嵌入式</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/01/17/通信-R232转RS485的通讯电路/" rel="next" title="[通信]R232转RS485的通讯电路">
+                  <i class="fa fa-chevron-left"></i> [通信]R232转RS485的通讯电路
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/04/17/AD画原理图库时将一个元件拆分为多部分/" rel="prev" title="AD画原理图库时将一个元件拆分为多部分">
+                  AD画原理图库时将一个元件拆分为多部分 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="JackLu">
+  <p class="site-author-name" itemprop="name">JackLu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/IOTTS" title="GitHub &rarr; https://github.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:3574311659@qq.com" title="E-Mail &rarr; mailto:3574311659@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/IOTTS" title="Weibo &rarr; https://weibo.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://youtube.com/yourname" title="YouTube &rarr; https://youtube.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://shop567664910.taobao.com" title="https://shop567664910.taobao.com" rel="noopener" target="_blank">淘宝店</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackLu</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

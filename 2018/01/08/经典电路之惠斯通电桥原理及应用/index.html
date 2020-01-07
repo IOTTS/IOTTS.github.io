@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="1. 电阻桥定义解释   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。      在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通">
+<meta name="keywords" content="电路设计,电阻测量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典电路之惠斯通电桥原理及应用">
+<meta property="og:url" content="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/index.html">
+<meta property="og:site_name" content="IOTTS">
+<meta property="og:description" content="1. 电阻桥定义解释   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。      在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/110945pzcuhva3gm2cpncy.jpg">
+<meta property="og:image" content="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/fig1.png">
+<meta property="og:updated_time" content="2018-01-08T13:00:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="经典电路之惠斯通电桥原理及应用">
+<meta name="twitter:description" content="1. 电阻桥定义解释   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。      在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通">
+<meta name="twitter:image" content="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/110945pzcuhva3gm2cpncy.jpg">
+  <link rel="canonical" href="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>经典电路之惠斯通电桥原理及应用 | IOTTS</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IOTTS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-产品列表">
+      
+    
+
+    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>产品列表</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">经典电路之惠斯通电桥原理及应用
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 18:09:04 / 修改时间：21:00:32" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index"><span itemprop="name">经典电路</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-电阻桥定义解释"><a href="#1-电阻桥定义解释" class="headerlink" title="1. 电阻桥定义解释"></a>1. 电阻桥定义解释</h2><p>   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。</p>
+<p> <img src="110945pzcuhva3gm2cpncy.jpg" alt="110945pzcuhva3gm2cpncy"></p>
+<p>   在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通过采集电压的变化就可以知道环境中物理量的变化，而从实现测量的目的。下面举例介绍电桥电路的计算方式。</p>
+<h2 id="2-电阻桥相关计算"><a href="#2-电阻桥相关计算" class="headerlink" title="2. 电阻桥相关计算"></a>2. 电阻桥相关计算</h2><p>   假设流过R1，R2桥臂的电流为I1，流过R3，Rx桥臂的电流为I2，电桥供电电压为VCC，如下图所示。<br><img src="fig1.png" alt="fig1"><br>   通过欧姆定律可以计算出每个电阻两端的电压。在R1和R2这两个桥臂上，R1，R2将VCC电压分压，R2电阻两端得到的电压即为V1；在R3和Rx这个桥臂上，R3，Rx将VCC电压分压，R3电阻两端得到的电压即为V2。下面分别用欧姆定律计算V1和V2。</p>
+<p>   流过电阻R1和R2的电流I1:<br>$$\ I1=\frac{VCC}{R1+R2}$$</p>
+<p>   R2两端的电压V1：<br>$$\ V1=I1\cdot R2=VCC\cdot\frac{R2}{R1+R2}$$<br>   流过电阻R3和Rx的电流I2:<br>$$\ I2=\frac{VCC}{R3+Rx}$$<br>   R3两端的电压：<br>$$\ V2=I2\cdot R3=VCC\cdot\frac{R3}{R3+Rx}$$<br>   V1和V2的电压差：<br>$$\Delta V=V1-V2=VCC\cdot(\frac{R2}{R1+R2}-\frac{R3}{R3+Rx})$$<br>进一步计算得到：<br>$$\Delta V=VCC\cdot(\frac{R2\cdot Rx-R3\cdot R1}{(R1+R2)(R3+Rx)})$$<br>由此可以看出：<br>如果4个电阻都相等，即R1=R2=R3=Rx，那么ΔV=0，即电桥处于平衡状态；　Rx发生变化会导致△V发生变化；</p>
+<h2 id="3-电阻桥的应用"><a href="#3-电阻桥的应用" class="headerlink" title="3.电阻桥的应用"></a>3.电阻桥的应用</h2><p>   在实际使用中，我们通常将其中三个电阻值固定，而将另外一个电阻换成热敏电阻、压敏电阻、PT100等，这时候就可以用电桥来测物理量了。如果将PT100接入电桥，随着环境温度的变化，PT100的阻值发生变化导致ΔV发生变化，将差分电压ΔV通过差分运放放大后进入单片机的AD采样，再对照PT100的电阻-温度对应表就可以知道当前环境的温度了。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/电路设计/" rel="tag"><i class="fa fa-tag"></i> 电路设计</a>
+            
+              <a href="/tags/电阻测量/" rel="tag"><i class="fa fa-tag"></i> 电阻测量</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/01/08/经典电路之运算放大器基本电路/" rel="next" title="经典电路之运算放大器基本电路">
+                  <i class="fa fa-chevron-left"></i> 经典电路之运算放大器基本电路
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/01/08/经典电路之减法器/" rel="prev" title="经典电路之减法器">
+                  经典电路之减法器 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-电阻桥定义解释"><span class="nav-number">1.</span> <span class="nav-text">1. 电阻桥定义解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-电阻桥相关计算"><span class="nav-number">2.</span> <span class="nav-text">2. 电阻桥相关计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-电阻桥的应用"><span class="nav-number">3.</span> <span class="nav-text">3.电阻桥的应用</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="JackLu">
+  <p class="site-author-name" itemprop="name">JackLu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/IOTTS" title="GitHub &rarr; https://github.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:3574311659@qq.com" title="E-Mail &rarr; mailto:3574311659@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/IOTTS" title="Weibo &rarr; https://weibo.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://youtube.com/yourname" title="YouTube &rarr; https://youtube.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://shop567664910.taobao.com" title="https://shop567664910.taobao.com" rel="noopener" target="_blank">淘宝店</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackLu</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
