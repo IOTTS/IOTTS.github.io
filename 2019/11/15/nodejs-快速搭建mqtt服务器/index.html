@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="前言：JavaScript在MQTT架构中常用的架构这里我们只实现了broker和client之间的关系,之后的文章会建立一个管理平台 下载nodejs下载地址：http://nodejs.cn/download/这里我下载的是windows的64位msi，下载好直接安装就行了，直接下一步直到完成。安装mqtt.js模块这一步非常简单，在你心仪的那个文件夹下打开cmd窗口然后输入1npm inst">
+  <meta name="description" content="前言：实现MQTT服务器及客户端的方法有很多种，今天我们学习一下怎么使用nodejs实现mqtt协议，这里我们主要使用两个工具mosca和mqtt.js首先需要了解一下mosca和mqtt.js的关系，下面这张图能清晰的解释如何通过mqtt协议进行交互通信  1.下载nodejs下载地址：http://nodejs.cn/download/根据需要下载合适的自己平台的软件这里我下载的是window">
 <meta name="keywords" content="MQTT,nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nodejs-快速搭建mqtt服务器">
 <meta property="og:url" content="http://iotts.top/2019/11/15/nodejs-快速搭建mqtt服务器/index.html">
 <meta property="og:site_name" content="IOTTS">
-<meta property="og:description" content="前言：JavaScript在MQTT架构中常用的架构这里我们只实现了broker和client之间的关系,之后的文章会建立一个管理平台 下载nodejs下载地址：http://nodejs.cn/download/这里我下载的是windows的64位msi，下载好直接安装就行了，直接下一步直到完成。安装mqtt.js模块这一步非常简单，在你心仪的那个文件夹下打开cmd窗口然后输入1npm inst">
+<meta property="og:description" content="前言：实现MQTT服务器及客户端的方法有很多种，今天我们学习一下怎么使用nodejs实现mqtt协议，这里我们主要使用两个工具mosca和mqtt.js首先需要了解一下mosca和mqtt.js的关系，下面这张图能清晰的解释如何通过mqtt协议进行交互通信  1.下载nodejs下载地址：http://nodejs.cn/download/根据需要下载合适的自己平台的软件这里我下载的是window">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://iotts.top/2019/11/15/nodejs-快速搭建mqtt服务器/mqtt.png">
-<meta property="og:updated_time" content="2020-02-24T12:13:30.494Z">
+<meta property="og:updated_time" content="2020-02-24T12:34:35.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nodejs-快速搭建mqtt服务器">
-<meta name="twitter:description" content="前言：JavaScript在MQTT架构中常用的架构这里我们只实现了broker和client之间的关系,之后的文章会建立一个管理平台 下载nodejs下载地址：http://nodejs.cn/download/这里我下载的是windows的64位msi，下载好直接安装就行了，直接下一步直到完成。安装mqtt.js模块这一步非常简单，在你心仪的那个文件夹下打开cmd窗口然后输入1npm inst">
+<meta name="twitter:description" content="前言：实现MQTT服务器及客户端的方法有很多种，今天我们学习一下怎么使用nodejs实现mqtt协议，这里我们主要使用两个工具mosca和mqtt.js首先需要了解一下mosca和mqtt.js的关系，下面这张图能清晰的解释如何通过mqtt协议进行交互通信  1.下载nodejs下载地址：http://nodejs.cn/download/根据需要下载合适的自己平台的软件这里我下载的是window">
 <meta name="twitter:image" content="http://iotts.top/2019/11/15/nodejs-快速搭建mqtt服务器/mqtt.png">
   <link rel="canonical" href="http://iotts.top/2019/11/15/nodejs-快速搭建mqtt服务器/">
 
@@ -281,7 +281,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-24 20:13:30" itemprop="dateModified" datetime="2020-02-24T20:13:30+08:00">2020-02-24</time>
+                <time title="修改时间：2020-02-24 20:34:35" itemprop="dateModified" datetime="2020-02-24T20:34:35+08:00">2020-02-24</time>
               </span>
             
           
@@ -310,13 +310,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>前言：JavaScript在MQTT架构中常用的架构<br>这里我们只实现了broker和client之间的关系,之后的文章会建立一个管理平台</p>
-<p><img src="mqtt.png" alt="mqtt.png"><br>下载nodejs<br>下载地址：<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a><br>这里我下载的是windows的64位msi，下载好直接安装就行了，直接下一步直到完成。<br>安装mqtt.js模块<br>这一步非常简单，在你心仪的那个文件夹下打开cmd窗口然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mqtt --save命令即可。</span><br></pre></td></tr></table></figure></p>
+        <p>前言：<br>实现MQTT服务器及客户端的方法有很多种，今天我们学习一下怎么使用nodejs实现mqtt协议，这里我们主要使用两个工具mosca和mqtt.js<br>首先需要了解一下mosca和mqtt.js的关系，下面这张图能清晰的解释如何通过mqtt协议进行交互通信</p>
+<p><img src="mqtt.png" alt="mqtt.png"></p>
+<h2 id="1-下载nodejs"><a href="#1-下载nodejs" class="headerlink" title="1.下载nodejs"></a>1.下载nodejs</h2><p>下载地址：<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a><br>根据需要下载合适的自己平台的软件<br>这里我下载的是windows的64位msi，下载好直接安装就行了，直接下一步直到完成。</p>
+<h2 id="2-安装mqtt-js模块"><a href="#2-安装mqtt-js模块" class="headerlink" title="2.安装mqtt.js模块"></a>2.安装mqtt.js模块</h2><p>这一步非常简单，在你心仪的那个文件夹下打开cmd窗口然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mqtt --save命令即可。</span><br></pre></td></tr></table></figure></p>
 <p>安装好会出现如下图红圈内的文件夹及文件</p>
 <a id="more"></a>
 <p>创建一个客户端进行测试<br>在刚刚安装mqtt.js文件夹下创建一个mqtt-test.js文件，然后键入以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var mqtt = require(&apos;mqtt&apos;)</span><br><span class="line">var client  = mqtt.connect(&apos;mqtt://test.mosquitto.org&apos;)</span><br><span class="line"></span><br><span class="line">client.on(&apos;connect&apos;, function () &#123;</span><br><span class="line">  client.subscribe(&apos;presence&apos;)</span><br><span class="line">  client.publish(&apos;presence&apos;, &apos;Hello mqtt&apos;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">client.on(&apos;message&apos;, function (topic, message) &#123;</span><br><span class="line">  // message is Buffer</span><br><span class="line">  console.log(message.toString())</span><br><span class="line">  client.end()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>然后在此文件夹下打开cmd输入node mqtt-test.js就会出现如下图所示结果</p>
-<p>测试结果.png<br>这样就说明你的mqtt模块就建立好了，但这仅限于客户端的使用为了使我们更方便的使用我们将在本地搭建一个服务器<br>下面来说说如何建立服务端<br>安装mosca（和上面安装mqtt.js一样）<br>打开cmd然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mosca --save</span><br></pre></td></tr></table></figure></p>
+<p>测试结果.png<br>这样就说明你的mqtt模块就建立好了，但这仅限于客户端的使用为了使我们更方便的使用我们将在本地搭建一个服务器</p>
+<h2 id="3-安装mosca"><a href="#3-安装mosca" class="headerlink" title="3.安装mosca"></a>3.安装mosca</h2><p>下面来说说如何建立服务端<br>安装mosca（和上面安装mqtt.js一样）<br>打开cmd然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mosca --save</span><br></pre></td></tr></table></figure></p>
 <p>创建mqtt-server.js文件<br>代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">var mosca = require(&apos;mosca&apos;);</span><br><span class="line"></span><br><span class="line">var ascoltatore = &#123;</span><br><span class="line">  //using ascoltatore</span><br><span class="line">  //type: &apos;mongo&apos;,</span><br><span class="line">  //url: &apos;mongodb://localhost:27017/mqtt&apos;,</span><br><span class="line">  //pubsubCollection: &apos;ascoltatori&apos;,</span><br><span class="line">  //mongo: &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var settings = &#123;</span><br><span class="line">  port: 1883,</span><br><span class="line">  http: &#123;</span><br><span class="line">    port: 3000,</span><br><span class="line">    bundle: true,</span><br><span class="line">    static: &apos;./&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var server = new mosca.Server(settings);</span><br><span class="line"></span><br><span class="line">server.on(&apos;clientConnected&apos;, function(client) &#123;</span><br><span class="line">    console.log(&apos;client connected&apos;, client.id);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// fired when a message is received</span><br><span class="line">server.on(&apos;published&apos;, function(packet, client) &#123;</span><br><span class="line">  console.log(&apos;Published&apos;, packet.payload);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.on(&apos;ready&apos;, setup);</span><br><span class="line"></span><br><span class="line">// fired when the mqtt server is ready</span><br><span class="line">function setup() &#123;</span><br><span class="line">  console.log(&apos;Mosca server is up and running&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>然后在此文件夹下打开cmd 输入node mqtt-server.js<br>若显示下图所示，则说明本地mqtt服务端搭建完成</p>
 <p>服务端的搭建.png<br>链接自己的mqtt服务端<br>将mqtt-test.js中的mqtt://test.mosquitto.org改为mqtt://127.0.0.1即可<br>然后打开两个终端<br>一个是运行服务端的<br>另一个运行客户端<br>首先运行服务端，然后在运行客户端，若出现下图所示</p>
@@ -418,6 +421,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-下载nodejs"><span class="nav-number">1.</span> <span class="nav-text">1.下载nodejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装mqtt-js模块"><span class="nav-number">2.</span> <span class="nav-text">2.安装mqtt.js模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-安装mosca"><span class="nav-number">3.</span> <span class="nav-text">3.安装mosca</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
