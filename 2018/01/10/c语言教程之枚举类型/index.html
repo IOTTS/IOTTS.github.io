@@ -1,651 +1,992 @@
-<!DOCTYPE html>
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
-
-<link rel="stylesheet" href="/css/main.css?v=7.4.0">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
-
-  <meta name="description" content="原文链接注：以下全部代码的执行环境为VC++ 6.0 在程序中，可能需要为某些整数定义一个别名，我们可以利用预处理指令#define来完成这项工作，您的代码可能是： 1234567#define MON  1#define TUE   2#define WED  3#define THU   4#define FRI    5#define SAT   6#define SUN   7 在此，我们">
-<meta name="keywords" content="C语言,枚举">
-<meta property="og:type" content="article">
-<meta property="og:title" content="c语言教程之枚举类型">
-<meta property="og:url" content="http://iotts.top/2018/01/10/c语言教程之枚举类型/index.html">
-<meta property="og:site_name" content="IOTTS">
-<meta property="og:description" content="原文链接注：以下全部代码的执行环境为VC++ 6.0 在程序中，可能需要为某些整数定义一个别名，我们可以利用预处理指令#define来完成这项工作，您的代码可能是： 1234567#define MON  1#define TUE   2#define WED  3#define THU   4#define FRI    5#define SAT   6#define SUN   7 在此，我们">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-10T09:13:02.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c语言教程之枚举类型">
-<meta name="twitter:description" content="原文链接注：以下全部代码的执行环境为VC++ 6.0 在程序中，可能需要为某些整数定义一个别名，我们可以利用预处理指令#define来完成这项工作，您的代码可能是： 1234567#define MON  1#define TUE   2#define WED  3#define THU   4#define FRI    5#define SAT   6#define SUN   7 在此，我们">
-  <link rel="canonical" href="http://iotts.top/2018/01/10/c语言教程之枚举类型/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
-  };
-</script>
-
-  <title>c语言教程之枚举类型 | IOTTS</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
+  <title>c语言教程之枚举类型IOTTS</title>
+  <link rel="shortcut icon" href="/images/">
+  
+    
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/atom-one-dark.css">
+    
+      <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    
+      <link rel="stylesheet" href="/css/nprogress.min.css">
+    
+      <link rel="stylesheet" href="/css/valine.css">
+    
+      <link rel="stylesheet" href="/css/life.css">
+    
   
 
+  
 
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  
+  
+  
+    <script src="/js/jquery-2.2.4.min.js"></script>
+  
+    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
+  
+    <script src="/js/jquery.pjax.js"></script>
+  
+    <script src="/js/nprogress.min.js"></script>
+  
+    <script src="/js/tether.min.js"></script>
+  
+    <script src="/js/bootstrap.min.js"></script>
+  
+    <script src="/js/highlight.min.js"></script>
+  
+    <script src="/js/highlightjs-line-numbers.min.js"></script>
+  
+    <script src="/js/jquery.fancybox.js"></script>
+  
+    <script src="/js/jquery.qrcode.min.js"></script>
+  
+    <script src="/js/Valine.min.js"></script>
+  
+  
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">IOTTS</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
-        <li class="menu-item menu-item-home">
-      
+<body>
+<script>AV.init({appId:'',appKey:''});</script>
+<script type="text/javascript">
+      var config = {
+            ClasS: 'Counter',
+            el:'.views',
+            elP: '.views-post'
+      }
+</script>
+<div class="container">
+    <div class="row blog-box-shadow">
+        <!--博客主栏开始-->
+        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
+            <header class="blog-header">
+                <a href="http://iotts.top" class="blog-header-mobile-title">IOTTS</a>
+                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
+                <nav class="blog-header-navbar blog-header-fixed">
+                    <ul class="blog-navbar-links">
+                        
+                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/wiki/" class="transition">产品</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/opensource/" class="transition">开源程序</a></li>
+                        
+                        <div class="blog-navbar-right">
+                            <form action>
+                                <div class="input-group">
+                                    <input type="text" class="blog-header-search" placeholder="search...">
+                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
+                                </div>
+                            </form>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+                
+<header class="blog-post-page-title">
+    <h4>c语言教程之枚举类型</h4>
+    <time datetime="2018-01-10T08:53:23.000Z"><i class="fa fa-clock-o"></i>2018-01-10</time>
     
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-about">
-      
     
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tags">
-      
     
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-categories">
-      
     
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-产品列表">
-      
+	
+        <span><i class="fa fa-folder-o"></i>
+    		
+    	       <a href="/categories/C语言/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">C语言</a>
+    		
+    	       <a href="/categories/C语言/C语言教程/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">C语言教程</a>
+    		
+        </span>
+	
     
-
-    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>产品列表</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-开源项目">
-      
-    
-
-    <a href="/opensource/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>开源项目</a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
+</header>
+<div class="blog-main-post blog-post-page-box">
+    <article class="blog-post-block blog-post-page-content">
+        <section>
             
-
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-      <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/10/c语言教程之枚举类型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">c语言教程之枚举类型
-
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-10 16:53:23 / 修改时间：17:13:02" itemprop="dateCreated datePublished" datetime="2018-01-10T16:53:23+08:00">2018-01-10</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/C语言教程/" itemprop="url" rel="index"><span itemprop="name">C语言教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p><a href="https://www.cnblogs.com/JCSU/articles/1299051.html" target="_blank" rel="noopener">原文链接</a><br>注：以下全部代码的执行环境为VC++ 6.0</p>
+                <p><a href="https://www.cnblogs.com/JCSU/articles/1299051.html" target="_blank" rel="noopener">原文链接</a><br>注：以下全部代码的执行环境为VC++ 6.0</p>
 <p>在程序中，可能需要为某些整数定义一个别名，我们可以利用预处理指令#define来完成这项工作，您的代码可能是：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#define MON  1</span></span><br><span class="line"><span class="comment">#define TUE   2</span></span><br><span class="line"><span class="comment">#define WED  3</span></span><br><span class="line"><span class="comment">#define THU   4</span></span><br><span class="line"><span class="comment">#define FRI    5</span></span><br><span class="line"><span class="comment">#define SAT   6</span></span><br><span class="line"><span class="comment">#define SUN   7</span></span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">#define MON  1
+#define TUE   2
+#define WED  3
+#define THU   4
+#define FRI    5
+#define SAT   6
+#define SUN   7
+</code></pre>
 <p>在此，我们定义一种新的数据类型，希望它能完成同样的工作。这种新的数据类型叫枚举型。</p>
-<h2 id="1-定义一种新的数据类型-枚举型"><a href="#1-定义一种新的数据类型-枚举型" class="headerlink" title="1. 定义一种新的数据类型 - 枚举型"></a>1. 定义一种新的数据类型 - 枚举型</h2><p> 以下代码定义了这种新的数据类型 - 枚举型<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-定义一种新的数据类型-枚举型"><a href="#1-定义一种新的数据类型-枚举型" class="headerlink" title="1. 定义一种新的数据类型 - 枚举型"></a>1. 定义一种新的数据类型 - 枚举型</h2><p> 以下代码定义了这种新的数据类型 - 枚举型</p>
+<pre><code class="lang-bash">enum DAY
+{
+      MON=1, TUE, WED, THU, FRI, SAT, SUN
+};
+</code></pre>
 <p>(1) 枚举型是一个集合，集合中的元素(枚举成员)是一些命名的整型常量，元素之间用逗号,隔开。</p>
 <p>(2) DAY是一个标识符，可以看成这个集合的名字，是一个可选项，即是可有可无的项。</p>
 <p>(3) 第一个枚举成员的默认值为整型的0，后续枚举成员的值在前一个成员上加1。</p>
 <p>(4) 可以人为设定枚举成员的值，从而自定义某个范围内的整数。</p>
 <p>(5) 枚举型是预处理指令#define的替代。</p>
 <p>(6) 类型定义以分号;结束。</p>
-<h2 id="2-使用枚举类型对变量进行声明"><a href="#2-使用枚举类型对变量进行声明" class="headerlink" title="2. 使用枚举类型对变量进行声明"></a>2. 使用枚举类型对变量进行声明</h2><p>新的数据类型定义完成后，它就可以使用了。我们已经见过最基本的数据类型，如：整型int, 单精度浮点型float, 双精度浮点型double, 字符型char, 短整型short等等。用这些基本数据类型声明变量通常是这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">char     a; //变量a的类型均为字符型char</span><br><span class="line">char     letter;</span><br><span class="line">int        x,</span><br><span class="line">           y,</span><br><span class="line">           z; //变量x,y和z的类型均为整型int</span><br><span class="line">int       number;</span><br><span class="line">double  m, n;</span><br><span class="line">double  result; //变量result的类型为双精度浮点型double</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-使用枚举类型对变量进行声明"><a href="#2-使用枚举类型对变量进行声明" class="headerlink" title="2. 使用枚举类型对变量进行声明"></a>2. 使用枚举类型对变量进行声明</h2><p>新的数据类型定义完成后，它就可以使用了。我们已经见过最基本的数据类型，如：整型int, 单精度浮点型float, 双精度浮点型double, 字符型char, 短整型short等等。用这些基本数据类型声明变量通常是这样：</p>
+<pre><code class="lang-bash">char     a; //变量a的类型均为字符型char
+char     letter;
+int        x,
+           y,
+           z; //变量x,y和z的类型均为整型int
+int       number;
+double  m, n;
+double  result; //变量result的类型为双精度浮点型double
+</code></pre>
 <p>既然枚举也是一种数据类型，那么它和基本数据类型一样也可以对变量进行声明。</p>
-<h4 id="方法一：枚举类型的定义和变量的声明分开"><a href="#方法一：枚举类型的定义和变量的声明分开" class="headerlink" title="方法一：枚举类型的定义和变量的声明分开"></a>方法一：枚举类型的定义和变量的声明分开</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY yesterday;</span><br><span class="line">enum DAY today;</span><br><span class="line">enum DAY tomorrow; //变量tomorrow的类型为枚举型enum DAY</span><br><span class="line">enum DAY good_day, bad_day; //变量good_day和bad_day的类型均为枚举型enum DAY</span><br></pre></td></tr></table></figure>
-<h4 id="方法二：类型定义与变量声明同时进行："><a href="#方法二：类型定义与变量声明同时进行：" class="headerlink" title="方法二：类型定义与变量声明同时进行："></a>方法二：类型定义与变量声明同时进行：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">enum //跟第一个定义不同的是，此处的标号DAY省略，这是允许的。</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //变量workday的类型为枚举型enum DAY</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum week &#123; Mon=1, Tue, Wed, Thu, Fri Sat, Sun&#125; days; //变量days的类型为枚举型enum week</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum BOOLEAN &#123; <span class="literal">false</span>, <span class="literal">true</span> &#125; end_flag, match_flag; //定义枚举类型并声明了两个枚举型变量</span><br></pre></td></tr></table></figure>
-<h4 id="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："><a href="#方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：" class="headerlink" title="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："></a>方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
+<h4 id="方法一：枚举类型的定义和变量的声明分开"><a href="#方法一：枚举类型的定义和变量的声明分开" class="headerlink" title="方法一：枚举类型的定义和变量的声明分开"></a>方法一：枚举类型的定义和变量的声明分开</h4><pre><code class="lang-bash">enum DAY
+{
+      MON=1, TUE, WED, THU, FRI, SAT, SUN
+};
+</code></pre>
+<pre><code class="lang-bash">enum DAY yesterday;
+enum DAY today;
+enum DAY tomorrow; //变量tomorrow的类型为枚举型enum DAY
+enum DAY good_day, bad_day; //变量good_day和bad_day的类型均为枚举型enum DAY
+</code></pre>
+<h4 id="方法二：类型定义与变量声明同时进行："><a href="#方法二：类型定义与变量声明同时进行：" class="headerlink" title="方法二：类型定义与变量声明同时进行："></a>方法二：类型定义与变量声明同时进行：</h4><pre><code class="lang-bash">enum //跟第一个定义不同的是，此处的标号DAY省略，这是允许的。
+{
+    saturday,
+    sunday = 0,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday
+} workday; //变量workday的类型为枚举型enum DAY
+</code></pre>
+<pre><code class="lang-bash">enum week { Mon=1, Tue, Wed, Thu, Fri Sat, Sun} days; //变量days的类型为枚举型enum week
+</code></pre>
+<pre><code class="lang-bash">enum BOOLEAN { false, true } end_flag, match_flag; //定义枚举类型并声明了两个枚举型变量
+</code></pre>
+<h4 id="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："><a href="#方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：" class="headerlink" title="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："></a>方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：</h4><pre><code class="lang-bash">typedef enum workday
+{
+    saturday,
+    sunday = 0,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday
+} workday; //此处的workday为枚举型enum workday的别名
+</code></pre>
+<pre><code class="lang-bash">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday
+</code></pre>
 <p>enum workday中的workday可以省略：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">typedef enum
+{
+    saturday,
+    sunday = 0,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday
+} workday; //此处的workday为枚举型enum workday的别名
+</code></pre>
+<pre><code class="lang-bash">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday
+</code></pre>
 <p>也可以用这种方式：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">typedef enum workday
+{
+    saturday,
+    sunday = 0,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday
+};
+</code></pre>
+<pre><code class="lang-bash">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday
+</code></pre>
 <p>注意：同一个程序中不能定义同名的枚举类型，不同的枚举类型中也不能存在同名的命名常量。错误示例如下所示：</p>
 <p>$\color{red}{错误声明一：}$存在同名的枚举类型</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">typedef enum
+{
+    wednesday,
+    thursday,
+    friday
+} workday;
+</code></pre>
+<pre><code class="lang-bash">typedef enum WEEK
+{
+    saturday,
+    sunday = 0,
+    monday,
+} workday;
+</code></pre>
 <p>$\color{red}{错误声明二：}$存在同名的枚举成员</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday_1;</span><br><span class="line"></span><br><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday_2;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-bash">typedef enum
+{
+    wednesday,
+    thursday,
+    friday
+} workday_1;
+
+typedef enum WEEK
+{
+    wednesday,
+    sunday = 0,
+    monday,
+} workday_2;
+</code></pre>
 <h2 id="3-使用枚举类型的变量"><a href="#3-使用枚举类型的变量" class="headerlink" title="3.使用枚举类型的变量"></a>3.使用枚举类型的变量</h2><h3 id="3-1-对枚举型的变量赋值。"><a href="#3-1-对枚举型的变量赋值。" class="headerlink" title="3.1 对枚举型的变量赋值。"></a>3.1 对枚举型的变量赋值。</h3><p>实例将枚举类型的赋值与基本数据类型的赋值进行了对比：</p>
-<h4 id="方法一：先声明变量，再对变量赋值"><a href="#方法一：先声明变量，再对变量赋值" class="headerlink" title="方法一：先声明变量，再对变量赋值"></a>方法一：先声明变量，再对变量赋值</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量，然后对变量赋值 */</span><br><span class="line">    int x, y, z;</span><br><span class="line">    </span><br><span class="line">    x = 10;</span><br><span class="line">    y = 20;</span><br><span class="line">    z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量，再对枚举型变量赋值 */</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line">    </span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法二：声明变量的同时赋初值"><a href="#方法二：声明变量的同时赋初值" class="headerlink" title="方法二：声明变量的同时赋初值"></a>方法二：声明变量的同时赋初值</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量同时对变量赋初值 */</span><br><span class="line">    int x=10, y=20, z=30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量同时对枚举型变量赋初值 */</span><br><span class="line">    enum DAY yesterday = MON, </span><br><span class="line">                        today = TUE,</span><br><span class="line">                   tomorrow = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法三：定义类型的同时声明变量，然后对变量赋值。"><a href="#方法三：定义类型的同时声明变量，然后对变量赋值。" class="headerlink" title="方法三：定义类型的同时声明变量，然后对变量赋值。"></a>方法三：定义类型的同时声明变量，然后对变量赋值。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，它们都为全局变量 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125; yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，它们都为全局变量 */</span><br><span class="line">int x, y, z;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 对基本数据类型的变量赋值 */</span><br><span class="line">    x = 10;  y = 20;  z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 对枚举型的变量赋值 */</span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法四：类型定义，变量声明，赋初值同时进行。"><a href="#方法四：类型定义，变量声明，赋初值同时进行。" class="headerlink" title="方法四：类型定义，变量声明，赋初值同时进行。"></a>方法四：类型定义，变量声明，赋初值同时进行。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，并赋初值。它们都为全局变量 */</span><br><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">    MON=1, </span><br><span class="line">    TUE,</span><br><span class="line">    WED,</span><br><span class="line">    THU,</span><br><span class="line">    FRI,</span><br><span class="line">    SAT,</span><br><span class="line">    SUN </span><br><span class="line">&#125;</span><br><span class="line">yesterday = MON, today = TUE, tomorrow = WED;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，并赋初值。它们都为全局变量 */</span><br><span class="line">int x = 10, y = 20, z = 30;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-对枚举型的变量赋整数值时，需要进行类型转换。"><a href="#3-2-对枚举型的变量赋整数值时，需要进行类型转换。" class="headerlink" title="3.2 对枚举型的变量赋整数值时，需要进行类型转换。"></a>3.2 对枚举型的变量赋整数值时，需要进行类型转换。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">    yesterday = TUE;</span><br><span class="line">    today = (enum DAY) (yesterday + 1); //类型转换</span><br><span class="line">    tomorrow = (enum DAY) 30; //类型转换</span><br><span class="line">    //tomorrow = 3; //错误</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：2 3 30</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-3-使用枚举型变量"><a href="#3-3-使用枚举型变量" class="headerlink" title="3.3 使用枚举型变量"></a>3.3 使用枚举型变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum</span><br><span class="line">&#123; </span><br><span class="line">    BELL          = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB         = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN      = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE    = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB         = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE       = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int index = 0;</span><br><span class="line">    int count_of_letter = 0;</span><br><span class="line">    int count_of_space = 0;</span><br><span class="line">    </span><br><span class="line">    char str[] = <span class="string">"I'm Ely efod"</span>;</span><br><span class="line">    </span><br><span class="line">    match_flag = FALSE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(; str[index] != <span class="string">'\0'</span>; index++)</span><br><span class="line">        <span class="keyword">if</span>( SPACE != str[index] )</span><br><span class="line">            count_of_letter++;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            match_flag = (enum BOOLEAN) 1;</span><br><span class="line">            count_of_space++;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s %d times %c"</span>, match_flag ? <span class="string">"match"</span> : <span class="string">"not match"</span>, count_of_space, NEWLINE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"count of letters: %d %c%c"</span>, count_of_letter, NEWLINE, RETURN);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">match 2 <span class="built_in">times</span></span><br><span class="line">count of letters: 10</span><br><span class="line">Press any key to <span class="built_in">continue</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="4-枚举类型与sizeof运算符"><a href="#4-枚举类型与sizeof运算符" class="headerlink" title="4. 枚举类型与sizeof运算符"></a>4. 枚举类型与sizeof运算符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum escapes</span><br><span class="line">&#123; </span><br><span class="line">    BELL      = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB      = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN    = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE   = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB      = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE     = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum escapes)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(escapes)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(match_flag)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(SPACE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(NEWLINE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(FALSE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(0)); //4 bytes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-综合举例"><a href="#5-综合举例" class="headerlink" title="5. 综合举例"></a>5. 综合举例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum Season</span><br><span class="line">&#123;</span><br><span class="line">    spring, summer=100, fall=96, winter</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</span><br><span class="line">&#125;</span><br><span class="line">Weekday;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* Season */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, spring); // 0</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %c \n"</span>, summer, summer); // 100, d</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, fall+winter); // 193</span><br><span class="line">    </span><br><span class="line">    Season mySeason=winter;</span><br><span class="line">    <span class="keyword">if</span>(winter==mySeason)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"mySeason is winter \n"</span>); // mySeason is winter</span><br><span class="line">    </span><br><span class="line">    int x=100;</span><br><span class="line">    <span class="keyword">if</span>(x==summer)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"x is equal to summer\n"</span>); // x is equal to summer</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes\n"</span>, sizeof(spring)); // 4 bytes</span><br><span class="line">    </span><br><span class="line">    /* Weekday */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"sizeof Weekday is: %d \n"</span>, sizeof(Weekday)); //sizeof Weekday is: 4</span><br><span class="line">    </span><br><span class="line">    Weekday today = Saturday;</span><br><span class="line">    Weekday tomorrow;</span><br><span class="line">    <span class="keyword">if</span>(today == Monday)</span><br><span class="line">        tomorrow = Tuesday;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        tomorrow = (Weekday) (today + 1); //remember to convert from int to Weekday</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-    </div>
+<h4 id="方法一：先声明变量，再对变量赋值"><a href="#方法一：先声明变量，再对变量赋值" class="headerlink" title="方法一：先声明变量，再对变量赋值"></a>方法一：先声明变量，再对变量赋值</h4><pre><code class="lang-bash">#include&lt;stdio.h&gt;
 
-    
-    
-    
+/* 定义枚举类型 */
+enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN };
+
+void main()
+{
+    /* 使用基本数据类型声明变量，然后对变量赋值 */
+    int x, y, z;
+
+    x = 10;
+    y = 20;
+    z = 30;
+
+    /* 使用枚举类型声明变量，再对枚举型变量赋值 */
+    enum DAY yesterday, today, tomorrow;
+
+    yesterday = MON;
+    today     = TUE;
+    tomorrow  = WED;
+
+    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow);
+}
+</code></pre>
+<h4 id="方法二：声明变量的同时赋初值"><a href="#方法二：声明变量的同时赋初值" class="headerlink" title="方法二：声明变量的同时赋初值"></a>方法二：声明变量的同时赋初值</h4><pre><code class="lang-bash">#include &lt;stdio.h&gt;
+
+/* 定义枚举类型 */
+enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN };
+
+void main()
+{
+    /* 使用基本数据类型声明变量同时对变量赋初值 */
+    int x=10, y=20, z=30;
+
+    /* 使用枚举类型声明变量同时对枚举型变量赋初值 */
+    enum DAY yesterday = MON, 
+                        today = TUE,
+                   tomorrow = WED;
+
+    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow);
+}
+</code></pre>
+<h4 id="方法三：定义类型的同时声明变量，然后对变量赋值。"><a href="#方法三：定义类型的同时声明变量，然后对变量赋值。" class="headerlink" title="方法三：定义类型的同时声明变量，然后对变量赋值。"></a>方法三：定义类型的同时声明变量，然后对变量赋值。</h4><pre><code class="lang-bash">#include &lt;stdio.h&gt;
+
+/* 定义枚举类型，同时声明该类型的三个变量，它们都为全局变量 */
+enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN } yesterday, today, tomorrow;
+
+/* 定义三个具有基本数据类型的变量，它们都为全局变量 */
+int x, y, z;
+
+void main()
+{
+    /* 对基本数据类型的变量赋值 */
+    x = 10;  y = 20;  z = 30;
+
+    /* 对枚举型的变量赋值 */
+    yesterday = MON;
+    today     = TUE;
+    tomorrow  = WED;
+
+    printf(&quot;%d %d %d \n&quot;, x, y, z); //输出：10 20 30
+    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow); //输出：1 2 3
+}
+</code></pre>
+<h4 id="方法四：类型定义，变量声明，赋初值同时进行。"><a href="#方法四：类型定义，变量声明，赋初值同时进行。" class="headerlink" title="方法四：类型定义，变量声明，赋初值同时进行。"></a>方法四：类型定义，变量声明，赋初值同时进行。</h4><pre><code class="lang-bash">#include &lt;stdio.h&gt;
+
+/* 定义枚举类型，同时声明该类型的三个变量，并赋初值。它们都为全局变量 */
+enum DAY
+{
+    MON=1, 
+    TUE,
+    WED,
+    THU,
+    FRI,
+    SAT,
+    SUN 
+}
+yesterday = MON, today = TUE, tomorrow = WED;
+
+/* 定义三个具有基本数据类型的变量，并赋初值。它们都为全局变量 */
+int x = 10, y = 20, z = 30;
+
+void main()
+{
+    printf(&quot;%d %d %d \n&quot;, x, y, z); //输出：10 20 30
+    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow); //输出：1 2 3
+}
+</code></pre>
+<h3 id="3-2-对枚举型的变量赋整数值时，需要进行类型转换。"><a href="#3-2-对枚举型的变量赋整数值时，需要进行类型转换。" class="headerlink" title="3.2 对枚举型的变量赋整数值时，需要进行类型转换。"></a>3.2 对枚举型的变量赋整数值时，需要进行类型转换。</h3><pre><code class="lang-bash">#include &lt;stdio.h&gt;
+
+enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN };
+
+void main()
+{
+    enum DAY yesterday, today, tomorrow;
+
+    yesterday = TUE;
+    today = (enum DAY) (yesterday + 1); //类型转换
+    tomorrow = (enum DAY) 30; //类型转换
+    //tomorrow = 3; //错误
+
+    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow); //输出：2 3 30
+}
+</code></pre>
+<h3 id="3-3-使用枚举型变量"><a href="#3-3-使用枚举型变量" class="headerlink" title="3.3 使用枚举型变量"></a>3.3 使用枚举型变量</h3><pre><code class="lang-bash">#include&lt;stdio.h&gt;
+
+enum
+{ 
+    BELL          = &#39;\a&#39;,
+    BACKSPACE = &#39;\b&#39;,
+    HTAB         = &#39;\t&#39;,
+    RETURN      = &#39;\r&#39;,
+    NEWLINE    = &#39;\n&#39;, 
+    VTAB         = &#39;\v&#39;,
+    SPACE       = &#39; &#39;
+};
+
+enum BOOLEAN { FALSE = 0, TRUE } match_flag;
+
+void main()
+{
+    int index = 0;
+    int count_of_letter = 0;
+    int count_of_space = 0;
+
+    char str[] = &quot;I&#39;m Ely efod&quot;;
+
+    match_flag = FALSE;
+
+    for(; str[index] != &#39;\0&#39;; index++)
+        if( SPACE != str[index] )
+            count_of_letter++;
+        else
+        {
+            match_flag = (enum BOOLEAN) 1;
+            count_of_space++;
+        }
+
+    printf(&quot;%s %d times %c&quot;, match_flag ? &quot;match&quot; : &quot;not match&quot;, count_of_space, NEWLINE);
+    printf(&quot;count of letters: %d %c%c&quot;, count_of_letter, NEWLINE, RETURN);
+}
+</code></pre>
+<p>输出：</p>
+<pre><code class="lang-bash">match 2 times
+count of letters: 10
+Press any key to continue
+</code></pre>
+<h2 id="4-枚举类型与sizeof运算符"><a href="#4-枚举类型与sizeof运算符" class="headerlink" title="4. 枚举类型与sizeof运算符"></a>4. 枚举类型与sizeof运算符</h2><pre><code class="lang-bash">#include &lt;stdio.h&gt;
+
+enum escapes
+{ 
+    BELL      = &#39;\a&#39;,
+    BACKSPACE = &#39;\b&#39;,
+    HTAB      = &#39;\t&#39;,
+    RETURN    = &#39;\r&#39;,
+    NEWLINE   = &#39;\n&#39;, 
+    VTAB      = &#39;\v&#39;,
+    SPACE     = &#39; &#39;
+};
+
+enum BOOLEAN { FALSE = 0, TRUE } match_flag;
+
+void main()
+{
+    printf(&quot;%d bytes \n&quot;, sizeof(enum escapes)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(escapes)); //4 bytes
+
+    printf(&quot;%d bytes \n&quot;, sizeof(enum BOOLEAN)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(BOOLEAN)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(match_flag)); //4 bytes
+
+    printf(&quot;%d bytes \n&quot;, sizeof(SPACE)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(NEWLINE)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(FALSE)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(0)); //4 bytes
+}
+</code></pre>
+<h2 id="5-综合举例"><a href="#5-综合举例" class="headerlink" title="5. 综合举例"></a>5. 综合举例</h2><pre><code class="lang-bash">#include&lt;stdio.h&gt;
+
+enum Season
+{
+    spring, summer=100, fall=96, winter
+};
+
+typedef enum
+{
+    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+}
+Weekday;
+
+void main()
+{
+    /* Season */
+    printf(&quot;%d \n&quot;, spring); // 0
+    printf(&quot;%d, %c \n&quot;, summer, summer); // 100, d
+    printf(&quot;%d \n&quot;, fall+winter); // 193
+
+    Season mySeason=winter;
+    if(winter==mySeason)
+        printf(&quot;mySeason is winter \n&quot;); // mySeason is winter
+
+    int x=100;
+    if(x==summer)
+        printf(&quot;x is equal to summer\n&quot;); // x is equal to summer
+
+    printf(&quot;%d bytes\n&quot;, sizeof(spring)); // 4 bytes
+
+    /* Weekday */
+    printf(&quot;sizeof Weekday is: %d \n&quot;, sizeof(Weekday)); //sizeof Weekday is: 4
+
+    Weekday today = Saturday;
+    Weekday tomorrow;
+    if(today == Monday)
+        tomorrow = Tuesday;
+    else
+        tomorrow = (Weekday) (today + 1); //remember to convert from int to Weekday
+}
+</code></pre>
+
+            
+        </section>
+        <footer class="blog-post-page-tags">
         
-      
+			
+				
+			<a href="/tags/C语言/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">C语言</a>
+				
+			<a href="/tags/枚举/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">枚举</a>
+				
+			
+		
+        </footer>
+    </article>
+    <article class="blog-post-page-readmore">
+    	
+    	
+		
+			<a href="/2018/01/10/物联网技术之服务器端数据采集环境简单搭建/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="物联网技术之服务器端数据采集环境简单搭建">上一篇</a>
+		
 
-      <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/C语言/" rel="tag"><i class="fa fa-tag"></i> C语言</a>
-            
-              <a href="/tags/枚举/" rel="tag"><i class="fa fa-tag"></i> 枚举</a>
-            
-          </div>
-        
+		
+		
+			<a href="/2018/01/09/linux命令之ubuntu查看系统信息/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="linux命令之ubuntu查看系统信息">下一篇</a>
+		
 
-        
+        <div style="clear: both;"></div>
+    </article>
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-                <a href="/2018/01/09/linux命令之解压缩命令/" rel="next" title="linux命令之解压缩命令">
-                  <i class="fa fa-chevron-left"></i> linux命令之解压缩命令
-                </a>
-              
+    <article class="blog-post-block blog-post-page-content">
+            <div class="row">
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-donate-content">
+                        <span id="post-donate-btn" class="btn btn-danger btn-block" data-toggle="tooltip" data-placement="top" title="如果您觉得本文还不错或者对您有帮助，可以考虑打赏一下作者哦">打赏本文</span>
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-qrcode-content">
+                        <span><span id="post-qrcode-btn" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="微信扫描二维码手机端查看本文及分享本文">二维码</span></span>
+                    </span>
+                </div>
             </div>
+        <div class="post-more-function-br"></div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2018/01/10/物联网技术之服务器端数据采集环境简单搭建/" rel="prev" title="物联网技术之服务器端数据采集环境简单搭建">
-                  物联网技术之服务器端数据采集环境简单搭建 <i class="fa fa-chevron-right"></i>
-                </a>
-              
+        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-donate-content">
+                            <div class="col-md-4">
+                                <p>支付宝</p>
+                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
+                            </div>
+                            <div class="col-md-4">
+                                <p>微信</p>
+                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
+                            </div>
+                            <div class="col-md-4">
+                                <p>财付通</p>
+                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
             </div>
-          </div>
-        
-      </footer>
-    
-  </div>
-  
-  
-  
-  </article>
-
-  </div>
-
-
-          </div>
-          
-
         </div>
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+
+        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-qrcode-content">
+                            <span class="post-qrcode-content-canvas"></span>
+                            <img class="post-qrcode-content-img no-lightbox" src>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // post QRcode
+            // 中文转码
+            function toUtf8(str) {
+                var out, i, len, c;
+                out = "";
+                len = str.length;
+                for (i = 0; i < len; i++) {
+                    c = str.charCodeAt(i);
+                    if ((c >= 0x0001) && (c <= 0x007F)) {
+                        out += str.charAt(i);
+                    } else if (c > 0x07FF) {
+                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    } else {
+                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    }
+                }
+                return out;
+            }
+            // 生成
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://iotts.top/2018/01/10/c语言教程之枚举类型/")}).hide();
+            var canvas=qrcode.find('canvas').get(0);
+            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
+        </script>
+
+        
+    </article>
+    
+</div>
+
+                
+            <footer class="blog-footer">
+                <p class="blog-footer-left">Copyright ©  2020 <a href="http://iotts.top">IOTTS</a></p>
+                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
+            </footer>
+        </div><!--博客主栏结束-->
+        <!--博客侧边栏开始-->
+        <div class="col-xl-3 blog-sidebar">
+            <div class="blog-sidebar-title">
+                <a href>IOTTS</a>
+            </div>
+            <div class="blog-sidebar-logo">
+                <img src="/images/avatar.png">
+            </div>
+            <div class="blog-sidebar-count blog-sidebar-padding">
+                <div class="blog-sidebar-count-left">
+                    <p class="blog-sidebar-count-p">52</p>
+                    <span class="blog-sidebar-count-span">文章</span>
+                </div>
+                <div class="blog-sidebar-count-right">
+                    <p class="blog-sidebar-count-p">48</p>
+                    <span class="blog-sidebar-count-span">标签</span>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="blog-sidebar-icon blog-sidebar-padding">
+                <ul>
+                    <li><a href="https://github.com/luyang14" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
+                    <li><a href class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
+                    <li><a href="mailto:" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div>
+            <div class="blog-sidebar-categories">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
+                <ul class="list-group blog-sidebar-padding">
+                  
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB相关/">PCB相关</a>
+                          <span class="badge badge-default badge-pill">3</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/ASCII/">ASCII</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB相关/Cadence/">Cadence</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB相关/Altium-Designer/">Altium Designer</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Hexo教程/">Hexo教程</a>
+                          <span class="badge badge-default badge-pill">6</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/物联网相关/">物联网相关</a>
+                          <span class="badge badge-default badge-pill">3</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Markdown/">Markdown</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB相关/Cadence/Allegro小技巧/">Allegro小技巧</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/MSP430相关/">MSP430相关</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/">Linux</a>
+                          <span class="badge badge-default badge-pill">9</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/ELEC/">ELEC</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB相关/Altium-Designer/Altium-Designer小技巧/">Altium Designer小技巧</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/STM32相关/">STM32相关</a>
+                          <span class="badge badge-default badge-pill">7</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/电路设计/">电路设计</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/STM32/">STM32</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/物联网相关/终端相关/">终端相关</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/物联网/">物联网</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/C语言/">C语言</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/MSP430相关/MSP430教程/">MSP430教程</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/linux命令/">linux命令</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/MySql教程/">MySql教程</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/nodejs/">nodejs</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/物联网相关/服务器端相关/">服务器端相关</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/电路设计相关/">电路设计相关</a>
+                          <span class="badge badge-default badge-pill">5</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Arduino相关/">Arduino相关</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/OrangePi-PC/">OrangePi PC</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB/">PCB</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/STM32相关/STM32F1教程/">STM32F1教程</a>
+                          <span class="badge badge-default badge-pill">7</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/java环境变量配置/">java环境变量配置</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/物联网/MQTT/">MQTT</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/电路设计相关/电平转换电路/">电平转换电路</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Arduino相关/Arduino-IDE/">Arduino IDE</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/电路设计相关/经典电路/">经典电路</a>
+                          <span class="badge badge-default badge-pill">3</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB/电路设计/">电路设计</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Arduino/">Arduino</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/C语言/C语言教程/">C语言教程</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/ReText使用教程/">ReText使用教程</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/电路设计相关/通信方式/">通信方式</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                  
+                </ul>
+            </div>
+            <div class="blog-sidebar-tags">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
+                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
+                  
+                    
+                      <li><a href="/tags/PCB/" class="tag-could" data-toggle="tooltip" data-placement="top" title="PCB">PCB</a></li>
+                    
+                      <li><a href="/tags/Altium-Designer/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Altium Designer">Altium Designer</a></li>
+                    
+                      <li><a href="/tags/Allegro/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Allegro">Allegro</a></li>
+                    
+                      <li><a href="/tags/ASCII/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ASCII">ASCII</a></li>
+                    
+                      <li><a href="/tags/常用资料/" class="tag-could" data-toggle="tooltip" data-placement="top" title="常用资料">常用资料</a></li>
+                    
+                      <li><a href="/tags/hexo/" class="tag-could" data-toggle="tooltip" data-placement="top" title="hexo">hexo</a></li>
+                    
+                      <li><a href="/tags/物联网/" class="tag-could" data-toggle="tooltip" data-placement="top" title="物联网">物联网</a></li>
+                    
+                      <li><a href="/tags/ESP8266/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ESP8266">ESP8266</a></li>
+                    
+                      <li><a href="/tags/MQTT/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MQTT">MQTT</a></li>
+                    
+                      <li><a href="/tags/Markdown/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Markdown">Markdown</a></li>
+                    
+                      <li><a href="/tags/Markdown教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Markdown教程">Markdown教程</a></li>
+                    
+                      <li><a href="/tags/单片机/" class="tag-could" data-toggle="tooltip" data-placement="top" title="单片机">单片机</a></li>
+                    
+                      <li><a href="/tags/MSP430/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MSP430">MSP430</a></li>
+                    
+                      <li><a href="/tags/MySql教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MySql教程">MySql教程</a></li>
+                    
+                      <li><a href="/tags/MySql相关问题/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MySql相关问题">MySql相关问题</a></li>
+                    
+                      <li><a href="/tags/XBMC/" class="tag-could" data-toggle="tooltip" data-placement="top" title="XBMC">XBMC</a></li>
+                    
+                      <li><a href="/tags/linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux">linux</a></li>
+                    
+                      <li><a href="/tags/OrangePi-PC/" class="tag-could" data-toggle="tooltip" data-placement="top" title="OrangePi PC">OrangePi PC</a></li>
+                    
+                      <li><a href="/tags/嵌入式/" class="tag-could" data-toggle="tooltip" data-placement="top" title="嵌入式">嵌入式</a></li>
+                    
+                      <li><a href="/tags/stm32-按键基本操作/" class="tag-could" data-toggle="tooltip" data-placement="top" title="stm32 按键基本操作">stm32 按键基本操作</a></li>
+                    
+                      <li><a href="/tags/电路设计/" class="tag-could" data-toggle="tooltip" data-placement="top" title="电路设计">电路设计</a></li>
+                    
+                      <li><a href="/tags/STM32/" class="tag-could" data-toggle="tooltip" data-placement="top" title="STM32">STM32</a></li>
+                    
+                      <li><a href="/tags/服务器操作/" class="tag-could" data-toggle="tooltip" data-placement="top" title="服务器操作">服务器操作</a></li>
+                    
+                      <li><a href="/tags/数据采集/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据采集">数据采集</a></li>
+                    
+                      <li><a href="/tags/Linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Linux">Linux</a></li>
+                    
+                      <li><a href="/tags/java/" class="tag-could" data-toggle="tooltip" data-placement="top" title="java">java</a></li>
+                    
+                      <li><a href="/tags/C语言/" class="tag-could" data-toggle="tooltip" data-placement="top" title="C语言">C语言</a></li>
+                    
+                      <li><a href="/tags/Hexo教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Hexo教程">Hexo教程</a></li>
+                    
+                      <li><a href="/tags/编程规范/" class="tag-could" data-toggle="tooltip" data-placement="top" title="编程规范">编程规范</a></li>
+                    
+                      <li><a href="/tags/linux命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux命令">linux命令</a></li>
+                    
+                      <li><a href="/tags/netstat命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="netstat命令">netstat命令</a></li>
+                    
+                      <li><a href="/tags/基础/" class="tag-could" data-toggle="tooltip" data-placement="top" title="基础">基础</a></li>
+                    
+                      <li><a href="/tags/查看系统信息/" class="tag-could" data-toggle="tooltip" data-placement="top" title="查看系统信息">查看系统信息</a></li>
+                    
+                      <li><a href="/tags/关机重启/" class="tag-could" data-toggle="tooltip" data-placement="top" title="关机重启">关机重启</a></li>
+                    
+                      <li><a href="/tags/nodejs/" class="tag-could" data-toggle="tooltip" data-placement="top" title="nodejs">nodejs</a></li>
+                    
+                      <li><a href="/tags/Mysql/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Mysql">Mysql</a></li>
+                    
+                      <li><a href="/tags/php/" class="tag-could" data-toggle="tooltip" data-placement="top" title="php">php</a></li>
+                    
+                      <li><a href="/tags/3-3v-5v电平转换/" class="tag-could" data-toggle="tooltip" data-placement="top" title="3.3v 5v电平转换">3.3v 5v电平转换</a></li>
+                    
+                      <li><a href="/tags/Arduino/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Arduino">Arduino</a></li>
+                    
+                      <li><a href="/tags/减法器电路/" class="tag-could" data-toggle="tooltip" data-placement="top" title="减法器电路">减法器电路</a></li>
+                    
+                      <li><a href="/tags/电阻测量/" class="tag-could" data-toggle="tooltip" data-placement="top" title="电阻测量">电阻测量</a></li>
+                    
+                      <li><a href="/tags/CRC算法/" class="tag-could" data-toggle="tooltip" data-placement="top" title="CRC算法">CRC算法</a></li>
+                    
+                      <li><a href="/tags/枚举/" class="tag-could" data-toggle="tooltip" data-placement="top" title="枚举">枚举</a></li>
+                    
+                      <li><a href="/tags/解压缩/" class="tag-could" data-toggle="tooltip" data-placement="top" title="解压缩">解压缩</a></li>
+                    
+                      <li><a href="/tags/ReText使用说明/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ReText使用说明">ReText使用说明</a></li>
+                    
+                      <li><a href="/tags/ReText配置/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ReText配置">ReText配置</a></li>
+                    
+                      <li><a href="/tags/运放/" class="tag-could" data-toggle="tooltip" data-placement="top" title="运放">运放</a></li>
+                    
+                      <li><a href="/tags/RS232-RS485/" class="tag-could" data-toggle="tooltip" data-placement="top" title="RS232 RS485">RS232 RS485</a></li>
+                    
+                  
+                </ul>
+            </div>
+            <script>
+              // 博客侧栏标签云随机色
+              var tag_cloud = $('.tag-could');
+              tag_cloud.each(function () {
+                  var Cnum = 9;
+                  var Crand = parseInt(Math.random() * Cnum);
+                  $(this).addClass("tag-could" + Crand);
+              })
+            </script>
+            <!--返回顶部按钮-->
+            <div class="retop">
+                <i class="fa fa-angle-up"></i>
+            </div>
+        </div><!--博客侧边栏结束-->
     </div>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-        
-        
-        
-        
-      
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-定义一种新的数据类型-枚举型"><span class="nav-number">1.</span> <span class="nav-text">1. 定义一种新的数据类型 - 枚举型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-使用枚举类型对变量进行声明"><span class="nav-number">2.</span> <span class="nav-text">2. 使用枚举类型对变量进行声明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一：枚举类型的定义和变量的声明分开"><span class="nav-number">2.0.1.</span> <span class="nav-text">方法一：枚举类型的定义和变量的声明分开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二：类型定义与变量声明同时进行："><span class="nav-number">2.0.2.</span> <span class="nav-text">方法二：类型定义与变量声明同时进行：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："><span class="nav-number">2.0.3.</span> <span class="nav-text">方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用枚举类型的变量"><span class="nav-number">3.</span> <span class="nav-text">3.使用枚举类型的变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-对枚举型的变量赋值。"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 对枚举型的变量赋值。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一：先声明变量，再对变量赋值"><span class="nav-number">3.1.1.</span> <span class="nav-text">方法一：先声明变量，再对变量赋值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二：声明变量的同时赋初值"><span class="nav-number">3.1.2.</span> <span class="nav-text">方法二：声明变量的同时赋初值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法三：定义类型的同时声明变量，然后对变量赋值。"><span class="nav-number">3.1.3.</span> <span class="nav-text">方法三：定义类型的同时声明变量，然后对变量赋值。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法四：类型定义，变量声明，赋初值同时进行。"><span class="nav-number">3.1.4.</span> <span class="nav-text">方法四：类型定义，变量声明，赋初值同时进行。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-对枚举型的变量赋整数值时，需要进行类型转换。"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 对枚举型的变量赋整数值时，需要进行类型转换。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-使用枚举型变量"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 使用枚举型变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-枚举类型与sizeof运算符"><span class="nav-number">4.</span> <span class="nav-text">4. 枚举类型与sizeof运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-综合举例"><span class="nav-number">5.</span> <span class="nav-text">5. 综合举例</span></a></li></ol></div>
-        
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="JackLu">
-  <p class="site-author-name" itemprop="name">JackLu</p>
-  <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives">
-        
-          <span class="site-state-item-count">51</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-categories">
-        
-          
-            <a href="/categories/">
-          
-        
-        <span class="site-state-item-count">39</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        <span class="site-state-item-count">48</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
-      </div>
-    
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/IOTTS" title="GitHub &rarr; https://github.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:3574311659@qq.com" title="E-Mail &rarr; mailto:3574311659@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/IOTTS" title="Weibo &rarr; https://weibo.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://youtube.com/yourname" title="YouTube &rarr; https://youtube.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
-      </span>
-    
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://shop567664910.taobao.com" title="https://shop567664910.taobao.com" rel="noopener" target="_blank">淘宝店</a>
-        </li>
-      
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">JackLu</span>
-</div>
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
-    本站总访问量:<span id="busuanzi_value_site_pv"></span>
-</span>
-</div>
-  <span class="post-meta-divider">|</span>
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
-<script src="/js/schemes/pisces.js?v=7.4.0"></script>
-
-<script src="/js/next-boot.js?v=7.4.0"></script>
-
-
-
-  
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
+<script src="/js/LeanStatistics.min.js"></script>
+<script src="/js/Life.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    otherF();
+    LeanStatistics();
+    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
+      $('pre code').each(function(i, block){
+        hljs.highlightBlock(block);
+      })
+      $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+      });
+      LeanStatistics();
+    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
+      NProgress.done();
+      otherF();
+    });
+</script>
 </body>
 </html>

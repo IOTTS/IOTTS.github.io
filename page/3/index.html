@@ -1,1848 +1,897 @@
-<!DOCTYPE html>
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
 <html lang="zh-CN">
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
-
-<link rel="stylesheet" href="/css/main.css?v=7.4.0">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="IOTTS">
-<meta property="og:url" content="http://iotts.top/page/3/index.html">
-<meta property="og:site_name" content="IOTTS">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IOTTS">
-  <link rel="canonical" href="http://iotts.top/page/3/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
-  };
-</script>
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
   <title>IOTTS</title>
+  <link rel="shortcut icon" href="/images/">
+  
+    
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/atom-one-dark.css">
+    
+      <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    
+      <link rel="stylesheet" href="/css/nprogress.min.css">
+    
+      <link rel="stylesheet" href="/css/valine.css">
+    
+      <link rel="stylesheet" href="/css/life.css">
+    
   
 
+  
 
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  
+  
+  
+    <script src="/js/jquery-2.2.4.min.js"></script>
+  
+    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
+  
+    <script src="/js/jquery.pjax.js"></script>
+  
+    <script src="/js/nprogress.min.js"></script>
+  
+    <script src="/js/tether.min.js"></script>
+  
+    <script src="/js/bootstrap.min.js"></script>
+  
+    <script src="/js/highlight.min.js"></script>
+  
+    <script src="/js/highlightjs-line-numbers.min.js"></script>
+  
+    <script src="/js/jquery.fancybox.js"></script>
+  
+    <script src="/js/jquery.qrcode.min.js"></script>
+  
+    <script src="/js/Valine.min.js"></script>
+  
+  
 </head>
+<body>
+<script>AV.init({appId:'',appKey:''});</script>
+<script type="text/javascript">
+      var config = {
+            ClasS: 'Counter',
+            el:'.views',
+            elP: '.views-post'
+      }
+</script>
+<div class="container">
+    <div class="row blog-box-shadow">
+        <!--博客主栏开始-->
+        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
+            <header class="blog-header">
+                <a href="http://iotts.top" class="blog-header-mobile-title">IOTTS</a>
+                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
+                <nav class="blog-header-navbar blog-header-fixed">
+                    <ul class="blog-navbar-links">
+                        
+                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/wiki/" class="transition">产品</a></li>
+                        
+                          <li class="blog-nav-item"><a href="/opensource/" class="transition">开源程序</a></li>
+                        
+                        <div class="blog-navbar-right">
+                            <form action>
+                                <div class="input-group">
+                                    <input type="text" class="blog-header-search" placeholder="search...">
+                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
+                                </div>
+                            </form>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+                
+<div class="blog-main-post">
+	<div class="index-post-br"></div>
+  
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
-    <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
 
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">IOTTS</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2018/04/17/AD画原理图库时将一个元件拆分为多部分/">AD画原理图库时将一个元件拆分为多部分</a>
+        <section>
+            
+                
+                AD画原理图库时将一个元件拆分为多部分画好第一部分后，在窗口左侧的SCHLibrary 选中该器件名称
+
+然后点菜单栏 Tool - New Part
+
+就可看到器件名称前多了一个“+”号，点开“+”号，可见器件分成了两个部分：Part A、Part B；
+
+
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2018-04-17T03:39:41.000Z"><i class="fa fa-clock-o"></i>2018-04-17</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/PCB相关/" itemprop="url" rel="index">
+                PCB相关
+              </a>
+            
+              <a href="/categories/PCB相关/Altium-Designer/" itemprop="url" rel="index">
+                Altium Designer
+              </a>
+            
+              <a href="/categories/PCB相关/Altium-Designer/Altium-Designer小技巧/" itemprop="url" rel="index">
+                Altium Designer小技巧
+              </a>
+            
+          </span>
+        
+        </footer>
     </div>
-  </div>
+</article>
 
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/">[OrangePi]为OrangePi-PC编译Armbian系统</a>
+        <section>
+            
+                
+                简介Orangepi PC香橙派平板是一款开源的单板电脑，新一代的arm开发板,它可以运行Android4.4、Ubuntu、Debian等操作系统,兼容树莓派。香橙派平板使用全志H3系统级芯片，同时拥有1GB DDR3 内存，官方网站：http://www.
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2018-01-20T14:34:39.000Z"><i class="fa fa-clock-o"></i>2018-01-20</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/Linux/" itemprop="url" rel="index">
+                Linux
+              </a>
+            
+              <a href="/categories/Linux/OrangePi-PC/" itemprop="url" rel="index">
+                OrangePi PC
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2018/01/17/通信-R232转RS485的通讯电路/">[通信]R232转RS485的通讯电路</a>
+        <section>
+            
+                
+                RS232简介：RS-232-C是美国电子工业协会EIA（Electronic Industry Association）制定的一种串行物理接口标准。RS是英文“推荐标准”的缩写，232为标识号，C表示修改次数。RS-232-C总线标准设有25条信号线，包括一
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2018-01-17T15:10:03.000Z"><i class="fa fa-clock-o"></i>2018-01-17</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/电路设计相关/" itemprop="url" rel="index">
+                电路设计相关
+              </a>
+            
+              <a href="/categories/电路设计相关/通信方式/" itemprop="url" rel="index">
+                通信方式
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2018/01/14/用Visual-Studio-2015开发Arduino应用程序/">用Visual Studio 2015开发Arduino应用程序</a>
+        <section>
+            
+                
+                原文连接
+Arduino IDE 的缺点虽然 Arduino 很流行很火爆，但是 Arduino IDE 却非常、非常、非常弱。编写代码很不方便，只能说提供了一个最基本的写代码的工具而已，调试代码也很不方便。而且，Arduino IDE 中写代码，只能是把所有
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2018-01-14T05:36:54.000Z"><i class="fa fa-clock-o"></i>2018-01-14</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/Arduino相关/" itemprop="url" rel="index">
+                Arduino相关
+              </a>
+            
+              <a href="/categories/Arduino相关/Arduino-IDE/" itemprop="url" rel="index">
+                Arduino IDE
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2018/01/13/MarkDown插入视频-插入gif/">MarkDown插入视频,插入gif</a>
+        <section>
+            
+                
+                插入视频代码：
+
+&lt;iframe height=498 width=510 src=&quot;http://player.youku.com/embed/XNjcyMDU4Njg0&quot;&gt;
+插入gif代码：
+
+&lt;iframe heig
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2018-01-13T15:17:01.000Z"><i class="fa fa-clock-o"></i>2018-01-13</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/Markdown/" itemprop="url" rel="index">
+                Markdown
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2018/01/13/MSP430教程之创建一个CCS工程/">MSP430教程之创建一个CCS工程</a>
+        <section>
+            
+                
+                前几天花了4.3美元在TI官网买了一开MSP430FR2433 LaunchPad™ Development Kit(MSPEXP430FR2433)，今天花一点时间来个简单的入门。板子很简单见下图 
+开发板自带一个调试工具和串口调试工具，性价比还是挺高的。开
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2018-01-13T13:04:12.000Z"><i class="fa fa-clock-o"></i>2018-01-13</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/MSP430相关/" itemprop="url" rel="index">
+                MSP430相关
+              </a>
+            
+              <a href="/categories/MSP430相关/MSP430教程/" itemprop="url" rel="index">
+                MSP430教程
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2018/01/12/MQTT客户端设计之ESP8266/">MQTT客户端设计之ESP8266</a>
+        <section>
+            
+                
+                前言MQTT是IBM开发的一个即时通讯协议，面向M2M和物联网的连接，采用轻量级发布和订阅消息传输机制，并且有可能成为物联网的重要组成部分。
+ESP8266是一款物美价廉的Wi-Fi芯片，集成Tensilica L106 钻石系列的32 位处理器和片上SRAM
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2018-01-11T16:28:01.000Z"><i class="fa fa-clock-o"></i>2018-01-12</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/物联网相关/" itemprop="url" rel="index">
+                物联网相关
+              </a>
+            
+              <a href="/categories/物联网相关/终端相关/" itemprop="url" rel="index">
+                终端相关
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2018/01/11/Ubuntu下搭建MQTT服务器/">Ubuntu下搭建MQTT服务器</a>
+        <section>
+            
+                
+                前言现在物联网这么火，当然不能落伍，MQTT极有可能成为物联网应用最广的协议，因此需要一个MQTT测试环境就很有必要了
+开发环境系统：            Ubuntu 16.04.3 LTS
+代理服务器 ：Apache-Apollo-1.7.1
+准备工作1
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2018-01-11T15:55:35.000Z"><i class="fa fa-clock-o"></i>2018-01-11</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/物联网相关/" itemprop="url" rel="index">
+                物联网相关
+              </a>
+            
+              <a href="/categories/物联网相关/服务器端相关/" itemprop="url" rel="index">
+                服务器端相关
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2018/01/11/Ubuntu安装JDK1-8-0并配置环境变量/">Ubuntu安装JDK1.8.0并配置环境变量</a>
+        <section>
+            
+                
+                开发环境虚拟机 Ubuntu 16.04.3 LTS
+JDK安装通过终端在/usr/local目录下新建java文件夹，命令行：
+sudo mkdir /usr/local/java
+
+然后进入java目录，命令行：
+cd /usr/local/java
+
+到
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2018-01-11T15:00:20.000Z"><i class="fa fa-clock-o"></i>2018-01-11</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/Linux/" itemprop="url" rel="index">
+                Linux
+              </a>
+            
+              <a href="/categories/Linux/java环境变量配置/" itemprop="url" rel="index">
+                java环境变量配置
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2018/01/10/物联网技术之服务器端数据采集环境简单搭建/">物联网技术之服务器端数据采集环境简单搭建</a>
+        <section>
+            
+                
+                1.创建数据库在MySql数据库中创建一个名为Sensor_server的数据库，如下图：在数据库中创建一个名为sensor_test的数据表，使用如下SQL语句：
+CREATE TABLE IF NOT EXISTS `sensor_test` (
+  `i
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2018-01-10T15:56:33.000Z"><i class="fa fa-clock-o"></i>2018-01-10</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/物联网相关/" itemprop="url" rel="index">
+                物联网相关
+              </a>
+            
+              <a href="/categories/物联网相关/服务器端相关/" itemprop="url" rel="index">
+                服务器端相关
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+
+  
+    <nav id="pagination" class="blog-pagination">
+            <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    </nav>
+
+ </div>
+
+                
+            <footer class="blog-footer">
+                <p class="blog-footer-left">Copyright ©  2020 <a href="http://iotts.top">IOTTS</a></p>
+                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
+            </footer>
+        </div><!--博客主栏结束-->
+        <!--博客侧边栏开始-->
+        <div class="col-xl-3 blog-sidebar">
+            <div class="blog-sidebar-title">
+                <a href>IOTTS</a>
+            </div>
+            <div class="blog-sidebar-logo">
+                <img src="/images/avatar.png">
+            </div>
+            <div class="blog-sidebar-count blog-sidebar-padding">
+                <div class="blog-sidebar-count-left">
+                    <p class="blog-sidebar-count-p">52</p>
+                    <span class="blog-sidebar-count-span">文章</span>
+                </div>
+                <div class="blog-sidebar-count-right">
+                    <p class="blog-sidebar-count-p">48</p>
+                    <span class="blog-sidebar-count-span">标签</span>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="blog-sidebar-icon blog-sidebar-padding">
+                <ul>
+                    <li><a href="https://github.com/luyang14" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
+                    <li><a href class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
+                    <li><a href="mailto:" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div>
+            <div class="blog-sidebar-categories">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
+                <ul class="list-group blog-sidebar-padding">
+                  
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB相关/">PCB相关</a>
+                          <span class="badge badge-default badge-pill">3</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/ASCII/">ASCII</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB相关/Cadence/">Cadence</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB相关/Altium-Designer/">Altium Designer</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Hexo教程/">Hexo教程</a>
+                          <span class="badge badge-default badge-pill">6</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/物联网相关/">物联网相关</a>
+                          <span class="badge badge-default badge-pill">3</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Markdown/">Markdown</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB相关/Cadence/Allegro小技巧/">Allegro小技巧</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/MSP430相关/">MSP430相关</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/">Linux</a>
+                          <span class="badge badge-default badge-pill">9</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/ELEC/">ELEC</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB相关/Altium-Designer/Altium-Designer小技巧/">Altium Designer小技巧</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/STM32相关/">STM32相关</a>
+                          <span class="badge badge-default badge-pill">7</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/电路设计/">电路设计</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/STM32/">STM32</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/物联网相关/终端相关/">终端相关</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/物联网/">物联网</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/C语言/">C语言</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/MSP430相关/MSP430教程/">MSP430教程</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/linux命令/">linux命令</a>
+                          <span class="badge badge-default badge-pill">4</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/MySql教程/">MySql教程</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/nodejs/">nodejs</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/物联网相关/服务器端相关/">服务器端相关</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/电路设计相关/">电路设计相关</a>
+                          <span class="badge badge-default badge-pill">5</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Arduino相关/">Arduino相关</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/OrangePi-PC/">OrangePi PC</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB/">PCB</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/STM32相关/STM32F1教程/">STM32F1教程</a>
+                          <span class="badge badge-default badge-pill">7</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/java环境变量配置/">java环境变量配置</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/物联网/MQTT/">MQTT</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/电路设计相关/电平转换电路/">电平转换电路</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Arduino相关/Arduino-IDE/">Arduino IDE</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/电路设计相关/经典电路/">经典电路</a>
+                          <span class="badge badge-default badge-pill">3</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/PCB/电路设计/">电路设计</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Arduino/">Arduino</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/C语言/C语言教程/">C语言教程</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/Linux/ReText使用教程/">ReText使用教程</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/电路设计相关/通信方式/">通信方式</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                  
+                </ul>
+            </div>
+            <div class="blog-sidebar-tags">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
+                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
+                  
+                    
+                      <li><a href="/tags/PCB/" class="tag-could" data-toggle="tooltip" data-placement="top" title="PCB">PCB</a></li>
+                    
+                      <li><a href="/tags/Altium-Designer/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Altium Designer">Altium Designer</a></li>
+                    
+                      <li><a href="/tags/Allegro/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Allegro">Allegro</a></li>
+                    
+                      <li><a href="/tags/ASCII/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ASCII">ASCII</a></li>
+                    
+                      <li><a href="/tags/常用资料/" class="tag-could" data-toggle="tooltip" data-placement="top" title="常用资料">常用资料</a></li>
+                    
+                      <li><a href="/tags/hexo/" class="tag-could" data-toggle="tooltip" data-placement="top" title="hexo">hexo</a></li>
+                    
+                      <li><a href="/tags/物联网/" class="tag-could" data-toggle="tooltip" data-placement="top" title="物联网">物联网</a></li>
+                    
+                      <li><a href="/tags/ESP8266/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ESP8266">ESP8266</a></li>
+                    
+                      <li><a href="/tags/MQTT/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MQTT">MQTT</a></li>
+                    
+                      <li><a href="/tags/Markdown/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Markdown">Markdown</a></li>
+                    
+                      <li><a href="/tags/Markdown教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Markdown教程">Markdown教程</a></li>
+                    
+                      <li><a href="/tags/单片机/" class="tag-could" data-toggle="tooltip" data-placement="top" title="单片机">单片机</a></li>
+                    
+                      <li><a href="/tags/MSP430/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MSP430">MSP430</a></li>
+                    
+                      <li><a href="/tags/MySql教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MySql教程">MySql教程</a></li>
+                    
+                      <li><a href="/tags/MySql相关问题/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MySql相关问题">MySql相关问题</a></li>
+                    
+                      <li><a href="/tags/XBMC/" class="tag-could" data-toggle="tooltip" data-placement="top" title="XBMC">XBMC</a></li>
+                    
+                      <li><a href="/tags/linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux">linux</a></li>
+                    
+                      <li><a href="/tags/OrangePi-PC/" class="tag-could" data-toggle="tooltip" data-placement="top" title="OrangePi PC">OrangePi PC</a></li>
+                    
+                      <li><a href="/tags/嵌入式/" class="tag-could" data-toggle="tooltip" data-placement="top" title="嵌入式">嵌入式</a></li>
+                    
+                      <li><a href="/tags/stm32-按键基本操作/" class="tag-could" data-toggle="tooltip" data-placement="top" title="stm32 按键基本操作">stm32 按键基本操作</a></li>
+                    
+                      <li><a href="/tags/电路设计/" class="tag-could" data-toggle="tooltip" data-placement="top" title="电路设计">电路设计</a></li>
+                    
+                      <li><a href="/tags/STM32/" class="tag-could" data-toggle="tooltip" data-placement="top" title="STM32">STM32</a></li>
+                    
+                      <li><a href="/tags/服务器操作/" class="tag-could" data-toggle="tooltip" data-placement="top" title="服务器操作">服务器操作</a></li>
+                    
+                      <li><a href="/tags/数据采集/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据采集">数据采集</a></li>
+                    
+                      <li><a href="/tags/Linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Linux">Linux</a></li>
+                    
+                      <li><a href="/tags/java/" class="tag-could" data-toggle="tooltip" data-placement="top" title="java">java</a></li>
+                    
+                      <li><a href="/tags/C语言/" class="tag-could" data-toggle="tooltip" data-placement="top" title="C语言">C语言</a></li>
+                    
+                      <li><a href="/tags/Hexo教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Hexo教程">Hexo教程</a></li>
+                    
+                      <li><a href="/tags/编程规范/" class="tag-could" data-toggle="tooltip" data-placement="top" title="编程规范">编程规范</a></li>
+                    
+                      <li><a href="/tags/linux命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux命令">linux命令</a></li>
+                    
+                      <li><a href="/tags/netstat命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="netstat命令">netstat命令</a></li>
+                    
+                      <li><a href="/tags/基础/" class="tag-could" data-toggle="tooltip" data-placement="top" title="基础">基础</a></li>
+                    
+                      <li><a href="/tags/查看系统信息/" class="tag-could" data-toggle="tooltip" data-placement="top" title="查看系统信息">查看系统信息</a></li>
+                    
+                      <li><a href="/tags/关机重启/" class="tag-could" data-toggle="tooltip" data-placement="top" title="关机重启">关机重启</a></li>
+                    
+                      <li><a href="/tags/nodejs/" class="tag-could" data-toggle="tooltip" data-placement="top" title="nodejs">nodejs</a></li>
+                    
+                      <li><a href="/tags/Mysql/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Mysql">Mysql</a></li>
+                    
+                      <li><a href="/tags/php/" class="tag-could" data-toggle="tooltip" data-placement="top" title="php">php</a></li>
+                    
+                      <li><a href="/tags/3-3v-5v电平转换/" class="tag-could" data-toggle="tooltip" data-placement="top" title="3.3v 5v电平转换">3.3v 5v电平转换</a></li>
+                    
+                      <li><a href="/tags/Arduino/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Arduino">Arduino</a></li>
+                    
+                      <li><a href="/tags/减法器电路/" class="tag-could" data-toggle="tooltip" data-placement="top" title="减法器电路">减法器电路</a></li>
+                    
+                      <li><a href="/tags/电阻测量/" class="tag-could" data-toggle="tooltip" data-placement="top" title="电阻测量">电阻测量</a></li>
+                    
+                      <li><a href="/tags/CRC算法/" class="tag-could" data-toggle="tooltip" data-placement="top" title="CRC算法">CRC算法</a></li>
+                    
+                      <li><a href="/tags/枚举/" class="tag-could" data-toggle="tooltip" data-placement="top" title="枚举">枚举</a></li>
+                    
+                      <li><a href="/tags/解压缩/" class="tag-could" data-toggle="tooltip" data-placement="top" title="解压缩">解压缩</a></li>
+                    
+                      <li><a href="/tags/ReText使用说明/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ReText使用说明">ReText使用说明</a></li>
+                    
+                      <li><a href="/tags/ReText配置/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ReText配置">ReText配置</a></li>
+                    
+                      <li><a href="/tags/运放/" class="tag-could" data-toggle="tooltip" data-placement="top" title="运放">运放</a></li>
+                    
+                      <li><a href="/tags/RS232-RS485/" class="tag-could" data-toggle="tooltip" data-placement="top" title="RS232 RS485">RS232 RS485</a></li>
+                    
+                  
+                </ul>
+            </div>
+            <script>
+              // 博客侧栏标签云随机色
+              var tag_cloud = $('.tag-could');
+              tag_cloud.each(function () {
+                  var Cnum = 9;
+                  var Crand = parseInt(Math.random() * Cnum);
+                  $(this).addClass("tag-could" + Crand);
+              })
+            </script>
+            <!--返回顶部按钮-->
+            <div class="retop">
+                <i class="fa fa-angle-up"></i>
+            </div>
+        </div><!--博客侧边栏结束-->
+    </div>
 </div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
-        <li class="menu-item menu-item-home">
-      
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-about">
-      
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tags">
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-产品列表">
-      
-    
-
-    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>产品列表</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-开源项目">
-      
-    
-
-    <a href="/opensource/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>开源项目</a>
-
-  </li>
-  </ul>
-
-</nav>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-            
-
-          <div id="content" class="content">
-            
-  <div id="posts" class="posts-expand">
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/20/OrangePi-为OrangePi-PC编译Armbian系统/" class="post-title-link" itemprop="url">[OrangePi]为OrangePi-PC编译Armbian系统</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-20 22:34:39 / 修改时间：22:36:02" itemprop="dateCreated datePublished" datetime="2018-01-20T22:34:39+08:00">2018-01-20</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/OrangePi-PC/" itemprop="url" rel="index"><span itemprop="name">OrangePi PC</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="Orangepi-PC"><a href="#Orangepi-PC" class="headerlink" title="Orangepi PC"></a>Orangepi PC</h3><p>香橙派平板是一款开源的单板电脑，新一代的arm开发板,它可以运行Android4.4、Ubuntu、Debian等操作系统,兼容树莓派。香橙派平板使用全志H3系统级芯片，同时拥有1GB DDR3 内存，官方网站：<a href="http://www.orangepi.cn/orangepipc/index_cn.html" target="_blank" rel="noopener">http://www.orangepi.cn/orangepipc/index_cn.html</a></p>
-<p><img src="orangepipc_info_cn.jpg" alt="orangepipc_info_cn"></p>
-<p> <img src="无标题2.png" alt="无标题2"><br>Orangepi PC是基于全志H3的开源开发板，全志H3主要用于机顶盒产品，具体参数：</p>
-<p> <img src="20160730144810d6.jpg" alt="20160730144810d6"></p>
-<p> <img src="无标题.png" alt="无标题"></p>
-<p> <img src="无标题1.png" alt="无标题1"></p>
-<h3 id="Armbian系统"><a href="#Armbian系统" class="headerlink" title="Armbian系统"></a>Armbian系统</h3><p>Armbian是轻量级的Debian系统和为ARM开发板专门发行并重新编译的Ubuntu系统。关于armbian系统具体介绍可以查看网站<a href="https://www.armbian.com/" target="_blank" rel="noopener">https://www.armbian.com/</a></p>
-<p><strong>主要特点：</strong></p>
-<ul>
-<li>Armbian使用重新编译的Debian Wheezy，Jessie或Ubuntu，它们可靠性极佳。</li>
-<li>安装映像降低到实际的数据大小。</li>
-<li>root密码是1234。第一次登陆时你会被提示更改密码并创建登录用户。</li>
-<li>第一次启动需要较长时间（可能长达几分钟）比正常启动（20S）要慢。因为它需要更新软件包列表，获取SSH密钥和扩展系统以适应你的SD卡分区，而且它可能会自动重新启动一次。</li>
-<li>可以切换内核以适应其它系统。[1] </li>
-<li>桌面环境可以升级准备。</li>
-<li>NAND，SATA，eMMC和USB安装包含脚本（NAND SATA安装）。</li>
-<li>串行控制台启用。</li>
-<li>启用自动安全更新下载的系统。升级也可以通过apt-get等方法。</li>
-</ul>
-<p><strong>支持的芯片</strong></p>
-<p>全志 A10, A20, A31, H3, A64<br>Amlogic S805<br>Amlogic S905<br>Actionsemi S500<br>飞思卡尔/ NXP iMx6<br>Marvell Armada A380<br>三星Exynos 5422<br>RK3288</p>
-<p><strong>支持的ARM板</strong></p>
-<p>Beelink X2,<br>Orange Pi PC plus, Orange Pi Plus 2E, Orange Pi Lite, Orange Pi 2,Orange Pi One, Orange Pi PC, Orange Pi Plus 1 &amp; 2,<br>Orange Pi A20,Orange Pi mini A20,Orange Pi A31S,<br>Roseapple Pi,<br>NanoPi M1,<br>pcDuino2, pcDuino3, pcDuino3 nano,<br>Odroid C0/C1/C1+, Odroid C2,Odroid XU4,<br>Banana Pi M2+,Banana Pi, Banana Pi M2,Banana Pi PRO,Banana Pi Plus A20,<br>Hummingboard,Hummingboard 2,<br>Clearfog,<br>Lemaker Guitar,<br>Udoo Neo,<br>Cubieboard 1, Cubieboard 2,<br>Lamobo R1,<br>Olimex Lime A10, Olimex Micro, Olimex Lime 2, Olimex Lime 1,<br>Udoo quad,<br>Cubox-i,<br>Cubietruck</p>
-<h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><ul>
-<li>Ubuntu 16.04 LTS 64位</li>
-<li>orangepi pc开发板</li>
-</ul>
-<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p>源码下载地址：<a href="https://github.com/armbian/build" target="_blank" rel="noopener">https://github.com/armbian/build</a></p>
-<p>编译系统过程还是比较简单的</p>
-<p>(1) 搭建开发环境</p>
-<p>编译环境我用的是虚拟机安装的Ubuntu 16.04 64位的系统，新建虚拟机时硬盘空间要足够大，否则编译过程会被中断。我为Ubuntu分配了100G空间,当然物理硬盘占用不会达到100G，主要是为以后编译其他系统留点空间</p>
-<p>官方提供的编译环境说明</p>
-<p>Supported build environments:</p>
-<ul>
-<li>Ubuntu Xenial 16.04 x64 guest inside a VirtualBox or other virtualization software,</li>
-<li>Ubuntu Xenial 16.04 x64 guest managed by Vagrant. This uses Virtualbox (as above) but does so in an easily repeatable way. Please check the Armbian with Vagrant README for a quick start HOWTO,</li>
-<li>Ubuntu Xenial 16.04 x64 inside a Docker, systemd-nspawn or other container environment (example). Building full OS images inside containers may not work, so this option is mostly for the kernel compilation,</li>
-<li>Ubuntu Xenial 16.04 x64 running natively on a dedicated PC or a server (not recommended unless you build kernel only, for full OS images always use virtualization as outlined above),</li>
-<li>20GB disk space or more and 2GB RAM or more available for the VM, container or native OS,</li>
-<li>superuser rights (configured sudo or root access).</li>
-</ul>
-<p>(2) 开始编译<br>这里要注意的是网络得通畅，编译过程中会下载一下工具和源码包，一般编译下来没什么问题。我们先编译内核再编译整个系统，编译时使用root用户或者sudo</p>
-<p>Execution<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install git</span><br><span class="line">git clone https://github.com/armbian/build</span><br><span class="line">cd build</span><br><span class="line">./compile.sh</span><br></pre></td></tr></table></figure></p>
-<p>Make sure that full path to the build script does not contain spaces.<br>检查所有路径不包含空格<br>You will be prompted with a selection menu for a build option, a board name, a kernel branch and an OS release. Please check the documentation for advanced options and additional customization.<br>编译过程中会有编译选项选择，板子的名称，内核和系统版本。请查看高级选项和额外定制的文档。<br>Build process uses caching for the compilation and the debootstrap process, so consecutive runs with similar settings will be much faster.</p>
-<p><strong>具体步骤：</strong></p>
-<p>(1)首先安装git,Ctrl+Alt+T打开终端输入下面的命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install git</span><br></pre></td></tr></table></figure>
-<p> 检查git版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-<p><img src="2018-01-20 21-40-09屏幕截图.png" alt="2018-01-20 21-40-09屏幕截图"></p>
-<p>(2)下载源码，在终端中输入下面的命令</p>
-<p>源码可以放在自己习惯的文件夹下，下面是我的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/iotts/</span><br><span class="line">mkdir armbian</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/armbian/build</span><br></pre></td></tr></table></figure></p>
-<p>(3)开始编译，在终端中输入下面的命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">./compile.sh</span><br></pre></td></tr></table></figure>
-<p><img src="2018-01-20 21-31-30屏幕截图.png" alt="2018-01-20 21-31-30屏幕截图"></p>
-<p> <img src="2018-01-20 21-32-37屏幕截图.png" alt="2018-01-20 21-32-37屏幕截图"></p>
-<p> 安装编译工具完成后会进入配置编译配置界面<img src="2018-01-20 21-51-53屏幕截图.png" alt="2018-01-20 21-51-53屏幕截图"></p>
-<p><img src="2018-01-20 21-52-04屏幕截图.png" alt="2018-01-20 21-52-04屏幕截图"></p>
-<p><img src="2018-01-20 21-52-24屏幕截图.png" alt="2018-01-20 21-52-24屏幕截图"> </p>
-<p>我们选择第二项</p>
-<p><img src="2018-01-20 21-52-51屏幕截图.png" alt="2018-01-20 21-52-51屏幕截图"></p>
-<p>确定以后就开始编译内核了，编译整个系统的步骤基本类似，选择下图中的第二项</p>
-<p><img src="2018-01-20 21-51-53屏幕截图.png" alt="2018-01-20 21-51-53屏幕截图"></p>
-<p>来一张编译完成的图，电脑有点慢编译时间有点长</p>
-<p><img src="2018-01-20 16-18-17屏幕截图.png" alt="2018-01-20 16-18-17屏幕截图"></p>
-<p>以上就是自编译armbian系统的具体步骤</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/17/通信-R232转RS485的通讯电路/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/17/通信-R232转RS485的通讯电路/" class="post-title-link" itemprop="url">[通信]R232转RS485的通讯电路</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-17 23:10:03" itemprop="dateCreated datePublished" datetime="2018-01-17T23:10:03+08:00">2018-01-17</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-18 00:27:48" itemprop="dateModified" datetime="2018-01-18T00:27:48+08:00">2018-01-18</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/通信方式/" itemprop="url" rel="index"><span itemprop="name">通信方式</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="RS232简介："><a href="#RS232简介：" class="headerlink" title="RS232简介："></a>RS232简介：</h1><p>RS-232-C是美国电子工业协会EIA（Electronic Industry Association）制定的一种串行物理接口标准。RS是英文“推荐标准”的缩写，232为标识号，C表示修改次数。RS-232-C总线标准设有25条信号线，包括一个主通道和一个辅助通道。</p>
-<p>在多数情况下主要使用主通道，对于一般双工通信，仅需几条信号线就可实现，如一条发送线、一条接收线及一条地线。</p>
-<p>RS-232-C标准规定的数据传输速率为50、75、100、150、300、600、1200、2400、4800、9600、19200、38400波特。</p>
-<p>RS-232-C标准规定，驱动器允许有2500pF的电容负载，通信距离将受此电容限制，例如，采用150pF/m的通信电缆时，最大通信距离为15m；若每米电缆的电容量减小，通信距离可以增加。传输距离短的另一原因是RS-232属单端信号传送，存在共地噪声和不能抑制共模干扰等问题，因此一般用于20m以内的通信。具体通讯距离还与通信速率有关，例如，在9600pbs时，普通双绞屏蔽线时，距离可达30-35米。</p>
-<p>串行通信接口标准经过使用和发展，目前已经有几种。但都是在RS-232标准的基础上经过改进而形成的。所以，以RS-232C为主来讨论。RS-232C标准是美国EIA（电子工业联合会）与BELL等公司一起开发的1969年公布的通信协议。它适合于数据传输速率在0～20000b/s范围内的通信。这个标准对串行通信接口的有关问题，如信号线功能、电气特性都作了明确规定。由于通信设备厂商都生产与RS-232C制式兼容的通信设备，因此，它作为一种标准，目前已在微机通信接口中广泛采用。</p>
-<p>首先，RS-232-C标准最初是远程通信连接数据终端设备DTE(Data Terminal Equipment）与数据通信设备DCE（Data Communicate Equipment）而制定的。因此这个标准的制定，并未考虑计算机系统的应用要求。但目前它又广泛地被借来用于计算机（更准确的说，是计算机接口与终端或外设之间的近端连接标准)。显然，这个标准的有些规定和计算机系统是不一致的。有了对这种背景的了解，我们对RS-232C标准与计算机不兼容的地方就不难理解了。<br>其次，RS-232C标准中所提到的“发送”和“接收”，都是站在DTE立场上，而不是站在DCE的立场来定义的。由于在计算机系统中，往往是CPU和I/O设备之间传送信息，两者都是DTE，因此双方都能发送和接收。</p>
-<h2 id="电气特性"><a href="#电气特性" class="headerlink" title="电气特性"></a>电气特性</h2><p>EIA-RS-232C对电气特性、逻辑电平和各种信号线功能都作了规定。</p>
-<p>在TxD和RxD上：</p>
-<p>$\color{red}{逻辑1(MARK)=-3V～-15V}$</p>
-<p>$\color{green}{逻辑0(SPACE)=+3～+15V}$</p>
-<p>在RTS、CTS、DSR、DTR和DCD等控制线上：<br>信号有效（接通，ON状态，正电压）=+3V～+15V<br>信号无效（断开，OFF状态，负电压）=-3V～-15V</p>
-<p>以上规定说明了RS-232C标准对逻辑电平的定义。对于数据（信息码）：逻辑“1”（传号）的电平低于-3V，逻辑“0”（空号）的电平高于+3V；对于控制信号；接通状态（ON）即信号有效的电平高于+3V，断开状态（OFF）即信号无效的电平低于-3V，也就是当传输电平的绝对值大于3V时，电路可以有效地检查出来，介于-3～+3V之间的电压无意义，低于-15V或高于+15V的电压也认为无意义，因此，实际工作时，应保证电平在-3V～-15V或+3V～+15V之间。</p>
-<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>连接器：由于RS-232C并未定义连接器的物理特性，因此，出现了DB-25、DB-15和DB-9各种类型的连接器，其引脚的定义也各不相同。下面分别介绍两种连接器。<br>（1）DB-25：PC和XT机采用DB-25型连接器。DB-25连接器定义了25根信号线，分为4组：<br>①异步通信的9个电压信号（含信号地SG）2，3，4，5，6，7，8，20，22<br>②20mA电流环信号 9个（12，13，14，15，16，17，19,23，24）<br>③空6个（9，10，11，18，21，25）<br>④保护地（PE）1个，作为设备接地端（1脚）<br>注意，20mA电流环信号仅IBM PC和IBM PC/XT机提供，至AT机及以后，已不支持。<br>（2）DB-9：<br>在AT机及以后，不支持20mA电流环接口，使用DB-9连接器，作为提供多功能I/O卡或主板上COM1和COM2两个串行接口的连接器。它只提供异步通信的9个信号。DB-9型连接器的引脚分配与DB-25型引脚信号完全不同。因此，若与配接DB-25型连接器的DCE设备连接，必须使用专门的电缆线。<br>电缆长度：在通信速率低于20kb/s时，RS-232C 所直接连接的最大物理距离为15m（50英尺）。<br>最大直接传输距离说明：RS-232C标准规定，若不使用MODEM，在码元畸变小于4%的情况下，DTE和DCE之间最大传输距离为15m（50英尺）。可见这个最大的距离是在码元畸变小于4%的前提下给出的。为了保证码元畸变小于4%的要求，接口标准在电气特性中规定，驱动器的负载电容应小于2500pF。</p>
-<h2 id="接口信号"><a href="#接口信号" class="headerlink" title="接口信号"></a>接口信号</h2><p>RS-232C 的功能特性定义了25芯标准连接器中的20根信号线，其中2条地线、4条数据线、11条控制线、3条定时信号线，剩下的5根线作备用或未定义。常用的只有10根，它们是：</p>
-<p>（1）联络控制信号线：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据发送准备好（Data set ready-DSR）——有效时（ON）状态，表明MODEM处于可以使用的状态。</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据终端准备好（Data terminal ready-DTR）——有效时（ON）状态，表明数据终端可以使用。</span><br></pre></td></tr></table></figure>
-<p>这两个信号有时连到电源上，一上电就立即有效。这两个设备状态信号有效，只表示设备本身可用，并不说明通信链路可以开始进行通信了，能否开始进行通信要由下面的控制信号决定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请求发送（Request to send-RTS）——用来表示DTE请求DCE发送数据，即当终端准备要接收MODEM传来的数据时，使该信号有效（ON状态），请求MODEM发送数据。它用来控制MODEM是否要进入发送状态。</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">允许发送（Clear to send-CTS）——用来表示DCE准备好接收DTE发来的数据，是与请求发送信号RTS相应的信号。当MODEM准备好接收终端传来的数据，并向前发送时，使该信号有效，通知终端开始沿发送数据线TxD发送数据。</span><br></pre></td></tr></table></figure>
-<p>这对RTS/CTS请求应答联络信号是用于半双工MODEM系统中发送方式和接收方式之间的切换。在全双工系统中，因配置双向通道，故不需要RTS/CTS联络信号，使其变高。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">接收线信号检出（Received Line detection-RLSD）——用来表示DCE已接通通信链路，告知DTE准备接收数据。当本地的MODEM收到由通信链路另一端（远地）的MODEM送来的载波信号时，使RLSD信号有效，通知终端准备接收，并且由MODEM将接收下来的载波信号解调成数字量数据后，沿接收数据线RxD送到终端。此线也叫做数据载波检出（Data Carrier dectection-DCD）线。</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">振铃指示（Ringing-RI）——当MODEM收到交换台送来的振铃呼叫信号时，使该信号有效（ON状态），通知终端，已被呼叫。</span><br></pre></td></tr></table></figure>
-<p>（2）数据发送与接收线：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发送数据（Transmitted data-TxD）——通过TxD终端将串行数据发送到MODEM，（DTE→DCE）。</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">接收数据（Received data-RxD）——通过RxD线终端接收从MODEM发来的串行数据，（DCE→DTE）。</span><br></pre></td></tr></table></figure>
-<p>（3）地线 ：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GND、Sig.GND——保护地和信号地，无方向。</span><br></pre></td></tr></table></figure>
-<p>上述控制信号线何时有效，何时无效的顺序表示了接口信号的传送过程。例如，只有当DSR和DTR都处于有效（ON）状态时，才能在DTE和DCE之间进行传送操作。若DTE要发送数据，则预先将DTR线置成有效（ON）状态，等CTS线上收到有效（ON）状态的回答后，才能在TxD线上发送串行数据。这种顺序的规定对半双工的通信线路特别有用，因为半双工的通信才能确定DCE已由接收方向改为发送方向，这时线路才能开始发送。</p>
-<h2 id="接线"><a href="#接线" class="headerlink" title="接线"></a>接线</h2><p>在工程当中经常会用到232口，一般是圆头8针与D型9针两种串口。在一定的条件下，必须要自己制作一个相应的”圆头或者是D型的”232串口。<br>RS232C串口通信接线方法（三线制）<br>首先，串口传输数据只要有接收数据针脚和发送针脚就能实现：同一个串口的接收脚和发送脚直接用线相连，两个串口相连或一个串口和多个串口相连</p>
-<h4 id="同一个串口"><a href="#同一个串口" class="headerlink" title="同一个串口"></a>同一个串口</h4><p>接收脚和发送脚直接用线相连对9针串口和25针串口，均是2与3直接相连；</p>
-<h4 id="两个不同串口（不论是同一台计算机的两个串口或分别是不同计算机的串口）"><a href="#两个不同串口（不论是同一台计算机的两个串口或分别是不同计算机的串口）" class="headerlink" title="两个不同串口（不论是同一台计算机的两个串口或分别是不同计算机的串口）"></a>两个不同串口（不论是同一台计算机的两个串口或分别是不同计算机的串口）</h4><p>DB9-DB9<br>2-3,3-2,5-5</p>
-<p>DB25-DB25<br>2-3,3-2,7-7</p>
-<p>DB9-DB25<br>2-3,3-2,5-7</p>
-<p>上面是对微机标准串行口而言的，还有许多非标准设备，如接收GPS数据或电子罗盘数据，只要记住一个原则：接收数据针脚（或线）与发送数据针脚（或线）相连，彼此交叉，信号地对应相接。</p>
-<h4 id="8针圆形串口接线："><a href="#8针圆形串口接线：" class="headerlink" title="8针圆形串口接线："></a>8针圆形串口接线：</h4><p>2”逻辑地”，4”TXD”,7”RXD”。</p>
-<h4 id="9针D型串口："><a href="#9针D型串口：" class="headerlink" title="9针D型串口："></a>9针D型串口：</h4><p>2”RXD”，3”TXD”，5”逻辑地”。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">针脚</th>
-<th style="text-align:left">信号</th>
-<th style="text-align:left">定义</th>
-<th style="text-align:left">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">1</td>
-<td style="text-align:left">DCD</td>
-<td style="text-align:left">载波检测</td>
-<td style="text-align:left">eceived Line Signal Detector(Data Carrier Detect)</td>
-</tr>
-<tr>
-<td style="text-align:left">2</td>
-<td style="text-align:left">RXD</td>
-<td style="text-align:left">接收数据</td>
-<td style="text-align:left">Received Data</td>
-</tr>
-<tr>
-<td style="text-align:left">3</td>
-<td style="text-align:left">TXD</td>
-<td style="text-align:left">发送数据</td>
-<td style="text-align:left">Transmit Data</td>
-</tr>
-<tr>
-<td style="text-align:left">4</td>
-<td style="text-align:left">DTR</td>
-<td style="text-align:left">数据终端准备好</td>
-<td style="text-align:left">Data Terminal Ready</td>
-</tr>
-<tr>
-<td style="text-align:left">5</td>
-<td style="text-align:left">SGND</td>
-<td style="text-align:left">信号地</td>
-<td style="text-align:left">Signal Ground</td>
-</tr>
-<tr>
-<td style="text-align:left">6</td>
-<td style="text-align:left">DSR</td>
-<td style="text-align:left">数据准备好</td>
-<td style="text-align:left">Data Set Ready</td>
-</tr>
-<tr>
-<td style="text-align:left">7</td>
-<td style="text-align:left">RTS</td>
-<td style="text-align:left">请求发送</td>
-<td style="text-align:left">Request To Send</td>
-</tr>
-<tr>
-<td style="text-align:left">8</td>
-<td style="text-align:left">CTS</td>
-<td style="text-align:left">清除发送</td>
-<td style="text-align:left">Clear To Send</td>
-</tr>
-<tr>
-<td style="text-align:left">9</td>
-<td style="text-align:left">RI</td>
-<td style="text-align:left">振铃提示</td>
-<td style="text-align:left">Ring Indicator</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="使用RS232接口时注意"><a href="#使用RS232接口时注意" class="headerlink" title="使用RS232接口时注意"></a>使用RS232接口时注意</h2><p>RS-232-C的电气接口电路采取的是不平衡传输方式，即所谓单端通讯，其发送电平与接收电平的差只有2～3V，所以共模抑制能力较差，容易受到共地噪声和外部干扰的影响，再加上信号线之间的分布电容，因此其传送距离最大为约15米，最高数据传输速率为20kb/s。此外RS-232-C的接口电路的信号电平较高，容易损坏接口电路的芯片，与TTL电路的电平也不兼容，影响其通用性。为了弥补RS-232-C的不足，提高数据传输率和延长通信距离，EIA于1977年制订了RS－499串行通信标准，这个标准对RS-232-C的不足做了改进和补充。</p>
-<p>RS-422A是RS-499的标准子集之一。</p>
-<h1 id="RS485简介："><a href="#RS485简介：" class="headerlink" title="RS485简介："></a>RS485简介：</h1><h2 id="RS485的特点："><a href="#RS485的特点：" class="headerlink" title="RS485的特点："></a>RS485的特点：</h2><ol>
-<li>RS-485的电气特性：采用差分信号正逻辑，逻辑”1”以两线间的电压差为+(2~6)V表示；逻辑”0”以两线间的电压差为-(2~6)V表示。接口信号电平比RS-232-C降低了，就不易损坏接口电路的芯片， 且该电平与TTL电平兼容，可方便与TTL电路连接。</li>
-<li>RS-485的数据最高传输速率为10Mbps。</li>
-<li>RS-485接口是采用平衡驱动器和差分接收器的组合，抗共模干扰能力增强，即抗噪声干扰性好。</li>
-<li>RS-485最大的通信距离约为1219m，最大传输速率为10Mbps，传输速率与传输距离成反比，传输速率越低，传输距离越长，如果需传输比RS-485最大通信距离更长的距离，需要加485中继器。RS-485总线一般最大支持32个节点，如果使用特制的485芯片，可以达到128个或者256个节点，最大的可以支持到400个节点。<br>因为RS485接口组成的半双工网络，一般只需二根连线（一般叫AB线），所以RS485接口均采用屏蔽双绞线传输。<h2 id="接口-1"><a href="#接口-1" class="headerlink" title="接口"></a>接口</h2>RS485接口组成的半双工网络，一般是两线制（以前有四线制接法，只能实现点对点的通信方式，现很少采用），多采用屏蔽双绞线传输。这种接线方式为总线式拓扑结构在同一总线上最多可以挂接32个结点。在RS485通信网络中一般采用的是主从通信方式，即一个主机带多个从机。很多情况下，连接RS-485通信链路时只是简单地用一对双绞线将各个接口的“A”、“B”端连接起来。RS485接口连接器采用DB-9的9芯插头座，与智能终端RS485接口采用DB-9（孔），与键盘连接的键盘接口RS485采用DB-9（针）。<h2 id="使用RS485接口时注意"><a href="#使用RS485接口时注意" class="headerlink" title="使用RS485接口时注意"></a>使用RS485接口时注意</h2><a href="使用RS485接口时应注意的问题.docx">使用RS485接口时应注意的问题</a><h1 id="参考电路："><a href="#参考电路：" class="headerlink" title="参考电路："></a>参考电路：</h1><img src="fig1.jpg" alt="fig1.jpg"><h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3>RS232-485转换器主要包括了电源、232电平转换、485电路三部分。本电路的232电平转换电路采用了NIH232或者也可以直接使用MAX232集成电路，485电路采用了MAX485集成电路。为了使用方便，电源部分设计成无源方式，整个电路的供电直接从PC机的RS232接口中的DTR（4脚）和RTS（7脚）窃取。PC串口每根线可以提供大约9mA的电流，因此两根线提供的电流足够供给这个电路使用了。经实验，本电路只使用其中一条线也能够正常工作。使用本电路需注意PC程序必须使串口的DTR和RTS输出高电平，经过D3稳压后得到VCC，经过实际测试，VCC电压大约在4.7V左右。因此，电路中要说D3起的作用是稳压还不如说是限压功能。</li>
-</ol>
-<p>　　MAX485是通过两个引脚RE（2脚）和DE（3脚）来控制数据的输入和输出。当RE为低电平时，MAX485数据输入有效；当DE为高电平时，MAX485数据输出有效。在半双工使用中，通常可以将这两个脚直接相连，然后由PC或者单片机输出的高低电平就可以让MAX485在接收和发送状态之间转换了。由于本电路DTR和RTS都用于了电路供电，因此使用TX线和HIN232的另外一个通道及Q1来控制MAX485的状态切换。平时NIH232的9脚输出高电平，经Q1倒相后，使MAX485的RE和DE为低电平而处于数据接收状态。当PC机发送数据时，NIH232的9脚输出低电平，经Q1倒相后，使MAX485的RE和DE为高电平而处于数据发送状态。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/14/用Visual-Studio-2015开发Arduino应用程序/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/14/用Visual-Studio-2015开发Arduino应用程序/" class="post-title-link" itemprop="url">用Visual Studio 2015开发Arduino应用程序</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-14 13:36:54 / 修改时间：14:34:30" itemprop="dateCreated datePublished" datetime="2018-01-14T13:36:54+08:00">2018-01-14</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Arduino相关/" itemprop="url" rel="index"><span itemprop="name">Arduino相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Arduino相关/Arduino-IDE/" itemprop="url" rel="index"><span itemprop="name">Arduino IDE</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="http://blog.csdn.net/yapingxin/article/details/51386451" target="_blank" rel="noopener">原文连接</a></p>
-<h2 id="Arduino-IDE-的缺点"><a href="#Arduino-IDE-的缺点" class="headerlink" title="Arduino IDE 的缺点"></a>Arduino IDE 的缺点</h2><p>虽然 Arduino 很流行很火爆，但是 Arduino IDE 却非常、非常、非常弱。编写代码很不方便，只能说提供了一个最基本的写代码的工具而已，调试代码也很不方便。而且，Arduino IDE 中写代码，只能是把所有的源代码都集中在一个 .ino 文件中，对于写惯了 C++ 程序的工程师来说，Arduino IDE 完全不具备工程化的可能，只能给一般的爱好者当一个玩具而已。</p>
-<p>所以，本教程既然大言不惭地号称是“高级”教程，首先要做的就是替换掉 Arduino IDE 这个开发工具。当然实际上并不是真的替换掉了 Arduino IDE 的所有的东西，而是把它的有用的工具链（gcc toolchain）进行了重用，然后编写代码、代码管理和调试等工作由更现代化的工具来完成。</p>
-<h2 id="代替Arduino-IDE工具安装"><a href="#代替Arduino-IDE工具安装" class="headerlink" title="代替Arduino IDE工具安装"></a>代替Arduino IDE工具安装</h2><p>替代工具：Arduino for Visual Studio（Visual Micro）</p>
-<p>说到太阳系中最强大和最友好的 C++ IDE，我个人认为是Visual Studio。当然您可能并不赞同我的说法，或许您更倾向于 Eclipse。好吧，您可以自行寻找解决办法，用 Eclipse 开发 Arduino 也是完全可行的，也有好事者用 vim 开发 Arduino……抱歉，扯远了。</p>
-<p>在本节中，我们需要用到两个软件：</p>
-<ol>
-<li><p>Visual Studio</p>
-</li>
-<li><p>Visual Micro (Arduino for Visual Studio 插件)</p>
-</li>
-</ol>
-<p>Visual Micro 的原理</p>
-<p>简单说一下为什么我们可以在 Visual Studio 中开发 Arduino 应用程序。</p>
-<p>官方的 Arduino IDE 开发 Arduino 应用程序，是这样的：<br><img src="clip_image001.png" alt="clip_image001.png"></p>
-<p>而 Visual Studio + Visual Micro 开发 Arduino 应用程序，是这样的：<br><img src="clip_image002.png" alt="clip_image002.png"></p>
-<p>所以说，我们替换掉的仅仅是 Arduino IDE 这个蹩脚的代码开发工具，但是编译、调试和代码烧写用的还是原来的 gcc toolchain。</p>
-<p>$\color{red}{Notes：}$上图中，你会看到Atmel Studio。Atmel Studio是Atmel公司推出的免费开发工具，它是基于Visual Studio Shell的。所以本文虽然是针对Visual Studio来讲的，但也同时适用于Atmel Studio。</p>
-<p>有关详细的Visual Micro工作原理的解释，请看这里：<a href="http://www.visualmicro.com/page/User-Guide.aspx?doc=How-The-Tools-Play-Together.html" target="_blank" rel="noopener">How the Software Tools WorkTogether</a></p>
-<h3 id="Visual-Studio-安装"><a href="#Visual-Studio-安装" class="headerlink" title="Visual Studio 安装"></a>Visual Studio 安装</h3><p>Visual Studio 有很多版本，比如说 Professional、Enterprise、Ultimate……这些都可以用来开发 Arduino 应用程序。当然对于个人开发者来说，可能不会去购买付费版本的 Visual Studio，那么用免费的 Community 版本就可以了。</p>
-<p>在本例中，我使用的是 Visual Studio Community 2015。</p>
-<p>在安装 Visual Studio 的时候，有很多可选项，对于开发 Arduino 应用程序来说，只要装有 C++ 开发的安装选项即可。</p>
-<h3 id="Visual-Micro-安装"><a href="#Visual-Micro-安装" class="headerlink" title="Visual Micro 安装"></a>Visual Micro 安装</h3><p>Visual Micro 的官方网站是：<a href="http://www.visualmicro.com/" target="_blank" rel="noopener">http://www.visualmicro.com</a><br>这个软件有收费版和免费版，收费版也不贵，Commercial $75<br>for 1 PC，批量有优惠。对于个人来说，装免费版就完全够用了。</p>
-<p>所以说我们用的 Visual Studio 和 Visual Micro 都可以用免费的版本，对个人来说经济上零压力。</p>
-<p>Visual Micro 下载下来是一个 .vsix 的安装包，双击就可以进行安装了。注意安装前要关掉 Visual Studio。<br><img src="clip_image003.png" alt="clip_image003"></p>
-<p>接下来我们应该进行 Visual Micro 的设置。</p>
-<h3 id="设置-Visual-Micro"><a href="#设置-Visual-Micro" class="headerlink" title="设置 Visual Micro"></a>设置 Visual Micro</h3><p>安装 Visual Micro 之后，首次打开 Visual Studio，就会弹出以下窗口：<br><img src="clip_image004.png" alt="clip_image004"></p>
-<p>以上窗口中，我们需要正确选择 Arduino IDE 的版本和安装位置，好让 Visual Micro 能够帮助 Visual Studio 找到相应的 gcc toolchain。</p>
-<p>至于其它的设置项（Optional sketchbook location、Optional additional boards manager urls），我们现在初始设置的时候可以先不理会，以后需要的时候可以再对此做设置。</p>
-<p>实际上 Visual Micro 已经根据注册表里面的信息自动填好了初始设置项，我现在需要做的仅仅是确认无误之后点击“OK”按钮就可以了。</p>
-<p>选择软件版本、开发板型号和端口</p>
-<p>然后，你会发现 Visual Studio 的工具栏和菜单里面多了这些东西：</p>
-<p><img src="clip_image005.png" alt="clip_image005"></p>
-<p><img src="clip_image006.png" alt="clip_image006"></p>
-<p>看来它是把 Arduino IDE 的工具栏和菜单里面的东西搬到这里来了。</p>
-<h2 id="新建Arduino工程"><a href="#新建Arduino工程" class="headerlink" title="新建Arduino工程"></a>新建Arduino工程</h2><p>接下来我们就可以体验在 Visual Studio 里面写 Arduino 程序了。</p>
-<p>如下图新建一个Aarduino工程<br><img src="clip_image008.png" alt="clip_image008.png"><br><img src="clip_image009.png" alt="clip_image009.png"><br>接下来我们先写一个点灯的程序<br>直接贴代码了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void setup()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  /* add setup code here */</span><br><span class="line">	pinMode(13,OUTPUT);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop()</span><br><span class="line">&#123;</span><br><span class="line">	digitalWrite(13, HIGH);</span><br><span class="line">	delay(200);</span><br><span class="line">	digitalWrite(13, LOW);</span><br><span class="line">	delay(200);</span><br><span class="line">  /* add main program code here */</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>编译的话我们选择正式编译Release<br>接下来根据开发板的具体情况选择板子类型、端口号<br><img src="clip_image010.png" alt="clip_image010.png"><br>点击<code>Start</code>编译并将程序下载到开发板上，然后就会看到灯在闪烁<br><img src="1.gif" alt="1.gif"></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/13/MarkDown插入视频-插入gif/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/13/MarkDown插入视频-插入gif/" class="post-title-link" itemprop="url">MarkDown插入视频,插入gif</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-13 23:17:01 / 修改时间：23:21:56" itemprop="dateCreated datePublished" datetime="2018-01-13T23:17:01+08:00">2018-01-13</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">插入视频代码：</span><br><span class="line"></span><br><span class="line">&lt;iframe height=498 width=510 src=&quot;http://player.youku.com/embed/XNjcyMDU4Njg0&quot;&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">插入gif代码：</span><br><span class="line"></span><br><span class="line">&lt;iframe height=500 width=500 src=&quot;http://ww4.sinaimg.cn/mw690/e75a115bgw1f3rrbzv1m8g209v0diqv7.gif&quot;&gt;</span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/13/MSP430教程之创建一个CCS工程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/13/MSP430教程之创建一个CCS工程/" class="post-title-link" itemprop="url">MSP430教程之创建一个CCS工程</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-13 21:04:12 / 修改时间：23:50:54" itemprop="dateCreated datePublished" datetime="2018-01-13T21:04:12+08:00">2018-01-13</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MSP430相关/" itemprop="url" rel="index"><span itemprop="name">MSP430相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MSP430相关/MSP430教程/" itemprop="url" rel="index"><span itemprop="name">MSP430教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>前几天花了4.3美元在TI官网买了一开MSP430FR2433 LaunchPad™ Development Kit<br>(MSPEXP430FR2433)，今天花一点时间来个简单的入门。板子很简单见下图<br> <img src="TIM截图20180113204831.png" alt="TIM截图20180113204831.png"></p>
-<p>开发板自带一个调试工具和串口调试工具，性价比还是挺高的。<br>开发板的资源见下图：</p>
-<p><img src="TIM截图20180113205502.png" alt="TIM截图20180113205502.png"></p>
-<p>首先我们先来一个简单的点灯例程，接下来从<code>新建工程----编写点灯程序----效果演示</code>顺序开始介绍</p>
-<h2 id="创建一个CCS工程"><a href="#创建一个CCS工程" class="headerlink" title="创建一个CCS工程"></a>创建一个CCS工程</h2><p>CCS其实就是eclipse安装了TI的一些开发插件，CCS的安装教程就不提了比较简单，从TI官网下载CCS，选择单片机的型号，接下来基本上是<code>下一步</code>就行了。接下来主要讲如何新建工程</p>
-<p><code>File &gt; New &gt; CCS Project</code><br>具体配置如下：</p>
-<ul>
-<li>Target:MSP430FR2433</li>
-</ul>
-<ul>
-<li>Project name:Hello_Led</li>
-</ul>
-<ul>
-<li>Location:随自己的意愿</li>
-</ul>
-<ul>
-<li><p>Project templates and examples : Empty Project(with main.c)</p>
-<p><img src="TIM截图20180113193424.png" alt="FIG2"></p>
-</li>
-</ul>
-<h2 id="开始编写自己的程序"><a href="#开始编写自己的程序" class="headerlink" title="开始编写自己的程序"></a>开始编写自己的程序</h2><p>上面我们创建好了MSP430的工程，具体如下：<br> <img src="TIM截图20180113194545.png" alt="fig3"><br>创建工程后系统已经添加好了msp430的头文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;msp430.h&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>当然也可以自己根据具体型号添加头文件，我用的是MSP430FR2433,所以我们可以改成<code>#include &lt;msp430fr2433.h&gt;</code>这个头文件包含了 MSP430FR2433 的寄存器定义和内置函数。<br>main函数部分，以下是闪灯的程序，也是CCS自带的示例代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int main(void) &#123;</span><br><span class="line">    WDTCTL = WDTPW | WDTHOLD;	    // Stop watchdog timer</span><br><span class="line">    PM5CTL0 &amp;= ~LOCKLPM5;           // Disable the GPIO power-on default high-impedance mode</span><br><span class="line">    P1DIR |= BIT0;					// Set P1.0 to output direction</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(;;) &#123;</span><br><span class="line">		volatile unsigned int i;	// volatile to prevent optimization</span><br><span class="line"></span><br><span class="line">		P1OUT ^= 0x01;				// Toggle P1.0 using exclusive-OR</span><br><span class="line"></span><br><span class="line">		i = 10000;					// SW Delay</span><br><span class="line">		<span class="keyword">do</span> i--;</span><br><span class="line">		<span class="keyword">while</span>(i != 0);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P1DIR |= BIT0;</span><br></pre></td></tr></table></figure>
-<p>这一行中,我们将 P1.0 引脚设置为输出(P1.0 与开发板上 Led1 相连)。在 MSP430 中,P1DIR 是一个控制 Port1 引脚方 向的八位寄存器。如果你把某一位配置为 0,则它作输入用,反之 是输出。BIT0 是一个系统定义的常量,即 0x0001（详见<code>&lt;msp430fr2433.h&gt;</code>）。</p>
-<p>如果一切顺利的话,现在我们可以把我们的程序下载到单片机运行了。</p>
-<h2 id="将程序下载到单片机"><a href="#将程序下载到单片机" class="headerlink" title="将程序下载到单片机"></a>将程序下载到单片机</h2><p> <img src="TIM截图20180113203355.png" alt="TIM截图20180113203355">编译按钮</p>
-<p> <img src="TIM截图20180113203408.png" alt="TIM截图20180113203408">Debug 按钮,编译通过之后,我们按这个按钮会下载程序并进入 DEBUG 模式</p>
-<p> <img src="TIM截图20180113203554.png" alt="TIM截图20180113203554">红色按钮终止 DEBUG 模式</p>
-<p>LED 程序已经下载到单片机中,如果你观察到红色的 LED 灯会随着按键亮灭,那么恭喜你,你已经完成了第一 个 MSP430的项目。</p>
-<center>
-<iframe height="498" width="510" src="http://player.youku.com/embed/XMzMxNTg1NjM2MA==" frameborder="0" 'allowfullscreen'></iframe>
-</center>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/12/MQTT客户端设计之ESP8266/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/12/MQTT客户端设计之ESP8266/" class="post-title-link" itemprop="url">MQTT客户端设计之ESP8266</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-12 00:28:01" itemprop="dateCreated datePublished" datetime="2018-01-12T00:28:01+08:00">2018-01-12</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-03-30 21:45:32" itemprop="dateModified" datetime="2018-03-30T21:45:32+08:00">2018-03-30</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网相关/" itemprop="url" rel="index"><span itemprop="name">物联网相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网相关/终端相关/" itemprop="url" rel="index"><span itemprop="name">终端相关</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>MQTT是IBM开发的一个即时通讯协议，面向M2M和物联网的连接，采用轻量级发布和订阅消息传输机制，并且有可能成为物联网的重要组成部分。</p>
-<p>ESP8266是一款物美价廉的Wi-Fi芯片，集成Tensilica L106 钻石系列的32 位处理器和片上SRAM，多达17 个GPIO口，并拥有IIC、IIS、UART、PWM、IR遥控等片上资源。</p>
-<p>ESP8266还提供官方的软件开发开发包（SDK），目前最新版本是「ESP8266 NONOS SDK V2.2.0」。</p>
-<p>这篇文章主要讲解如何使用ESP8266作为MQTT客户端，并连上在本地电脑搭建的MQTT服务器。</p>
-<h1 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h1><p>首先简单说明一下博主的开发环境：</p>
-<ul>
-<li>ESP8266开发环境：<a href="https://pan.baidu.com/s/1skRvR1j#list/path=%2F%E5%AE%89%E4%BF%A1%E5%8F%AFESP%E7%B3%BB%E5%88%97%E6%96%B0IDE" target="_blank" rel="noopener">ESP8266 IDE 2.0</a></li>
-<li>ESP8266 SDK版本：<a href="https://github.com/espressif/ESP8266_NONOS_SDK/releases/tag/v2.2.0" target="_blank" rel="noopener">ESP8266 NONOS SDK V2.2.0</a></li>
-<li>MQTT服务器：Apollo 1.7.1（本地搭建）</li>
-<li>操作系统：64位 Win10系统</li>
-<li>ESP8266开发板：NodeMCU（4MB Flash）</li>
-</ul>
-<h1 id="导入工程"><a href="#导入工程" class="headerlink" title="导入工程"></a>导入工程</h1><p>如果读者和博主使用的开发环境一样，那么步骤1~4就好理解了，不是的话直接看图片和步骤5：</p>
-<ol>
-<li>在IDE环境中通过「File」-&gt;「Import」；</li>
-<li>弹窗中选择「C/C++」-&gt;「Existing Code as Makefile project」；</li>
-<li>下一步「Browse…」，编译器选择「Cygwin GCC」；</li>
-<li>之后导入的工程目录如上图，其中给「dirver_lib」文件下面的Makeflie添加bak后缀或删除掉，免得编译通不过。</li>
-<li>从「example」文件夹中拷贝<strong>esp_mqtt_proj</strong>文件夹到主目录，点击编译按钮，如果成功就完成这一步骤了。</li>
-</ol>
-<p><img src="20161108213930131.png" alt="img"></p>
-<p>工程目录</p>
-<p>工程目录图</p>
-<h1 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h1><p><img src="20161108214816252.png" alt="img"></p>
-<p>mqtt例程目录</p>
-<p>user_main.c</p>
-<p>mqtt_config.h</p>
-<p>其中user_main.c不用说了，玩过ESP8266的朋友都知道这是放主代码的地方，其中<strong>user_init</strong>函数是SDK提供开发者放置初始化代码的地方。下面主要分析mqtt_config.h。</p>
-<p><code>mqtt_config.h</code>代码清单</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ifndef __MQTT_CONFIG_H__</span></span><br><span class="line"><span class="comment">#define __MQTT_CONFIG_H__</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define CFG_HOLDER  0x00FF55A4  /* Change this value to load default configurations */</span></span><br><span class="line"><span class="comment">#define CFG_LOCATION    0x79    /* Please don't change or if you know what you doing */</span></span><br><span class="line"><span class="comment">#define MQTT_SSL_ENABLE</span></span><br><span class="line"></span><br><span class="line">/*DEFAULT CONFIGURATIONS*/</span><br><span class="line"></span><br><span class="line"><span class="comment">#define MQTT_HOST           "192.168.1.100" //or "mqtt.yourdomain.com"</span></span><br><span class="line"><span class="comment">#define MQTT_PORT           1883</span></span><br><span class="line"><span class="comment">#define MQTT_BUF_SIZE       1024</span></span><br><span class="line"><span class="comment">#define MQTT_KEEPALIVE      120  /*second*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define MQTT_CLIENT_ID      "DVES_%08X"</span></span><br><span class="line"><span class="comment">#define MQTT_USER           "DVES_USER"</span></span><br><span class="line"><span class="comment">#define MQTT_PASS           "DVES_PASS"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define STA_SSID "DVES_HOME"</span></span><br><span class="line"><span class="comment">#define STA_PASS "yourpassword"</span></span><br><span class="line"><span class="comment">#define STA_TYPE AUTH_WPA2_PSK</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define MQTT_RECONNECT_TIMEOUT  5   /*second*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define DEFAULT_SECURITY    0</span></span><br><span class="line"><span class="comment">#define QUEUE_BUFFER_SIZE               2048</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define PROTOCOL_NAMEv31    /*MQTT version 3.1 compatible with Mosquitto v0.15*/</span></span><br><span class="line">//PROTOCOL_NAMEv311         /*MQTT version 3.11 compatible with https://eclipse.org/paho/clients/testing/*/</span><br><span class="line"></span><br><span class="line"><span class="comment">#endif // __MQTT_CONFIG_H__</span></span><br></pre></td></tr></table></figure>
-<p>在这个文件中，有几个宏定义可能需要修改的</p>
-<ul>
-<li>MQTT_HOST，MQTT服务器地址</li>
-<li>MQTT_PORT，MQTT服务器端口</li>
-<li>MQTT_USER，MQTT服务器用户名</li>
-<li>MQTT_PASS，MQTT服务器密码</li>
-<li>STA_SSID，WI-FI帐号</li>
-<li>STA_PASS，WI-FI密码</li>
-</ul>
-<p>还有一个最重要的宏定义——<strong>CFG_HOLDER</strong>，因为这个MQTT示例在ESP8266运行过一次后会把这些信息保存到FLASH中，如果要继续修改这些信息，记得要修改CFG_HOLDER这个宏定义，改成另一个数值即可。</p>
-<p>CFG_HOLDER作的用是：在<code>CFG_Load</code>函数中，如果发现从FLASH读取出来的<code>CFG_HOLDER</code>数值和宏定义的不一样，则会更新这些信息，并保存到FLASH中。不修改<code>CFG_HOLDER</code>的话可能会发觉明明用户名和密码都正确但是就是连接不上去。</p>
-<h1 id="修改代码及测试"><a href="#修改代码及测试" class="headerlink" title="修改代码及测试"></a>修改代码及测试</h1><h2 id="修改代码"><a href="#修改代码" class="headerlink" title="修改代码"></a>修改代码</h2><p>根据上面分析，下面我们就可以修改示例代码：</p>
-<ol>
-<li>把<strong>STA_SSID</strong>和<strong>STA_PASS</strong>修改为自己的WiFI名和密码；</li>
-<li>修改<strong>MQTT_USER</strong>和<strong>MQTT_PASS</strong>为对应的MQTT服务器的用户名和密码，Apollo服务器默认是<strong>admin</strong>和<strong>password</strong>；</li>
-<li>修改<strong>MQTT_HOST</strong>和<strong>MQTT_PORT</strong>为MQTT服务器IP和PORT，目前是使用本地的MQTT服务器，所以是修改为自己电脑的IP和<strong>61613</strong>端口，PORT是整型值；</li>
-<li>根据MQTT服务器的协议不同，可能需要使用MQTT v3.1.1版本，所以把<strong>PROTOCOL_NAMEv31</strong>注释掉，使用<strong>PROTOCOL_NAMEv311</strong>。源码的PROTOCOL_NAMEv311前面没有#define，自己加上就行。</li>
-<li>最后，修改<strong>CFG_HOLDER</strong>，以让这些配置生效，直接给原来CFG_HOLDER定义的数值加1即可。</li>
-</ol>
-<p><img src="20161120151611152.png" alt="img"></p>
-<p>修改示例配置</p>
-<h2 id="编译下载"><a href="#编译下载" class="headerlink" title="编译下载"></a>编译下载</h2><p>编译，查看<strong>Console</strong>窗口，如果输出</p>
-<p><img src="20161120152602774.png" alt="img"></p>
-<p>编译信息</p>
-<p>那说明代码已经编译成功。另外要注意，ESP8266 SDK v2.0以后版本生成的<strong>eagle.irom0text.bin</strong>烧写起始地址是<strong>0x10000</strong>，而之前的版本烧写地址是0x40000；<strong>eagle.flash.bin</strong>还是<strong>0x00000</strong>。由于博主使用的是4MB Flash的ESP8266，所以也建议读者先确定手头的ESP8266是不是<strong>4MB Flash</strong>（即32Mbit Flash，注意单位！4MB=32Mbit，Flash一般是以bit计算！）</p>
-<p>另外如果<strong>Problems</strong>窗口报<strong>Errors</strong>的，只要<strong>Console</strong>窗口编译通过，就可以不用管。</p>
-<p>下载配置参考图片：</p>
-<p><img src="20161202104437633.png" alt="img"></p>
-<p>下载配置</p>
-<p>提醒：blank.bin和default.bin烧写一次就行，另外也要留意不同的Flash大小，blank.bin和default.bin烧写地址也不同。</p>
-<h2 id="上电测试"><a href="#上电测试" class="headerlink" title="上电测试"></a>上电测试</h2><p>如果前面一切顺利，打开串口，设置波特率为<strong>115200</strong>，上电后前面的乱码不用管，之后串口打印信息如下，省略了一部分信息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt; load ...</span><br><span class="line">&gt; default configuration</span><br><span class="line">&gt; MQTT_InitConnection</span><br><span class="line">&gt; MQTT_InitClient</span><br><span class="line"></span><br><span class="line">WIFI_INIT</span><br><span class="line"></span><br><span class="line">&gt; ……（省略）</span><br><span class="line"></span><br><span class="line">&gt; connected with **[你的WiFi名]**, channel 6</span><br><span class="line">&gt; dhcp client start...</span><br><span class="line">&gt; STATION_IDLE</span><br><span class="line">&gt; STATION_IDLE</span><br><span class="line">&gt; ip:**[WiFi分配给ESP8266的IP]**,mask:255.255.255.0,gw:**[WiFi网关IP]**</span><br><span class="line">&gt; TCP: Connect to ip **[MQTT服务器IP:PORT]**</span><br><span class="line">&gt; MQTT: Connected to broker **[MQTT服务器IP:PORT]**</span><br><span class="line">&gt; MQTT: Sending, <span class="built_in">type</span>: 1, id: 0000</span><br><span class="line">&gt; TCP: Sent</span><br><span class="line">&gt; TCP: data received 4 bytes</span><br><span class="line">&gt; MQTT: Connected to **[MQTT服务器IP:PORT]**</span><br><span class="line">&gt; MQTT: Connected</span><br><span class="line">&gt; MQTT: queue subscribe, topic<span class="string">"/mqtt/topic/0"</span>, id: 1</span><br><span class="line">&gt; MQTT: queue subscribe, topic<span class="string">"/mqtt/topic/1"</span>, id: 2</span><br><span class="line">&gt; MQTT: queue subscribe, topic<span class="string">"/mqtt/topic/2"</span>, id: 3</span><br><span class="line">&gt; MQTT: queuing publish, length: 23, queue size(66/2048)</span><br><span class="line">&gt; MQTT: queuing publish, length: 25, queue size(91/2048)</span><br><span class="line">&gt; MQTT: queuing publish, length: 25, queue size(118/2048)</span><br><span class="line">&gt; ……</span><br></pre></td></tr></table></figure></p>
-<p>其中加粗带方括号的字段根据测试环境不同而不同。</p>
-<p>同时看源码和串口信息可知，ESP8266向MQTT服务器订阅了三个主题，假设使用的是本地搭建的MQTT服务器，那么查看MQTT服务器后台就可以看到：</p>
-<p><img src="20161120150133169.png" alt="img"></p>
-<p>ESP8266MQTT示例代码订阅</p>
-<p>同时在后台的<strong>Connects</strong>页面也可以看到ESP8266的链接：</p>
-<p><img src="20161120150235107.png" alt="img"></p>
-<p>ESP8266后台链接</p>
-<p>MQTT本地服务器搭建教程Windows版链接在后面。</p>
-<p>另外博主已经用ESP8266的MQTT连接上了OneNET云，连接该云需要<strong>注释掉</strong>下面这条语句，在<code>user_init</code>函数下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MQTT_InitLWT(&amp;mqttClient, <span class="string">"/lwt"</span>, <span class="string">"offline"</span>, 0, 0);</span><br></pre></td></tr></table></figure>
-<p>原因是OneNET不支持，否则连接不上。</p>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
-<li>【MQTT服务器】<ul>
-<li>下载地址：<a href="https://link.jianshu.com/?t=http://activemq.apache.org/apollo/download.html" target="_blank" rel="noopener">http://activemq.apache.org/apollo/download.html</a></li>
-</ul>
-</li>
-<li>【ESP8266资料】ESP8266官网资源链接：<a href="https://link.jianshu.com/?t=http://espressif.com/zh-hans/products/hardware/esp8266ex/resources" target="_blank" rel="noopener">http://espressif.com/zh-hans/products/hardware/esp8266ex/resources</a></li>
-</ul>
-<hr>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/11/Ubuntu下搭建MQTT服务器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/11/Ubuntu下搭建MQTT服务器/" class="post-title-link" itemprop="url">Ubuntu下搭建MQTT服务器</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-11 23:55:35 / 修改时间：23:59:06" itemprop="dateCreated datePublished" datetime="2018-01-11T23:55:35+08:00">2018-01-11</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网相关/" itemprop="url" rel="index"><span itemprop="name">物联网相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网相关/服务器端相关/" itemprop="url" rel="index"><span itemprop="name">服务器端相关</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>现在物联网这么火，当然不能落伍，MQTT极有可能成为物联网应用最广的协议，因此需要一个MQTT测试环境就很有必要了</p>
-<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>系统：            Ubuntu 16.04.3 LTS</p>
-<p>代理服务器 ：Apache-Apollo-1.7.1</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="1-安装Java环境"><a href="#1-安装Java环境" class="headerlink" title="1. 安装Java环境"></a>1. 安装Java环境</h3><p>由于搭建Apollo环境变量需要有JAVA_HOME，这个时候需要安装JDK,具体安装参考《<a href="../Ubuntu安装JDK1-8-0并配置环境变量">Ubuntu安装JDK1.8.0并配置环境变量</a>》</p>
-<h3 id="2-Apache-Apollo-1-7-1下载及解压"><a href="#2-Apache-Apollo-1-7-1下载及解压" class="headerlink" title="2. Apache-Apollo-1.7.1下载及解压"></a>2. Apache-Apollo-1.7.1下载及解压</h3><p>首先是下载Apache-Apollo，下载页面：<a href="http://www.apache.org/dyn/closer.cgi?path=activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz" target="_blank" rel="noopener">http://www.apache.org/dyn/closer.cgi?path=activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz</a></p>
-<p>或者输入下面命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~$ <span class="built_in">cd</span> /home/iotts/</span><br><span class="line">iotts@jacklu:~$ mkdir apache-apollo</span><br><span class="line">wget http://mirror.bit.edu.cn/apache/activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz</span><br></pre></td></tr></table></figure>
-<p>解压源码包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-apollo-1.7.1-unix-distro.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>配置</p>
-<p>进入apache-apollo-1.7.1/bin目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> apache-apollo-1.7.1/bin/</span><br></pre></td></tr></table></figure></p>
-<p>输入<code>./apollo</code>可以查看帮助<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/apache-apollo/apache-apollo-1.7.1/bin$ ./apollo</span><br><span class="line">usage: apollo [--<span class="built_in">log</span> &lt;log_level&gt;] &lt;<span class="built_in">command</span>&gt; [&lt;args&gt;]</span><br><span class="line"></span><br><span class="line">The most commonly used apollo commands are:</span><br><span class="line">    create           creates a new broker instance</span><br><span class="line">    disk-benchmark   Benchmarks your disk<span class="string">'s speed</span></span><br><span class="line"><span class="string">    help             Display help information</span></span><br><span class="line"><span class="string">    version          Displays the broker version</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">See '</span>apollo <span class="built_in">help</span> &lt;<span class="built_in">command</span>&gt;<span class="string">' for more information on a specific command.</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="创建MQTT服务器"><a href="#创建MQTT服务器" class="headerlink" title="创建MQTT服务器"></a>创建MQTT服务器</h2><p>创建一个Broker示例：./apollo create iotts_broker。执行后就会在bin目录下创建 iotts_broker文件夹。(MQTT服务器都是叫Broker)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/apache-apollo/apache-apollo-1.7.1/bin$ ./apollo create iotts_broker</span><br><span class="line">Creating apollo instance at: iotts_broker</span><br><span class="line">Generating ssl keystore...</span><br><span class="line"></span><br><span class="line">You can now start the broker by executing:  </span><br><span class="line"></span><br><span class="line">   <span class="string">"/home/iotts/apache-apollo/apache-apollo-1.7.1/bin/iotts_broker/bin/apollo-broker"</span> run</span><br><span class="line"></span><br><span class="line">Or you can setup the broker as system service and run it <span class="keyword">in</span> the background:</span><br><span class="line"></span><br><span class="line">   sudo ln -s <span class="string">"/home/iotts/apache-apollo/apache-apollo-1.7.1/bin/iotts_broker/bin/apollo-broker-service"</span> /etc/init.d/</span><br><span class="line">   /etc/init.d/apollo-broker-service start</span><br></pre></td></tr></table></figure></p>
-<p>后面会有提示怎么启动服务器，以及创建一个service。</p>
-<p>启动Apollo ：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/apache-apollo/apache-apollo-1.7.1/bin$ iotts_broker/bin/apollo-broker run</span><br><span class="line"></span><br><span class="line">    _____                .__  .__</span><br><span class="line">   /  _  \ ______   ____ |  | |  |   ____</span><br><span class="line">  /  /_\  \\____ \ /  _ \|  | |  |  /  _ \</span><br><span class="line"> /    |    \  |_&gt; &gt;  &lt;_&gt; )  |_|  |_(  &lt;_&gt; )</span><br><span class="line"> \____|__  /   __/ \____/|____/____/\____/</span><br><span class="line">         \/|__|  Apache Apollo (1.7.1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Loading configuration file <span class="string">'/home/iotts/apache-apollo/apache-apollo-1.7.1/bin/iotts_broker/etc/apollo.xml'</span>.</span><br><span class="line">INFO  | OS     : Linux 4.10.0-42-generic (Ubuntu 16.04.3 LTS)</span><br><span class="line">INFO  | JVM    : Java HotSpot(TM) Server VM 1.8.0_151 (Oracle Corporation)</span><br><span class="line">INFO  | Apollo : 1.7.1 (at: /home/iotts/apache-apollo/apache-apollo-1.7.1)</span><br><span class="line">INFO  | OS is restricting the open file <span class="built_in">limit</span> to: 100000</span><br><span class="line">INFO  | Accepting connections at: tcp://0.0.0.0:61613</span><br><span class="line">INFO  | Accepting connections at: tls://0.0.0.0:61614</span><br><span class="line">INFO  | Starting store: leveldb store at /home/iotts/apache-apollo/apache-apollo-1.7.1/bin/iotts_broker/data</span><br><span class="line">INFO  | Accepting connections at: ws://0.0.0.0:61623/</span><br><span class="line">INFO  | Accepting connections at: wss://0.0.0.0:61624/</span><br><span class="line">INFO  | virtual host startup is waiting on store startup</span><br><span class="line">INFO  | virtual host startup is no longer waiting.  It waited a total of 1 seconds.</span><br><span class="line">INFO  | broker startup is waiting on start jetty webserver</span><br><span class="line">INFO  | Administration interface available at: https://127.0.0.1:61681/</span><br><span class="line">INFO  | Administration interface available at: http://127.0.0.1:61680/</span><br><span class="line">INFO  | broker startup is no longer waiting.  It waited a total of 7 seconds.</span><br></pre></td></tr></table></figure></p>
-<p>查看打印信息即可知道MQTT要连接的端口和管理页面端口。</p>
-<p>然后打开浏览器上，输入 <a href="http://127.0.0.1:61680/" target="_blank" rel="noopener">http://127.0.0.1:61680/</a> 或 <a href="https://127.0.0.1:61681/" target="_blank" rel="noopener">https://127.0.0.1:61681/</a><br>即可进入 Apollo Console 窗口。<br><img src="微信截图_20180111233348.png" alt="微信截图_20180111233348.png"></p>
-<p>默认的登录id和密码是 admin 和 password<br><img src="微信截图_20180111233514.png" alt="微信截图_20180111233514.png"></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/11/Ubuntu安装JDK1-8-0并配置环境变量/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/11/Ubuntu安装JDK1-8-0并配置环境变量/" class="post-title-link" itemprop="url">Ubuntu安装JDK1.8.0并配置环境变量</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-11 23:00:20" itemprop="dateCreated datePublished" datetime="2018-01-11T23:00:20+08:00">2018-01-11</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-15 00:05:16" itemprop="dateModified" datetime="2018-01-15T00:05:16+08:00">2018-01-15</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/java环境变量配置/" itemprop="url" rel="index"><span itemprop="name">java环境变量配置</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>虚拟机 Ubuntu 16.04.3 LTS</p>
-<h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2><p>通过终端在<code>/usr/local</code>目录下新建<code>java</code>文件夹，命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure></p>
-<p>然后进入java目录，命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure></p>
-<p>到官网下载jdk：<br><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
-<p>注意操作系统位数的选择，我的Ubuntu系统为32位的所以直接输入下面命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>解压源码包</p>
-<p>解压压缩包，命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar xvf jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>然后可以把压缩包删除，命令行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure>
-<h2 id="设置JDK环境变量"><a href="#设置JDK环境变量" class="headerlink" title="设置JDK环境变量"></a>设置JDK环境变量</h2><p>这里采用全局设置方法，它是是所有用户的共用的环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> gedit ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<p>命令行下可以输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<p>在.bashrc文件末尾输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_151  </span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre  </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib  </span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
-<p>$\color{red}{注意：}$在添加环境变量时中，等号两侧不要加入空格，不然会出现“不是有效的标识符”，因为<code>source /etc/profile</code> 时不能识别多余到空格，会理解为是路径一部分。然后保存。<br>命令行下输入以下命令生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<h2 id="检验是否安装成功"><a href="#检验是否安装成功" class="headerlink" title="检验是否安装成功"></a>检验是否安装成功</h2><p>重启终端，然后在终端输入如下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></p>
-<p>看看是否安装成功，成功则显示如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~$ java -version</span><br><span class="line">java version <span class="string">"1.8.0_151"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) Client VM (build 25.151-b12, mixed mode)</span><br><span class="line">iotts@jacklu:~$</span><br></pre></td></tr></table></figure></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/10/物联网技术之服务器端数据采集环境简单搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/10/物联网技术之服务器端数据采集环境简单搭建/" class="post-title-link" itemprop="url">物联网技术之服务器端数据采集环境简单搭建</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-10 23:56:33" itemprop="dateCreated datePublished" datetime="2018-01-10T23:56:33+08:00">2018-01-10</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-12 00:02:22" itemprop="dateModified" datetime="2018-01-12T00:02:22+08:00">2018-01-12</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网相关/" itemprop="url" rel="index"><span itemprop="name">物联网相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网相关/服务器端相关/" itemprop="url" rel="index"><span itemprop="name">服务器端相关</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h2><p>在MySql数据库中创建一个名为<code>Sensor_server</code>的数据库，如下图：<br><img src="微信截图_20180111003012.png" alt="微信截图_20180111003012.png"><br>在数据库中创建一个名为<code>sensor_test</code>的数据表，使用如下SQL语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS `sensor_test` (</span><br><span class="line">  `id` int(11) NOT NULL,</span><br><span class="line">  `sen_id` int(11) NOT NULL,</span><br><span class="line">  `temp` int(11) NOT NULL,</span><br><span class="line">  `humi` int(11) NOT NULL,</span><br><span class="line">  `pm25` int(11) NOT NULL,</span><br><span class="line">  `pm10` int(11) NOT NULL,</span><br><span class="line">  `pm100` int(11) NOT NULL,</span><br><span class="line">  `co2` int(11) NOT NULL,</span><br><span class="line">  `ze08` int(11) NOT NULL,</span><br><span class="line">  `tvoc` int(11) NOT NULL,</span><br><span class="line">  `timeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</span><br><span class="line">) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;</span><br></pre></td></tr></table></figure></p>
-<p><img src="微信截图_20180111001007.png" alt="微信截图_20180111001007.png"></p>
-<h2 id="2-创建PHP文件"><a href="#2-创建PHP文件" class="headerlink" title="2.创建PHP文件"></a>2.创建PHP文件</h2><h3 id="2-1-创建数据库连接PHP文件"><a href="#2-1-创建数据库连接PHP文件" class="headerlink" title="2.1 创建数据库连接PHP文件"></a>2.1 创建数据库连接PHP文件</h3><p>创建名为<code>database.php</code> 的文件，写入以下代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$connect=mysqli_connect(<span class="string">'localhost'</span>,<span class="string">'用户名（最好不用root）'</span>,<span class="string">'数据库密码'</span>,<span class="string">'sensor_server'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>(mysqli_connect_errno($connect)) printf(<span class="string">"Failed to connect"</span>);</span><br><span class="line"><span class="keyword">else</span> printf(<span class="string">"Success to Connect\r\n"</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="2-2-创建数据库操作PHP文件"><a href="#2-2-创建数据库操作PHP文件" class="headerlink" title="2.2 创建数据库操作PHP文件"></a>2.2 创建数据库操作PHP文件</h3><p>创建名为<code>process.php</code> 的文件，写入以下代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">"Content-type:text/html;charset=utf-8"</span>);</span><br><span class="line">date_default_timezone_set(<span class="string">"Asia/Shanghai"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"当前时间是 "</span> . date(<span class="string">"H:i:s"</span>).<span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">include</span>(<span class="string">"database.php"</span>);</span><br><span class="line">	$sen_id=$_POST[<span class="string">'sen_id'</span>];</span><br><span class="line">	$pm25=$_POST[<span class="string">'pm25'</span>];</span><br><span class="line">	$pm10=$_POST[<span class="string">'pm10'</span>];</span><br><span class="line">	$co2=$_POST[<span class="string">'co2'</span>];</span><br><span class="line">	$tvoc=$_POST[<span class="string">'tvoc'</span>];</span><br><span class="line">	$pm100=$_POST[<span class="string">'pm100'</span>];</span><br><span class="line">	$ze08=$_POST[<span class="string">'ze08'</span>];</span><br><span class="line">	$temp=$_POST[<span class="string">'temp'</span>];</span><br><span class="line">	$humi=$_POST[<span class="string">'humi'</span>];</span><br><span class="line">	$id=$_POST[<span class="string">'id'</span>];</span><br><span class="line">	print_r($_POST);</span><br><span class="line">	mysqli_query($connect,<span class="string">"INSERT INTO sensor_test(pm25,pm10,pm100,co2,tvoc,temp,humi,ze08,id,sen_id) VALUES('$pm25','$pm10','$pm100','$co2','$tvoc','$temp','$humi','$ze08','$id','$sen_id')"</span>);</span><br><span class="line"></span><br><span class="line">	mysqli_close($connect);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/10/c语言教程之枚举类型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/10/c语言教程之枚举类型/" class="post-title-link" itemprop="url">c语言教程之枚举类型</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-10 16:53:23 / 修改时间：17:13:02" itemprop="dateCreated datePublished" datetime="2018-01-10T16:53:23+08:00">2018-01-10</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/C语言教程/" itemprop="url" rel="index"><span itemprop="name">C语言教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://www.cnblogs.com/JCSU/articles/1299051.html" target="_blank" rel="noopener">原文链接</a><br>注：以下全部代码的执行环境为VC++ 6.0</p>
-<p>在程序中，可能需要为某些整数定义一个别名，我们可以利用预处理指令#define来完成这项工作，您的代码可能是：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#define MON  1</span></span><br><span class="line"><span class="comment">#define TUE   2</span></span><br><span class="line"><span class="comment">#define WED  3</span></span><br><span class="line"><span class="comment">#define THU   4</span></span><br><span class="line"><span class="comment">#define FRI    5</span></span><br><span class="line"><span class="comment">#define SAT   6</span></span><br><span class="line"><span class="comment">#define SUN   7</span></span><br></pre></td></tr></table></figure>
-<p>在此，我们定义一种新的数据类型，希望它能完成同样的工作。这种新的数据类型叫枚举型。</p>
-<h2 id="1-定义一种新的数据类型-枚举型"><a href="#1-定义一种新的数据类型-枚举型" class="headerlink" title="1. 定义一种新的数据类型 - 枚举型"></a>1. 定义一种新的数据类型 - 枚举型</h2><p> 以下代码定义了这种新的数据类型 - 枚举型<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>(1) 枚举型是一个集合，集合中的元素(枚举成员)是一些命名的整型常量，元素之间用逗号,隔开。</p>
-<p>(2) DAY是一个标识符，可以看成这个集合的名字，是一个可选项，即是可有可无的项。</p>
-<p>(3) 第一个枚举成员的默认值为整型的0，后续枚举成员的值在前一个成员上加1。</p>
-<p>(4) 可以人为设定枚举成员的值，从而自定义某个范围内的整数。</p>
-<p>(5) 枚举型是预处理指令#define的替代。</p>
-<p>(6) 类型定义以分号;结束。</p>
-<h2 id="2-使用枚举类型对变量进行声明"><a href="#2-使用枚举类型对变量进行声明" class="headerlink" title="2. 使用枚举类型对变量进行声明"></a>2. 使用枚举类型对变量进行声明</h2><p>新的数据类型定义完成后，它就可以使用了。我们已经见过最基本的数据类型，如：整型int, 单精度浮点型float, 双精度浮点型double, 字符型char, 短整型short等等。用这些基本数据类型声明变量通常是这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">char     a; //变量a的类型均为字符型char</span><br><span class="line">char     letter;</span><br><span class="line">int        x,</span><br><span class="line">           y,</span><br><span class="line">           z; //变量x,y和z的类型均为整型int</span><br><span class="line">int       number;</span><br><span class="line">double  m, n;</span><br><span class="line">double  result; //变量result的类型为双精度浮点型double</span><br></pre></td></tr></table></figure></p>
-<p>既然枚举也是一种数据类型，那么它和基本数据类型一样也可以对变量进行声明。</p>
-<h4 id="方法一：枚举类型的定义和变量的声明分开"><a href="#方法一：枚举类型的定义和变量的声明分开" class="headerlink" title="方法一：枚举类型的定义和变量的声明分开"></a>方法一：枚举类型的定义和变量的声明分开</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY yesterday;</span><br><span class="line">enum DAY today;</span><br><span class="line">enum DAY tomorrow; //变量tomorrow的类型为枚举型enum DAY</span><br><span class="line">enum DAY good_day, bad_day; //变量good_day和bad_day的类型均为枚举型enum DAY</span><br></pre></td></tr></table></figure>
-<h4 id="方法二：类型定义与变量声明同时进行："><a href="#方法二：类型定义与变量声明同时进行：" class="headerlink" title="方法二：类型定义与变量声明同时进行："></a>方法二：类型定义与变量声明同时进行：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">enum //跟第一个定义不同的是，此处的标号DAY省略，这是允许的。</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //变量workday的类型为枚举型enum DAY</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum week &#123; Mon=1, Tue, Wed, Thu, Fri Sat, Sun&#125; days; //变量days的类型为枚举型enum week</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum BOOLEAN &#123; <span class="literal">false</span>, <span class="literal">true</span> &#125; end_flag, match_flag; //定义枚举类型并声明了两个枚举型变量</span><br></pre></td></tr></table></figure>
-<h4 id="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："><a href="#方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：" class="headerlink" title="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："></a>方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
-<p>enum workday中的workday可以省略：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
-<p>也可以用这种方式：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
-<p>注意：同一个程序中不能定义同名的枚举类型，不同的枚举类型中也不能存在同名的命名常量。错误示例如下所示：</p>
-<p>$\color{red}{错误声明一：}$存在同名的枚举类型</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
-<p>$\color{red}{错误声明二：}$存在同名的枚举成员</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday_1;</span><br><span class="line"></span><br><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday_2;</span><br></pre></td></tr></table></figure>
-<h2 id="3-使用枚举类型的变量"><a href="#3-使用枚举类型的变量" class="headerlink" title="3.使用枚举类型的变量"></a>3.使用枚举类型的变量</h2><h3 id="3-1-对枚举型的变量赋值。"><a href="#3-1-对枚举型的变量赋值。" class="headerlink" title="3.1 对枚举型的变量赋值。"></a>3.1 对枚举型的变量赋值。</h3><p>实例将枚举类型的赋值与基本数据类型的赋值进行了对比：</p>
-<h4 id="方法一：先声明变量，再对变量赋值"><a href="#方法一：先声明变量，再对变量赋值" class="headerlink" title="方法一：先声明变量，再对变量赋值"></a>方法一：先声明变量，再对变量赋值</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量，然后对变量赋值 */</span><br><span class="line">    int x, y, z;</span><br><span class="line">    </span><br><span class="line">    x = 10;</span><br><span class="line">    y = 20;</span><br><span class="line">    z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量，再对枚举型变量赋值 */</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line">    </span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法二：声明变量的同时赋初值"><a href="#方法二：声明变量的同时赋初值" class="headerlink" title="方法二：声明变量的同时赋初值"></a>方法二：声明变量的同时赋初值</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量同时对变量赋初值 */</span><br><span class="line">    int x=10, y=20, z=30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量同时对枚举型变量赋初值 */</span><br><span class="line">    enum DAY yesterday = MON, </span><br><span class="line">                        today = TUE,</span><br><span class="line">                   tomorrow = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法三：定义类型的同时声明变量，然后对变量赋值。"><a href="#方法三：定义类型的同时声明变量，然后对变量赋值。" class="headerlink" title="方法三：定义类型的同时声明变量，然后对变量赋值。"></a>方法三：定义类型的同时声明变量，然后对变量赋值。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，它们都为全局变量 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125; yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，它们都为全局变量 */</span><br><span class="line">int x, y, z;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 对基本数据类型的变量赋值 */</span><br><span class="line">    x = 10;  y = 20;  z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 对枚举型的变量赋值 */</span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法四：类型定义，变量声明，赋初值同时进行。"><a href="#方法四：类型定义，变量声明，赋初值同时进行。" class="headerlink" title="方法四：类型定义，变量声明，赋初值同时进行。"></a>方法四：类型定义，变量声明，赋初值同时进行。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，并赋初值。它们都为全局变量 */</span><br><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">    MON=1, </span><br><span class="line">    TUE,</span><br><span class="line">    WED,</span><br><span class="line">    THU,</span><br><span class="line">    FRI,</span><br><span class="line">    SAT,</span><br><span class="line">    SUN </span><br><span class="line">&#125;</span><br><span class="line">yesterday = MON, today = TUE, tomorrow = WED;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，并赋初值。它们都为全局变量 */</span><br><span class="line">int x = 10, y = 20, z = 30;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-对枚举型的变量赋整数值时，需要进行类型转换。"><a href="#3-2-对枚举型的变量赋整数值时，需要进行类型转换。" class="headerlink" title="3.2 对枚举型的变量赋整数值时，需要进行类型转换。"></a>3.2 对枚举型的变量赋整数值时，需要进行类型转换。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">    yesterday = TUE;</span><br><span class="line">    today = (enum DAY) (yesterday + 1); //类型转换</span><br><span class="line">    tomorrow = (enum DAY) 30; //类型转换</span><br><span class="line">    //tomorrow = 3; //错误</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：2 3 30</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-3-使用枚举型变量"><a href="#3-3-使用枚举型变量" class="headerlink" title="3.3 使用枚举型变量"></a>3.3 使用枚举型变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum</span><br><span class="line">&#123; </span><br><span class="line">    BELL          = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB         = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN      = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE    = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB         = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE       = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int index = 0;</span><br><span class="line">    int count_of_letter = 0;</span><br><span class="line">    int count_of_space = 0;</span><br><span class="line">    </span><br><span class="line">    char str[] = <span class="string">"I'm Ely efod"</span>;</span><br><span class="line">    </span><br><span class="line">    match_flag = FALSE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(; str[index] != <span class="string">'\0'</span>; index++)</span><br><span class="line">        <span class="keyword">if</span>( SPACE != str[index] )</span><br><span class="line">            count_of_letter++;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            match_flag = (enum BOOLEAN) 1;</span><br><span class="line">            count_of_space++;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s %d times %c"</span>, match_flag ? <span class="string">"match"</span> : <span class="string">"not match"</span>, count_of_space, NEWLINE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"count of letters: %d %c%c"</span>, count_of_letter, NEWLINE, RETURN);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">match 2 <span class="built_in">times</span></span><br><span class="line">count of letters: 10</span><br><span class="line">Press any key to <span class="built_in">continue</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="4-枚举类型与sizeof运算符"><a href="#4-枚举类型与sizeof运算符" class="headerlink" title="4. 枚举类型与sizeof运算符"></a>4. 枚举类型与sizeof运算符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum escapes</span><br><span class="line">&#123; </span><br><span class="line">    BELL      = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB      = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN    = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE   = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB      = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE     = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum escapes)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(escapes)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(match_flag)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(SPACE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(NEWLINE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(FALSE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(0)); //4 bytes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-综合举例"><a href="#5-综合举例" class="headerlink" title="5. 综合举例"></a>5. 综合举例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum Season</span><br><span class="line">&#123;</span><br><span class="line">    spring, summer=100, fall=96, winter</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</span><br><span class="line">&#125;</span><br><span class="line">Weekday;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* Season */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, spring); // 0</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %c \n"</span>, summer, summer); // 100, d</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, fall+winter); // 193</span><br><span class="line">    </span><br><span class="line">    Season mySeason=winter;</span><br><span class="line">    <span class="keyword">if</span>(winter==mySeason)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"mySeason is winter \n"</span>); // mySeason is winter</span><br><span class="line">    </span><br><span class="line">    int x=100;</span><br><span class="line">    <span class="keyword">if</span>(x==summer)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"x is equal to summer\n"</span>); // x is equal to summer</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes\n"</span>, sizeof(spring)); // 4 bytes</span><br><span class="line">    </span><br><span class="line">    /* Weekday */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"sizeof Weekday is: %d \n"</span>, sizeof(Weekday)); //sizeof Weekday is: 4</span><br><span class="line">    </span><br><span class="line">    Weekday today = Saturday;</span><br><span class="line">    Weekday tomorrow;</span><br><span class="line">    <span class="keyword">if</span>(today == Monday)</span><br><span class="line">        tomorrow = Tuesday;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        tomorrow = (Weekday) (today + 1); //remember to convert from int to Weekday</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-  </div>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-          </div>
-          
-
-        </div>
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.gif"
-      alt="JackLu">
-  <p class="site-author-name" itemprop="name">JackLu</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives">
-        
-          <span class="site-state-item-count">51</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-categories">
-        
-          
-            <a href="/categories/">
-          
-        
-        <span class="site-state-item-count">39</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        <span class="site-state-item-count">48</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
-      </div>
-    
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/IOTTS" title="GitHub &rarr; https://github.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:3574311659@qq.com" title="E-Mail &rarr; mailto:3574311659@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/IOTTS" title="Weibo &rarr; https://weibo.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://youtube.com/yourname" title="YouTube &rarr; https://youtube.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
-      </span>
-    
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://shop567664910.taobao.com" title="https://shop567664910.taobao.com" rel="noopener" target="_blank">淘宝店</a>
-        </li>
-      
-    </ul>
-  </div>
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">JackLu</span>
-</div>
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
-    本站总访问量:<span id="busuanzi_value_site_pv"></span>
-</span>
-</div>
-  <span class="post-meta-divider">|</span>
-
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
-<script src="/js/schemes/pisces.js?v=7.4.0"></script>
-
-<script src="/js/next-boot.js?v=7.4.0"></script>
-
-
-
-  
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-
-  
-
-  
-
+<script src="/js/LeanStatistics.min.js"></script>
+<script src="/js/Life.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    otherF();
+    LeanStatistics();
+    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
+      $('pre code').each(function(i, block){
+        hljs.highlightBlock(block);
+      })
+      $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+      });
+      LeanStatistics();
+    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
+      NProgress.done();
+      otherF();
+    });
+</script>
 </body>
 </html>
