@@ -1,895 +1,2382 @@
+<!DOCTYPE html>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-<!doctype html>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-  <meta name="renderer" content="webkit">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>IOTTS</title>
-  <link rel="shortcut icon" href="/images/">
-  
-    
-    
-      <link rel="stylesheet" href="/css/bootstrap.min.css">
-    
-      <link rel="stylesheet" href="/css/font-awesome.min.css">
-    
-      <link rel="stylesheet" href="/css/atom-one-dark.css">
-    
-      <link rel="stylesheet" href="/css/jquery.fancybox.css">
-    
-      <link rel="stylesheet" href="/css/nprogress.min.css">
-    
-      <link rel="stylesheet" href="/css/valine.css">
-    
-      <link rel="stylesheet" href="/css/life.css">
-    
-  
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
 
-  
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
-  <!-- jQuery first, then Tether, then Bootstrap JS. -->
-  
-  
-  
-    <script src="/js/jquery-2.2.4.min.js"></script>
-  
-    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
-  
-    <script src="/js/jquery.pjax.js"></script>
-  
-    <script src="/js/nprogress.min.js"></script>
-  
-    <script src="/js/tether.min.js"></script>
-  
-    <script src="/js/bootstrap.min.js"></script>
-  
-    <script src="/js/highlight.min.js"></script>
-  
-    <script src="/js/highlightjs-line-numbers.min.js"></script>
-  
-    <script src="/js/jquery.fancybox.js"></script>
-  
-    <script src="/js/jquery.qrcode.min.js"></script>
-  
-    <script src="/js/Valine.min.js"></script>
-  
-  
-</head>
-<body>
-<script>AV.init({appId:'',appKey:''});</script>
-<script type="text/javascript">
-      var config = {
-            ClasS: 'Counter',
-            el:'.views',
-            elP: '.views-post'
-      }
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
 </script>
-<div class="container">
-    <div class="row blog-box-shadow">
-        <!--博客主栏开始-->
-        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
-            <header class="blog-header">
-                <a href="http://iotts.top" class="blog-header-mobile-title">IOTTS</a>
-                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
-                <nav class="blog-header-navbar blog-header-fixed">
-                    <ul class="blog-navbar-links">
-                        
-                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
-                        
-                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
-                        
-                          <li class="blog-nav-item"><a href="/wiki/" class="transition">产品</a></li>
-                        
-                          <li class="blog-nav-item"><a href="/opensource/" class="transition">开源程序</a></li>
-                        
-                        <div class="blog-navbar-right">
-                            <form action>
-                                <div class="input-group">
-                                    <input type="text" class="blog-header-search" placeholder="search...">
-                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
-                                </div>
-                            </form>
-                        </div>
-                    </ul>
-                </nav>
-            </header>
-                
-<div class="blog-main-post">
-	<div class="index-post-br"></div>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="IOTTS">
+<meta property="og:url" content="http://iotts.top/page/4/index.html">
+<meta property="og:site_name" content="IOTTS">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOTTS">
+  <link rel="canonical" href="http://iotts.top/page/4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>IOTTS</title>
   
 
 
 
-<article class="blog-post-block">
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IOTTS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
     
 
-    <div class="blog-post-block-padding">
-        <a href="/2018/01/10/c语言教程之枚举类型/">c语言教程之枚举类型</a>
-        <section>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-产品列表">
+      
+    
+
+    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>产品列表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-开源项目">
+      
+    
+
+    <a href="/opensource/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>开源项目</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
             
+  <div id="posts" class="posts-expand">
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/10/c语言教程之枚举类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/10/c语言教程之枚举类型/" class="post-title-link" itemprop="url">c语言教程之枚举类型</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
                 
-                原文链接注：以下全部代码的执行环境为VC++ 6.0
-在程序中，可能需要为某些整数定义一个别名，我们可以利用预处理指令#define来完成这项工作，您的代码可能是：
-#define MON  1
+              
+
+              <time title="创建时间：2018-01-10 16:53:23 / 修改时间：17:13:02" itemprop="dateCreated datePublished" datetime="2018-01-10T16:53:23+08:00">2018-01-10</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/" itemprop="url" rel="index"><span itemprop="name">C语言</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C语言/C语言教程/" itemprop="url" rel="index"><span itemprop="name">C语言教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://www.cnblogs.com/JCSU/articles/1299051.html" target="_blank" rel="noopener">原文链接</a><br>注：以下全部代码的执行环境为VC++ 6.0</p>
+<p>在程序中，可能需要为某些整数定义一个别名，我们可以利用预处理指令#define来完成这项工作，您的代码可能是：</p>
+<pre><code class="lang-bash">#define MON  1
 #define TUE   2
 #define WED  3
-#
-                ...
-            
-        </section>
-        <footer>
+#define THU   4
+#define FRI    5
+#define SAT   6
+#define SUN   7
+</code></pre>
+<p>在此，我们定义一种新的数据类型，希望它能完成同样的工作。这种新的数据类型叫枚举型。</p>
+<h2 id="1-定义一种新的数据类型-枚举型"><a href="#1-定义一种新的数据类型-枚举型" class="headerlink" title="1. 定义一种新的数据类型 - 枚举型"></a>1. 定义一种新的数据类型 - 枚举型</h2><p> 以下代码定义了这种新的数据类型 - 枚举型</p>
+<pre><code class="lang-bash">enum DAY
+{
+      MON=1, TUE, WED, THU, FRI, SAT, SUN
+};
+</code></pre>
+<p>(1) 枚举型是一个集合，集合中的元素(枚举成员)是一些命名的整型常量，元素之间用逗号,隔开。</p>
+<p>(2) DAY是一个标识符，可以看成这个集合的名字，是一个可选项，即是可有可无的项。</p>
+<p>(3) 第一个枚举成员的默认值为整型的0，后续枚举成员的值在前一个成员上加1。</p>
+<p>(4) 可以人为设定枚举成员的值，从而自定义某个范围内的整数。</p>
+<p>(5) 枚举型是预处理指令#define的替代。</p>
+<p>(6) 类型定义以分号;结束。</p>
+<h2 id="2-使用枚举类型对变量进行声明"><a href="#2-使用枚举类型对变量进行声明" class="headerlink" title="2. 使用枚举类型对变量进行声明"></a>2. 使用枚举类型对变量进行声明</h2><p>新的数据类型定义完成后，它就可以使用了。我们已经见过最基本的数据类型，如：整型int, 单精度浮点型float, 双精度浮点型double, 字符型char, 短整型short等等。用这些基本数据类型声明变量通常是这样：</p>
+<pre><code class="lang-bash">char     a; //变量a的类型均为字符型char
+char     letter;
+int        x,
+           y,
+           z; //变量x,y和z的类型均为整型int
+int       number;
+double  m, n;
+double  result; //变量result的类型为双精度浮点型double
+</code></pre>
+<p>既然枚举也是一种数据类型，那么它和基本数据类型一样也可以对变量进行声明。</p>
+<h4 id="方法一：枚举类型的定义和变量的声明分开"><a href="#方法一：枚举类型的定义和变量的声明分开" class="headerlink" title="方法一：枚举类型的定义和变量的声明分开"></a>方法一：枚举类型的定义和变量的声明分开</h4><pre><code class="lang-bash">enum DAY
+{
+      MON=1, TUE, WED, THU, FRI, SAT, SUN
+};
+</code></pre>
+<pre><code class="lang-bash">enum DAY yesterday;
+enum DAY today;
+enum DAY tomorrow; //变量tomorrow的类型为枚举型enum DAY
+enum DAY good_day, bad_day; //变量good_day和bad_day的类型均为枚举型enum DAY
+</code></pre>
+<h4 id="方法二：类型定义与变量声明同时进行："><a href="#方法二：类型定义与变量声明同时进行：" class="headerlink" title="方法二：类型定义与变量声明同时进行："></a>方法二：类型定义与变量声明同时进行：</h4><pre><code class="lang-bash">enum //跟第一个定义不同的是，此处的标号DAY省略，这是允许的。
+{
+    saturday,
+    sunday = 0,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday
+} workday; //变量workday的类型为枚举型enum DAY
+</code></pre>
+<pre><code class="lang-bash">enum week { Mon=1, Tue, Wed, Thu, Fri Sat, Sun} days; //变量days的类型为枚举型enum week
+</code></pre>
+<pre><code class="lang-bash">enum BOOLEAN { false, true } end_flag, match_flag; //定义枚举类型并声明了两个枚举型变量
+</code></pre>
+<h4 id="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："><a href="#方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：" class="headerlink" title="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："></a>方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：</h4><pre><code class="lang-bash">typedef enum workday
+{
+    saturday,
+    sunday = 0,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday
+} workday; //此处的workday为枚举型enum workday的别名
+</code></pre>
+<pre><code class="lang-bash">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday
+</code></pre>
+<p>enum workday中的workday可以省略：</p>
+<pre><code class="lang-bash">typedef enum
+{
+    saturday,
+    sunday = 0,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday
+} workday; //此处的workday为枚举型enum workday的别名
+</code></pre>
+<pre><code class="lang-bash">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday
+</code></pre>
+<p>也可以用这种方式：</p>
+<pre><code class="lang-bash">typedef enum workday
+{
+    saturday,
+    sunday = 0,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday
+};
+</code></pre>
+<pre><code class="lang-bash">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday
+</code></pre>
+<p>注意：同一个程序中不能定义同名的枚举类型，不同的枚举类型中也不能存在同名的命名常量。错误示例如下所示：</p>
+<p>$\color{red}{错误声明一：}$存在同名的枚举类型</p>
+<pre><code class="lang-bash">typedef enum
+{
+    wednesday,
+    thursday,
+    friday
+} workday;
+</code></pre>
+<pre><code class="lang-bash">typedef enum WEEK
+{
+    saturday,
+    sunday = 0,
+    monday,
+} workday;
+</code></pre>
+<p>$\color{red}{错误声明二：}$存在同名的枚举成员</p>
+<pre><code class="lang-bash">typedef enum
+{
+    wednesday,
+    thursday,
+    friday
+} workday_1;
+
+typedef enum WEEK
+{
+    wednesday,
+    sunday = 0,
+    monday,
+} workday_2;
+</code></pre>
+<h2 id="3-使用枚举类型的变量"><a href="#3-使用枚举类型的变量" class="headerlink" title="3.使用枚举类型的变量"></a>3.使用枚举类型的变量</h2><h3 id="3-1-对枚举型的变量赋值。"><a href="#3-1-对枚举型的变量赋值。" class="headerlink" title="3.1 对枚举型的变量赋值。"></a>3.1 对枚举型的变量赋值。</h3><p>实例将枚举类型的赋值与基本数据类型的赋值进行了对比：</p>
+<h4 id="方法一：先声明变量，再对变量赋值"><a href="#方法一：先声明变量，再对变量赋值" class="headerlink" title="方法一：先声明变量，再对变量赋值"></a>方法一：先声明变量，再对变量赋值</h4><pre><code class="lang-bash">#include&lt;stdio.h&gt;
+
+/* 定义枚举类型 */
+enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN };
+
+void main()
+{
+    /* 使用基本数据类型声明变量，然后对变量赋值 */
+    int x, y, z;
+
+    x = 10;
+    y = 20;
+    z = 30;
+
+    /* 使用枚举类型声明变量，再对枚举型变量赋值 */
+    enum DAY yesterday, today, tomorrow;
+
+    yesterday = MON;
+    today     = TUE;
+    tomorrow  = WED;
+
+    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow);
+}
+</code></pre>
+<h4 id="方法二：声明变量的同时赋初值"><a href="#方法二：声明变量的同时赋初值" class="headerlink" title="方法二：声明变量的同时赋初值"></a>方法二：声明变量的同时赋初值</h4><pre><code class="lang-bash">#include &lt;stdio.h&gt;
+
+/* 定义枚举类型 */
+enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN };
+
+void main()
+{
+    /* 使用基本数据类型声明变量同时对变量赋初值 */
+    int x=10, y=20, z=30;
+
+    /* 使用枚举类型声明变量同时对枚举型变量赋初值 */
+    enum DAY yesterday = MON, 
+                        today = TUE,
+                   tomorrow = WED;
+
+    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow);
+}
+</code></pre>
+<h4 id="方法三：定义类型的同时声明变量，然后对变量赋值。"><a href="#方法三：定义类型的同时声明变量，然后对变量赋值。" class="headerlink" title="方法三：定义类型的同时声明变量，然后对变量赋值。"></a>方法三：定义类型的同时声明变量，然后对变量赋值。</h4><pre><code class="lang-bash">#include &lt;stdio.h&gt;
+
+/* 定义枚举类型，同时声明该类型的三个变量，它们都为全局变量 */
+enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN } yesterday, today, tomorrow;
+
+/* 定义三个具有基本数据类型的变量，它们都为全局变量 */
+int x, y, z;
+
+void main()
+{
+    /* 对基本数据类型的变量赋值 */
+    x = 10;  y = 20;  z = 30;
+
+    /* 对枚举型的变量赋值 */
+    yesterday = MON;
+    today     = TUE;
+    tomorrow  = WED;
+
+    printf(&quot;%d %d %d \n&quot;, x, y, z); //输出：10 20 30
+    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow); //输出：1 2 3
+}
+</code></pre>
+<h4 id="方法四：类型定义，变量声明，赋初值同时进行。"><a href="#方法四：类型定义，变量声明，赋初值同时进行。" class="headerlink" title="方法四：类型定义，变量声明，赋初值同时进行。"></a>方法四：类型定义，变量声明，赋初值同时进行。</h4><pre><code class="lang-bash">#include &lt;stdio.h&gt;
+
+/* 定义枚举类型，同时声明该类型的三个变量，并赋初值。它们都为全局变量 */
+enum DAY
+{
+    MON=1, 
+    TUE,
+    WED,
+    THU,
+    FRI,
+    SAT,
+    SUN 
+}
+yesterday = MON, today = TUE, tomorrow = WED;
+
+/* 定义三个具有基本数据类型的变量，并赋初值。它们都为全局变量 */
+int x = 10, y = 20, z = 30;
+
+void main()
+{
+    printf(&quot;%d %d %d \n&quot;, x, y, z); //输出：10 20 30
+    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow); //输出：1 2 3
+}
+</code></pre>
+<h3 id="3-2-对枚举型的变量赋整数值时，需要进行类型转换。"><a href="#3-2-对枚举型的变量赋整数值时，需要进行类型转换。" class="headerlink" title="3.2 对枚举型的变量赋整数值时，需要进行类型转换。"></a>3.2 对枚举型的变量赋整数值时，需要进行类型转换。</h3><pre><code class="lang-bash">#include &lt;stdio.h&gt;
+
+enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN };
+
+void main()
+{
+    enum DAY yesterday, today, tomorrow;
+
+    yesterday = TUE;
+    today = (enum DAY) (yesterday + 1); //类型转换
+    tomorrow = (enum DAY) 30; //类型转换
+    //tomorrow = 3; //错误
+
+    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow); //输出：2 3 30
+}
+</code></pre>
+<h3 id="3-3-使用枚举型变量"><a href="#3-3-使用枚举型变量" class="headerlink" title="3.3 使用枚举型变量"></a>3.3 使用枚举型变量</h3><pre><code class="lang-bash">#include&lt;stdio.h&gt;
+
+enum
+{ 
+    BELL          = &#39;\a&#39;,
+    BACKSPACE = &#39;\b&#39;,
+    HTAB         = &#39;\t&#39;,
+    RETURN      = &#39;\r&#39;,
+    NEWLINE    = &#39;\n&#39;, 
+    VTAB         = &#39;\v&#39;,
+    SPACE       = &#39; &#39;
+};
+
+enum BOOLEAN { FALSE = 0, TRUE } match_flag;
+
+void main()
+{
+    int index = 0;
+    int count_of_letter = 0;
+    int count_of_space = 0;
+
+    char str[] = &quot;I&#39;m Ely efod&quot;;
+
+    match_flag = FALSE;
+
+    for(; str[index] != &#39;\0&#39;; index++)
+        if( SPACE != str[index] )
+            count_of_letter++;
+        else
+        {
+            match_flag = (enum BOOLEAN) 1;
+            count_of_space++;
+        }
+
+    printf(&quot;%s %d times %c&quot;, match_flag ? &quot;match&quot; : &quot;not match&quot;, count_of_space, NEWLINE);
+    printf(&quot;count of letters: %d %c%c&quot;, count_of_letter, NEWLINE, RETURN);
+}
+</code></pre>
+<p>输出：</p>
+<pre><code class="lang-bash">match 2 times
+count of letters: 10
+Press any key to continue
+</code></pre>
+<h2 id="4-枚举类型与sizeof运算符"><a href="#4-枚举类型与sizeof运算符" class="headerlink" title="4. 枚举类型与sizeof运算符"></a>4. 枚举类型与sizeof运算符</h2><pre><code class="lang-bash">#include &lt;stdio.h&gt;
+
+enum escapes
+{ 
+    BELL      = &#39;\a&#39;,
+    BACKSPACE = &#39;\b&#39;,
+    HTAB      = &#39;\t&#39;,
+    RETURN    = &#39;\r&#39;,
+    NEWLINE   = &#39;\n&#39;, 
+    VTAB      = &#39;\v&#39;,
+    SPACE     = &#39; &#39;
+};
+
+enum BOOLEAN { FALSE = 0, TRUE } match_flag;
+
+void main()
+{
+    printf(&quot;%d bytes \n&quot;, sizeof(enum escapes)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(escapes)); //4 bytes
+
+    printf(&quot;%d bytes \n&quot;, sizeof(enum BOOLEAN)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(BOOLEAN)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(match_flag)); //4 bytes
+
+    printf(&quot;%d bytes \n&quot;, sizeof(SPACE)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(NEWLINE)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(FALSE)); //4 bytes
+    printf(&quot;%d bytes \n&quot;, sizeof(0)); //4 bytes
+}
+</code></pre>
+<h2 id="5-综合举例"><a href="#5-综合举例" class="headerlink" title="5. 综合举例"></a>5. 综合举例</h2><pre><code class="lang-bash">#include&lt;stdio.h&gt;
+
+enum Season
+{
+    spring, summer=100, fall=96, winter
+};
+
+typedef enum
+{
+    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+}
+Weekday;
+
+void main()
+{
+    /* Season */
+    printf(&quot;%d \n&quot;, spring); // 0
+    printf(&quot;%d, %c \n&quot;, summer, summer); // 100, d
+    printf(&quot;%d \n&quot;, fall+winter); // 193
+
+    Season mySeason=winter;
+    if(winter==mySeason)
+        printf(&quot;mySeason is winter \n&quot;); // mySeason is winter
+
+    int x=100;
+    if(x==summer)
+        printf(&quot;x is equal to summer\n&quot;); // x is equal to summer
+
+    printf(&quot;%d bytes\n&quot;, sizeof(spring)); // 4 bytes
+
+    /* Weekday */
+    printf(&quot;sizeof Weekday is: %d \n&quot;, sizeof(Weekday)); //sizeof Weekday is: 4
+
+    Weekday today = Saturday;
+    Weekday tomorrow;
+    if(today == Monday)
+        tomorrow = Tuesday;
+    else
+        tomorrow = (Weekday) (today + 1); //remember to convert from int to Weekday
+}
+</code></pre>
+
         
-            <time datetime="2018-01-10T08:53:23.000Z"><i class="fa fa-clock-o"></i>2018-01-10</time>
-        
-        
-        
-        
-        
-          <span><i class="fa fa-folder-o"></i>
-            
-              <a href="/categories/C语言/" itemprop="url" rel="index">
-                C语言
-              </a>
-            
-              <a href="/categories/C语言/C语言教程/" itemprop="url" rel="index">
-                C语言教程
-              </a>
-            
-          </span>
-        
-        </footer>
+      
     </div>
-</article>
 
-
-<article class="blog-post-block">
     
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
 
-    <div class="blog-post-block-padding">
-        <a href="/2018/01/09/linux命令之ubuntu查看系统信息/">linux命令之ubuntu查看系统信息</a>
-        <section>
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之ubuntu查看系统信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
             
+            <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" class="post-title-link" itemprop="url">linux命令之ubuntu查看系统信息</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
                 
-                要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：
-查看long的位数，返回32或64可以在终端terminal下输入命令：
-getconf LONG_BIT
+              
 
-输出结果
-32
-
-也可以输入：
-uname -a
-
-输出结果：
-Linu
-                ...
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
             
-        </section>
-        <footer>
-        
-            <time datetime="2018-01-09T15:46:23.000Z"><i class="fa fa-clock-o"></i>2018-01-09</time>
-        
-        
-        
-        
-        
-          <span><i class="fa fa-folder-o"></i>
-            
-              <a href="/categories/Linux/" itemprop="url" rel="index">
-                Linux
-              </a>
-            
-              <a href="/categories/Linux/linux命令/" itemprop="url" rel="index">
-                linux命令
-              </a>
-            
-          </span>
-        
-        </footer>
-    </div>
-</article>
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-16 21:09:58" itemprop="dateModified" datetime="2018-01-16T21:09:58+08:00">2018-01-16</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
 
-<article class="blog-post-block">
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
     
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-    <div class="blog-post-block-padding">
-        <a href="/2018/01/09/linux命令之关机命令/">linux命令之关机命令</a>
-        <section>
+      
+          <p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
+<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：</p>
+<pre><code class="lang-bash">getconf LONG_BIT
+</code></pre>
+<p>输出结果</p>
+<pre><code class="lang-bash">32
+</code></pre>
+<p><img src="2018-01-16 20-46-51屏幕截图.png" alt="2018-01-16 20-46-51屏幕截图.png"><br>也可以输入：</p>
+<pre><code class="lang-bash">uname -a
+</code></pre>
+<p>输出结果：</p>
+<pre><code class="lang-bash">Linux jacklu 4.13.0-26-generic #29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux
+</code></pre>
+<p><img src="2018-01-16 20-47-17屏幕截图.png" alt="2018-01-16 20-47-17屏幕截图.png"></p>
+<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：</p>
+<pre><code class="lang-bash">cat /etc/issue
+</code></pre>
+<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：</p>
+<pre><code class="lang-bash">Ubuntu 16.04.3 LTS \n \l
+</code></pre>
+<p><img src="2018-01-16 20-48-47屏幕截图.png" alt="2018-01-16 20-48-47屏幕截图.png"></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：</p>
+<pre><code class="lang-bash">sudo lsb_release -a
+</code></pre>
+<p>将输出结果：</p>
+<pre><code class="lang-bash">No LSB modules are available.
+Distributor ID:    Ubuntu
+Description:    Ubuntu 16.04.3 LTS
+Release:    16.04
+Codename:    xenial
+</code></pre>
+<p><img src="2018-01-16 20-48-27屏幕截图.png" alt="2018-01-16 20-48-27屏幕截图.png"></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
             
-                <p>ubuntu关机和重启命令</p>
+            <a href="/2018/01/09/linux命令之关机命令/" class="post-title-link" itemprop="url">linux命令之关机命令</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-07 15:27:46" itemprop="dateModified" datetime="2020-01-07T15:27:46+08:00">2020-01-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>ubuntu关机和重启命令</p>
 <p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。<br>
-            
-        </p></section>
-        <footer>
-        
-            <time datetime="2018-01-09T15:46:23.000Z"><i class="fa fa-clock-o"></i>2018-01-09</time>
-        
-        
-        
-        
-        
-          <span><i class="fa fa-folder-o"></i>
-            
-              <a href="/categories/Linux/" itemprop="url" rel="index">
-                Linux
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2018/01/09/linux命令之关机命令/#more" rel="contents">
+                阅读全文 &raquo;
               </a>
-            
-              <a href="/categories/Linux/linux命令/" itemprop="url" rel="index">
-                linux命令
-              </a>
-            
-          </span>
+            </div>
+          
+          <!--/noindex-->
         
-        </footer>
+      
     </div>
-</article>
 
-
-<article class="blog-post-block">
     
-
-    <div class="blog-post-block-padding">
-        <a href="/2018/01/09/linux命令之解压缩命令/">linux命令之解压缩命令</a>
-        <section>
-            
-                
-                Linux下的压缩解压缩命令详解及实例
-实例：压缩服务器上当前目录的内容为xxx.zip文件
-zip -r xxx.zip ./*
-
-解压zip文件到当前目录
-unzip filename.zip
-
-另：有些服务器没有安装zip包执行不了zip命令，但基本上都
-                ...
-            
-        </section>
-        <footer>
-        
-            <time datetime="2018-01-09T15:46:23.000Z"><i class="fa fa-clock-o"></i>2018-01-09</time>
-        
-        
-        
-        
-        
-          <span><i class="fa fa-folder-o"></i>
-            
-              <a href="/categories/Linux/" itemprop="url" rel="index">
-                Linux
-              </a>
-            
-              <a href="/categories/Linux/linux命令/" itemprop="url" rel="index">
-                linux命令
-              </a>
-            
-          </span>
-        
-        </footer>
-    </div>
-</article>
-
-
-<article class="blog-post-block">
     
-
-    <div class="blog-post-block-padding">
-        <a href="/2018/01/09/MySQL忘记root密码解决方法/">MySQL忘记root密码解决方法</a>
-        <section>
-            
-                
-                原文链接1．首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对外的端口封
-                ...
-            
-        </section>
-        <footer>
-        
-            <time datetime="2018-01-09T15:31:38.000Z"><i class="fa fa-clock-o"></i>2018-01-09</time>
-        
-        
-        
-        
-        
-          <span><i class="fa fa-folder-o"></i>
-            
-              <a href="/categories/Linux/" itemprop="url" rel="index">
-                Linux
-              </a>
-            
-              <a href="/categories/Linux/MySql教程/" itemprop="url" rel="index">
-                MySql教程
-              </a>
-            
-          </span>
-        
-        </footer>
-    </div>
-</article>
-
-
-<article class="blog-post-block">
     
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
 
-    <div class="blog-post-block-padding">
-        <a href="/2018/01/08/Hexo教程之MathJax公式渲染问题/">Hexo教程之MathJax公式渲染问题</a>
-        <section>
-            
-                
-                今天在写一篇博客的时候，遇到使用MathJax公式下标出现问题，然后在网上找到解决办法
-出现问题的原因hexo默认使用hexo-renderer-marked引擎去渲染网页，它会把利用Markdown语法写的文本去转换为相应的html标签。在利用Markdow
-                ...
-            
-        </section>
-        <footer>
-        
-            <time datetime="2018-01-08T14:46:01.000Z"><i class="fa fa-clock-o"></i>2018-01-08</time>
-        
-        
-        
-        
-        
-          <span><i class="fa fa-folder-o"></i>
-            
-              <a href="/categories/Hexo教程/" itemprop="url" rel="index">
-                Hexo教程
-              </a>
-            
-          </span>
-        
-        </footer>
-    </div>
-</article>
-
-
-<article class="blog-post-block">
     
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之解压缩命令/">
 
-    <div class="blog-post-block-padding">
-        <a href="/2018/01/08/经典电路之减法器/">经典电路之减法器</a>
-        <section>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
             
+            <a href="/2018/01/09/linux命令之解压缩命令/" class="post-title-link" itemprop="url">linux命令之解压缩命令</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
                 
-                减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现
-1.输入信号实现反相实现减法器
-2.差分电路实现减法器我使用差分减法器比较多，主要用于电流、电压的测量其计算输出电压的公式如下：
-V_o=\frac{R1+R4}{R1}
-                ...
-            
-        </section>
-        <footer>
-        
-            <time datetime="2018-01-08T13:07:13.000Z"><i class="fa fa-clock-o"></i>2018-01-08</time>
-        
-        
-        
-        
-        
-          <span><i class="fa fa-folder-o"></i>
-            
-              <a href="/categories/电路设计相关/" itemprop="url" rel="index">
-                电路设计相关
-              </a>
-            
-              <a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index">
-                经典电路
-              </a>
-            
-          </span>
-        
-        </footer>
-    </div>
-</article>
+              
 
+              <time title="创建时间：2018-01-09 23:46:23 / 修改时间：23:54:16" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
 
-<article class="blog-post-block">
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
     
-
-    <div class="blog-post-block-padding">
-        <a href="/2018/01/08/经典电路之运算放大器基本电路/">经典电路之运算放大器基本电路</a>
-        <section>
-            
-                
-                虚短和虚断的概念由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端
-                ...
-            
-        </section>
-        <footer>
-        
-            <time datetime="2018-01-08T10:09:04.000Z"><i class="fa fa-clock-o"></i>2018-01-08</time>
-        
-        
-        
-        
-        
-          <span><i class="fa fa-folder-o"></i>
-            
-              <a href="/categories/电路设计相关/" itemprop="url" rel="index">
-                电路设计相关
-              </a>
-            
-              <a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index">
-                经典电路
-              </a>
-            
-          </span>
-        
-        </footer>
-    </div>
-</article>
-
-
-<article class="blog-post-block">
     
-
-    <div class="blog-post-block-padding">
-        <a href="/2018/01/08/简单实用的双向电平转换电路/">简单实用的双向电平转换电路</a>
-        <section>
-            
-                
-                当你使用3.3V的单片机的时候，电平转换就在所难免了，经常会遇到3.3转5V或者5V转3.3V的情况，这里介绍一个简单的电路，他可以实现两个电平的相互转换(注意是相互哦，双向的，不是单向的!).电路十分简单，仅由3个电阻加一个MOS管构成。
-　　电路图如下: 
-                ...
-            
-        </section>
-        <footer>
-        
-            <time datetime="2018-01-08T10:09:04.000Z"><i class="fa fa-clock-o"></i>2018-01-08</time>
-        
-        
-        
-        
-        
-          <span><i class="fa fa-folder-o"></i>
-            
-              <a href="/categories/电路设计相关/" itemprop="url" rel="index">
-                电路设计相关
-              </a>
-            
-              <a href="/categories/电路设计相关/电平转换电路/" itemprop="url" rel="index">
-                电平转换电路
-              </a>
-            
-          </span>
-        
-        </footer>
-    </div>
-</article>
-
-
-<article class="blog-post-block">
     
+    <div class="post-body" itemprop="articleBody">
 
-    <div class="blog-post-block-padding">
-        <a href="/2018/01/08/经典电路之惠斯通电桥原理及应用/">经典电路之惠斯通电桥原理及应用</a>
-        <section>
-            
-                
-                1. 电阻桥定义解释   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。
- 
-                ...
-            
-        </section>
-        <footer>
+      
+          <p>Linux下的压缩解压缩命令详解及实例</p>
+<p>实例：压缩服务器上当前目录的内容为xxx.zip文件</p>
+<pre><code class="lang-bash">zip -r xxx.zip ./*
+</code></pre>
+<p>解压zip文件到当前目录</p>
+<pre><code class="lang-bash">unzip filename.zip
+</code></pre>
+<p>另：有些服务器没有安装zip包执行不了zip命令，但基本上都可以用tar命令的，实例如下：</p>
+<pre><code class="lang-bash">tar -zcvf /home/zdzlibs.tar.gz /home/zdz/java/zdzlibs/
+</code></pre>
+<p>linux zip命令</p>
+<p>zip -r myfile.zip ./*<br>将当前目录下的所有文件和文件夹全部压缩成myfile.zip文件,－r表示递归压缩子目录下所有文件.</p>
+<p>2.unzip<br>unzip -o -d /home/sunny myfile.zip<br>把myfile.zip文件解压到 /home/sunny/<br>-o:不提示的情况下覆盖文件；<br>-d:-d /home/sunny 指明将文件解压缩到/home/sunny目录下；</p>
+<p>3.其他<br>zip -d myfile.zip smart.txt<br>删除压缩文件中smart.txt文件<br>zip -m myfile.zip ./rpm_info.txt</p>
+<h2 id="向压缩文件中myfile-zip中添加rpm-info-txt文件"><a href="#向压缩文件中myfile-zip中添加rpm-info-txt文件" class="headerlink" title="向压缩文件中myfile.zip中添加rpm_info.txt文件"></a>向压缩文件中myfile.zip中添加rpm_info.txt文件</h2><p>要使用 zip 来压缩文件，在 shell 提示下键入下面的命令：</p>
+<p>zip -r filename.zip filesdir</p>
+<p>在这个例子里，filename.zip 代表你创建的文件，filesdir 代表你想放置新 zip 文件的目录。-r 选项指定你想递归地（recursively）包括所有包括在 filesdir 目录中的文件。</p>
+<p>要抽取 zip 文件的内容，键入以下命令：</p>
+<p>unzip filename.zip</p>
+<p>你可以使用 zip 命令同时处理多个文件和目录，方法是将它们逐一列出，并用空格间隔：</p>
+<p>zip -r filename.zip file1 file2 file3 /usr/work/school </p>
+<p>上面的命令把 file1、file2、 file3、以及 /usr/work/school 目录的内容（假设这个目录存在）压缩起来，然后放入 filename.zip 文件中。</p>
+<p>tar 命令详解</p>
+<p>　　-c: 建立压缩档案</p>
+<p>　　-x：解压</p>
+<p>　　-t：查看内容</p>
+<p>　　-r：向压缩归档文件末尾追加文件</p>
+<p>　　-u：更新原压缩包中的文件</p>
+<p>　　这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。</p>
+<p>　　-c: 建立压缩档案</p>
+<p>　　-x：解压</p>
+<p>　　-t：查看内容</p>
+<p>　　-r：向压缩归档文件末尾追加文件</p>
+<p>　　-u：更新原压缩包中的文件</p>
+<p>　　下面的参数-f是必须的</p>
+<p>　　-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。</p>
+<p>　　# tar -cf all.tar *.jpg</p>
+<p>　　这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。</p>
+<p>　　# tar -rf all.tar *.gif</p>
+<p>　　这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。</p>
+<p>　　# tar -uf all.tar logo.gif</p>
+<p>　　这条命令是更新原来tar包all.tar中logo.gif文件，-u是表示更新文件的意思。</p>
+<p>　　# tar -tf all.tar</p>
+<p>　　这条命令是列出all.tar包中所有文件，-t是列出文件的意思</p>
+<p>　　# tar -xf all.tar</p>
+<p>　　这条命令是解出all.tar包中所有文件，-t是解开的意思</p>
+<p>　　压缩</p>
+<p>　　tar –cvf jpg.tar *.jpg //将目录里所有jpg文件打包成tar.jpg</p>
+<p>　　tar –czf jpg.tar.gz *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</p>
+<p>　　tar –cjf jpg.tar.bz2 *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2</p>
+<p>　　tar –cZf jpg.tar.Z *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z</p>
+<p>　　rar a jpg.rar *.jpg //rar格式的压缩，需要先下载rar for linux</p>
+<p>　　zip jpg.zip *.jpg //zip格式的压缩，需要先下载zip for linux</p>
+<p>　　解压</p>
+<p>　　tar –xvf file.tar //解压 tar包</p>
+<p>　　tar -xzvf file.tar.gz //解压tar.gz</p>
+<p>　　tar -xjvf file.tar.bz2 //解压 tar.bz2</p>
+<p>　　tar –xZvf file.tar.Z //解压tar.Z</p>
+<p>　　unrar e file.rar //解压rar</p>
+<p>　　unzip file.zip //解压zip</p>
+<p>　　总结</p>
+<p>　　1、*.tar 用 tar –xvf 解压</p>
+<p>　　2、*.gz 用 gzip -d或者gunzip 解压</p>
+<p>　　3、<em>.tar.gz和</em>.tgz 用 tar –xzf 解压</p>
+<p>　　4、*.bz2 用 bzip2 -d或者用bunzip2 解压</p>
+<p>　　5、*.tar.bz2用tar –xjf 解压</p>
+<p>　　6、*.Z 用 uncompress 解压</p>
+<p>　　7、*.tar.Z 用tar –xZf 解压</p>
+<p>　　8、*.rar 用 unrar e解压</p>
+<p>　　9、*.zip 用 unzip 解压</p>
+<p>　　Linux中tar命令详解(转载的资料)</p>
+<p>　　2008年04月17日 星期四 15:37</p>
+<p>　　tar命令</p>
+<p>　　tar 可以为文件和目录创建档案。利用tar，用户可以为某一特定文件创建档案(备份文件)，也可以在档案中改变文件，或者向档案中加入新的文件。tar最初被 用来在磁带上创建档案，现在，用户可以在任何设备上创建档案，如软盘。利用tar命令，可以把一大堆的文件和目录全部打包成一个文件，这对于备份文件或将 几个文件组合成为一个文件以便于网络传输是非常有用的。Linux上的tar是GNU版本的。</p>
+<p>　　语法：tar [主选项+辅选项] 文件或者目录</p>
+<p>　　使用该命令时，主选项是必须要有的，它告诉tar要做什么事情，辅选项是辅助使用的，可以选用。</p>
+<p>　　主选项：</p>
+<p>　　c 创建新的档案文件。如果用户想备份一个目录或是一些文件，就要选择这个选项。</p>
+<p>　　r 把要存档的文件追加到档案文件的未尾。例如用户已经作好备份文件，又发现还有一个目录或是一些文件忘记备份了，这时可以使用该选项，将忘记的目录或文件追加到备份文件中。</p>
+<p>　　t 列出档案文件的内容，查看已经备份了哪些文件。</p>
+<p>　　u 更新文件。就是说，用新增的文件取代原备份文件，如果在备份文件中找不到要更新的文件，则把它追加到备份文件的最后。</p>
+<p>　　x 从档案文件中释放文件。</p>
+<p>　　辅助选项：</p>
+<p>　　b 该选项是为磁带机设定的。其后跟一数字，用来说明区块的大小，系统预设值为20(20*512 bytes)。</p>
+<p>　　f 使用档案文件或设备，这个选项通常是必选的。</p>
+<p>　　k 保存已经存在的文件。例如我们把某个文件还原，在还原的过程中，遇到相同的文件，不会进行覆盖。</p>
+<p>　　m 在还原文件时，把所有文件的修改时间设定为现在。</p>
+<p>　　M 创建多卷的档案文件，以便在几个磁盘中存放。</p>
+<p>　　v 详细报告tar处理的文件信息。如无此选项，tar不报告文件信息。</p>
+<p>　　w 每一步都要求确认。</p>
+<p>　　z 用gzip来压缩/解压缩文件，加上该选项后可以将档案文件进行压缩，但还原时也一定要使用该选项进行解压缩。</p>
+<p>　　Linux下的压缩文件剖析</p>
+<p>　　对于刚刚接触Linux的人来说，一定会给Linux下一大堆各式各样的文件名给搞晕。别个不说，单单就压缩文件为例，我们知道在Windows下最常见 的压缩文件就只有两种，一是,zip，另一个是.rap。可是Linux就不同了，它有.gz、.tar.gz、tgz、bz2、.Z、.tar等众多的 压缩文件名，此外windows下的.zip和.rar也可以在Linux下使用，不过在Linux使用.zip和.rar的人就太少了。本文就来对这些 常见的压缩文件进行一番小结，希望你下次遇到这些文件时不至于被搞晕。</p>
+<p>　　在具体总结各类压缩文件之前呢，首先要弄清两个概念：打包和压缩。打包是指将一大堆文件或目录什么的变成一个总的文件，压缩则是将一个大的文件通过一些压 缩算法变成一个小文件。为什么要区分这两个概念呢?其实这源于Linux中的很多压缩程序只能针对一个文件进行压缩，这样当你想要压缩一大堆文件时，你就 得先借助另它的工具将这一大堆文件先打成一个包，然后再就原来的压缩程序进行压缩。</p>
+<p>　　Linux下最常用的打包程序就是tar了，使用tar程序打出来的包我们常称为tar包，tar包文件的命令通常都是以.tar结尾的。生成tar包后，就可以用其它的程序来进行压缩了，所以首先就来讲讲tar命令的基本用法：</p>
+<p>　　tar命令的选项有很多(用man tar可以查看到)，但常用的就那么几个选项，下面来举例说明一下：</p>
+<p>　　# tar -cf all.tar *.jpg</p>
+<p>　　这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。</p>
+<p>　　# tar -rf all.tar *.gif</p>
+<p>　　这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。</p>
+<p>　　# tar -uf all.tar logo.gif</p>
+<p>　　这条命令是更新原来tar包all.tar中logo.gif文件，-u是表示更新文件的意思。</p>
+<p>　　# tar -tf all.tar</p>
+<p>　　这条命令是列出all.tar包中所有文件，-t是列出文件的意思</p>
+<p>　　# tar -xf all.tar</p>
+<p>　　这条命令是解出all.tar包中所有文件，-t是解开的意思</p>
+<p>　　以上就是tar的最基本的用法。为了方便用户在打包解包的同时可以压缩或解压文件，tar提供了一种特殊的功能。这就是tar可以在打包或解包的同时调用其它的压缩程序，比如调用gzip、bzip2等。</p>
+<p>　　1) tar调用gzip</p>
+<p>　　gzip是GNU组织开发的一个压缩程序，.gz结尾的文件就是gzip压缩的结果。与gzip相对的解压程序是gunzip。tar中使用-z这个参数来调用gzip。下面来举例说明一下：</p>
+<p>　　# tar -czf all.tar.gz *.jpg</p>
+<p>　　这条命令是将所有.jpg的文件打成一个tar包，并且将其用gzip压缩，生成一个gzip压缩过的包，包名为all.tar.gz</p>
+<p>　　# tar -xzf all.tar.gz</p>
+<p>　　这条命令是将上面产生的包解开。</p>
+<p>　　2) tar调用bzip2</p>
+<p>　　bzip2是一个压缩能力更强的压缩程序，.bz2结尾的文件就是bzip2压缩的结果。与bzip2相对的解压程序是bunzip2。tar中使用-j这个参数来调用gzip。下面来举例说明一下：</p>
+<p>　　# tar -cjf all.tar.bz2 *.jpg</p>
+<p>　　这条命令是将所有.jpg的文件打成一个tar包，并且将其用bzip2压缩，生成一个bzip2压缩过的包，包名为all.tar.bz2</p>
+<p>　　# tar -xjf all.tar.bz2</p>
+<p>　　这条命令是将上面产生的包解开。</p>
+<p>　　3)tar调用compress</p>
+<p>　　compress也是一个压缩程序，但是好象使用compress的人不如gzip和bzip2的人多。.Z结尾的文件就是bzip2压缩的结果。与 compress相对的解压程序是uncompress。tar中使用-Z这个参数来调用gzip。下面来举例说明一下：</p>
+<p>　　# tar -cZf all.tar.Z *.jpg</p>
+<p>　　这条命令是将所有.jpg的文件打成一个tar包，并且将其用compress压缩，生成一个uncompress压缩过的包，包名为all.tar.Z</p>
+<p>　　# tar -xZf all.tar.Z</p>
+<p>　　这条命令是将上面产生的包解开</p>
+<p>　　有了上面的知识，你应该可以解开多种压缩文件了，下面对于tar系列的压缩文件作一个小结：</p>
+<p>　　1)对于.tar结尾的文件</p>
+<p>　　tar -xf all.tar</p>
+<p>　　2)对于.gz结尾的文件</p>
+<p>　　gzip -d all.gz</p>
+<p>　　gunzip all.gz</p>
+<p>　　3)对于.tgz或.tar.gz结尾的文件</p>
+<p>　　tar -xzf all.tar.gz</p>
+<p>　　tar -xzf all.tgz</p>
+<p>　　4)对于.bz2结尾的文件</p>
+<p>　　bzip2 -d all.bz2</p>
+<p>　　bunzip2 all.bz2</p>
+<p>　　5)对于tar.bz2结尾的文件</p>
+<p>　　tar -xjf all.tar.bz2</p>
+<p>　　6)对于.Z结尾的文件</p>
+<p>　　uncompress all.Z</p>
+<p>　　7)对于.tar.Z结尾的文件</p>
+<p>　　tar -xZf all.tar.z</p>
+<p>　　另外对于Window下的常见压缩文件.zip和.rar，Linux也有相应的方法来解压它们：</p>
+<p>　　1)对于.zip</p>
+<p>　　linux下提供了zip和unzip程序，zip是压缩程序，unzip是解压程序。它们的参数选项很多，这里只做简单介绍，依旧举例说明一下其用法：</p>
+<p>　　# zip all.zip *.jpg</p>
+<p>　　这条命令是将所有.jpg的文件压缩成一个zip包</p>
+<p>　　# unzip all.zip</p>
+<p>　　这条命令是将all.zip中的所有文件解压出来</p>
+<p>　　2)对于.rar</p>
+<p>　　要在linux下处理.rar文件，需要安装RAR for Linux，可以从网上下载，但要记住，RAR for Linux</p>
+<p>　　不是免费的;然后安装：</p>
+<p>　　# tar -xzpvf rarlinux-3.2.0.tar.gz</p>
+<p>　　# cd rar</p>
+<p>　　# make</p>
+<p>　　这样就安装好了，安装后就有了rar和unrar这两个程序，rar是压缩程序，unrar是解压程序。它们的参数选项很多，这里只做简单介绍，依旧举例说明一下其用法：</p>
+<p>　　# rar a all *.jpg</p>
+<p>　　这条命令是将所有.jpg的文件压缩成一个rar包，名为all.rar，该程序会将.rar 扩展名将自动附加到包名后。</p>
+<p>　　# unrar e all.rar</p>
+<p>　　这条命令是将all.rar中的所有文件解压出来</p>
+<p>　　到此为至，我们已经介绍过linux下的tar、gzip、gunzip、bzip2、bunzip2、compress、uncompress、 zip、unzip、rar、unrar等程式，你应该已经能够使用它们对.tar、.gz、.tar.gz、.tgz、.bz2、.tar.bz2、. Z、.tar.Z、.zip、.rar这10种压缩文件进行解压了，以后应该不需要为下载了一个软件而不知道如何在Linux下解开而烦恼了。而且以上方 法对于Unix也基本有效。</p>
+<p>　　本文介绍了linux下的压缩程式tar、gzip、gunzip、bzip2、bunzip2、 compress、uncompress、zip、unzip、rar、unrar等程式，以及如何使用它们对.tar、.gz、.tar.gz、. tgz、.bz2、.tar.bz2、.Z、.tar.Z、.zip、.rar这10种压缩文件进行操作</p>
+
         
-            <time datetime="2018-01-08T10:09:04.000Z"><i class="fa fa-clock-o"></i>2018-01-08</time>
-        
-        
-        
-        
-        
-          <span><i class="fa fa-folder-o"></i>
-            
-              <a href="/categories/电路设计相关/" itemprop="url" rel="index">
-                电路设计相关
-              </a>
-            
-              <a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index">
-                经典电路
-              </a>
-            
-          </span>
-        
-        </footer>
+      
     </div>
-</article>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/MySQL忘记root密码解决方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/09/MySQL忘记root密码解决方法/" class="post-title-link" itemprop="url">MySQL忘记root密码解决方法</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:31:38 / 修改时间：23:42:04" itemprop="dateCreated datePublished" datetime="2018-01-09T23:31:38+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/MySql教程/" itemprop="url" rel="index"><span itemprop="name">MySql教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="http://www.cnblogs.com/sbaicl/articles/3132010.html" target="_blank" rel="noopener">原文链接</a><br>1．首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。<br>因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的<br>状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对<br>外的端口封闭，并且停止Apache以及所有的用户进程的方法实现服务器的准安全<br>状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线。</p>
+<p>2．修改MySQL的登录设置： </p>
+<pre><code class="lang-bash"># vim /etc/my.cnf
+</code></pre>
+<p>在<code>[mysqld]</code>的段中加上一句：</p>
+<pre><code class="lang-bash">skip-grant-tables
+</code></pre>
+<p>例如：</p>
+<pre><code class="lang-bash">[mysqld] 
+datadir=/var/lib/mysql 
+socket=/var/lib/mysql/mysql.sock 
+skip-grant-tables
+</code></pre>
+<p>保存并且退出vi。</p>
+<p>3．重新启动mysqld </p>
+<pre><code class="lang-bash"># service mysqld restart 
+Stopping MySQL: [ OK ] 
+Starting MySQL: [ OK ]
+</code></pre>
+<p>4．登录并修改MySQL的root密码 </p>
+<pre><code class="lang-bash"># mysql 
+Welcome to the MySQL monitor. Commands end with ; or \g. 
+Your MySQL connection id is 3 to server version: 3.23.56 
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the buffer. 
+mysql&gt; USE mysql ; 
+Database changed 
+mysql&gt; UPDATE user SET Password = password ( &#39;new-password&#39; ) WHERE User = &#39;root&#39; ; 
+Query OK, 0 rows affected (0.00 sec) 
+Rows matched: 2 Changed: 0 Warnings: 0 
+mysql&gt; flush privileges ; 
+Query OK, 0 rows affected (0.01 sec) 
+mysql&gt; quit
+</code></pre>
+<p>5．将MySQL的登录设置修改回来 </p>
+<pre><code class="lang-bash"># vim /etc/my.cnf
+</code></pre>
+<p>将刚才在<code>[mysqld]</code>的段中加上的<code>skip-grant-tables</code>删除<br>保存并且退出vim</p>
+<p>6．重新启动mysqld </p>
+<pre><code class="lang-bash"># service mysqld restart 
+Stopping MySQL: [ OK ] 
+Starting MySQL: [ OK ]
+</code></pre>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/Hexo教程之MathJax公式渲染问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/08/Hexo教程之MathJax公式渲染问题/" class="post-title-link" itemprop="url">Hexo教程之MathJax公式渲染问题</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 22:46:01" itemprop="dateCreated datePublished" datetime="2018-01-08T22:46:01+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-07 15:07:49" itemprop="dateModified" datetime="2020-01-07T15:07:49+08:00">2020-01-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo教程/" itemprop="url" rel="index"><span itemprop="name">Hexo教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天在写一篇博客的时候，遇到使用MathJax公式下标出现问题，然后在网上找到解决办法</p>
+<h1 id="出现问题的原因"><a href="#出现问题的原因" class="headerlink" title="出现问题的原因"></a>出现问题的原因</h1><p>hexo默认使用hexo-renderer-marked引擎去渲染网页，它会把利用Markdown语法写的文本去转换为相应的html标签。在利用Markdown写MathJax公式的时候，经常会用到下划线<code>_</code>表示下标，但是下划线<code>_</code>会被hexo的默认引擎hexo-renderer-marked渲染成html中的<code>&lt;em&gt;</code>标签，表示斜体，这样一来，我们写的MathJax公式就被错误渲染了，也就没办法正确显示出来。</p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>从上面的分析，我们可以知道问题或许出在hexo的渲染引擎上，如果渲染引擎不把公式中的一些特殊字符渲染成html标签，也就避免了这个问题。当然已经有人意识到了这个问题，并且对原先的渲染引擎进行了改进，生成了新的<code>hexo-renderer-kramed</code>引擎，这里是它的Github页面，所以我们只需要卸载默认引擎，并安装这个新的渲染引擎即可。</p>
+<pre><code class="lang-bash">npm uninstall hexo-renderer-marked --save
+npm install hexo-renderer-kramed --save
+</code></pre>
+<p>当我把渲染引擎更换之后，发现大部分公式都正确渲染了，而从网上其他人的叙述中，也同样提到了这个问题，即是行间公式都没有问题，但是个别行内公式还会出现渲染出错，从网上找到了一个方法，解决了这一问题。<br>定位到你的博客根目录，找到../node_modules/kramed/lib/rules/inline.js文件，<br>进行部分修改：</p>
+<pre><code class="lang-bash">//escape: /^\\([\\`*{}\[\]()#$+\-.!_&gt;])/,      第11行，将其修改为
+escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,
+//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,    第20行，将其修改为
+em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+</code></pre>
+<p>它取消了该渲染引擎对 <strong>\,{,}</strong> 的转义，然后再</p>
+<pre><code class="lang-bash">hexo clean
+hexo g
+</code></pre>
+<p>重新部署，即可解决问题。</p>
+<p>另外需要注意一点，对于需要用到MathJax公式的文章，要在Front-matter中打开MathJax开关，例如：</p>
+<pre><code class="lang-bash">---
+date: 2017/8/3 18:20:00
+tags: hexo
+mathjax: true
+title: hexo博客MathJax公式渲染
+---
+</code></pre>
+<h1 id="MathJax公式语法"><a href="#MathJax公式语法" class="headerlink" title="MathJax公式语法"></a>MathJax公式语法</h1><p><a href="lshort-zh-cn.pdf">LaTeX语法</a><br>下面呢，我整理总结了一番比较常用的MathJax公式语法，同时也可以用来测试一下渲染效果。</p>
+<h2 id="gt-添加公式的方法"><a href="#gt-添加公式的方法" class="headerlink" title="&gt;添加公式的方法"></a>&gt;添加公式的方法</h2><h3 id="1-行内公式"><a href="#1-行内公式" class="headerlink" title="1.行内公式"></a>1.行内公式</h3><pre><code>$行内公式$
+</code></pre><h3 id="2-行间公式"><a href="#2-行间公式" class="headerlink" title="2.行间公式"></a>2.行间公式</h3><pre><code>$$行间公式$$
+</code></pre><h2 id="gt-常用的MathJax公式语法"><a href="#gt-常用的MathJax公式语法" class="headerlink" title="&gt;常用的MathJax公式语法"></a>&gt;常用的MathJax公式语法</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th style="text-align:center">释义</th>
+<th style="text-align:left">测试用例</th>
+<th style="text-align:left">最终效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^\{}</td>
+<td style="text-align:center">上标</td>
+<td style="text-align:left">x^{y^z}=(1+e^x)^{-2xy^w}</td>
+<td style="text-align:left">$x^{y^z}=(1+e^x)^{-2xy^w}$</td>
+</tr>
+<tr>
+<td>_\{}</td>
+<td style="text-align:center">下标</td>
+<td style="text-align:left">CO_2</td>
+<td style="text-align:left">$CO_2$</td>
+</tr>
+<tr>
+<td>\frac{分子}{分母} or 分子 \over 分母</td>
+<td style="text-align:center">分数</td>
+<td style="text-align:left">f(x,y,z)=3y^2z(3+\frac{7x+5}{1+y^2})</td>
+<td style="text-align:left">$f(x,y,z)=3y^2z(3+\frac{7x+5}{1+y^2})$</td>
+</tr>
+<tr>
+<td>\sqrt[根指数，省略时为2]{被开方数}</td>
+<td style="text-align:center">开方</td>
+<td style="text-align:left">\sqrt{2}、\sqrt[3]{9}</td>
+<td style="text-align:left">$\sqrt{2}$ $\sqrt[3]{9}$</td>
+</tr>
+<tr>
+<td>\ldots</td>
+<td style="text-align:center">与文本底线对齐的省略号</td>
+<td style="text-align:left">x_1x_2{\ldots}x_n</td>
+<td style="text-align:left">$x_1x_2{\ldots}x_n$</td>
+</tr>
+<tr>
+<td>\cdots</td>
+<td style="text-align:center">与文本中线对齐的省略号</td>
+<td style="text-align:left">x_1x_2{\cdots}x_n</td>
+<td style="text-align:left">$x_1x_2{\cdots}x_n$</td>
+</tr>
+<tr>
+<td>\int_积分下限^积分上限(被积表达式)</td>
+<td style="text-align:center">积分</td>
+<td style="text-align:left">\int_1^n{x^2}dx</td>
+<td style="text-align:left">$\int_1^n{x^2}dx$</td>
+</tr>
+<tr>
+<td>\sum_{下标表达式}^{上标表达式} {累加表达式}</td>
+<td style="text-align:center">累加</td>
+<td style="text-align:left">\sum_{i=1}^n \frac{1}{i^2}</td>
+<td style="text-align:left">$\sum_{i=1}^n \frac{1}{i^2}$</td>
+</tr>
+<tr>
+<td>\, or ; or \quad or \qquad</td>
+<td style="text-align:center">不同宽度的空格</td>
+<td style="text-align:left">a , b \mid a ; b \mid a \quad b \mid a</td>
+<td style="text-align:left">$\qquad b    a,b∣a;b∣ab∣aba,b∣a;b∣ab∣ab$</td>
+</tr>
+<tr>
+<td>\color{颜色}{文字}</td>
+<td style="text-align:center">更改文字颜色</td>
+<td style="text-align:left">\color{red}{红色}</td>
+<td style="text-align:left">$\color{red}{红色}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>上面的一些基本语法使用了行内公式， 渲染效果没有问题，下面再利用行间公式写一些较为复杂的公式。</p>
+<h3 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h3><p>分段函数格式为</p>
+<pre><code class="lang-bash">f(x)=\begin{cases}语句1\\语句2\\...\end{cases}
+</code></pre>
+<p>\text{文字}中仍可以使用$公式$去插入其他公式，所以可以将其结合分段函数一起使用。</p>
+<p>实例：<br>md文本</p>
+<pre><code class="lang-bash"> $$ 
+f(n)=\begin{cases}
+n/2, &amp; \text{如果$ x&lt;=2 $}\\
+3n+1, &amp; \text{如果$ x&gt;2 $}
+\end{cases}
+$$
+</code></pre>
+<p>最终效果:</p>
+<script type="math/tex; mode=display">
+f(n)=\begin{cases}
+n/2, & \text{如果$ x<=2 $}\\
+3n+1, & \text{如果$ x>2 $}
+\end{cases}</script><h3 id="大括号和小括号"><a href="#大括号和小括号" class="headerlink" title="大括号和小括号"></a>大括号和小括号</h3><p>()、[]、{}表示的即是符号本身，使用\{\}来表示{}。但是如果要显示大号的括号时，需要使用\left和\right命令。</p>
+<p>实例：</p>
+<p>正常括号<br>md文本</p>
+<pre><code class="lang-bash"> $$
+f([\frac{1+\{x,y\}}{(\frac{x}{y}+\frac{y}{x})(u+1)}+a]^{3\2})
+$$
+</code></pre>
+<p>最终效果</p>
+<script type="math/tex; mode=display">
+f([\frac{1+\{x,y\}}{(\frac{x}{y}+\frac{y}{x})(u+1)}+a]^{3\2})</script><p>大括号<br>md文本</p>
+<pre><code class="lang-bash">    $$
+f\left(
+    \left[
+        \frac{
+            1+\left\{x,y\right\}
+        }{
+        \left(
+            \frac{x}{y}+\frac{y}{x}
+        \right)
+        \left(u+1\right)
+        }+a
+    \right]^{3\2}
+\right)
+$$
+</code></pre>
+<p>最终效果</p>
+<script type="math/tex; mode=display">
+f\left(
+    \left[
+        \frac{
+            1+\left\{x,y\right\}
+        }{
+        \left(
+            \frac{x}{y}+\frac{y}{x}
+        \right)
+        \left(u+1\right)
+        }+a
+    \right]^{3\2}
+\right)</script><h3 id="添加删除线"><a href="#添加删除线" class="headerlink" title="添加删除线"></a>添加删除线</h3><p>使用删除线功能必须使用行间公式，删除线分为片段删除线和整段删除线，样式比较多，在这里我只列举一种比较常用的水平删除线，它属于整段删除线的一种。</p>
+<p>整段删除线使用<code>\require{enclose}</code>来显示，声明整段删除线后，使用<code>\enclose{删除线效果}{字符}</code>来实现删除线效果，而水平删除线效果用关键字horizontalstrike。</p>
+<p>实例：</p>
+<p>md文本</p>
+<pre><code class="lang-bash">$$
+\require{enclose}\begin{array}{}
+\enclose{horizontalstrike}{x+y}\\
+\enclose{horizontalstrike}{x*y}\\
+\end{array}
+$$
+</code></pre>
+<p>最终效果</p>
+<script type="math/tex; mode=display">
+\require{enclose}\begin{array}{}
+\enclose{horizontalstrike}{x+y}\\
+\enclose{horizontalstrike}{x*y}\\
+\end{array}</script><h3 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h3><p><code>\begin{align}</code>用于开头，<code>\end{align}</code>用于结尾，对齐的位置用<code>&amp;</code>开始，用<code>\\</code>结束<br>输入：</p>
+<pre><code class="lang-bash">$$
+\begin{align}
+f(x) &amp;=a+b+a\\
+&amp; = 2a+b
+\end{align}
+$$
+</code></pre>
+<p>输出： </p>
+<script type="math/tex; mode=display">
+\begin{align}
+f(x) &=a+b+a\\
+& = 2a+b
+\end{align}</script>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之减法器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/08/经典电路之减法器/" class="post-title-link" itemprop="url">经典电路之减法器</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 21:07:13 / 修改时间：22:43:44" itemprop="dateCreated datePublished" datetime="2018-01-08T21:07:13+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index"><span itemprop="name">经典电路</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现</p>
+<h3 id="1-输入信号实现反相实现减法器"><a href="#1-输入信号实现反相实现减法器" class="headerlink" title="1.输入信号实现反相实现减法器"></a>1.输入信号实现反相实现减法器</h3><p><img src="543cf225x7ca35edcb97b&amp;690.jpg" alt="543cf225x7ca35edcb97b&amp;690.jpg"></p>
+<h3 id="2-差分电路实现减法器"><a href="#2-差分电路实现减法器" class="headerlink" title="2.差分电路实现减法器"></a>2.差分电路实现减法器</h3><p><img src="543cf225x72dd2aab7ff5&amp;690.jpg" alt="543cf225x72dd2aab7ff5&amp;690.jpg"><br>我使用差分减法器比较多，主要用于电流、电压的测量<br>其计算输出电压的公式如下：</p>
+<script type="math/tex; mode=display">V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})</script><p>若令<strong>R1=R2,R3=R4</strong>,上式可简化为：</p>
+<script type="math/tex; mode=display">V_o=\frac{R3}{R2}(V_{i2}-V_{i1})</script>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之运算放大器基本电路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/08/经典电路之运算放大器基本电路/" class="post-title-link" itemprop="url">经典电路之运算放大器基本电路</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-23 16:17:48" itemprop="dateModified" datetime="2018-01-23T16:17:48+08:00">2018-01-23</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index"><span itemprop="name">经典电路</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="虚短和虚断的概念"><a href="#虚短和虚断的概念" class="headerlink" title="虚短和虚断的概念"></a>虚短和虚断的概念</h2><p>由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端的电位越接近相等。</p>
+<p><strong>  “虚短”是指在分析运算放大器处于线性状态时，可把两输入端视为等电位，这一特性称为虚假短路，简称虚短。显然不能将两输入端真正短路。 </strong></p>
+<p>由于运放的差模输入电阻很大，一般通用型运算放大器的输入电阻都在1MΩ以上。因此流入运放输入端的电流往往不足1uA，远小于输入端外电路的电流。故 通常可把运放的两输入端视为开路，且输入电阻越大，两输入端越接近开路。</p>
+<p><strong>  “虚断”是指在分析运放处于线性状态时，可以把两输入端视为等效开路，这一特性 称为虚假开路，简称虚断。显然不能将两输入端真正断路。 </strong></p>
+<p>在分析运放电路工作原理时，首先请各位暂时忘掉什么同向放大、反向放大，什么加法器、减法器，什么差动输入……暂时忘掉那些输入输出关系的公式……这些东东只会干扰你，让你更糊涂﹔也请各位暂时不要理会输入偏置电流、共模抑制比、失调电压等电路参数，这是设计者要考虑的事情。我们理解的就是理想放大器（其实在维修中和大多数设计过程中，把实际放大器当做理想放大器来分析也不会有问题）。</p>
+<h2 id="1-反向放大器"><a href="#1-反向放大器" class="headerlink" title="1.反向放大器"></a>1.反向放大器</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/2058bef8c165b781f37ad61ddfea2273.jpg" alt="img"></p>
+<p>图一运放的同向端接地=0V，反向端和同向端虚短，所以也是0V，反向输入端输入电阻很高，虚断，几乎没有电流注入和流出，那么R1和R2相当于是串联的，流过一个串联电路中的每一只组件的电流是相同的，即流过R1的电流和流过R2的电流是相同的。<br>流过R1的电流</p>
+<script type="math/tex; mode=display">I1 =\frac{V_i - V_-}{R1}</script><p>流过R2的电流</p>
+<script type="math/tex; mode=display">I2 =\frac{V_-- Vout}{R2}</script><p>由虚短得</p>
+<script type="math/tex; mode=display">V_- = V_+ = 0</script><p>由虚断得</p>
+<script type="math/tex; mode=display">I1 = I2</script><p>求解上面的初中代数方程得</p>
+<script type="math/tex; mode=display">Vout = -\frac{R2}{R1} \cdot Vi</script><p>这就是传说中的反向放大器的输入输出关系式了。</p>
+<h2 id="2-正向放大器"><a href="#2-正向放大器" class="headerlink" title="2.正向放大器"></a>2.正向放大器</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/30f445811662fd9bb5ede4e8a0bdfcff.jpg" alt="img"><br>图二中Vi与V-虚短，则</p>
+<script type="math/tex; mode=display">V_i = V_-</script><p>因为虚断，反向输入端没有电流输入输出，通过R1和R2 的电流相等，设此电流为I，由欧姆定律得：</p>
+<script type="math/tex; mode=display">I = \frac{Vout}{R1+R2}</script><p>Vi等于R2上的分压， 即：</p>
+<script type="math/tex; mode=display">Vi = I\cdot R2</script><p>由上得</p>
+<script type="math/tex; mode=display">Vout=Vi\cdot \frac{R1+R2}{R2}</script><p>这就是传说中的同向放大器的公式了。</p>
+<h2 id="3-加法器"><a href="#3-加法器" class="headerlink" title="3.加法器"></a>3.加法器</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/305e521499284d03efea95e20be26542.jpg" alt="img"><br>图三中，<br>由虚断及基尔霍夫定律知，通过R2与R1的电流之和等于通过R3的电流，故 </p>
+<script type="math/tex; mode=display">\frac{V_1 – V_-}{R1} + \frac{V_2 – V_-}{R2} = \frac{ V_-–V_{out} }{R3} \cdot\cdot\cdot\cdot\cdot\cdot(1)</script><p>由虚短知： </p>
+<script type="math/tex; mode=display">V_- = V_+ = 0            \cdot\cdot\cdot\cdot\cdot\cdot(2)</script><p>代入(2)式，(1)式变为</p>
+<script type="math/tex; mode=display">\frac{V_1}{R1} + \frac{V_2}{R2} = \frac{ –V_{out} }{R3}</script><p>如果取$R1=R2=R3$，则上式变为</p>
+<script type="math/tex; mode=display">V_{out}=-(V_1+V_2)</script><p>这就是传说中的加法器了。</p>
+<p><img src="http://uphotos.eepw.com.cn/jackwang/pics/5a50c7dc8d8cf952cea6b74ac514a3aa.jpg" alt="img"></p>
+<p>由虚断知：运放同向端没有电流流过，则流过R1和R2的电流相等，同理流过R4和R3的电流也相等。故</p>
+<script type="math/tex; mode=display">\frac{V_1 – V_+}{R1} =\frac{V_+ - V_2}{R2}</script><script type="math/tex; mode=display">\frac{V_{out} – V_-}{R3} = \frac{V_-}{R4}</script><p>由虚短知：<script type="math/tex">V_+ = V_-</script><br>如果 <script type="math/tex">R1=R2，R3=R4</script>，则由以上式子可以推导出</p>
+<script type="math/tex; mode=display">V_+ = (V1 + V2)/2</script><script type="math/tex; mode=display">V_- = V_{out}/2</script><p>故</p>
+<script type="math/tex; mode=display">V_{out} = V_1 + V_2</script><p>也是一个加法器！</p>
+<h2 id="4-减法器"><a href="#4-减法器" class="headerlink" title="4.减法器"></a>4.减法器</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/328abf957180223f595872ad166f0973.jpg" alt="img"><br>图五由虚断知，通过R1的电流等于通过R2的电流，同理通过R4的电流等于R3的电流，故有</p>
+<script type="math/tex; mode=display">(V_2 – V_+)/R1 = V_+/R2</script><script type="math/tex; mode=display">(V_1 – V_-)/R4 = (V_- - V_{out})/R3</script><p>如果$R1=R2$， 则</p>
+<script type="math/tex; mode=display">V_+ = V_2/2</script><p>如果$R3=R4$， 则</p>
+<script type="math/tex; mode=display">V_- = (V_{out} + V_1)/2</script><p>由虚短知 <script type="math/tex">V_+ = V_-</script><br>所以</p>
+<script type="math/tex; mode=display">V_{out}=V_2-V_1</script><p>这就是传说中的减法器了。</p>
+<h2 id="5-积分电路"><a href="#5-积分电路" class="headerlink" title="5.积分电路"></a>5.积分电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/1ecbce047b1868098b7b25aa82324113.jpg" alt="img"><br>图六电路中<br>由虚短知，反向输入端的电压与同向端相等<br>由虚断知，通过R1的电流与通过C1的电流相等。<br>通过R1的电流</p>
+<script type="math/tex; mode=display">i= \frac{V_1}{R_1}</script><p>通过C1的电流</p>
+<script type="math/tex; mode=display">i=C\cdot \frac{dU_c}{dt}=-C1\cdot \frac{dV_{out}}{dt}</script><p>所以</p>
+<script type="math/tex; mode=display">Vout=\frac{-1}{R1*C1}\cdot \int V_1dt</script><p>输出电压与输入电压对时间的积分成正比,这就是传说中的积分电路了。<br>若V1为恒定电压U，则上式变换为</p>
+<script type="math/tex; mode=display">Vout = -\frac{U*t}{R1*C1}</script><p>t 是时间，则Vout输出电压是一条从0至负电源电压按时间变化的直线。 </p>
+<h2 id="6-微分电路"><a href="#6-微分电路" class="headerlink" title="6.微分电路"></a>6.微分电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/57422ac64debc71a6ef231f3643096d8.jpg" alt="img"><br>图七中<br>由虚断知，通过电容C1和电阻R2的电流是相等的<br>由虚短知，运放同向端与反向端电压是相等的。则：</p>
+<script type="math/tex; mode=display">V_{out} = -i \cdot R2 = -(R2*C1)\frac{dV_1}{dt}</script><p>这是一个微分电路。<br>如果V1是一个突然加入的直流电压，则输出Vout对应一个方向与V1相反的脉冲。</p>
+<h2 id="7-差分放大电路"><a href="#7-差分放大电路" class="headerlink" title="7.差分放大电路"></a>7.差分放大电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/71f69b4788c78b18c48dbdf9b34f9fdd.jpg" alt="img"><br>图八.由虚短知 </p>
+<script type="math/tex; mode=display">Vx = V1 \cdot\cdot\cdot\cdot\cdot\cdot(1)</script><script type="math/tex; mode=display">Vy = V2 \cdot\cdot\cdot\cdot\cdot\cdot(2)</script><p>由虚断知，运放输入端没有电流流过，则R1、R2、R3可视为串联，通过每一个电阻的电流是相同的， 则电流</p>
+<script type="math/tex; mode=display">I=\frac{V_x-V_y}{R2} \cdot\cdot\cdot\cdot\cdot\cdot(3)</script><p>则：</p>
+<script type="math/tex; mode=display">V_{o1}-V_{o2}=I\cdot (R1+R2+R3) =\frac{(V_x-V_y)(R1+R2+R3)}{R2} \cdot\cdot\cdot\cdot\cdot\cdot(4)</script><p>由虚断知，流过R6与流过R7的电流相等,若$R6=R7$， 则</p>
+<script type="math/tex; mode=display">V_w = \frac{V_{o2}}2 \cdot\cdot\cdot\cdot\cdot\cdot(5)</script><p>同理若$R4=R5$，则</p>
+<script type="math/tex; mode=display">V_{out} – V_u = V_u – V_{o1} \cdot\cdot\cdot\cdot\cdot\cdot(6)</script><p>故</p>
+<script type="math/tex; mode=display">V_u = \frac{V_{out}+V_{o1}}2 \cdot\cdot\cdot\cdot\cdot\cdot(7)</script><p>由虚短知，</p>
+<script type="math/tex; mode=display">V_u = V_w \cdot\cdot\cdot\cdot\cdot\cdot(8)</script><p>由(5)(7)(8)得</p>
+<script type="math/tex; mode=display">V_{out} = V_{o2} – V_{o1}\cdot\cdot\cdot\cdot\cdot\cdot(9)</script><p>由(4)(9)得 </p>
+<script type="math/tex; mode=display">V_{out} = \frac{(V_y –V_x)(R1+R2+R3)}{R2}</script><p>上式中 $\frac{R1+R2+R3}{R2}$是定值，此值确定了差值$(V_y –V_x)$的放大倍数。</p>
+<p>这个电路就是传说中的差分放大电路了。</p>
+<h2 id="8-电流采集电路"><a href="#8-电流采集电路" class="headerlink" title="8.电流采集电路"></a>8.电流采集电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/22579387c644bd80ccbc24ac4127edad.jpg" alt="img"><br>分析一个大家接触得较多的电路。很多控制器接受来自各种检测仪表的0~20mA或4~20mA电流，电路将此电流转换成电压后再送ADC转换成数字信号，图九就是这样一个典型电路。如图4~20mA电流流过采样100Ω电阻R1，在R1上会产生0.4~2V的电压差。<br>由虚断知，运放输入端没有电流流过，则流过R3和R5的电流相等，流过R2和R4的电流相等。故： </p>
+<script type="math/tex; mode=display">\frac{V_2-V_y}{R3} =\frac{V_y}{R5} \cdot\cdot\cdot\cdot\cdot\cdot(1)</script><script type="math/tex; mode=display">\frac{V_1-V_x}{R2} =\frac{V_x-V_{out}}{R4} \cdot\cdot\cdot\cdot\cdot\cdot(2)</script><p>由虚短知：</p>
+<script type="math/tex; mode=display">V_x = V_y \cdot\cdot\cdot\cdot\cdot\cdot(3)</script><p>电流从0~20mA变化，则</p>
+<script type="math/tex; mode=display">V_1 = V_2 + \Delta I\cdot R1 \cdot\cdot\cdot\cdot\cdot\cdot(4)</script><p>由(3)(4)式代入(2)式得</p>
+<script type="math/tex; mode=display">\frac{V_2 + \Delta I\cdot R1-V_y}{R2} = \frac{V_y-V_{out}}{R4} \cdot\cdot\cdot\cdot\cdot\cdot(5)</script><p>如果R3=R2，R4=R5，则由(5)-(1)得</p>
+<script type="math/tex; mode=display">V_{out} = -\frac{\Delta I\cdot  R1\cdot R4}{R2}</script><p>图九中R4/R2=22k/10k=2.2，则f式Vout = -(0.88~4.4)V<br>即是说，将4~20mA电流转换成了-0.88 ~ -4.4V电压，此电压可以送ADC去处理。</p>
+<h2 id="9-恒流源电路"><a href="#9-恒流源电路" class="headerlink" title="9.恒流源电路"></a>9.恒流源电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/0d28d87b2927fcff4fe820c34d4c7b90.jpg" alt="img"><br>电流可以转换成电压，电压也可以转换成电流。图十就是这样一个电路。上图的负反馈没有通过电阻直接反馈，而是串联了三极管Q1的发射结，大家可不要以为是一个比较器就是了。只要是放大电路，虚短虚断的规律仍然是符合的！<br>由虚断知，运放输入端没有电流流过，<br>则             </p>
+<script type="math/tex; mode=display">\frac{V_i – V_1}{R2} = \frac{V_1 – V_4}{R6}  \cdot\cdot\cdot\cdot\cdot\cdot(1)</script><p>同理           </p>
+<script type="math/tex; mode=display">\frac{V_3 – V_2}{R5} =  \frac{V_2}{R4}    \cdot\cdot\cdot\cdot\cdot\cdot(2)</script><p>由虚短知   $ V1 = V2  \cdot\cdot\cdot\cdot\cdot\cdot(3)  $<br>如果  $ R2=R6，R4=R5 $，则由(1)(2)(3)式得</p>
+<script type="math/tex; mode=display">V_3-V_4=V_i</script><p>上式说明R7两端的电压和输入电压Vi相等，则通过R7的电流</p>
+<script type="math/tex; mode=display">I=V_i/R7</script><p>如果负载<strong>RL&lt;&lt;100KΩ</strong>，则通过Rl和通过R7的电流基本相同。</p>
+<h2 id="10-三线制PT100前置放大电路"><a href="#10-三线制PT100前置放大电路" class="headerlink" title="10.三线制PT100前置放大电路"></a>10.三线制PT100前置放大电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/36e6042c7ef601d35393aee859d5399c.jpg" alt="img"><br>图十一是一个三线制PT100前置放大电路。<br>PT100传感器引出三根材质、线径、长度完全相同的线，接法如图所示。有2V的电压加在由R14、R20、R15、Z1、PT100及其线电阻组成的桥电路上。Z1、Z2、Z3、D11、D12、D83及各电容在电路中起滤波和保护作用，静态分析时可不予理会，Z1、Z2、Z3可视为短路，D11、D12、D83及各电容可视为开路。<br>由电阻分压知， V3=2<em>R20/(R14+20)=200/1100=2/11 ……a<br>由虚短知，U8B第6、7脚 电压和第5脚电压相等 V4=V3 ……b<br>由虚断知，U8A第2脚没有电流流过，则流过R18和R19上的电流相等。<br>(V2-V4)/R19=(V5-V2)/R18 ……c<br>由虚断知，U8A第3脚没有电流流过， V1=V7 ……d<br>在桥电路中R15和Z1、PT100及线电阻串联，PT100与线电阻串联分得的电压通过电阻R17加至U8A的第3脚， V7=2</em>(Rx+2R0)/(R15+Rx+2R0) …..e<br>由虚短知，U8A第3脚和第2脚电压相等， V1=V2 ……f<br>由abcdef得， (V5-V7)/100=(V7-V3)/2.2 化简得 V5=(102.2<em>V7-100V3)/2.2 即 V5=204.4(Rx+2R0)/(1000+Rx+2R0) – 200/11 ……g<br>上式输出电压V5是Rx的函数我们再看线电阻的影响。Pt100最下端线电阻上产生的电压降经过中间的线电阻、Z2、R22，加至U8C的第10脚，<br>由虚断知， V5=V8=V9=2</em>R0/(R15+Rx+2R0) ……a<br>(V6-V10)/R25=V10/R26 ……b<br>由虚短知， V10=V5 ……c<br>由式abc得 V6=(102.2/2.2)V5=204.4R0/[2.2(1000+Rx+2R0)] ……h<br>由式gh组成的方程组知，如果测出V5、V6的值，就可算出Rx及R0，知道Rx，查pt100分度表就知道温度的大小了。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/简单实用的双向电平转换电路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/08/简单实用的双向电平转换电路/" class="post-title-link" itemprop="url">简单实用的双向电平转换电路</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-17 21:21:06" itemprop="dateModified" datetime="2018-01-17T21:21:06+08:00">2018-01-17</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/电平转换电路/" itemprop="url" rel="index"><span itemprop="name">电平转换电路</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>当你使用3.3V的单片机的时候，电平转换就在所难免了，经常会遇到3.3转5V或者5V转3.3V的情况，这里介绍一个简单的电路，他可以实现两个电平的相互转换(注意是相互哦，双向的，不是单向的!).电路十分简单，仅由3个电阻加一个MOS管构成。</p>
+<p>　　电路图如下:<br> <img src="1.png" alt="1"></p>
+<p>上图中，S1，S2为两个信号端，VCC_S1和VCC_S2为这两个信号的高电平电压.另外限制条件为:<br>　　1，VCC_S1&lt;=VCC_S2.<br>　　2，S1的低电平门限大于0.7V左右(视NMOS内的二极管压降而定).<br>　　3，Vgs&lt;=VCC_S1.<br>　　4，Vds&lt;=VCC_S2<br>　　对于3.3V和5V/12V等电路的相互转换，NMOS管选择AP2306即可.原理比较简单，大家自行分析吧!此电路我已在多处应用，效果很好.</p>
+<p> <img src="2.png" alt="2"></p>
+<p>I2C<br>　　类似这种吧，只是不知道这种电路的速率能达到多少<br>　　电平转换器的操作<br>　　在电平转换器的操作中要考虑下面的三种状态：<br>　　1 没有器件下拉总线线路。“低电压”部分的总线线路通过上拉电阻Rp 上拉至3.3V。 MOS-FET 管的门极和源极都是3.3V， 所以它的VGS 低于阀值电压，MOS-FET 管不导通。这就允许“高电压”部分的总线线路通过它的上拉电阻Rp 拉到5V。 此时两部分的总线线路都是高电平，只是电压电平不同。<br>　　2 一个3.3V器件下拉总线线路到低电平。MOS-FET管的源极也变成低电平，而门极是3.3V。VGS上升高于阀值，MOS-FET管开始导通。然后“高电压”部分的总线线路通过导通的MOS-FET管被3.3V器件下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　3 一个5V的器件下拉总线线路到低电平。MOS-FET管的漏极基底二极管“低电压”部分被下拉直到VGS超过阀值，MOS-FET管开始导通。“低电压”部分的总线线路通过导通的MOS-FET管被5V的器件进一步下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　这三种状态显示了逻辑电平在总线系统的两个方向上传输，与驱动的部分无关。状态1执行了电平转换功能。状态2和3按照I2C总线规范的要求在两部分的总线线路之间实现“线与”的功能。<br>　　除了3.3V VDD1和5V VDD2的电源电压外，还可以是例如：2V VDD1和10V VDD2。在正常操作中，VDD2必须等于或高于VDD1(在开关电源时允许VDD2低于VDD1)。<br>　　MOS-N场效应管双向电平转换电路—适用于低频信号电平转换的简单应用</p>
+<p> <img src="3.png" alt="3"></p>
+<p>如上图所示，是MOS-N场效应管双向电平转换电路。<br>　　双向传输原理：<br>　　为了方便讲述，定义 3.3V 为 A 端，5.0V 为 B 端。<br>　　A端输出低电平时(0V)，MOS管导通，B端输出是低电平(0V)<br>　　A端输出高电平时(3.3V)，MOS管截至，B端输出是高电平(5V)<br>　　A端输出高阻时(OC) ，MOS管截至，B端输出是高电平(5V)<br>　　B端输出低电平时(0V)，MOS管内的二极管导通，从而使MOS管导通，A端输出是低电平(0V)<br>　　B端输出高电平时(5V)，MOS管截至，A端输出是高电平(3.3V)<br>　　B端输出高阻时(OC) ，MOS管截至，A端输出是高电平(3.3V)<br>　　优点：<br>　　1、适用于低频信号电平转换，价格低廉。<br>　　2、导通后，压降比三极管小。<br>　　3、正反向双向导通，相当于机械开关。<br>　　4、电压型驱动，当然也需要一定的驱动电流，而且有的应用也许比三极管大。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/08/经典电路之惠斯通电桥原理及应用/" class="post-title-link" itemprop="url">经典电路之惠斯通电桥原理及应用</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-26 17:38:27" itemprop="dateModified" datetime="2020-03-26T17:38:27+08:00">2020-03-26</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index"><span itemprop="name">经典电路</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-电阻桥定义解释"><a href="#1-电阻桥定义解释" class="headerlink" title="1. 电阻桥定义解释"></a>1. 电阻桥定义解释</h2><p>   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。</p>
+<p> <img src="110945pzcuhva3gm2cpncy.jpg" alt="110945pzcuhva3gm2cpncy"></p>
+<p>   在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通过采集电压的变化就可以知道环境中物理量的变化，而从实现测量的目的。下面举例介绍电桥电路的计算方式。</p>
+<h2 id="2-电阻桥相关计算"><a href="#2-电阻桥相关计算" class="headerlink" title="2. 电阻桥相关计算"></a>2. 电阻桥相关计算</h2><p>   假设流过R1，R2桥臂的电流为I1，流过R3，Rx桥臂的电流为I2，电桥供电电压为VCC，如下图所示。<br><img src="fig1.png" alt="fig1"><br>   通过欧姆定律可以计算出每个电阻两端的电压。在R1和R2这两个桥臂上，R1，R2将VCC电压分压，R2电阻两端得到的电压即为V1；在R3和Rx这个桥臂上，R3，Rx将VCC电压分压，R3电阻两端得到的电压即为V2。下面分别用欧姆定律计算V1和V2。</p>
+<p>   流过电阻R1和R2的电流I1: </p>
+<script type="math/tex; mode=display">\ I1=\frac{VCC}{R1+R2}</script><p>   R2两端的电压V1：</p>
+<script type="math/tex; mode=display">\ V1=I1\cdot R2=VCC\cdot\frac{R2}{R1+R2}</script><p>   流过电阻R3和Rx的电流I2:</p>
+<script type="math/tex; mode=display">\ I2=\frac{VCC}{R3+Rx}</script><p>   R3两端的电压：</p>
+<script type="math/tex; mode=display">\ V2=I2\cdot R3=VCC\cdot\frac{R3}{R3+Rx}</script><p>   V1和V2的电压差：</p>
+<script type="math/tex; mode=display">\Delta V=V1-V2=VCC\cdot(\frac{R2}{R1+R2}-\frac{R3}{R3+Rx})</script><p>进一步计算得到：</p>
+<script type="math/tex; mode=display">\Delta V=VCC\cdot(\frac{R2\cdot Rx-R3\cdot R1}{(R1+R2)(R3+Rx)})</script><p>由此可以看出：<br>如果4个电阻都相等，即R1=R2=R3=Rx，那么ΔV=0，即电桥处于平衡状态；　Rx发生变化会导致△V发生变化；</p>
+<h2 id="3-电阻桥的应用"><a href="#3-电阻桥的应用" class="headerlink" title="3.电阻桥的应用"></a>3.电阻桥的应用</h2><p>   在实际使用中，我们通常将其中三个电阻值固定，而将另外一个电阻换成热敏电阻、压敏电阻、PT100等，这时候就可以用电桥来测物理量了。如果将PT100接入电桥，随着环境温度的变化，PT100的阻值发生变化导致ΔV发生变化，将差分电压ΔV通过差分运放放大后进入单片机的AD采样，再对照PT100的电阻-温度对应表就可以知道当前环境的温度了。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="JackLu">
+  <p class="site-author-name" itemprop="name">JackLu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/IOTTS" title="GitHub &rarr; https://github.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:3574311659@qq.com" title="E-Mail &rarr; mailto:3574311659@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/IOTTS" title="Weibo &rarr; https://weibo.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://youtube.com/yourname" title="YouTube &rarr; https://youtube.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://shop567664910.taobao.com" title="https://shop567664910.taobao.com" rel="noopener" target="_blank">淘宝店</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackLu</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/muse.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
 
 
 
   
-    <nav id="pagination" class="blog-pagination">
-            <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
-    </nav>
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
- </div>
 
-                
-            <footer class="blog-footer">
-                <p class="blog-footer-left">Copyright ©  2020 <a href="http://iotts.top">IOTTS</a></p>
-                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
-            </footer>
-        </div><!--博客主栏结束-->
-        <!--博客侧边栏开始-->
-        <div class="col-xl-3 blog-sidebar">
-            <div class="blog-sidebar-title">
-                <a href>IOTTS</a>
-            </div>
-            <div class="blog-sidebar-logo">
-                <img src="/images/avatar.png">
-            </div>
-            <div class="blog-sidebar-count blog-sidebar-padding">
-                <div class="blog-sidebar-count-left">
-                    <p class="blog-sidebar-count-p">52</p>
-                    <span class="blog-sidebar-count-span">文章</span>
-                </div>
-                <div class="blog-sidebar-count-right">
-                    <p class="blog-sidebar-count-p">48</p>
-                    <span class="blog-sidebar-count-span">标签</span>
-                </div>
-                <div style="clear: both;"></div>
-            </div>
-            <div class="blog-sidebar-icon blog-sidebar-padding">
-                <ul>
-                    <li><a href="https://github.com/luyang14" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
-                    <li><a href class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
-                    <li><a href class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
-                    <li><a href="mailto:" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
-                    <li><a href class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
-                </ul>
-            </div>
-            <div class="blog-sidebar-categories">
-                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
-                <ul class="list-group blog-sidebar-padding">
-                  
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/">PCB相关</a>
-                          <span class="badge badge-default badge-pill">3</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/ASCII/">ASCII</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Cadence/">Cadence</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Altium-Designer/">Altium Designer</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Hexo教程/">Hexo教程</a>
-                          <span class="badge badge-default badge-pill">6</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网相关/">物联网相关</a>
-                          <span class="badge badge-default badge-pill">3</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/MSP430相关/">MSP430相关</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Cadence/Allegro小技巧/">Allegro小技巧</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Markdown/">Markdown</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/">Linux</a>
-                          <span class="badge badge-default badge-pill">9</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/ELEC/">ELEC</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Altium-Designer/Altium-Designer小技巧/">Altium Designer小技巧</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/STM32相关/">STM32相关</a>
-                          <span class="badge badge-default badge-pill">7</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/STM32/">STM32</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计/">电路设计</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网相关/终端相关/">终端相关</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网/">物联网</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/C语言/">C语言</a>
-                          <span class="badge badge-default badge-pill">4</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/MSP430相关/MSP430教程/">MSP430教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/linux命令/">linux命令</a>
-                          <span class="badge badge-default badge-pill">4</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/MySql教程/">MySql教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/nodejs/">nodejs</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网相关/服务器端相关/">服务器端相关</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Arduino相关/">Arduino相关</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/">电路设计相关</a>
-                          <span class="badge badge-default badge-pill">5</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/OrangePi-PC/">OrangePi PC</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB/">PCB</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/STM32相关/STM32F1教程/">STM32F1教程</a>
-                          <span class="badge badge-default badge-pill">7</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/java环境变量配置/">java环境变量配置</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网/MQTT/">MQTT</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Arduino相关/Arduino-IDE/">Arduino IDE</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/电平转换电路/">电平转换电路</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/经典电路/">经典电路</a>
-                          <span class="badge badge-default badge-pill">3</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB/电路设计/">电路设计</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Arduino/">Arduino</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/C语言/C语言教程/">C语言教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/ReText使用教程/">ReText使用教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/通信方式/">通信方式</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                  
-                </ul>
-            </div>
-            <div class="blog-sidebar-tags">
-                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
-                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
-                  
-                    
-                      <li><a href="/tags/PCB/" class="tag-could" data-toggle="tooltip" data-placement="top" title="PCB">PCB</a></li>
-                    
-                      <li><a href="/tags/Altium-Designer/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Altium Designer">Altium Designer</a></li>
-                    
-                      <li><a href="/tags/ASCII/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ASCII">ASCII</a></li>
-                    
-                      <li><a href="/tags/常用资料/" class="tag-could" data-toggle="tooltip" data-placement="top" title="常用资料">常用资料</a></li>
-                    
-                      <li><a href="/tags/Allegro/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Allegro">Allegro</a></li>
-                    
-                      <li><a href="/tags/hexo/" class="tag-could" data-toggle="tooltip" data-placement="top" title="hexo">hexo</a></li>
-                    
-                      <li><a href="/tags/物联网/" class="tag-could" data-toggle="tooltip" data-placement="top" title="物联网">物联网</a></li>
-                    
-                      <li><a href="/tags/ESP8266/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ESP8266">ESP8266</a></li>
-                    
-                      <li><a href="/tags/MQTT/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MQTT">MQTT</a></li>
-                    
-                      <li><a href="/tags/单片机/" class="tag-could" data-toggle="tooltip" data-placement="top" title="单片机">单片机</a></li>
-                    
-                      <li><a href="/tags/MSP430/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MSP430">MSP430</a></li>
-                    
-                      <li><a href="/tags/Markdown/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Markdown">Markdown</a></li>
-                    
-                      <li><a href="/tags/Markdown教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Markdown教程">Markdown教程</a></li>
-                    
-                      <li><a href="/tags/MySql教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MySql教程">MySql教程</a></li>
-                    
-                      <li><a href="/tags/MySql相关问题/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MySql相关问题">MySql相关问题</a></li>
-                    
-                      <li><a href="/tags/XBMC/" class="tag-could" data-toggle="tooltip" data-placement="top" title="XBMC">XBMC</a></li>
-                    
-                      <li><a href="/tags/linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux">linux</a></li>
-                    
-                      <li><a href="/tags/OrangePi-PC/" class="tag-could" data-toggle="tooltip" data-placement="top" title="OrangePi PC">OrangePi PC</a></li>
-                    
-                      <li><a href="/tags/嵌入式/" class="tag-could" data-toggle="tooltip" data-placement="top" title="嵌入式">嵌入式</a></li>
-                    
-                      <li><a href="/tags/stm32-按键基本操作/" class="tag-could" data-toggle="tooltip" data-placement="top" title="stm32 按键基本操作">stm32 按键基本操作</a></li>
-                    
-                      <li><a href="/tags/STM32/" class="tag-could" data-toggle="tooltip" data-placement="top" title="STM32">STM32</a></li>
-                    
-                      <li><a href="/tags/电路设计/" class="tag-could" data-toggle="tooltip" data-placement="top" title="电路设计">电路设计</a></li>
-                    
-                      <li><a href="/tags/服务器操作/" class="tag-could" data-toggle="tooltip" data-placement="top" title="服务器操作">服务器操作</a></li>
-                    
-                      <li><a href="/tags/数据采集/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据采集">数据采集</a></li>
-                    
-                      <li><a href="/tags/Linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Linux">Linux</a></li>
-                    
-                      <li><a href="/tags/java/" class="tag-could" data-toggle="tooltip" data-placement="top" title="java">java</a></li>
-                    
-                      <li><a href="/tags/C语言/" class="tag-could" data-toggle="tooltip" data-placement="top" title="C语言">C语言</a></li>
-                    
-                      <li><a href="/tags/Hexo教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Hexo教程">Hexo教程</a></li>
-                    
-                      <li><a href="/tags/编程规范/" class="tag-could" data-toggle="tooltip" data-placement="top" title="编程规范">编程规范</a></li>
-                    
-                      <li><a href="/tags/linux命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux命令">linux命令</a></li>
-                    
-                      <li><a href="/tags/netstat命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="netstat命令">netstat命令</a></li>
-                    
-                      <li><a href="/tags/基础/" class="tag-could" data-toggle="tooltip" data-placement="top" title="基础">基础</a></li>
-                    
-                      <li><a href="/tags/查看系统信息/" class="tag-could" data-toggle="tooltip" data-placement="top" title="查看系统信息">查看系统信息</a></li>
-                    
-                      <li><a href="/tags/关机重启/" class="tag-could" data-toggle="tooltip" data-placement="top" title="关机重启">关机重启</a></li>
-                    
-                      <li><a href="/tags/nodejs/" class="tag-could" data-toggle="tooltip" data-placement="top" title="nodejs">nodejs</a></li>
-                    
-                      <li><a href="/tags/Mysql/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Mysql">Mysql</a></li>
-                    
-                      <li><a href="/tags/php/" class="tag-could" data-toggle="tooltip" data-placement="top" title="php">php</a></li>
-                    
-                      <li><a href="/tags/Arduino/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Arduino">Arduino</a></li>
-                    
-                      <li><a href="/tags/3-3v-5v电平转换/" class="tag-could" data-toggle="tooltip" data-placement="top" title="3.3v 5v电平转换">3.3v 5v电平转换</a></li>
-                    
-                      <li><a href="/tags/减法器电路/" class="tag-could" data-toggle="tooltip" data-placement="top" title="减法器电路">减法器电路</a></li>
-                    
-                      <li><a href="/tags/电阻测量/" class="tag-could" data-toggle="tooltip" data-placement="top" title="电阻测量">电阻测量</a></li>
-                    
-                      <li><a href="/tags/CRC算法/" class="tag-could" data-toggle="tooltip" data-placement="top" title="CRC算法">CRC算法</a></li>
-                    
-                      <li><a href="/tags/枚举/" class="tag-could" data-toggle="tooltip" data-placement="top" title="枚举">枚举</a></li>
-                    
-                      <li><a href="/tags/解压缩/" class="tag-could" data-toggle="tooltip" data-placement="top" title="解压缩">解压缩</a></li>
-                    
-                      <li><a href="/tags/ReText使用说明/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ReText使用说明">ReText使用说明</a></li>
-                    
-                      <li><a href="/tags/ReText配置/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ReText配置">ReText配置</a></li>
-                    
-                      <li><a href="/tags/运放/" class="tag-could" data-toggle="tooltip" data-placement="top" title="运放">运放</a></li>
-                    
-                      <li><a href="/tags/RS232-RS485/" class="tag-could" data-toggle="tooltip" data-placement="top" title="RS232 RS485">RS232 RS485</a></li>
-                    
-                  
-                </ul>
-            </div>
-            <script>
-              // 博客侧栏标签云随机色
-              var tag_cloud = $('.tag-could');
-              tag_cloud.each(function () {
-                  var Cnum = 9;
-                  var Crand = parseInt(Math.random() * Cnum);
-                  $(this).addClass("tag-could" + Crand);
-              })
-            </script>
-            <!--返回顶部按钮-->
-            <div class="retop">
-                <i class="fa fa-angle-up"></i>
-            </div>
-        </div><!--博客侧边栏结束-->
-    </div>
-</div>
-<script src="/js/LeanStatistics.min.js"></script>
-<script src="/js/Life.js"></script>
-<script type="text/javascript">
-    hljs.initHighlightingOnLoad();
-    hljs.initLineNumbersOnLoad();
-    otherF();
-    LeanStatistics();
-    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
-      $('pre code').each(function(i, block){
-        hljs.highlightBlock(block);
-      })
-      $('code.hljs').each(function(i, block) {
-        hljs.lineNumbersBlock(block);
-      });
-      LeanStatistics();
-    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
-      NProgress.done();
-      otherF();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
     });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
 </script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
 </body>
 </html>

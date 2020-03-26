@@ -1,536 +1,547 @@
+<!DOCTYPE html>
 
 
 
 
 
-
-  
-
-
-
-
-
-
-
-
-
-
-<!doctype html>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-  <meta name="renderer" content="webkit">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>Tag: MySql相关问题IOTTS</title>
-  <link rel="shortcut icon" href="/images/">
-  
-    
-    
-      <link rel="stylesheet" href="/css/bootstrap.min.css">
-    
-      <link rel="stylesheet" href="/css/font-awesome.min.css">
-    
-      <link rel="stylesheet" href="/css/atom-one-dark.css">
-    
-      <link rel="stylesheet" href="/css/jquery.fancybox.css">
-    
-      <link rel="stylesheet" href="/css/nprogress.min.css">
-    
-      <link rel="stylesheet" href="/css/valine.css">
-    
-      <link rel="stylesheet" href="/css/life.css">
-    
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="IOTTS">
+<meta property="og:url" content="http://iotts.top/tags/MySql相关问题/index.html">
+<meta property="og:site_name" content="IOTTS">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOTTS">
+  <link rel="canonical" href="http://iotts.top/tags/MySql相关问题/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>标签: MySql相关问题 | IOTTS</title>
   
 
-  
 
-  <!-- jQuery first, then Tether, then Bootstrap JS. -->
-  
-  
-  
-    <script src="/js/jquery-2.2.4.min.js"></script>
-  
-    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
-  
-    <script src="/js/jquery.pjax.js"></script>
-  
-    <script src="/js/nprogress.min.js"></script>
-  
-    <script src="/js/tether.min.js"></script>
-  
-    <script src="/js/bootstrap.min.js"></script>
-  
-    <script src="/js/highlight.min.js"></script>
-  
-    <script src="/js/highlightjs-line-numbers.min.js"></script>
-  
-    <script src="/js/jquery.fancybox.js"></script>
-  
-    <script src="/js/jquery.qrcode.min.js"></script>
-  
-    <script src="/js/Valine.min.js"></script>
-  
-  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
-<body>
-<script>AV.init({appId:'',appKey:''});</script>
-<script type="text/javascript">
-      var config = {
-            ClasS: 'Counter',
-            el:'.views',
-            elP: '.views-post'
-      }
-</script>
-<div class="container">
-    <div class="row blog-box-shadow">
-        <!--博客主栏开始-->
-        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
-            <header class="blog-header">
-                <a href="http://iotts.top" class="blog-header-mobile-title">IOTTS</a>
-                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
-                <nav class="blog-header-navbar blog-header-fixed">
-                    <ul class="blog-navbar-links">
-                        
-                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
-                        
-                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
-                        
-                          <li class="blog-nav-item"><a href="/wiki/" class="transition">产品</a></li>
-                        
-                          <li class="blog-nav-item"><a href="/opensource/" class="transition">开源程序</a></li>
-                        
-                        <div class="blog-navbar-right">
-                            <form action>
-                                <div class="input-group">
-                                    <input type="text" class="blog-header-search" placeholder="search...">
-                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
-                                </div>
-                            </form>
-                        </div>
-                    </ul>
-                </nav>
-            </header>
-                
-<header class="blog-post-page-title blog-search-page-title">
-  <h4>标签<a href>MySql相关问题</a>下的文章</h4>
-</header>
-<div class="blog-main-post blog-post-page-box">
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IOTTS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
   
-    <article class="blog-post-block">
+  <ul id="menu" class="menu">
+      
+      
+      
         
-        <div class="blog-post-block-padding">
-          
-            <a href="/2018/01/09/MySQL忘记root密码解决方法/">MySQL忘记root密码解决方法</a>
-          
-            <section>
-              
-                
-                原文链接1．首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对外的端口封
-                ...
-              
-            </section>
-            <footer>
-                <time datetime="2018-01-09T15:31:38.000Z><i class=" fa fa-clock-o">2018-01-09</time>
-                
-                
-                
-                
-                  <span><i class="fa fa-folder-o"></i>
-                    
-                      <a href="/categories/Linux/" itemprop="url" rel="index">
-                        Linux
-                      </a>
-                    
-                      <a href="/categories/Linux/MySql教程/" itemprop="url" rel="index">
-                        MySql教程
-                      </a>
-                    
-                  </span>
-                
-            </footer>
-        </div>
-    </article>
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-产品列表">
+      
+    
+
+    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>产品列表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-开源项目">
+      
+    
+
+    <a href="/opensource/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>开源项目</a>
+
+  </li>
+  </ul>
+
+    
+
   
     
-    <nav id="pagination" class="blog-pagination">
-            <span class="page-number current">1</span>
-    </nav>
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
 
+</nav>
 </div>
+    </header>
 
-                
-            <footer class="blog-footer">
-                <p class="blog-footer-left">Copyright ©  2020 <a href="http://iotts.top">IOTTS</a></p>
-                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
-            </footer>
-        </div><!--博客主栏结束-->
-        <!--博客侧边栏开始-->
-        <div class="col-xl-3 blog-sidebar">
-            <div class="blog-sidebar-title">
-                <a href>IOTTS</a>
-            </div>
-            <div class="blog-sidebar-logo">
-                <img src="/images/avatar.png">
-            </div>
-            <div class="blog-sidebar-count blog-sidebar-padding">
-                <div class="blog-sidebar-count-left">
-                    <p class="blog-sidebar-count-p">52</p>
-                    <span class="blog-sidebar-count-span">文章</span>
-                </div>
-                <div class="blog-sidebar-count-right">
-                    <p class="blog-sidebar-count-p">48</p>
-                    <span class="blog-sidebar-count-span">标签</span>
-                </div>
-                <div style="clear: both;"></div>
-            </div>
-            <div class="blog-sidebar-icon blog-sidebar-padding">
-                <ul>
-                    <li><a href="https://github.com/luyang14" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
-                    <li><a href class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
-                    <li><a href class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
-                    <li><a href="mailto:" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
-                    <li><a href class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
-                </ul>
-            </div>
-            <div class="blog-sidebar-categories">
-                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
-                <ul class="list-group blog-sidebar-padding">
-                  
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/">PCB相关</a>
-                          <span class="badge badge-default badge-pill">3</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/ASCII/">ASCII</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Cadence/">Cadence</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Altium-Designer/">Altium Designer</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Hexo教程/">Hexo教程</a>
-                          <span class="badge badge-default badge-pill">6</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网相关/">物联网相关</a>
-                          <span class="badge badge-default badge-pill">3</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/MSP430相关/">MSP430相关</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Cadence/Allegro小技巧/">Allegro小技巧</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Markdown/">Markdown</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/">Linux</a>
-                          <span class="badge badge-default badge-pill">9</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/ELEC/">ELEC</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Altium-Designer/Altium-Designer小技巧/">Altium Designer小技巧</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/STM32相关/">STM32相关</a>
-                          <span class="badge badge-default badge-pill">7</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/STM32/">STM32</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计/">电路设计</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网相关/终端相关/">终端相关</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网/">物联网</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/C语言/">C语言</a>
-                          <span class="badge badge-default badge-pill">4</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/MSP430相关/MSP430教程/">MSP430教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/linux命令/">linux命令</a>
-                          <span class="badge badge-default badge-pill">4</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/MySql教程/">MySql教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/nodejs/">nodejs</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网相关/服务器端相关/">服务器端相关</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Arduino相关/">Arduino相关</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/">电路设计相关</a>
-                          <span class="badge badge-default badge-pill">5</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/OrangePi-PC/">OrangePi PC</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB/">PCB</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/STM32相关/STM32F1教程/">STM32F1教程</a>
-                          <span class="badge badge-default badge-pill">7</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/java环境变量配置/">java环境变量配置</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网/MQTT/">MQTT</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Arduino相关/Arduino-IDE/">Arduino IDE</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/电平转换电路/">电平转换电路</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/经典电路/">经典电路</a>
-                          <span class="badge badge-default badge-pill">3</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB/电路设计/">电路设计</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Arduino/">Arduino</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/C语言/C语言教程/">C语言教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/ReText使用教程/">ReText使用教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/通信方式/">通信方式</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                  
-                </ul>
-            </div>
-            <div class="blog-sidebar-tags">
-                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
-                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
-                  
-                    
-                      <li><a href="/tags/PCB/" class="tag-could" data-toggle="tooltip" data-placement="top" title="PCB">PCB</a></li>
-                    
-                      <li><a href="/tags/Altium-Designer/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Altium Designer">Altium Designer</a></li>
-                    
-                      <li><a href="/tags/ASCII/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ASCII">ASCII</a></li>
-                    
-                      <li><a href="/tags/常用资料/" class="tag-could" data-toggle="tooltip" data-placement="top" title="常用资料">常用资料</a></li>
-                    
-                      <li><a href="/tags/Allegro/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Allegro">Allegro</a></li>
-                    
-                      <li><a href="/tags/hexo/" class="tag-could" data-toggle="tooltip" data-placement="top" title="hexo">hexo</a></li>
-                    
-                      <li><a href="/tags/物联网/" class="tag-could" data-toggle="tooltip" data-placement="top" title="物联网">物联网</a></li>
-                    
-                      <li><a href="/tags/ESP8266/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ESP8266">ESP8266</a></li>
-                    
-                      <li><a href="/tags/MQTT/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MQTT">MQTT</a></li>
-                    
-                      <li><a href="/tags/单片机/" class="tag-could" data-toggle="tooltip" data-placement="top" title="单片机">单片机</a></li>
-                    
-                      <li><a href="/tags/MSP430/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MSP430">MSP430</a></li>
-                    
-                      <li><a href="/tags/Markdown/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Markdown">Markdown</a></li>
-                    
-                      <li><a href="/tags/Markdown教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Markdown教程">Markdown教程</a></li>
-                    
-                      <li><a href="/tags/MySql教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MySql教程">MySql教程</a></li>
-                    
-                      <li><a href="/tags/MySql相关问题/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MySql相关问题">MySql相关问题</a></li>
-                    
-                      <li><a href="/tags/XBMC/" class="tag-could" data-toggle="tooltip" data-placement="top" title="XBMC">XBMC</a></li>
-                    
-                      <li><a href="/tags/linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux">linux</a></li>
-                    
-                      <li><a href="/tags/OrangePi-PC/" class="tag-could" data-toggle="tooltip" data-placement="top" title="OrangePi PC">OrangePi PC</a></li>
-                    
-                      <li><a href="/tags/嵌入式/" class="tag-could" data-toggle="tooltip" data-placement="top" title="嵌入式">嵌入式</a></li>
-                    
-                      <li><a href="/tags/stm32-按键基本操作/" class="tag-could" data-toggle="tooltip" data-placement="top" title="stm32 按键基本操作">stm32 按键基本操作</a></li>
-                    
-                      <li><a href="/tags/STM32/" class="tag-could" data-toggle="tooltip" data-placement="top" title="STM32">STM32</a></li>
-                    
-                      <li><a href="/tags/电路设计/" class="tag-could" data-toggle="tooltip" data-placement="top" title="电路设计">电路设计</a></li>
-                    
-                      <li><a href="/tags/服务器操作/" class="tag-could" data-toggle="tooltip" data-placement="top" title="服务器操作">服务器操作</a></li>
-                    
-                      <li><a href="/tags/数据采集/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据采集">数据采集</a></li>
-                    
-                      <li><a href="/tags/Linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Linux">Linux</a></li>
-                    
-                      <li><a href="/tags/java/" class="tag-could" data-toggle="tooltip" data-placement="top" title="java">java</a></li>
-                    
-                      <li><a href="/tags/C语言/" class="tag-could" data-toggle="tooltip" data-placement="top" title="C语言">C语言</a></li>
-                    
-                      <li><a href="/tags/Hexo教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Hexo教程">Hexo教程</a></li>
-                    
-                      <li><a href="/tags/编程规范/" class="tag-could" data-toggle="tooltip" data-placement="top" title="编程规范">编程规范</a></li>
-                    
-                      <li><a href="/tags/linux命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux命令">linux命令</a></li>
-                    
-                      <li><a href="/tags/netstat命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="netstat命令">netstat命令</a></li>
-                    
-                      <li><a href="/tags/基础/" class="tag-could" data-toggle="tooltip" data-placement="top" title="基础">基础</a></li>
-                    
-                      <li><a href="/tags/查看系统信息/" class="tag-could" data-toggle="tooltip" data-placement="top" title="查看系统信息">查看系统信息</a></li>
-                    
-                      <li><a href="/tags/关机重启/" class="tag-could" data-toggle="tooltip" data-placement="top" title="关机重启">关机重启</a></li>
-                    
-                      <li><a href="/tags/nodejs/" class="tag-could" data-toggle="tooltip" data-placement="top" title="nodejs">nodejs</a></li>
-                    
-                      <li><a href="/tags/Mysql/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Mysql">Mysql</a></li>
-                    
-                      <li><a href="/tags/php/" class="tag-could" data-toggle="tooltip" data-placement="top" title="php">php</a></li>
-                    
-                      <li><a href="/tags/Arduino/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Arduino">Arduino</a></li>
-                    
-                      <li><a href="/tags/3-3v-5v电平转换/" class="tag-could" data-toggle="tooltip" data-placement="top" title="3.3v 5v电平转换">3.3v 5v电平转换</a></li>
-                    
-                      <li><a href="/tags/减法器电路/" class="tag-could" data-toggle="tooltip" data-placement="top" title="减法器电路">减法器电路</a></li>
-                    
-                      <li><a href="/tags/电阻测量/" class="tag-could" data-toggle="tooltip" data-placement="top" title="电阻测量">电阻测量</a></li>
-                    
-                      <li><a href="/tags/CRC算法/" class="tag-could" data-toggle="tooltip" data-placement="top" title="CRC算法">CRC算法</a></li>
-                    
-                      <li><a href="/tags/枚举/" class="tag-could" data-toggle="tooltip" data-placement="top" title="枚举">枚举</a></li>
-                    
-                      <li><a href="/tags/解压缩/" class="tag-could" data-toggle="tooltip" data-placement="top" title="解压缩">解压缩</a></li>
-                    
-                      <li><a href="/tags/ReText使用说明/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ReText使用说明">ReText使用说明</a></li>
-                    
-                      <li><a href="/tags/ReText配置/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ReText配置">ReText配置</a></li>
-                    
-                      <li><a href="/tags/运放/" class="tag-could" data-toggle="tooltip" data-placement="top" title="运放">运放</a></li>
-                    
-                      <li><a href="/tags/RS232-RS485/" class="tag-could" data-toggle="tooltip" data-placement="top" title="RS232 RS485">RS232 RS485</a></li>
-                    
-                  
-                </ul>
-            </div>
-            <script>
-              // 博客侧栏标签云随机色
-              var tag_cloud = $('.tag-could');
-              tag_cloud.each(function () {
-                  var Cnum = 9;
-                  var Crand = parseInt(Math.random() * Cnum);
-                  $(this).addClass("tag-could" + Crand);
-              })
-            </script>
-            <!--返回顶部按钮-->
-            <div class="retop">
-                <i class="fa fa-angle-up"></i>
-            </div>
-        </div><!--博客侧边栏结束-->
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  
+  
+  
+  <div class="post-block tag">
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1 class="collection-header">MySql相关问题<small>标签</small>
+        </h1>
+      </div>
+
+      
+
+  
+  
+
+  
+    
+    <div class="collection-year">
+      <h1 class="collection-header">2018</h1>
     </div>
+  
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-01-09T23:31:38+08:00"
+              content="2018-01-09">
+          01-09
+        </time>
+      </div>
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/2018/01/09/MySQL忘记root密码解决方法/" itemprop="url">
+            <span itemprop="name">MySQL忘记root密码解决方法</span>
+          </a>
+        
+      </h2>
+
+    </header>
+  </article>
+
+
+
+    </div>
+  </div>
+  
+  
+  
+
+  
+
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="JackLu">
+  <p class="site-author-name" itemprop="name">JackLu</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
-<script src="/js/LeanStatistics.min.js"></script>
-<script src="/js/Life.js"></script>
-<script type="text/javascript">
-    hljs.initHighlightingOnLoad();
-    hljs.initLineNumbersOnLoad();
-    otherF();
-    LeanStatistics();
-    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
-      $('pre code').each(function(i, block){
-        hljs.highlightBlock(block);
-      })
-      $('code.hljs').each(function(i, block) {
-        hljs.lineNumbersBlock(block);
-      });
-      LeanStatistics();
-    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
-      NProgress.done();
-      otherF();
-    });
-</script>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/IOTTS" title="GitHub &rarr; https://github.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:3574311659@qq.com" title="E-Mail &rarr; mailto:3574311659@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/IOTTS" title="Weibo &rarr; https://weibo.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://youtube.com/yourname" title="YouTube &rarr; https://youtube.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://shop567664910.taobao.com" title="https://shop567664910.taobao.com" rel="noopener" target="_blank">淘宝店</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackLu</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/muse.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>

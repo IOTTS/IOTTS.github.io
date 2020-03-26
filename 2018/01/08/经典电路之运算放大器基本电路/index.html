@@ -1,138 +1,333 @@
+<!DOCTYPE html>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-<!doctype html>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-  <meta name="renderer" content="webkit">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>经典电路之运算放大器基本电路IOTTS</title>
-  <link rel="shortcut icon" href="/images/">
-  
-    
-    
-      <link rel="stylesheet" href="/css/bootstrap.min.css">
-    
-      <link rel="stylesheet" href="/css/font-awesome.min.css">
-    
-      <link rel="stylesheet" href="/css/atom-one-dark.css">
-    
-      <link rel="stylesheet" href="/css/jquery.fancybox.css">
-    
-      <link rel="stylesheet" href="/css/nprogress.min.css">
-    
-      <link rel="stylesheet" href="/css/valine.css">
-    
-      <link rel="stylesheet" href="/css/life.css">
-    
-  
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
 
-  
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
-  <!-- jQuery first, then Tether, then Bootstrap JS. -->
-  
-  
-  
-    <script src="/js/jquery-2.2.4.min.js"></script>
-  
-    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
-  
-    <script src="/js/jquery.pjax.js"></script>
-  
-    <script src="/js/nprogress.min.js"></script>
-  
-    <script src="/js/tether.min.js"></script>
-  
-    <script src="/js/bootstrap.min.js"></script>
-  
-    <script src="/js/highlight.min.js"></script>
-  
-    <script src="/js/highlightjs-line-numbers.min.js"></script>
-  
-    <script src="/js/jquery.fancybox.js"></script>
-  
-    <script src="/js/jquery.qrcode.min.js"></script>
-  
-    <script src="/js/Valine.min.js"></script>
-  
-  
-</head>
-<body>
-<script>AV.init({appId:'',appKey:''});</script>
-<script type="text/javascript">
-      var config = {
-            ClasS: 'Counter',
-            el:'.views',
-            elP: '.views-post'
-      }
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
 </script>
-<div class="container">
-    <div class="row blog-box-shadow">
-        <!--博客主栏开始-->
-        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
-            <header class="blog-header">
-                <a href="http://iotts.top" class="blog-header-mobile-title">IOTTS</a>
-                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
-                <nav class="blog-header-navbar blog-header-fixed">
-                    <ul class="blog-navbar-links">
-                        
-                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
-                        
-                          <li class="blog-nav-item"><a href="/about/" class="transition">关于</a></li>
-                        
-                          <li class="blog-nav-item"><a href="/wiki/" class="transition">产品</a></li>
-                        
-                          <li class="blog-nav-item"><a href="/opensource/" class="transition">开源程序</a></li>
-                        
-                        <div class="blog-navbar-right">
-                            <form action>
-                                <div class="input-group">
-                                    <input type="text" class="blog-header-search" placeholder="search...">
-                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
-                                </div>
-                            </form>
-                        </div>
-                    </ul>
-                </nav>
-            </header>
-                
-<header class="blog-post-page-title">
-    <h4>经典电路之运算放大器基本电路</h4>
-    <time datetime="2018-01-08T10:09:04.000Z"><i class="fa fa-clock-o"></i>2018-01-08</time>
+
+  <meta name="description" content="虚短和虚断的概念由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端的电位越接近相等。   “虚短”是指在分析运算放大器处于线性状态时，可把两输入端视为等电位，这一特性称为虚假短路，简称虚短。显然不能将两输入">
+<meta name="keywords" content="电路设计,运放">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经典电路之运算放大器基本电路">
+<meta property="og:url" content="http://iotts.top/2018/01/08/经典电路之运算放大器基本电路/index.html">
+<meta property="og:site_name" content="IOTTS">
+<meta property="og:description" content="虚短和虚断的概念由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端的电位越接近相等。   “虚短”是指在分析运算放大器处于线性状态时，可把两输入端视为等电位，这一特性称为虚假短路，简称虚短。显然不能将两输入">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/2058bef8c165b781f37ad61ddfea2273.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/30f445811662fd9bb5ede4e8a0bdfcff.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/305e521499284d03efea95e20be26542.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/5a50c7dc8d8cf952cea6b74ac514a3aa.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/328abf957180223f595872ad166f0973.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/1ecbce047b1868098b7b25aa82324113.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/57422ac64debc71a6ef231f3643096d8.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/71f69b4788c78b18c48dbdf9b34f9fdd.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/22579387c644bd80ccbc24ac4127edad.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/0d28d87b2927fcff4fe820c34d4c7b90.jpg">
+<meta property="og:image" content="http://uphotos.eepw.com.cn/jackwang/pics/36e6042c7ef601d35393aee859d5399c.jpg">
+<meta property="og:updated_time" content="2018-01-23T08:17:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="经典电路之运算放大器基本电路">
+<meta name="twitter:description" content="虚短和虚断的概念由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端的电位越接近相等。   “虚短”是指在分析运算放大器处于线性状态时，可把两输入端视为等电位，这一特性称为虚假短路，简称虚短。显然不能将两输入">
+<meta name="twitter:image" content="http://uphotos.eepw.com.cn/jackwang/pics/2058bef8c165b781f37ad61ddfea2273.jpg">
+  <link rel="canonical" href="http://iotts.top/2018/01/08/经典电路之运算放大器基本电路/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>经典电路之运算放大器基本电路 | IOTTS</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">IOTTS</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
     
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
     
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
     
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
     
-	
-        <span><i class="fa fa-folder-o"></i>
-    		
-    	       <a href="/categories/电路设计相关/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">电路设计相关</a>
-    		
-    	       <a href="/categories/电路设计相关/经典电路/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">经典电路</a>
-    		
-        </span>
-	
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-产品列表">
+      
     
-</header>
-<div class="blog-main-post blog-post-page-box">
-    <article class="blog-post-block blog-post-page-content">
-        <section>
+
+    <a href="/wiki/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>产品列表</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-开源项目">
+      
+    
+
+    <a href="/opensource/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>开源项目</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
             
-                <h2 id="虚短和虚断的概念"><a href="#虚短和虚断的概念" class="headerlink" title="虚短和虚断的概念"></a>虚短和虚断的概念</h2><p>由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端的电位越接近相等。</p>
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之运算放大器基本电路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">经典电路之运算放大器基本电路
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-23 16:17:48" itemprop="dateModified" datetime="2018-01-23T16:17:48+08:00">2018-01-23</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index"><span itemprop="name">经典电路</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="虚短和虚断的概念"><a href="#虚短和虚断的概念" class="headerlink" title="虚短和虚断的概念"></a>虚短和虚断的概念</h2><p>由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端的电位越接近相等。</p>
 <p><strong>  “虚短”是指在分析运算放大器处于线性状态时，可把两输入端视为等电位，这一特性称为虚假短路，简称虚短。显然不能将两输入端真正短路。 </strong></p>
 <p>由于运放的差模输入电阻很大，一般通用型运算放大器的输入电阻都在1MΩ以上。因此流入运放输入端的电流往往不足1uA，远小于输入端外电路的电流。故 通常可把运放的两输入端视为开路，且输入电阻越大，两输入端越接近开路。</p>
 <p><strong>  “虚断”是指在分析运放处于线性状态时，可以把两输入端视为等效开路，这一特性 称为虚假开路，简称虚断。显然不能将两输入端真正断路。 </strong></p>
@@ -195,510 +390,303 @@
 <script type="math/tex; mode=display">I=V_i/R7</script><p>如果负载<strong>RL&lt;&lt;100KΩ</strong>，则通过Rl和通过R7的电流基本相同。</p>
 <h2 id="10-三线制PT100前置放大电路"><a href="#10-三线制PT100前置放大电路" class="headerlink" title="10.三线制PT100前置放大电路"></a>10.三线制PT100前置放大电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/36e6042c7ef601d35393aee859d5399c.jpg" alt="img"><br>图十一是一个三线制PT100前置放大电路。<br>PT100传感器引出三根材质、线径、长度完全相同的线，接法如图所示。有2V的电压加在由R14、R20、R15、Z1、PT100及其线电阻组成的桥电路上。Z1、Z2、Z3、D11、D12、D83及各电容在电路中起滤波和保护作用，静态分析时可不予理会，Z1、Z2、Z3可视为短路，D11、D12、D83及各电容可视为开路。<br>由电阻分压知， V3=2<em>R20/(R14+20)=200/1100=2/11 ……a<br>由虚短知，U8B第6、7脚 电压和第5脚电压相等 V4=V3 ……b<br>由虚断知，U8A第2脚没有电流流过，则流过R18和R19上的电流相等。<br>(V2-V4)/R19=(V5-V2)/R18 ……c<br>由虚断知，U8A第3脚没有电流流过， V1=V7 ……d<br>在桥电路中R15和Z1、PT100及线电阻串联，PT100与线电阻串联分得的电压通过电阻R17加至U8A的第3脚， V7=2</em>(Rx+2R0)/(R15+Rx+2R0) …..e<br>由虚短知，U8A第3脚和第2脚电压相等， V1=V2 ……f<br>由abcdef得， (V5-V7)/100=(V7-V3)/2.2 化简得 V5=(102.2<em>V7-100V3)/2.2 即 V5=204.4(Rx+2R0)/(1000+Rx+2R0) – 200/11 ……g<br>上式输出电压V5是Rx的函数我们再看线电阻的影响。Pt100最下端线电阻上产生的电压降经过中间的线电阻、Z2、R22，加至U8C的第10脚，<br>由虚断知， V5=V8=V9=2</em>R0/(R15+Rx+2R0) ……a<br>(V6-V10)/R25=V10/R26 ……b<br>由虚短知， V10=V5 ……c<br>由式abc得 V6=(102.2/2.2)V5=204.4R0/[2.2(1000+Rx+2R0)] ……h<br>由式gh组成的方程组知，如果测出V5、V6的值，就可算出Rx及R0，知道Rx，查pt100分度表就知道温度的大小了。</p>
 
-            
-        </section>
-        <footer class="blog-post-page-tags">
-        
-			
-				
-			<a href="/tags/电路设计/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">电路设计</a>
-				
-			<a href="/tags/运放/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">运放</a>
-				
-			
-		
-        </footer>
-    </article>
-    <article class="blog-post-page-readmore">
-    	
-    	
-		
-			<a href="/2018/01/08/经典电路之减法器/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="经典电路之减法器">上一篇</a>
-		
-
-		
-		
-			<a href="/2018/01/08/简单实用的双向电平转换电路/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="简单实用的双向电平转换电路">下一篇</a>
-		
-
-        <div style="clear: both;"></div>
-    </article>
-
-    <article class="blog-post-block blog-post-page-content">
-            <div class="row">
-            
-                <div class="col-md-4 col-sm-4 post-page-more-btn">
-                    <span data-toggle="modal" data-target="#post-donate-content">
-                        <span id="post-donate-btn" class="btn btn-danger btn-block" data-toggle="tooltip" data-placement="top" title="如果您觉得本文还不错或者对您有帮助，可以考虑打赏一下作者哦">打赏本文</span>
-                    </span>
-                </div>
-                <div class="col-md-4 col-sm-4 post-page-more-btn">
-                    <span data-toggle="modal" data-target="#post-qrcode-content">
-                        <span><span id="post-qrcode-btn" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="微信扫描二维码手机端查看本文及分享本文">二维码</span></span>
-                    </span>
-                </div>
-            </div>
-        <div class="post-more-function-br"></div>
-
-        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row post-donate-content">
-                            <div class="col-md-4">
-                                <p>支付宝</p>
-                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
-                            </div>
-                            <div class="col-md-4">
-                                <p>微信</p>
-                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
-                            </div>
-                            <div class="col-md-4">
-                                <p>财付通</p>
-                                <img class="post-donate-content-img no-lightbox" src="http://dl.weic96.cn/logo.png">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row post-qrcode-content">
-                            <span class="post-qrcode-content-canvas"></span>
-                            <img class="post-qrcode-content-img no-lightbox" src>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <script>
-            // post QRcode
-            // 中文转码
-            function toUtf8(str) {
-                var out, i, len, c;
-                out = "";
-                len = str.length;
-                for (i = 0; i < len; i++) {
-                    c = str.charCodeAt(i);
-                    if ((c >= 0x0001) && (c <= 0x007F)) {
-                        out += str.charAt(i);
-                    } else if (c > 0x07FF) {
-                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
-                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
-                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
-                    } else {
-                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
-                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
-                    }
-                }
-                return out;
-            }
-            // 生成
-            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://iotts.top/2018/01/08/经典电路之运算放大器基本电路/")}).hide();
-            var canvas=qrcode.find('canvas').get(0);
-            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
-        </script>
-
-        
-    </article>
-    
-</div>
-
-                
-            <footer class="blog-footer">
-                <p class="blog-footer-left">Copyright ©  2020 <a href="http://iotts.top">IOTTS</a></p>
-                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
-            </footer>
-        </div><!--博客主栏结束-->
-        <!--博客侧边栏开始-->
-        <div class="col-xl-3 blog-sidebar">
-            <div class="blog-sidebar-title">
-                <a href>IOTTS</a>
-            </div>
-            <div class="blog-sidebar-logo">
-                <img src="/images/avatar.png">
-            </div>
-            <div class="blog-sidebar-count blog-sidebar-padding">
-                <div class="blog-sidebar-count-left">
-                    <p class="blog-sidebar-count-p">52</p>
-                    <span class="blog-sidebar-count-span">文章</span>
-                </div>
-                <div class="blog-sidebar-count-right">
-                    <p class="blog-sidebar-count-p">48</p>
-                    <span class="blog-sidebar-count-span">标签</span>
-                </div>
-                <div style="clear: both;"></div>
-            </div>
-            <div class="blog-sidebar-icon blog-sidebar-padding">
-                <ul>
-                    <li><a href="https://github.com/luyang14" class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
-                    <li><a href class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
-                    <li><a href class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
-                    <li><a href="mailto:" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
-                    <li><a href class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
-                </ul>
-            </div>
-            <div class="blog-sidebar-categories">
-                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
-                <ul class="list-group blog-sidebar-padding">
-                  
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/">PCB相关</a>
-                          <span class="badge badge-default badge-pill">3</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/ASCII/">ASCII</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Cadence/">Cadence</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Altium-Designer/">Altium Designer</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Hexo教程/">Hexo教程</a>
-                          <span class="badge badge-default badge-pill">6</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网相关/">物联网相关</a>
-                          <span class="badge badge-default badge-pill">3</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/MSP430相关/">MSP430相关</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Cadence/Allegro小技巧/">Allegro小技巧</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Markdown/">Markdown</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/">Linux</a>
-                          <span class="badge badge-default badge-pill">9</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/ELEC/">ELEC</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB相关/Altium-Designer/Altium-Designer小技巧/">Altium Designer小技巧</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/STM32相关/">STM32相关</a>
-                          <span class="badge badge-default badge-pill">7</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/STM32/">STM32</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计/">电路设计</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网相关/终端相关/">终端相关</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网/">物联网</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/C语言/">C语言</a>
-                          <span class="badge badge-default badge-pill">4</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/MSP430相关/MSP430教程/">MSP430教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/linux命令/">linux命令</a>
-                          <span class="badge badge-default badge-pill">4</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/MySql教程/">MySql教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/nodejs/">nodejs</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网相关/服务器端相关/">服务器端相关</a>
-                          <span class="badge badge-default badge-pill">2</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Arduino相关/">Arduino相关</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/">电路设计相关</a>
-                          <span class="badge badge-default badge-pill">5</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/OrangePi-PC/">OrangePi PC</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB/">PCB</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/STM32相关/STM32F1教程/">STM32F1教程</a>
-                          <span class="badge badge-default badge-pill">7</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/java环境变量配置/">java环境变量配置</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/物联网/MQTT/">MQTT</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Arduino相关/Arduino-IDE/">Arduino IDE</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/电平转换电路/">电平转换电路</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/经典电路/">经典电路</a>
-                          <span class="badge badge-default badge-pill">3</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/PCB/电路设计/">电路设计</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Arduino/">Arduino</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/C语言/C语言教程/">C语言教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/Linux/ReText使用教程/">ReText使用教程</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                      <li class="list-group-item justify-content-between">
-                          <a href="/categories/电路设计相关/通信方式/">通信方式</a>
-                          <span class="badge badge-default badge-pill">1</span>
-                      </li>
-                    
-                  
-                </ul>
-            </div>
-            <div class="blog-sidebar-tags">
-                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
-                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
-                  
-                    
-                      <li><a href="/tags/PCB/" class="tag-could" data-toggle="tooltip" data-placement="top" title="PCB">PCB</a></li>
-                    
-                      <li><a href="/tags/Altium-Designer/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Altium Designer">Altium Designer</a></li>
-                    
-                      <li><a href="/tags/ASCII/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ASCII">ASCII</a></li>
-                    
-                      <li><a href="/tags/常用资料/" class="tag-could" data-toggle="tooltip" data-placement="top" title="常用资料">常用资料</a></li>
-                    
-                      <li><a href="/tags/Allegro/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Allegro">Allegro</a></li>
-                    
-                      <li><a href="/tags/hexo/" class="tag-could" data-toggle="tooltip" data-placement="top" title="hexo">hexo</a></li>
-                    
-                      <li><a href="/tags/物联网/" class="tag-could" data-toggle="tooltip" data-placement="top" title="物联网">物联网</a></li>
-                    
-                      <li><a href="/tags/ESP8266/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ESP8266">ESP8266</a></li>
-                    
-                      <li><a href="/tags/MQTT/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MQTT">MQTT</a></li>
-                    
-                      <li><a href="/tags/单片机/" class="tag-could" data-toggle="tooltip" data-placement="top" title="单片机">单片机</a></li>
-                    
-                      <li><a href="/tags/MSP430/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MSP430">MSP430</a></li>
-                    
-                      <li><a href="/tags/Markdown/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Markdown">Markdown</a></li>
-                    
-                      <li><a href="/tags/Markdown教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Markdown教程">Markdown教程</a></li>
-                    
-                      <li><a href="/tags/MySql教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MySql教程">MySql教程</a></li>
-                    
-                      <li><a href="/tags/MySql相关问题/" class="tag-could" data-toggle="tooltip" data-placement="top" title="MySql相关问题">MySql相关问题</a></li>
-                    
-                      <li><a href="/tags/XBMC/" class="tag-could" data-toggle="tooltip" data-placement="top" title="XBMC">XBMC</a></li>
-                    
-                      <li><a href="/tags/linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux">linux</a></li>
-                    
-                      <li><a href="/tags/OrangePi-PC/" class="tag-could" data-toggle="tooltip" data-placement="top" title="OrangePi PC">OrangePi PC</a></li>
-                    
-                      <li><a href="/tags/嵌入式/" class="tag-could" data-toggle="tooltip" data-placement="top" title="嵌入式">嵌入式</a></li>
-                    
-                      <li><a href="/tags/stm32-按键基本操作/" class="tag-could" data-toggle="tooltip" data-placement="top" title="stm32 按键基本操作">stm32 按键基本操作</a></li>
-                    
-                      <li><a href="/tags/STM32/" class="tag-could" data-toggle="tooltip" data-placement="top" title="STM32">STM32</a></li>
-                    
-                      <li><a href="/tags/电路设计/" class="tag-could" data-toggle="tooltip" data-placement="top" title="电路设计">电路设计</a></li>
-                    
-                      <li><a href="/tags/服务器操作/" class="tag-could" data-toggle="tooltip" data-placement="top" title="服务器操作">服务器操作</a></li>
-                    
-                      <li><a href="/tags/数据采集/" class="tag-could" data-toggle="tooltip" data-placement="top" title="数据采集">数据采集</a></li>
-                    
-                      <li><a href="/tags/Linux/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Linux">Linux</a></li>
-                    
-                      <li><a href="/tags/java/" class="tag-could" data-toggle="tooltip" data-placement="top" title="java">java</a></li>
-                    
-                      <li><a href="/tags/C语言/" class="tag-could" data-toggle="tooltip" data-placement="top" title="C语言">C语言</a></li>
-                    
-                      <li><a href="/tags/Hexo教程/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Hexo教程">Hexo教程</a></li>
-                    
-                      <li><a href="/tags/编程规范/" class="tag-could" data-toggle="tooltip" data-placement="top" title="编程规范">编程规范</a></li>
-                    
-                      <li><a href="/tags/linux命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="linux命令">linux命令</a></li>
-                    
-                      <li><a href="/tags/netstat命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="netstat命令">netstat命令</a></li>
-                    
-                      <li><a href="/tags/基础/" class="tag-could" data-toggle="tooltip" data-placement="top" title="基础">基础</a></li>
-                    
-                      <li><a href="/tags/查看系统信息/" class="tag-could" data-toggle="tooltip" data-placement="top" title="查看系统信息">查看系统信息</a></li>
-                    
-                      <li><a href="/tags/关机重启/" class="tag-could" data-toggle="tooltip" data-placement="top" title="关机重启">关机重启</a></li>
-                    
-                      <li><a href="/tags/nodejs/" class="tag-could" data-toggle="tooltip" data-placement="top" title="nodejs">nodejs</a></li>
-                    
-                      <li><a href="/tags/Mysql/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Mysql">Mysql</a></li>
-                    
-                      <li><a href="/tags/php/" class="tag-could" data-toggle="tooltip" data-placement="top" title="php">php</a></li>
-                    
-                      <li><a href="/tags/Arduino/" class="tag-could" data-toggle="tooltip" data-placement="top" title="Arduino">Arduino</a></li>
-                    
-                      <li><a href="/tags/3-3v-5v电平转换/" class="tag-could" data-toggle="tooltip" data-placement="top" title="3.3v 5v电平转换">3.3v 5v电平转换</a></li>
-                    
-                      <li><a href="/tags/减法器电路/" class="tag-could" data-toggle="tooltip" data-placement="top" title="减法器电路">减法器电路</a></li>
-                    
-                      <li><a href="/tags/电阻测量/" class="tag-could" data-toggle="tooltip" data-placement="top" title="电阻测量">电阻测量</a></li>
-                    
-                      <li><a href="/tags/CRC算法/" class="tag-could" data-toggle="tooltip" data-placement="top" title="CRC算法">CRC算法</a></li>
-                    
-                      <li><a href="/tags/枚举/" class="tag-could" data-toggle="tooltip" data-placement="top" title="枚举">枚举</a></li>
-                    
-                      <li><a href="/tags/解压缩/" class="tag-could" data-toggle="tooltip" data-placement="top" title="解压缩">解压缩</a></li>
-                    
-                      <li><a href="/tags/ReText使用说明/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ReText使用说明">ReText使用说明</a></li>
-                    
-                      <li><a href="/tags/ReText配置/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ReText配置">ReText配置</a></li>
-                    
-                      <li><a href="/tags/运放/" class="tag-could" data-toggle="tooltip" data-placement="top" title="运放">运放</a></li>
-                    
-                      <li><a href="/tags/RS232-RS485/" class="tag-could" data-toggle="tooltip" data-placement="top" title="RS232 RS485">RS232 RS485</a></li>
-                    
-                  
-                </ul>
-            </div>
-            <script>
-              // 博客侧栏标签云随机色
-              var tag_cloud = $('.tag-could');
-              tag_cloud.each(function () {
-                  var Cnum = 9;
-                  var Crand = parseInt(Math.random() * Cnum);
-                  $(this).addClass("tag-could" + Crand);
-              })
-            </script>
-            <!--返回顶部按钮-->
-            <div class="retop">
-                <i class="fa fa-angle-up"></i>
-            </div>
-        </div><!--博客侧边栏结束-->
     </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/电路设计/" rel="tag"><i class="fa fa-tag"></i> 电路设计</a>
+            
+              <a href="/tags/运放/" rel="tag"><i class="fa fa-tag"></i> 运放</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/01/08/简单实用的双向电平转换电路/" rel="next" title="简单实用的双向电平转换电路">
+                  <i class="fa fa-chevron-left"></i> 简单实用的双向电平转换电路
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2018/01/08/经典电路之减法器/" rel="prev" title="经典电路之减法器">
+                  经典电路之减法器 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚短和虚断的概念"><span class="nav-number">1.</span> <span class="nav-text">虚短和虚断的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-反向放大器"><span class="nav-number">2.</span> <span class="nav-text">1.反向放大器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-正向放大器"><span class="nav-number">3.</span> <span class="nav-text">2.正向放大器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-加法器"><span class="nav-number">4.</span> <span class="nav-text">3.加法器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-减法器"><span class="nav-number">5.</span> <span class="nav-text">4.减法器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-积分电路"><span class="nav-number">6.</span> <span class="nav-text">5.积分电路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-微分电路"><span class="nav-number">7.</span> <span class="nav-text">6.微分电路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-差分放大电路"><span class="nav-number">8.</span> <span class="nav-text">7.差分放大电路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-电流采集电路"><span class="nav-number">9.</span> <span class="nav-text">8.电流采集电路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-恒流源电路"><span class="nav-number">10.</span> <span class="nav-text">9.恒流源电路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-三线制PT100前置放大电路"><span class="nav-number">11.</span> <span class="nav-text">10.三线制PT100前置放大电路</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.gif"
+      alt="JackLu">
+  <p class="site-author-name" itemprop="name">JackLu</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
-<script src="/js/LeanStatistics.min.js"></script>
-<script src="/js/Life.js"></script>
-<script type="text/javascript">
-    hljs.initHighlightingOnLoad();
-    hljs.initLineNumbersOnLoad();
-    otherF();
-    LeanStatistics();
-    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
-      $('pre code').each(function(i, block){
-        hljs.highlightBlock(block);
-      })
-      $('code.hljs').each(function(i, block) {
-        hljs.lineNumbersBlock(block);
-      });
-      LeanStatistics();
-    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
-      NProgress.done();
-      otherF();
-    });
-</script>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives">
+        
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/IOTTS" title="GitHub &rarr; https://github.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:3574311659@qq.com" title="E-Mail &rarr; mailto:3574311659@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/IOTTS" title="Weibo &rarr; https://weibo.com/IOTTS" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://youtube.com/yourname" title="YouTube &rarr; https://youtube.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://shop567664910.taobao.com" title="https://shop567664910.taobao.com" rel="noopener" target="_blank">淘宝店</a>
+        </li>
+      
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackLu</span>
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/muse.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
