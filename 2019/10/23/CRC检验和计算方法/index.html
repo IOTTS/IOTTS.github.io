@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="以下代码对应的CRC模型请参照最后面的图片 uint8_t crc4_itu(uint8_t *data, uint_len length)  {      uint8_t i;      uint8_t crc = 0;        // Initial value      while(length--)      {          crc ^= *data++;     // crc">
+  <meta name="description" content="以下代码对应的CRC模型请参照最后面的图片1234567891011121314151617uint8_t crc4_itu(uint8_t *data, uint_len length) &amp;#123;     uint8_t i;     uint8_t crc = 0;        // Initial value     while(length--)     &amp;#123;">
 <meta name="keywords" content="C语言,CRC算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CRC检验和计算方法">
 <meta property="og:url" content="http://iotts.top/2019/10/23/CRC检验和计算方法/index.html">
 <meta property="og:site_name" content="IOTTS">
-<meta property="og:description" content="以下代码对应的CRC模型请参照最后面的图片 uint8_t crc4_itu(uint8_t *data, uint_len length)  {      uint8_t i;      uint8_t crc = 0;        // Initial value      while(length--)      {          crc ^= *data++;     // crc">
+<meta property="og:description" content="以下代码对应的CRC模型请参照最后面的图片1234567891011121314151617uint8_t crc4_itu(uint8_t *data, uint_len length) &amp;#123;     uint8_t i;     uint8_t crc = 0;        // Initial value     while(length--)     &amp;#123;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-24T15:49:41.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CRC检验和计算方法">
-<meta name="twitter:description" content="以下代码对应的CRC模型请参照最后面的图片 uint8_t crc4_itu(uint8_t *data, uint_len length)  {      uint8_t i;      uint8_t crc = 0;        // Initial value      while(length--)      {          crc ^= *data++;     // crc">
+<meta name="twitter:description" content="以下代码对应的CRC模型请参照最后面的图片1234567891011121314151617uint8_t crc4_itu(uint8_t *data, uint_len length) &amp;#123;     uint8_t i;     uint8_t crc = 0;        // Initial value     while(length--)     &amp;#123;">
   <link rel="canonical" href="http://iotts.top/2019/10/23/CRC检验和计算方法/">
 
 
@@ -308,366 +308,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>以下代码对应的CRC模型请参照最后面的图片</p>
-<pre><code>uint8_t crc4_itu(uint8_t *data, uint_len length) 
-{ 
-    uint8_t i; 
-    uint8_t crc = 0;        // Initial value 
-    while(length--) 
-    { 
-        crc ^= *data++;     // crc ^= *data; data++; 
-        for (i = 0; i &lt; 8; ++i) 
-        { 
-            if (crc &amp; 1) 
-                crc = (crc &gt;&gt; 1) ^ 0x0C;// 0x0C = (reverse 0x03)&gt;&gt;(8-4) 
-            else 
-                crc = (crc &gt;&gt; 1); 
-        } 
-    } 
-    return crc; 
-}
-</code></pre><a id="more"></a>
-<pre><code>uint8_t crc5_epc(uint8_t *data, uint_len length) 
-{ 
-    uint8_t i; 
-    uint8_t crc = 0x48; // Initial value: 0x48 = 0x09&lt;&lt;(8-5)  
-    while(length--)  
-    {  
-        crc ^= *data++; // crc ^= *data; data++;  
-        for ( i = 0; i &lt; 8; i++ )  
-        {  
-            if ( crc &amp; 0x80 )  
-                crc = (crc &lt;&lt; 1) ^ 0x48;  // 0x48 = 0x09&lt;&lt;(8-5)  
-            else  
-                crc &lt;&lt;= 1;  
-        }  
-    }  
-    return crc &gt;&gt; 3;  
-}
-</code></pre><pre><code>uint8_t crc5_itu(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint8_t crc = 0;        // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++;     // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0x15;// 0x15 = (reverse 0x15)&gt;&gt;(8-5)  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return crc;  
-}
-</code></pre><pre><code>uint8_t crc5_usb(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint8_t crc = 0x1F;     // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++;     // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0x14;// 0x14 = (reverse 0x05)&gt;&gt;(8-5)  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return crc ^ 0x1F;  
-}
-</code></pre><pre><code>uint8_t crc6_itu(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint8_t crc = 0;    // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++; // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0x30;// 0x30 = (reverse 0x03)&gt;&gt;(8-6)  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return crc;  
-}
-</code></pre><pre><code>uint8_t crc7_mmc(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint8_t crc = 0;    // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++; // crc ^= *data; data++;  
-        for ( i = 0; i &lt; 8; i++ )  
-        {  
-            if ( crc &amp; 0x80 )  
-                crc = (crc &lt;&lt; 1) ^ 0x12;  // 0x12 = 0x09&lt;&lt;(8-7)  
-            else  
-                crc &lt;&lt;= 1;  
-        }  
-    }  
-    return crc &gt;&gt; 1;  
-}
-</code></pre><pre><code>uint8_t crc8(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint8_t crc = 0;    // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++; // crc ^= *data; data++;  
-        for ( i = 0; i &lt; 8; i++ )  
-        {  
-            if ( crc &amp; 0x80 )  
-                crc = (crc &lt;&lt; 1) ^ 0x07;  
-            else  
-                crc &lt;&lt;= 1;  
-        }  
-    }  
-    return crc;  
-}
-</code></pre><pre><code>uint8_t crc8_itu(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint8_t crc = 0;    // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++; // crc ^= *data; data++;  
-        for ( i = 0; i &lt; 8; i++ )  
-        {  
-            if ( crc &amp; 0x80 )  
-                crc = (crc &lt;&lt; 1) ^ 0x07;  
-            else  
-                crc &lt;&lt;= 1;  
-        }  
-    }  
-    return crc ^ 0x55;  
-}
-</code></pre><pre><code>uint8_t crc8_rohc(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint8_t crc = 0xFF;     // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++;     // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0xE0;  // 0xE0 = reverse 0x07  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return crc;  
-}
-</code></pre><pre><code>uint8_t crc8_maxim(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint8_t crc = 0;    // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++; // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; i++)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0x8C;  // 0x8C = reverse 0x31  
-            else  
-                crc &gt;&gt;= 1;  
-        }  
-    }  
-    return crc;  
-}
-</code></pre><pre><code>uint16_t crc16_ibm(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint16_t crc = 0;   // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++; // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0xA001;    // 0xA001 = reverse 0x8005  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return crc;  
-}
-</code></pre><pre><code>uint16_t crc16_maxim(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint16_t crc = 0;   // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++; // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0xA001;    // 0xA001 = reverse 0x8005  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return ~crc;    // crc^0xffff  
-}
-</code></pre><pre><code>uint16_t crc16_usb(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint16_t crc = 0xffff;  // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++;     // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0xA001;    // 0xA001 = reverse 0x8005  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return ~crc;    // crc^0xffff  
-}
-</code></pre><pre><code>uint16_t crc16_modbus(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint16_t crc = 0xffff;  // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++;     // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0xA001;    // 0xA001 = reverse 0x8005  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return crc;  
-}
-</code></pre><pre><code>uint16_t crc16_ccitt(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint16_t crc = 0;   // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++; // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0x8408;    // 0x8408 = reverse 0x1021  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return crc;  
-}
-</code></pre><pre><code>uint16_t crc16_ccitt_false(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint16_t crc = 0xffff;  //Initial value  
-    while(length--)  
-    {  
-        crc ^= (uint16_t)(*data++) &lt;&lt; 8; // crc ^= (uint6_t)(*data)&lt;&lt;8; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if ( crc &amp; 0x8000 )  
-                crc = (crc &lt;&lt; 1) ^ 0x1021;  
-            else  
-                crc &lt;&lt;= 1;  
-        }  
-    }  
-    return crc;  
-}
-</code></pre><pre><code>uint16_t crc16_x25(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint16_t crc = 0xffff;  // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++;     // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0x8408;    // 0x8408 = reverse 0x1021  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return ~crc;            // crc^Xorout  
-}
-</code></pre><pre><code>uint16_t crc16_xmodem(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint16_t crc = 0;       // Initial value  
-    while(length--)  
-    {  
-        crc ^= (uint16_t)(*data++) &lt;&lt; 8; // crc ^= (uint16_t)(*data)&lt;&lt;8; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if ( crc &amp; 0x8000 )  
-                crc = (crc &lt;&lt; 1) ^ 0x1021;  
-            else  
-                crc &lt;&lt;= 1;  
-        }  
-    }  
-    return crc;  
-}
-</code></pre><pre><code>uint16_t crc16_dnp(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint16_t crc = 0;       // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++;     // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0xA6BC;    // 0xA6BC = reverse 0x3D65  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return ~crc;            // crc^Xorout  
-}
-</code></pre><pre><code>uint32_t crc32(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint32_t crc = 0xffffffff;  // Initial value  
-    while(length--)  
-    {  
-        crc ^= *data++;         // crc ^= *data; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if (crc &amp; 1)  
-                crc = (crc &gt;&gt; 1) ^ 0xEDB88320;// 0xEDB88320= reverse 0x04C11DB7  
-            else  
-                crc = (crc &gt;&gt; 1);  
-        }  
-    }  
-    return ~crc;  
-}
-</code></pre><pre><code>uint32_t crc32_mpeg_2(uint8_t *data, uint_len length)  
-{  
-    uint8_t i;  
-    uint32_t crc = 0xffffffff;  // Initial value  
-    while(length--)  
-    {  
-        crc ^= (uint32_t)(*data++) &lt;&lt; 24;// crc ^=(uint32_t)(*data)&lt;&lt;24; data++;  
-        for (i = 0; i &lt; 8; ++i)  
-        {  
-            if ( crc &amp; 0x80000000 )  
-                crc = (crc &lt;&lt; 1) ^ 0x04C11DB7;  
-            else  
-                crc &lt;&lt;= 1;  
-        }  
-    }  
-    return crc;  
-}
-</code></pre><p>常见CRC参数模型如下：</p>
+        <p>以下代码对应的CRC模型请参照最后面的图片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc4_itu(uint8_t *data, uint_len length) </span><br><span class="line">&#123; </span><br><span class="line">    uint8_t i; </span><br><span class="line">    uint8_t crc = 0;        // Initial value </span><br><span class="line">    while(length--) </span><br><span class="line">    &#123; </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++; </span><br><span class="line">        for (i = 0; i &lt; 8; ++i) </span><br><span class="line">        &#123; </span><br><span class="line">            if (crc &amp; 1) </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0x0C;// 0x0C = (reverse 0x03)&gt;&gt;(8-4) </span><br><span class="line">            else </span><br><span class="line">                crc = (crc &gt;&gt; 1); </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    return crc; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc5_epc(uint8_t *data, uint_len length) </span><br><span class="line">&#123; </span><br><span class="line">    uint8_t i; </span><br><span class="line">    uint8_t crc = 0x48; // Initial value: 0x48 = 0x09&lt;&lt;(8-5)  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++; // crc ^= *data; data++;  </span><br><span class="line">        for ( i = 0; i &lt; 8; i++ )  </span><br><span class="line">        &#123;  </span><br><span class="line">            if ( crc &amp; 0x80 )  </span><br><span class="line">                crc = (crc &lt;&lt; 1) ^ 0x48;  // 0x48 = 0x09&lt;&lt;(8-5)  </span><br><span class="line">            else  </span><br><span class="line">                crc &lt;&lt;= 1;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc &gt;&gt; 3;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc5_itu(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint8_t crc = 0;        // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0x15;// 0x15 = (reverse 0x15)&gt;&gt;(8-5)  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc5_usb(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint8_t crc = 0x1F;     // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0x14;// 0x14 = (reverse 0x05)&gt;&gt;(8-5)  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc ^ 0x1F;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc6_itu(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint8_t crc = 0;    // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++; // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0x30;// 0x30 = (reverse 0x03)&gt;&gt;(8-6)  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc7_mmc(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint8_t crc = 0;    // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++; // crc ^= *data; data++;  </span><br><span class="line">        for ( i = 0; i &lt; 8; i++ )  </span><br><span class="line">        &#123;  </span><br><span class="line">            if ( crc &amp; 0x80 )  </span><br><span class="line">                crc = (crc &lt;&lt; 1) ^ 0x12;  // 0x12 = 0x09&lt;&lt;(8-7)  </span><br><span class="line">            else  </span><br><span class="line">                crc &lt;&lt;= 1;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc &gt;&gt; 1;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc8(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint8_t crc = 0;    // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++; // crc ^= *data; data++;  </span><br><span class="line">        for ( i = 0; i &lt; 8; i++ )  </span><br><span class="line">        &#123;  </span><br><span class="line">            if ( crc &amp; 0x80 )  </span><br><span class="line">                crc = (crc &lt;&lt; 1) ^ 0x07;  </span><br><span class="line">            else  </span><br><span class="line">                crc &lt;&lt;= 1;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc8_itu(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint8_t crc = 0;    // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++; // crc ^= *data; data++;  </span><br><span class="line">        for ( i = 0; i &lt; 8; i++ )  </span><br><span class="line">        &#123;  </span><br><span class="line">            if ( crc &amp; 0x80 )  </span><br><span class="line">                crc = (crc &lt;&lt; 1) ^ 0x07;  </span><br><span class="line">            else  </span><br><span class="line">                crc &lt;&lt;= 1;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc ^ 0x55;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc8_rohc(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint8_t crc = 0xFF;     // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0xE0;  // 0xE0 = reverse 0x07  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc8_maxim(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint8_t crc = 0;    // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++; // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; i++)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0x8C;  // 0x8C = reverse 0x31  </span><br><span class="line">            else  </span><br><span class="line">                crc &gt;&gt;= 1;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint16_t crc16_ibm(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint16_t crc = 0;   // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++; // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0xA001;    // 0xA001 = reverse 0x8005  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint16_t crc16_maxim(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint16_t crc = 0;   // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++; // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0xA001;    // 0xA001 = reverse 0x8005  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return ~crc;    // crc^0xffff  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint16_t crc16_usb(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint16_t crc = 0xffff;  // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0xA001;    // 0xA001 = reverse 0x8005  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return ~crc;    // crc^0xffff  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint16_t crc16_modbus(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint16_t crc = 0xffff;  // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0xA001;    // 0xA001 = reverse 0x8005  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint16_t crc16_ccitt(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint16_t crc = 0;   // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++; // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0x8408;    // 0x8408 = reverse 0x1021  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint16_t crc16_ccitt_false(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint16_t crc = 0xffff;  //Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= (uint16_t)(*data++) &lt;&lt; 8; // crc ^= (uint6_t)(*data)&lt;&lt;8; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if ( crc &amp; 0x8000 )  </span><br><span class="line">                crc = (crc &lt;&lt; 1) ^ 0x1021;  </span><br><span class="line">            else  </span><br><span class="line">                crc &lt;&lt;= 1;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint16_t crc16_x25(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint16_t crc = 0xffff;  // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0x8408;    // 0x8408 = reverse 0x1021  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return ~crc;            // crc^Xorout  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint16_t crc16_xmodem(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint16_t crc = 0;       // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= (uint16_t)(*data++) &lt;&lt; 8; // crc ^= (uint16_t)(*data)&lt;&lt;8; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if ( crc &amp; 0x8000 )  </span><br><span class="line">                crc = (crc &lt;&lt; 1) ^ 0x1021;  </span><br><span class="line">            else  </span><br><span class="line">                crc &lt;&lt;= 1;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint16_t crc16_dnp(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint16_t crc = 0;       // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0xA6BC;    // 0xA6BC = reverse 0x3D65  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return ~crc;            // crc^Xorout  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint32_t crc32(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint32_t crc = 0xffffffff;  // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= *data++;         // crc ^= *data; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if (crc &amp; 1)  </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0xEDB88320;// 0xEDB88320= reverse 0x04C11DB7  </span><br><span class="line">            else  </span><br><span class="line">                crc = (crc &gt;&gt; 1);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return ~crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint32_t crc32_mpeg_2(uint8_t *data, uint_len length)  </span><br><span class="line">&#123;  </span><br><span class="line">    uint8_t i;  </span><br><span class="line">    uint32_t crc = 0xffffffff;  // Initial value  </span><br><span class="line">    while(length--)  </span><br><span class="line">    &#123;  </span><br><span class="line">        crc ^= (uint32_t)(*data++) &lt;&lt; 24;// crc ^=(uint32_t)(*data)&lt;&lt;24; data++;  </span><br><span class="line">        for (i = 0; i &lt; 8; ++i)  </span><br><span class="line">        &#123;  </span><br><span class="line">            if ( crc &amp; 0x80000000 )  </span><br><span class="line">                crc = (crc &lt;&lt; 1) ^ 0x04C11DB7;  </span><br><span class="line">            else  </span><br><span class="line">                crc &lt;&lt;= 1;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    return crc;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>常见CRC参数模型如下：</p>
 <div class="table-container">
 <table>
 <thead>

@@ -354,24 +354,7 @@
 <p><img src="clip_image006.png" alt="clip_image006"></p>
 <p>看来它是把 Arduino IDE 的工具栏和菜单里面的东西搬到这里来了。</p>
 <h2 id="新建Arduino工程"><a href="#新建Arduino工程" class="headerlink" title="新建Arduino工程"></a>新建Arduino工程</h2><p>接下来我们就可以体验在 Visual Studio 里面写 Arduino 程序了。</p>
-<p>如下图新建一个Aarduino工程<br><img src="clip_image008.png" alt="clip_image008.png"><br><img src="clip_image009.png" alt="clip_image009.png"><br>接下来我们先写一个点灯的程序<br>直接贴代码了</p>
-<pre><code class="lang-bash">void setup()
-{
-
-  /* add setup code here */
-    pinMode(13,OUTPUT);
-}
-
-void loop()
-{
-    digitalWrite(13, HIGH);
-    delay(200);
-    digitalWrite(13, LOW);
-    delay(200);
-  /* add main program code here */
-
-}
-</code></pre>
+<p>如下图新建一个Aarduino工程<br><img src="clip_image008.png" alt="clip_image008.png"><br><img src="clip_image009.png" alt="clip_image009.png"><br>接下来我们先写一个点灯的程序<br>直接贴代码了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void setup()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  /* add setup code here */</span><br><span class="line">	pinMode(13,OUTPUT);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop()</span><br><span class="line">&#123;</span><br><span class="line">	digitalWrite(13, HIGH);</span><br><span class="line">	delay(200);</span><br><span class="line">	digitalWrite(13, LOW);</span><br><span class="line">	delay(200);</span><br><span class="line">  /* add main program code here */</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>编译的话我们选择正式编译Release<br>接下来根据开发板的具体情况选择板子类型、端口号<br><img src="clip_image010.png" alt="clip_image010.png"><br>点击<code>Start</code>编译并将程序下载到开发板上，然后就会看到灯在闪烁<br><img src="1.gif" alt="1.gif"></p>
 
     </div>

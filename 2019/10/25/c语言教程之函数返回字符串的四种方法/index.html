@@ -303,25 +303,8 @@
         <p>在讨论着四种方法之前，首先要对函数有一个简单的认识，无论是在形实结合时，还是在return语句返回时，都有一个拷贝的过程。你传进来的参数是个值，自然函数在工作之前要把这个值拷贝一份供自己使用，你传进来的是个地址，函数也就会拷贝该地址供自己使用。同样return返回时，如果返回一个值，函数会将该值拷贝一份以提供给主调函数使用，返回的是一个指针（也就是地址），自然拷贝的就是一个地址，供主调函数使用。</p>
 <a id="more"></a>
 <p>先给出一个错误的例子：</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-
-char * retstring();
-int main()
-{
-    char * name2;
-    name2 = retstring();
-    printf(&quot;%s\n&quot;,name2);
-    return 0;
-}
-
-char * retstring()
-{
-    char name[10]; 
-    strcpy(name,&quot;汉青&quot;);
-    return name;
-}
-</code></pre><p>编译一下代码，会发现提示一个警告，大概意思就是说返回了一个局部变量的地址。这个程序的输出结果是不确定的，因为我们都知道，局部变量的生存期是就在块内部，这里也就是在函数retstring()的内部，在main函数中，name的内存空间已经被回收。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">char * retstring();</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char * name2;</span><br><span class="line">    name2 = retstring();</span><br><span class="line">    printf(&quot;%s\n&quot;,name2);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">char * retstring()</span><br><span class="line">&#123;</span><br><span class="line">    char name[10]; </span><br><span class="line">    strcpy(name,&quot;汉青&quot;);</span><br><span class="line">    return name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译一下代码，会发现提示一个警告，大概意思就是说返回了一个局部变量的地址。这个程序的输出结果是不确定的，因为我们都知道，局部变量的生存期是就在块内部，这里也就是在函数retstring()的内部，在main函数中，name的内存空间已经被回收。</p>
 <p>所以不能返回一个自动变量的字符串。。。</p>
 <p>下面给出四种返回字符串的方法：</p>
 <p>1、 将字符串指针作为函数参数传入，并返回该指针。</p>
@@ -330,73 +313,16 @@ char * retstring()
 <p>4、 使用全局变量。</p>
 <p>下面是详细解释：</p>
 <h3 id="方法一：将字符串指针作为函数参数传入，并返回该指针。"><a href="#方法一：将字符串指针作为函数参数传入，并返回该指针。" class="headerlink" title="方法一：将字符串指针作为函数参数传入，并返回该指针。"></a>方法一：将字符串指针作为函数参数传入，并返回该指针。</h3><p>典型的strcpy()函数应该就是采用的这种方法，第一个参数为指向目的字符串的指针,返回值也为这个指针。</p>
-<pre><code>char* strcpy(char* des,const char* source)
-　
-{
-　
- char* r=des;
-
-  assert((des != NULL) &amp;&amp; (source != NULL));
-
-　while((*r++ = *source++)!=&#39;\0&#39;);
-
-　return des;
-　
-}
-</code></pre><h3 id="方法二：使用malloc函数动态分配"><a href="#方法二：使用malloc函数动态分配" class="headerlink" title="方法二：使用malloc函数动态分配"></a>方法二：使用malloc函数动态分配</h3><p>注意:注意:<br>要在主调函数中将其释放，因为malloc动态分配的内存位于堆区，而堆区的内存是要程序员自己释放的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">char* strcpy(char* des,const char* source)</span><br><span class="line">　</span><br><span class="line">&#123;</span><br><span class="line">　</span><br><span class="line"> char* r=des;</span><br><span class="line"></span><br><span class="line">  assert((des != NULL) &amp;&amp; (source != NULL));</span><br><span class="line"></span><br><span class="line">　while((*r++ = *source++)!=&apos;\0&apos;);</span><br><span class="line"></span><br><span class="line">　return des;</span><br><span class="line">　</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法二：使用malloc函数动态分配"><a href="#方法二：使用malloc函数动态分配" class="headerlink" title="方法二：使用malloc函数动态分配"></a>方法二：使用malloc函数动态分配</h3><p>注意:注意:<br>要在主调函数中将其释放，因为malloc动态分配的内存位于堆区，而堆区的内存是要程序员自己释放的。</p>
 <p>一个例子如下：</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include &lt;stdlib.h&gt;
-
-char * retstring();
-int main()
-{
-    char * name2;
-    name2 = retstring();
-    printf(&quot;%s\n&quot;,name2);
-    //记住一定要用free释放，否则会造成内存泄露
-    free(name2);
-    return 0;
-}
-
-char * retstring()
-{
-    char * name;
-    name = (char *)malloc(10); 
-    strcpy(name,&quot;张汉青&quot;);
-    return name;
-}
-</code></pre><h3 id="方法三：返回一个静态局部变量。"><a href="#方法三：返回一个静态局部变量。" class="headerlink" title="方法三：返回一个静态局部变量。"></a>方法三：返回一个静态局部变量。</h3><p>一个例子如下：</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include &lt;stdlib.h&gt;
-
-char * retstring();
-int main()
-{
-    char * name2;
-    name2 = retstring();
-    printf(&quot;%s\n&quot;,name2);
-    return 0;
-}
-
-char * retstring()
-{
-    static char name[10];
-    strcpy(name,&quot;张汉青&quot;);
-    return name;
-}
-</code></pre><p>这种方法有一个问题： 由于采用了静态局部变量（位于静态区，程序结束时由系统进行释放），这就导致，如果多次调用这个函数，下一次调用会将上一次调用的结果覆盖掉。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">char * retstring();</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char * name2;</span><br><span class="line">    name2 = retstring();</span><br><span class="line">    printf(&quot;%s\n&quot;,name2);</span><br><span class="line">    //记住一定要用free释放，否则会造成内存泄露</span><br><span class="line">    free(name2);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">char * retstring()</span><br><span class="line">&#123;</span><br><span class="line">    char * name;</span><br><span class="line">    name = (char *)malloc(10); </span><br><span class="line">    strcpy(name,&quot;张汉青&quot;);</span><br><span class="line">    return name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法三：返回一个静态局部变量。"><a href="#方法三：返回一个静态局部变量。" class="headerlink" title="方法三：返回一个静态局部变量。"></a>方法三：返回一个静态局部变量。</h3><p>一个例子如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line">char * retstring();</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char * name2;</span><br><span class="line">    name2 = retstring();</span><br><span class="line">    printf(&quot;%s\n&quot;,name2);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">char * retstring()</span><br><span class="line">&#123;</span><br><span class="line">    static char name[10];</span><br><span class="line">    strcpy(name,&quot;张汉青&quot;);</span><br><span class="line">    return name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方法有一个问题： 由于采用了静态局部变量（位于静态区，程序结束时由系统进行释放），这就导致，如果多次调用这个函数，下一次调用会将上一次调用的结果覆盖掉。</p>
 <p>C语言中的库函数，tmpnam()函数、getenv()函数等应该都是采用的这种方法，这也就是为什么，使用这样的函数的时候应该立即将返回结果拷贝一份的原因。</p>
 <h3 id="方法四：-使用全局变量。"><a href="#方法四：-使用全局变量。" class="headerlink" title="方法四： 使用全局变量。"></a>方法四： 使用全局变量。</h3><p>一个例子如下：</p>
-<pre><code>char   g_s[100]; 
-char*   fun() 
-{ 
-        strcpy(g_s,   &quot;abc &quot;); 
-        return   g_s; 
-}
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">char   g_s[100]; </span><br><span class="line">char*   fun() </span><br><span class="line">&#123; </span><br><span class="line">        strcpy(g_s,   &quot;abc &quot;); </span><br><span class="line">        return   g_s; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     

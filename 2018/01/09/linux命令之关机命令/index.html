@@ -324,16 +324,7 @@
 <p>那么为什么说shutdown命令是安全地将系统关机呢？</p>
 <p>实际中有些用户会使用直接断掉电源的方式来关闭linux，这是十分危险的。因为linux与windows不同，其后台运行着许多进程，所以强制关机可能会导致进程的数据丢失使系统处于不稳定的状态。甚至在有的系统中会损坏硬件设备。而在系统关机前使用shutdown命令，系统管理员会通知所有登录的用户系统将要关闭。并且login指令会被冻结，即新的用户不能再登录。直接关机或者延迟一定的时间才关机都是可能的，还有可能是重启。这是由所有进程〔process〕都会收到系统所送达的信号〔signal〕决定的。</p>
 <p>shutdown执行它的工作是送信号〔signal〕给init程序，要求它改变 runlevel。runlevel 0 被用来停机〔halt〕，runlevel 6 是用来重新激活〔reboot〕系统，而 runlevel 1则是被用来让系统进入管理工作可以进行的状态，这是预设的。假定没有-h也没有-r参数给shutdown。要想了解在停机〔halt〕或者重新开机〔reboot〕过程中做了哪些动作？你可以在这个文件/etc/inittab里看到这些runlevels相关的资料。</p>
-<p>shutdown 参数说明:</p>
-<pre><code class="lang-bash">     --help      Show this help
-  -H --halt      Halt the machine
-  -P --poweroff  Power-off the machine
-  -r --reboot    Reboot the machine
-  -h             Equivalent to --poweroff, overridden by --halt
-  -k             Don&#39;t halt/power-off/reboot, just send warnings
-     --no-wall   Don&#39;t send wall message before halt/power-off/reboot
-  -c             Cancel a pending shutdown
-</code></pre>
+<p>shutdown 参数说明:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">-H --halt      Halt the machine</span><br><span class="line">-P --poweroff  Power-off the machine</span><br><span class="line">-r --reboot    Reboot the machine</span><br><span class="line">-h             Equivalent to --poweroff, overridden by --halt</span><br><span class="line">-k             Don<span class="string">'t halt/power-off/reboot, just send warnings</span></span><br><span class="line"><span class="string">   --no-wall   Don'</span>t send wall message before halt/power-off/reboot</span><br><span class="line">-c             Cancel a pending shutdown</span><br></pre></td></tr></table></figure></p>
 <p>[-t] 在改变到其它runlevel之前，告诉init多久以后关机。 </p>
 <p>[-r] 重启计算器。</p>
 <p>[-k] 并不真正关机，只是送警告信号给每位登录者〔login〕。 </p>
@@ -344,20 +335,7 @@
 <p>[-F] 在重启计算器〔reboot〕时强迫fsck。 </p>
 <p>[-time] 设定关机〔shutdown〕前的时间。 　　 　　<br>2.halt 最简单的关机命令</p>
 <p>用halt命令来关机时，实际调用的是shutdown -h。halt 执行时将杀死应用进程，执行sync系统调用文件系统写操作完成后就会停止内核。</p>
-<h3 id="2-halt-参数说明"><a href="#2-halt-参数说明" class="headerlink" title="2.halt 参数说明:"></a>2.halt 参数说明:</h3><pre><code class="lang-bash">iotts@jacklu:~/HEXO_test$ halt --help
-halt [OPTIONS...]
-
-Halt the system.
-
-     --help      Show this help
-     --halt      Halt the machine
-  -p --poweroff  Switch off the machine
-     --reboot    Reboot the machine
-  -f --force     Force immediate halt/power-off/reboot
-  -w --wtmp-only Don&#39;t halt/power-off/reboot, just write wtmp record
-  -d --no-wtmp   Don&#39;t write wtmp record
-     --no-wall   Don&#39;t send wall message before halt/power-off/reboot
-</code></pre>
+<h3 id="2-halt-参数说明"><a href="#2-halt-参数说明" class="headerlink" title="2.halt 参数说明:"></a>2.halt 参数说明:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ halt --<span class="built_in">help</span></span><br><span class="line">halt [OPTIONS...]</span><br><span class="line"></span><br><span class="line">Halt the system.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --halt      Halt the machine</span><br><span class="line">  -p --poweroff  Switch off the machine</span><br><span class="line">     --reboot    Reboot the machine</span><br><span class="line">  -f --force     Force immediate halt/power-off/reboot</span><br><span class="line">  -w --wtmp-only Don<span class="string">'t halt/power-off/reboot, just write wtmp record</span></span><br><span class="line"><span class="string">  -d --no-wtmp   Don'</span>t write wtmp record</span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br></pre></td></tr></table></figure>
 <p>[-n] 防止sync系统调用，它用在用fsck修补根分区之后，以阻止内核用老版本的超级块〔superblock〕覆盖修补过的超级块。</p>
 <p>[-w] 并不是真正的重启或关机，只是写wtmp〔/var/log/wtmp〕纪录。 </p>
 <p>[-d] 不写wtmp纪录〔已包含在选项[-n]中〕。 </p>
@@ -365,37 +343,9 @@ Halt the system.
 <p>[-i] 关机〔或重启〕前关掉所有的网络接口。 </p>
 <p>[-p] 该选项为缺省选项。就是关机时调用poweroff。</p>
 <h3 id="3-poweroff-常用的关机命令"><a href="#3-poweroff-常用的关机命令" class="headerlink" title="3.poweroff 常用的关机命令"></a>3.poweroff 常用的关机命令</h3><p>对于poweroff，网上说它是halt命令的链接，基本用法和 halt 差不多，这里就不多说了。</p>
-<h3 id="4-init"><a href="#4-init" class="headerlink" title="4.init"></a>4.init</h3><pre><code class="lang-bash">iotts@jacklu:~/HEXO_test$ init --help
-init [OPTIONS...] {COMMAND}
-
-Send control commands to the init daemon.
-
-     --help      Show this help
-     --no-wall   Don&#39;t send wall message before halt/power-off/reboot
-
-Commands:
-  0              Power-off the machine
-  6              Reboot the machine
-  2, 3, 4, 5     Start runlevelX.target unit
-  1, s, S        Enter rescue mode
-  q, Q           Reload init daemon configuration
-  u, U           Reexecute init daemon
-</code></pre>
+<h3 id="4-init"><a href="#4-init" class="headerlink" title="4.init"></a>4.init</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ init --<span class="built_in">help</span></span><br><span class="line">init [OPTIONS...] &#123;COMMAND&#125;</span><br><span class="line"></span><br><span class="line">Send control commands to the init daemon.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Commands:</span></span><br><span class="line"><span class="string">  0              Power-off the machine</span></span><br><span class="line"><span class="string">  6              Reboot the machine</span></span><br><span class="line"><span class="string">  2, 3, 4, 5     Start runlevelX.target unit</span></span><br><span class="line"><span class="string">  1, s, S        Enter rescue mode</span></span><br><span class="line"><span class="string">  q, Q           Reload init daemon configuration</span></span><br><span class="line"><span class="string">  u, U           Reexecute init daemon</span></span><br></pre></td></tr></table></figure>
 <p>init是所有进程的祖先，他是Linux系统操作中不可缺少的程序之一。它的进程号始终为1，所以发送TERM信号给init会终止所有的用户进程，守护进程等。shutdown 就是使用这种机制。init定义了8个运行级别(runlevel)，init 0为关机，init 1为重启。</p>
-<h3 id="5-reboot-重启命令"><a href="#5-reboot-重启命令" class="headerlink" title="5.reboot 重启命令"></a>5.reboot 重启命令</h3><pre><code class="lang-bash">iotts@jacklu:~/HEXO_test$ reboot --help
-reboot [OPTIONS...] [ARG]
-
-Reboot the system.
-
-     --help      Show this help
-     --halt      Halt the machine
-  -p --poweroff  Switch off the machine
-     --reboot    Reboot the machine
-  -f --force     Force immediate halt/power-off/reboot
-  -w --wtmp-only Don&#39;t halt/power-off/reboot, just write wtmp record
-  -d --no-wtmp   Don&#39;t write wtmp record
-     --no-wall   Don&#39;t send wall message before halt/power-off/reboot
-</code></pre>
+<h3 id="5-reboot-重启命令"><a href="#5-reboot-重启命令" class="headerlink" title="5.reboot 重启命令"></a>5.reboot 重启命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~/HEXO_test$ reboot --<span class="built_in">help</span></span><br><span class="line">reboot [OPTIONS...] [ARG]</span><br><span class="line"></span><br><span class="line">Reboot the system.</span><br><span class="line"></span><br><span class="line">     --<span class="built_in">help</span>      Show this <span class="built_in">help</span></span><br><span class="line">     --halt      Halt the machine</span><br><span class="line">  -p --poweroff  Switch off the machine</span><br><span class="line">     --reboot    Reboot the machine</span><br><span class="line">  -f --force     Force immediate halt/power-off/reboot</span><br><span class="line">  -w --wtmp-only Don<span class="string">'t halt/power-off/reboot, just write wtmp record</span></span><br><span class="line"><span class="string">  -d --no-wtmp   Don'</span>t write wtmp record</span><br><span class="line">     --no-wall   Don<span class="string">'t send wall message before halt/power-off/reboot</span></span><br></pre></td></tr></table></figure>
 <p>reboot的工作过程差不多跟halt一样。不过它是引发主机重启，而halt是关机。它的参数与halt相差不多。</p>
 
     </div>
@@ -426,8 +376,8 @@ Reboot the system.
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2018/01/09/linux命令之解压缩命令/" rel="next" title="linux命令之解压缩命令">
-                  <i class="fa fa-chevron-left"></i> linux命令之解压缩命令
+                <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" rel="next" title="linux命令之ubuntu查看系统信息">
+                  <i class="fa fa-chevron-left"></i> linux命令之ubuntu查看系统信息
                 </a>
               
             </div>
@@ -436,8 +386,8 @@ Reboot the system.
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" rel="prev" title="linux命令之ubuntu查看系统信息">
-                  linux命令之ubuntu查看系统信息 <i class="fa fa-chevron-right"></i>
+                <a href="/2018/01/09/linux命令之解压缩命令/" rel="prev" title="linux命令之解压缩命令">
+                  linux命令之解压缩命令 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>

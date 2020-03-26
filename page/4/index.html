@@ -304,597 +304,46 @@
       
           <p><a href="https://www.cnblogs.com/JCSU/articles/1299051.html" target="_blank" rel="noopener">原文链接</a><br>注：以下全部代码的执行环境为VC++ 6.0</p>
 <p>在程序中，可能需要为某些整数定义一个别名，我们可以利用预处理指令#define来完成这项工作，您的代码可能是：</p>
-<pre><code class="lang-bash">#define MON  1
-#define TUE   2
-#define WED  3
-#define THU   4
-#define FRI    5
-#define SAT   6
-#define SUN   7
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#define MON  1</span></span><br><span class="line"><span class="comment">#define TUE   2</span></span><br><span class="line"><span class="comment">#define WED  3</span></span><br><span class="line"><span class="comment">#define THU   4</span></span><br><span class="line"><span class="comment">#define FRI    5</span></span><br><span class="line"><span class="comment">#define SAT   6</span></span><br><span class="line"><span class="comment">#define SUN   7</span></span><br></pre></td></tr></table></figure>
 <p>在此，我们定义一种新的数据类型，希望它能完成同样的工作。这种新的数据类型叫枚举型。</p>
-<h2 id="1-定义一种新的数据类型-枚举型"><a href="#1-定义一种新的数据类型-枚举型" class="headerlink" title="1. 定义一种新的数据类型 - 枚举型"></a>1. 定义一种新的数据类型 - 枚举型</h2><p> 以下代码定义了这种新的数据类型 - 枚举型</p>
-<pre><code class="lang-bash">enum DAY
-{
-      MON=1, TUE, WED, THU, FRI, SAT, SUN
-};
-</code></pre>
+<h2 id="1-定义一种新的数据类型-枚举型"><a href="#1-定义一种新的数据类型-枚举型" class="headerlink" title="1. 定义一种新的数据类型 - 枚举型"></a>1. 定义一种新的数据类型 - 枚举型</h2><p> 以下代码定义了这种新的数据类型 - 枚举型<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>(1) 枚举型是一个集合，集合中的元素(枚举成员)是一些命名的整型常量，元素之间用逗号,隔开。</p>
 <p>(2) DAY是一个标识符，可以看成这个集合的名字，是一个可选项，即是可有可无的项。</p>
 <p>(3) 第一个枚举成员的默认值为整型的0，后续枚举成员的值在前一个成员上加1。</p>
 <p>(4) 可以人为设定枚举成员的值，从而自定义某个范围内的整数。</p>
 <p>(5) 枚举型是预处理指令#define的替代。</p>
 <p>(6) 类型定义以分号;结束。</p>
-<h2 id="2-使用枚举类型对变量进行声明"><a href="#2-使用枚举类型对变量进行声明" class="headerlink" title="2. 使用枚举类型对变量进行声明"></a>2. 使用枚举类型对变量进行声明</h2><p>新的数据类型定义完成后，它就可以使用了。我们已经见过最基本的数据类型，如：整型int, 单精度浮点型float, 双精度浮点型double, 字符型char, 短整型short等等。用这些基本数据类型声明变量通常是这样：</p>
-<pre><code class="lang-bash">char     a; //变量a的类型均为字符型char
-char     letter;
-int        x,
-           y,
-           z; //变量x,y和z的类型均为整型int
-int       number;
-double  m, n;
-double  result; //变量result的类型为双精度浮点型double
-</code></pre>
+<h2 id="2-使用枚举类型对变量进行声明"><a href="#2-使用枚举类型对变量进行声明" class="headerlink" title="2. 使用枚举类型对变量进行声明"></a>2. 使用枚举类型对变量进行声明</h2><p>新的数据类型定义完成后，它就可以使用了。我们已经见过最基本的数据类型，如：整型int, 单精度浮点型float, 双精度浮点型double, 字符型char, 短整型short等等。用这些基本数据类型声明变量通常是这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">char     a; //变量a的类型均为字符型char</span><br><span class="line">char     letter;</span><br><span class="line">int        x,</span><br><span class="line">           y,</span><br><span class="line">           z; //变量x,y和z的类型均为整型int</span><br><span class="line">int       number;</span><br><span class="line">double  m, n;</span><br><span class="line">double  result; //变量result的类型为双精度浮点型double</span><br></pre></td></tr></table></figure></p>
 <p>既然枚举也是一种数据类型，那么它和基本数据类型一样也可以对变量进行声明。</p>
-<h4 id="方法一：枚举类型的定义和变量的声明分开"><a href="#方法一：枚举类型的定义和变量的声明分开" class="headerlink" title="方法一：枚举类型的定义和变量的声明分开"></a>方法一：枚举类型的定义和变量的声明分开</h4><pre><code class="lang-bash">enum DAY
-{
-      MON=1, TUE, WED, THU, FRI, SAT, SUN
-};
-</code></pre>
-<pre><code class="lang-bash">enum DAY yesterday;
-enum DAY today;
-enum DAY tomorrow; //变量tomorrow的类型为枚举型enum DAY
-enum DAY good_day, bad_day; //变量good_day和bad_day的类型均为枚举型enum DAY
-</code></pre>
-<h4 id="方法二：类型定义与变量声明同时进行："><a href="#方法二：类型定义与变量声明同时进行：" class="headerlink" title="方法二：类型定义与变量声明同时进行："></a>方法二：类型定义与变量声明同时进行：</h4><pre><code class="lang-bash">enum //跟第一个定义不同的是，此处的标号DAY省略，这是允许的。
-{
-    saturday,
-    sunday = 0,
-    monday,
-    tuesday,
-    wednesday,
-    thursday,
-    friday
-} workday; //变量workday的类型为枚举型enum DAY
-</code></pre>
-<pre><code class="lang-bash">enum week { Mon=1, Tue, Wed, Thu, Fri Sat, Sun} days; //变量days的类型为枚举型enum week
-</code></pre>
-<pre><code class="lang-bash">enum BOOLEAN { false, true } end_flag, match_flag; //定义枚举类型并声明了两个枚举型变量
-</code></pre>
-<h4 id="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："><a href="#方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：" class="headerlink" title="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："></a>方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：</h4><pre><code class="lang-bash">typedef enum workday
-{
-    saturday,
-    sunday = 0,
-    monday,
-    tuesday,
-    wednesday,
-    thursday,
-    friday
-} workday; //此处的workday为枚举型enum workday的别名
-</code></pre>
-<pre><code class="lang-bash">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday
-</code></pre>
+<h4 id="方法一：枚举类型的定义和变量的声明分开"><a href="#方法一：枚举类型的定义和变量的声明分开" class="headerlink" title="方法一：枚举类型的定义和变量的声明分开"></a>方法一：枚举类型的定义和变量的声明分开</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum DAY yesterday;</span><br><span class="line">enum DAY today;</span><br><span class="line">enum DAY tomorrow; //变量tomorrow的类型为枚举型enum DAY</span><br><span class="line">enum DAY good_day, bad_day; //变量good_day和bad_day的类型均为枚举型enum DAY</span><br></pre></td></tr></table></figure>
+<h4 id="方法二：类型定义与变量声明同时进行："><a href="#方法二：类型定义与变量声明同时进行：" class="headerlink" title="方法二：类型定义与变量声明同时进行："></a>方法二：类型定义与变量声明同时进行：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">enum //跟第一个定义不同的是，此处的标号DAY省略，这是允许的。</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //变量workday的类型为枚举型enum DAY</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum week &#123; Mon=1, Tue, Wed, Thu, Fri Sat, Sun&#125; days; //变量days的类型为枚举型enum week</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum BOOLEAN &#123; <span class="literal">false</span>, <span class="literal">true</span> &#125; end_flag, match_flag; //定义枚举类型并声明了两个枚举型变量</span><br></pre></td></tr></table></figure>
+<h4 id="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："><a href="#方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：" class="headerlink" title="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："></a>方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
 <p>enum workday中的workday可以省略：</p>
-<pre><code class="lang-bash">typedef enum
-{
-    saturday,
-    sunday = 0,
-    monday,
-    tuesday,
-    wednesday,
-    thursday,
-    friday
-} workday; //此处的workday为枚举型enum workday的别名
-</code></pre>
-<pre><code class="lang-bash">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
 <p>也可以用这种方式：</p>
-<pre><code class="lang-bash">typedef enum workday
-{
-    saturday,
-    sunday = 0,
-    monday,
-    tuesday,
-    wednesday,
-    thursday,
-    friday
-};
-</code></pre>
-<pre><code class="lang-bash">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
 <p>注意：同一个程序中不能定义同名的枚举类型，不同的枚举类型中也不能存在同名的命名常量。错误示例如下所示：</p>
 <p>$\color{red}{错误声明一：}$存在同名的枚举类型</p>
-<pre><code class="lang-bash">typedef enum
-{
-    wednesday,
-    thursday,
-    friday
-} workday;
-</code></pre>
-<pre><code class="lang-bash">typedef enum WEEK
-{
-    saturday,
-    sunday = 0,
-    monday,
-} workday;
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
 <p>$\color{red}{错误声明二：}$存在同名的枚举成员</p>
-<pre><code class="lang-bash">typedef enum
-{
-    wednesday,
-    thursday,
-    friday
-} workday_1;
-
-typedef enum WEEK
-{
-    wednesday,
-    sunday = 0,
-    monday,
-} workday_2;
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday_1;</span><br><span class="line"></span><br><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday_2;</span><br></pre></td></tr></table></figure>
 <h2 id="3-使用枚举类型的变量"><a href="#3-使用枚举类型的变量" class="headerlink" title="3.使用枚举类型的变量"></a>3.使用枚举类型的变量</h2><h3 id="3-1-对枚举型的变量赋值。"><a href="#3-1-对枚举型的变量赋值。" class="headerlink" title="3.1 对枚举型的变量赋值。"></a>3.1 对枚举型的变量赋值。</h3><p>实例将枚举类型的赋值与基本数据类型的赋值进行了对比：</p>
-<h4 id="方法一：先声明变量，再对变量赋值"><a href="#方法一：先声明变量，再对变量赋值" class="headerlink" title="方法一：先声明变量，再对变量赋值"></a>方法一：先声明变量，再对变量赋值</h4><pre><code class="lang-bash">#include&lt;stdio.h&gt;
-
-/* 定义枚举类型 */
-enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN };
-
-void main()
-{
-    /* 使用基本数据类型声明变量，然后对变量赋值 */
-    int x, y, z;
-
-    x = 10;
-    y = 20;
-    z = 30;
-
-    /* 使用枚举类型声明变量，再对枚举型变量赋值 */
-    enum DAY yesterday, today, tomorrow;
-
-    yesterday = MON;
-    today     = TUE;
-    tomorrow  = WED;
-
-    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow);
-}
-</code></pre>
-<h4 id="方法二：声明变量的同时赋初值"><a href="#方法二：声明变量的同时赋初值" class="headerlink" title="方法二：声明变量的同时赋初值"></a>方法二：声明变量的同时赋初值</h4><pre><code class="lang-bash">#include &lt;stdio.h&gt;
-
-/* 定义枚举类型 */
-enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN };
-
-void main()
-{
-    /* 使用基本数据类型声明变量同时对变量赋初值 */
-    int x=10, y=20, z=30;
-
-    /* 使用枚举类型声明变量同时对枚举型变量赋初值 */
-    enum DAY yesterday = MON, 
-                        today = TUE,
-                   tomorrow = WED;
-
-    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow);
-}
-</code></pre>
-<h4 id="方法三：定义类型的同时声明变量，然后对变量赋值。"><a href="#方法三：定义类型的同时声明变量，然后对变量赋值。" class="headerlink" title="方法三：定义类型的同时声明变量，然后对变量赋值。"></a>方法三：定义类型的同时声明变量，然后对变量赋值。</h4><pre><code class="lang-bash">#include &lt;stdio.h&gt;
-
-/* 定义枚举类型，同时声明该类型的三个变量，它们都为全局变量 */
-enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN } yesterday, today, tomorrow;
-
-/* 定义三个具有基本数据类型的变量，它们都为全局变量 */
-int x, y, z;
-
-void main()
-{
-    /* 对基本数据类型的变量赋值 */
-    x = 10;  y = 20;  z = 30;
-
-    /* 对枚举型的变量赋值 */
-    yesterday = MON;
-    today     = TUE;
-    tomorrow  = WED;
-
-    printf(&quot;%d %d %d \n&quot;, x, y, z); //输出：10 20 30
-    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow); //输出：1 2 3
-}
-</code></pre>
-<h4 id="方法四：类型定义，变量声明，赋初值同时进行。"><a href="#方法四：类型定义，变量声明，赋初值同时进行。" class="headerlink" title="方法四：类型定义，变量声明，赋初值同时进行。"></a>方法四：类型定义，变量声明，赋初值同时进行。</h4><pre><code class="lang-bash">#include &lt;stdio.h&gt;
-
-/* 定义枚举类型，同时声明该类型的三个变量，并赋初值。它们都为全局变量 */
-enum DAY
-{
-    MON=1, 
-    TUE,
-    WED,
-    THU,
-    FRI,
-    SAT,
-    SUN 
-}
-yesterday = MON, today = TUE, tomorrow = WED;
-
-/* 定义三个具有基本数据类型的变量，并赋初值。它们都为全局变量 */
-int x = 10, y = 20, z = 30;
-
-void main()
-{
-    printf(&quot;%d %d %d \n&quot;, x, y, z); //输出：10 20 30
-    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow); //输出：1 2 3
-}
-</code></pre>
-<h3 id="3-2-对枚举型的变量赋整数值时，需要进行类型转换。"><a href="#3-2-对枚举型的变量赋整数值时，需要进行类型转换。" class="headerlink" title="3.2 对枚举型的变量赋整数值时，需要进行类型转换。"></a>3.2 对枚举型的变量赋整数值时，需要进行类型转换。</h3><pre><code class="lang-bash">#include &lt;stdio.h&gt;
-
-enum DAY { MON=1, TUE, WED, THU, FRI, SAT, SUN };
-
-void main()
-{
-    enum DAY yesterday, today, tomorrow;
-
-    yesterday = TUE;
-    today = (enum DAY) (yesterday + 1); //类型转换
-    tomorrow = (enum DAY) 30; //类型转换
-    //tomorrow = 3; //错误
-
-    printf(&quot;%d %d %d \n&quot;, yesterday, today, tomorrow); //输出：2 3 30
-}
-</code></pre>
-<h3 id="3-3-使用枚举型变量"><a href="#3-3-使用枚举型变量" class="headerlink" title="3.3 使用枚举型变量"></a>3.3 使用枚举型变量</h3><pre><code class="lang-bash">#include&lt;stdio.h&gt;
-
-enum
-{ 
-    BELL          = &#39;\a&#39;,
-    BACKSPACE = &#39;\b&#39;,
-    HTAB         = &#39;\t&#39;,
-    RETURN      = &#39;\r&#39;,
-    NEWLINE    = &#39;\n&#39;, 
-    VTAB         = &#39;\v&#39;,
-    SPACE       = &#39; &#39;
-};
-
-enum BOOLEAN { FALSE = 0, TRUE } match_flag;
-
-void main()
-{
-    int index = 0;
-    int count_of_letter = 0;
-    int count_of_space = 0;
-
-    char str[] = &quot;I&#39;m Ely efod&quot;;
-
-    match_flag = FALSE;
-
-    for(; str[index] != &#39;\0&#39;; index++)
-        if( SPACE != str[index] )
-            count_of_letter++;
-        else
-        {
-            match_flag = (enum BOOLEAN) 1;
-            count_of_space++;
-        }
-
-    printf(&quot;%s %d times %c&quot;, match_flag ? &quot;match&quot; : &quot;not match&quot;, count_of_space, NEWLINE);
-    printf(&quot;count of letters: %d %c%c&quot;, count_of_letter, NEWLINE, RETURN);
-}
-</code></pre>
-<p>输出：</p>
-<pre><code class="lang-bash">match 2 times
-count of letters: 10
-Press any key to continue
-</code></pre>
-<h2 id="4-枚举类型与sizeof运算符"><a href="#4-枚举类型与sizeof运算符" class="headerlink" title="4. 枚举类型与sizeof运算符"></a>4. 枚举类型与sizeof运算符</h2><pre><code class="lang-bash">#include &lt;stdio.h&gt;
-
-enum escapes
-{ 
-    BELL      = &#39;\a&#39;,
-    BACKSPACE = &#39;\b&#39;,
-    HTAB      = &#39;\t&#39;,
-    RETURN    = &#39;\r&#39;,
-    NEWLINE   = &#39;\n&#39;, 
-    VTAB      = &#39;\v&#39;,
-    SPACE     = &#39; &#39;
-};
-
-enum BOOLEAN { FALSE = 0, TRUE } match_flag;
-
-void main()
-{
-    printf(&quot;%d bytes \n&quot;, sizeof(enum escapes)); //4 bytes
-    printf(&quot;%d bytes \n&quot;, sizeof(escapes)); //4 bytes
-
-    printf(&quot;%d bytes \n&quot;, sizeof(enum BOOLEAN)); //4 bytes
-    printf(&quot;%d bytes \n&quot;, sizeof(BOOLEAN)); //4 bytes
-    printf(&quot;%d bytes \n&quot;, sizeof(match_flag)); //4 bytes
-
-    printf(&quot;%d bytes \n&quot;, sizeof(SPACE)); //4 bytes
-    printf(&quot;%d bytes \n&quot;, sizeof(NEWLINE)); //4 bytes
-    printf(&quot;%d bytes \n&quot;, sizeof(FALSE)); //4 bytes
-    printf(&quot;%d bytes \n&quot;, sizeof(0)); //4 bytes
-}
-</code></pre>
-<h2 id="5-综合举例"><a href="#5-综合举例" class="headerlink" title="5. 综合举例"></a>5. 综合举例</h2><pre><code class="lang-bash">#include&lt;stdio.h&gt;
-
-enum Season
-{
-    spring, summer=100, fall=96, winter
-};
-
-typedef enum
-{
-    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
-}
-Weekday;
-
-void main()
-{
-    /* Season */
-    printf(&quot;%d \n&quot;, spring); // 0
-    printf(&quot;%d, %c \n&quot;, summer, summer); // 100, d
-    printf(&quot;%d \n&quot;, fall+winter); // 193
-
-    Season mySeason=winter;
-    if(winter==mySeason)
-        printf(&quot;mySeason is winter \n&quot;); // mySeason is winter
-
-    int x=100;
-    if(x==summer)
-        printf(&quot;x is equal to summer\n&quot;); // x is equal to summer
-
-    printf(&quot;%d bytes\n&quot;, sizeof(spring)); // 4 bytes
-
-    /* Weekday */
-    printf(&quot;sizeof Weekday is: %d \n&quot;, sizeof(Weekday)); //sizeof Weekday is: 4
-
-    Weekday today = Saturday;
-    Weekday tomorrow;
-    if(today == Monday)
-        tomorrow = Tuesday;
-    else
-        tomorrow = (Weekday) (today + 1); //remember to convert from int to Weekday
-}
-</code></pre>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之ubuntu查看系统信息/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" class="post-title-link" itemprop="url">linux命令之ubuntu查看系统信息</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-16 21:09:58" itemprop="dateModified" datetime="2018-01-16T21:09:58+08:00">2018-01-16</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
-<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：</p>
-<pre><code class="lang-bash">getconf LONG_BIT
-</code></pre>
-<p>输出结果</p>
-<pre><code class="lang-bash">32
-</code></pre>
-<p><img src="2018-01-16 20-46-51屏幕截图.png" alt="2018-01-16 20-46-51屏幕截图.png"><br>也可以输入：</p>
-<pre><code class="lang-bash">uname -a
-</code></pre>
-<p>输出结果：</p>
-<pre><code class="lang-bash">Linux jacklu 4.13.0-26-generic #29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux
-</code></pre>
-<p><img src="2018-01-16 20-47-17屏幕截图.png" alt="2018-01-16 20-47-17屏幕截图.png"></p>
-<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：</p>
-<pre><code class="lang-bash">cat /etc/issue
-</code></pre>
-<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：</p>
-<pre><code class="lang-bash">Ubuntu 16.04.3 LTS \n \l
-</code></pre>
-<p><img src="2018-01-16 20-48-47屏幕截图.png" alt="2018-01-16 20-48-47屏幕截图.png"></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：</p>
-<pre><code class="lang-bash">sudo lsb_release -a
-</code></pre>
-<p>将输出结果：</p>
-<pre><code class="lang-bash">No LSB modules are available.
-Distributor ID:    Ubuntu
-Description:    Ubuntu 16.04.3 LTS
-Release:    16.04
-Codename:    xenial
-</code></pre>
-<p><img src="2018-01-16 20-48-27屏幕截图.png" alt="2018-01-16 20-48-27屏幕截图.png"></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/09/linux命令之关机命令/" class="post-title-link" itemprop="url">linux命令之关机命令</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-07 15:27:46" itemprop="dateModified" datetime="2020-01-07T15:27:46+08:00">2020-01-07</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ubuntu关机和重启命令</p>
-<p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。<br>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/01/09/linux命令之关机命令/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
+<h4 id="方法一：先声明变量，再对变量赋值"><a href="#方法一：先声明变量，再对变量赋值" class="headerlink" title="方法一：先声明变量，再对变量赋值"></a>方法一：先声明变量，再对变量赋值</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量，然后对变量赋值 */</span><br><span class="line">    int x, y, z;</span><br><span class="line">    </span><br><span class="line">    x = 10;</span><br><span class="line">    y = 20;</span><br><span class="line">    z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量，再对枚举型变量赋值 */</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line">    </span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法二：声明变量的同时赋初值"><a href="#方法二：声明变量的同时赋初值" class="headerlink" title="方法二：声明变量的同时赋初值"></a>方法二：声明变量的同时赋初值</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量同时对变量赋初值 */</span><br><span class="line">    int x=10, y=20, z=30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量同时对枚举型变量赋初值 */</span><br><span class="line">    enum DAY yesterday = MON, </span><br><span class="line">                        today = TUE,</span><br><span class="line">                   tomorrow = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法三：定义类型的同时声明变量，然后对变量赋值。"><a href="#方法三：定义类型的同时声明变量，然后对变量赋值。" class="headerlink" title="方法三：定义类型的同时声明变量，然后对变量赋值。"></a>方法三：定义类型的同时声明变量，然后对变量赋值。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，它们都为全局变量 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125; yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，它们都为全局变量 */</span><br><span class="line">int x, y, z;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 对基本数据类型的变量赋值 */</span><br><span class="line">    x = 10;  y = 20;  z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 对枚举型的变量赋值 */</span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法四：类型定义，变量声明，赋初值同时进行。"><a href="#方法四：类型定义，变量声明，赋初值同时进行。" class="headerlink" title="方法四：类型定义，变量声明，赋初值同时进行。"></a>方法四：类型定义，变量声明，赋初值同时进行。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，并赋初值。它们都为全局变量 */</span><br><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">    MON=1, </span><br><span class="line">    TUE,</span><br><span class="line">    WED,</span><br><span class="line">    THU,</span><br><span class="line">    FRI,</span><br><span class="line">    SAT,</span><br><span class="line">    SUN </span><br><span class="line">&#125;</span><br><span class="line">yesterday = MON, today = TUE, tomorrow = WED;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，并赋初值。它们都为全局变量 */</span><br><span class="line">int x = 10, y = 20, z = 30;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-对枚举型的变量赋整数值时，需要进行类型转换。"><a href="#3-2-对枚举型的变量赋整数值时，需要进行类型转换。" class="headerlink" title="3.2 对枚举型的变量赋整数值时，需要进行类型转换。"></a>3.2 对枚举型的变量赋整数值时，需要进行类型转换。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">    yesterday = TUE;</span><br><span class="line">    today = (enum DAY) (yesterday + 1); //类型转换</span><br><span class="line">    tomorrow = (enum DAY) 30; //类型转换</span><br><span class="line">    //tomorrow = 3; //错误</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：2 3 30</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-使用枚举型变量"><a href="#3-3-使用枚举型变量" class="headerlink" title="3.3 使用枚举型变量"></a>3.3 使用枚举型变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum</span><br><span class="line">&#123; </span><br><span class="line">    BELL          = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB         = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN      = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE    = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB         = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE       = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int index = 0;</span><br><span class="line">    int count_of_letter = 0;</span><br><span class="line">    int count_of_space = 0;</span><br><span class="line">    </span><br><span class="line">    char str[] = <span class="string">"I'm Ely efod"</span>;</span><br><span class="line">    </span><br><span class="line">    match_flag = FALSE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(; str[index] != <span class="string">'\0'</span>; index++)</span><br><span class="line">        <span class="keyword">if</span>( SPACE != str[index] )</span><br><span class="line">            count_of_letter++;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            match_flag = (enum BOOLEAN) 1;</span><br><span class="line">            count_of_space++;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s %d times %c"</span>, match_flag ? <span class="string">"match"</span> : <span class="string">"not match"</span>, count_of_space, NEWLINE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"count of letters: %d %c%c"</span>, count_of_letter, NEWLINE, RETURN);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">match 2 <span class="built_in">times</span></span><br><span class="line">count of letters: 10</span><br><span class="line">Press any key to <span class="built_in">continue</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="4-枚举类型与sizeof运算符"><a href="#4-枚举类型与sizeof运算符" class="headerlink" title="4. 枚举类型与sizeof运算符"></a>4. 枚举类型与sizeof运算符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum escapes</span><br><span class="line">&#123; </span><br><span class="line">    BELL      = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB      = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN    = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE   = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB      = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE     = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum escapes)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(escapes)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(match_flag)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(SPACE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(NEWLINE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(FALSE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(0)); //4 bytes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-综合举例"><a href="#5-综合举例" class="headerlink" title="5. 综合举例"></a>5. 综合举例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum Season</span><br><span class="line">&#123;</span><br><span class="line">    spring, summer=100, fall=96, winter</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</span><br><span class="line">&#125;</span><br><span class="line">Weekday;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* Season */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, spring); // 0</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %c \n"</span>, summer, summer); // 100, d</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, fall+winter); // 193</span><br><span class="line">    </span><br><span class="line">    Season mySeason=winter;</span><br><span class="line">    <span class="keyword">if</span>(winter==mySeason)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"mySeason is winter \n"</span>); // mySeason is winter</span><br><span class="line">    </span><br><span class="line">    int x=100;</span><br><span class="line">    <span class="keyword">if</span>(x==summer)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"x is equal to summer\n"</span>); // x is equal to summer</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes\n"</span>, sizeof(spring)); // 4 bytes</span><br><span class="line">    </span><br><span class="line">    /* Weekday */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"sizeof Weekday is: %d \n"</span>, sizeof(Weekday)); //sizeof Weekday is: 4</span><br><span class="line">    </span><br><span class="line">    Weekday today = Saturday;</span><br><span class="line">    Weekday tomorrow;</span><br><span class="line">    <span class="keyword">if</span>(today == Monday)</span><br><span class="line">        tomorrow = Tuesday;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        tomorrow = (Weekday) (today + 1); //remember to convert from int to Weekday</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
       
     </div>
@@ -987,15 +436,10 @@ Codename:    xenial
 
       
           <p>Linux下的压缩解压缩命令详解及实例</p>
-<p>实例：压缩服务器上当前目录的内容为xxx.zip文件</p>
-<pre><code class="lang-bash">zip -r xxx.zip ./*
-</code></pre>
-<p>解压zip文件到当前目录</p>
-<pre><code class="lang-bash">unzip filename.zip
-</code></pre>
+<p>实例：压缩服务器上当前目录的内容为xxx.zip文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r xxx.zip ./*</span><br></pre></td></tr></table></figure></p>
+<p>解压zip文件到当前目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip filename.zip</span><br></pre></td></tr></table></figure></p>
 <p>另：有些服务器没有安装zip包执行不了zip命令，但基本上都可以用tar命令的，实例如下：</p>
-<pre><code class="lang-bash">tar -zcvf /home/zdzlibs.tar.gz /home/zdz/java/zdzlibs/
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf /home/zdzlibs.tar.gz /home/zdz/java/zdzlibs/</span><br></pre></td></tr></table></figure>
 <p>linux zip命令</p>
 <p>zip -r myfile.zip ./*<br>将当前目录下的所有文件和文件夹全部压缩成myfile.zip文件,－r表示递归压缩子目录下所有文件.</p>
 <p>2.unzip<br>unzip -o -d /home/sunny myfile.zip<br>把myfile.zip文件解压到 /home/sunny/<br>-o:不提示的情况下覆盖文件；<br>-d:-d /home/sunny 指明将文件解压缩到/home/sunny目录下；</p>
@@ -1173,6 +617,228 @@ Codename:    xenial
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/09/linux命令之关机命令/" class="post-title-link" itemprop="url">linux命令之关机命令</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-07 15:27:46" itemprop="dateModified" datetime="2020-01-07T15:27:46+08:00">2020-01-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>ubuntu关机和重启命令</p>
+<p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。<br>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2018/01/09/linux命令之关机命令/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之ubuntu查看系统信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" class="post-title-link" itemprop="url">linux命令之ubuntu查看系统信息</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-16 21:09:58" itemprop="dateModified" datetime="2018-01-16T21:09:58+08:00">2018-01-16</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
+<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure></p>
+<p>输出结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-46-51屏幕截图.png" alt="2018-01-16 20-46-51屏幕截图.png"><br>也可以输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux jacklu 4.13.0-26-generic <span class="comment">#29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-47-17屏幕截图.png" alt="2018-01-16 20-47-17屏幕截图.png"></p>
+<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure></p>
+<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 16.04.3 LTS \n \l</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-48-47屏幕截图.png" alt="2018-01-16 20-48-47屏幕截图.png"></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br></pre></td></tr></table></figure></p>
+<p>将输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04.3 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-48-27屏幕截图.png" alt="2018-01-16 20-48-27屏幕截图.png"></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/MySQL忘记root密码解决方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1242,47 +908,15 @@ Codename:    xenial
 
       
           <p><a href="http://www.cnblogs.com/sbaicl/articles/3132010.html" target="_blank" rel="noopener">原文链接</a><br>1．首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。<br>因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的<br>状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对<br>外的端口封闭，并且停止Apache以及所有的用户进程的方法实现服务器的准安全<br>状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线。</p>
-<p>2．修改MySQL的登录设置： </p>
-<pre><code class="lang-bash"># vim /etc/my.cnf
-</code></pre>
-<p>在<code>[mysqld]</code>的段中加上一句：</p>
-<pre><code class="lang-bash">skip-grant-tables
-</code></pre>
-<p>例如：</p>
-<pre><code class="lang-bash">[mysqld] 
-datadir=/var/lib/mysql 
-socket=/var/lib/mysql/mysql.sock 
-skip-grant-tables
-</code></pre>
+<p>2．修改MySQL的登录设置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure></p>
+<p>在<code>[mysqld]</code>的段中加上一句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure></p>
+<p>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[mysqld] </span><br><span class="line">datadir=/var/lib/mysql </span><br><span class="line">socket=/var/lib/mysql/mysql.sock </span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure></p>
 <p>保存并且退出vi。</p>
-<p>3．重新启动mysqld </p>
-<pre><code class="lang-bash"># service mysqld restart 
-Stopping MySQL: [ OK ] 
-Starting MySQL: [ OK ]
-</code></pre>
-<p>4．登录并修改MySQL的root密码 </p>
-<pre><code class="lang-bash"># mysql 
-Welcome to the MySQL monitor. Commands end with ; or \g. 
-Your MySQL connection id is 3 to server version: 3.23.56 
-Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the buffer. 
-mysql&gt; USE mysql ; 
-Database changed 
-mysql&gt; UPDATE user SET Password = password ( &#39;new-password&#39; ) WHERE User = &#39;root&#39; ; 
-Query OK, 0 rows affected (0.00 sec) 
-Rows matched: 2 Changed: 0 Warnings: 0 
-mysql&gt; flush privileges ; 
-Query OK, 0 rows affected (0.01 sec) 
-mysql&gt; quit
-</code></pre>
-<p>5．将MySQL的登录设置修改回来 </p>
-<pre><code class="lang-bash"># vim /etc/my.cnf
-</code></pre>
+<p>3．重新启动mysqld<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># service mysqld restart </span></span><br><span class="line">Stopping MySQL: [ OK ] </span><br><span class="line">Starting MySQL: [ OK ]</span><br></pre></td></tr></table></figure></p>
+<p>4．登录并修改MySQL的root密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mysql </span></span><br><span class="line">Welcome to the MySQL monitor. Commands end with ; or \g. </span><br><span class="line">Your MySQL connection id is 3 to server version: 3.23.56 </span><br><span class="line">Type <span class="string">'help;'</span> or <span class="string">'\h'</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">'\c'</span> to clear the buffer. </span><br><span class="line">mysql&gt; USE mysql ; </span><br><span class="line">Database changed </span><br><span class="line">mysql&gt; UPDATE user SET Password = password ( <span class="string">'new-password'</span> ) WHERE User = <span class="string">'root'</span> ; </span><br><span class="line">Query OK, 0 rows affected (0.00 sec) </span><br><span class="line">Rows matched: 2 Changed: 0 Warnings: 0 </span><br><span class="line">mysql&gt; flush privileges ; </span><br><span class="line">Query OK, 0 rows affected (0.01 sec) </span><br><span class="line">mysql&gt; quit</span><br></pre></td></tr></table></figure></p>
+<p>5．将MySQL的登录设置修改回来<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure></p>
 <p>将刚才在<code>[mysqld]</code>的段中加上的<code>skip-grant-tables</code>删除<br>保存并且退出vim</p>
-<p>6．重新启动mysqld </p>
-<pre><code class="lang-bash"># service mysqld restart 
-Stopping MySQL: [ OK ] 
-Starting MySQL: [ OK ]
-</code></pre>
+<p>6．重新启动mysqld<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># service mysqld restart </span></span><br><span class="line">Stopping MySQL: [ OK ] </span><br><span class="line">Starting MySQL: [ OK ]</span><br></pre></td></tr></table></figure></p>
 
         
       
@@ -1379,28 +1013,11 @@ Starting MySQL: [ OK ]
           <p>今天在写一篇博客的时候，遇到使用MathJax公式下标出现问题，然后在网上找到解决办法</p>
 <h1 id="出现问题的原因"><a href="#出现问题的原因" class="headerlink" title="出现问题的原因"></a>出现问题的原因</h1><p>hexo默认使用hexo-renderer-marked引擎去渲染网页，它会把利用Markdown语法写的文本去转换为相应的html标签。在利用Markdown写MathJax公式的时候，经常会用到下划线<code>_</code>表示下标，但是下划线<code>_</code>会被hexo的默认引擎hexo-renderer-marked渲染成html中的<code>&lt;em&gt;</code>标签，表示斜体，这样一来，我们写的MathJax公式就被错误渲染了，也就没办法正确显示出来。</p>
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>从上面的分析，我们可以知道问题或许出在hexo的渲染引擎上，如果渲染引擎不把公式中的一些特殊字符渲染成html标签，也就避免了这个问题。当然已经有人意识到了这个问题，并且对原先的渲染引擎进行了改进，生成了新的<code>hexo-renderer-kramed</code>引擎，这里是它的Github页面，所以我们只需要卸载默认引擎，并安装这个新的渲染引擎即可。</p>
-<pre><code class="lang-bash">npm uninstall hexo-renderer-marked --save
-npm install hexo-renderer-kramed --save
-</code></pre>
-<p>当我把渲染引擎更换之后，发现大部分公式都正确渲染了，而从网上其他人的叙述中，也同样提到了这个问题，即是行间公式都没有问题，但是个别行内公式还会出现渲染出错，从网上找到了一个方法，解决了这一问题。<br>定位到你的博客根目录，找到../node_modules/kramed/lib/rules/inline.js文件，<br>进行部分修改：</p>
-<pre><code class="lang-bash">//escape: /^\\([\\`*{}\[\]()#$+\-.!_&gt;])/,      第11行，将其修改为
-escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,
-//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,    第20行，将其修改为
-em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
-</code></pre>
-<p>它取消了该渲染引擎对 <strong>\,{,}</strong> 的转义，然后再</p>
-<pre><code class="lang-bash">hexo clean
-hexo g
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+<p>当我把渲染引擎更换之后，发现大部分公式都正确渲染了，而从网上其他人的叙述中，也同样提到了这个问题，即是行间公式都没有问题，但是个别行内公式还会出现渲染出错，从网上找到了一个方法，解决了这一问题。<br>定位到你的博客根目录，找到../node_modules/kramed/lib/rules/inline.js文件，<br>进行部分修改：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()<span class="comment">#$+\-.!_&gt;])/,      第11行，将其修改为</span></span><br><span class="line">escape: /^\\([`*\[\]()<span class="comment">#$+\-.!_&gt;])/,</span></span><br><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,    第20行，将其修改为</span><br><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure></p>
+<p>它取消了该渲染引擎对 <strong>\,{,}</strong> 的转义，然后再<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure></p>
 <p>重新部署，即可解决问题。</p>
-<p>另外需要注意一点，对于需要用到MathJax公式的文章，要在Front-matter中打开MathJax开关，例如：</p>
-<pre><code class="lang-bash">---
-date: 2017/8/3 18:20:00
-tags: hexo
-mathjax: true
-title: hexo博客MathJax公式渲染
----
-</code></pre>
+<p>另外需要注意一点，对于需要用到MathJax公式的文章，要在Front-matter中打开MathJax开关，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">date: 2017/8/3 18:20:00</span><br><span class="line">tags: hexo</span><br><span class="line">mathjax: <span class="literal">true</span></span><br><span class="line">title: hexo博客MathJax公式渲染</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
 <h1 id="MathJax公式语法"><a href="#MathJax公式语法" class="headerlink" title="MathJax公式语法"></a>MathJax公式语法</h1><p><a href="lshort-zh-cn.pdf">LaTeX语法</a><br>下面呢，我整理总结了一番比较常用的MathJax公式语法，同时也可以用来测试一下渲染效果。</p>
 <h2 id="gt-添加公式的方法"><a href="#gt-添加公式的方法" class="headerlink" title="&gt;添加公式的方法"></a>&gt;添加公式的方法</h2><h3 id="1-行内公式"><a href="#1-行内公式" class="headerlink" title="1.行内公式"></a>1.行内公式</h3><pre><code>$行内公式$
 </code></pre><h3 id="2-行间公式"><a href="#2-行间公式" class="headerlink" title="2.行间公式"></a>2.行间公式</h3><pre><code>$$行间公式$$
@@ -1479,18 +1096,9 @@ title: hexo博客MathJax公式渲染
 </table>
 </div>
 <p>上面的一些基本语法使用了行内公式， 渲染效果没有问题，下面再利用行间公式写一些较为复杂的公式。</p>
-<h3 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h3><p>分段函数格式为</p>
-<pre><code class="lang-bash">f(x)=\begin{cases}语句1\\语句2\\...\end{cases}
-</code></pre>
+<h3 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h3><p>分段函数格式为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(x)=\begin&#123;cases&#125;语句1\\语句2\\...\end&#123;cases&#125;</span><br></pre></td></tr></table></figure></p>
 <p>\text{文字}中仍可以使用$公式$去插入其他公式，所以可以将其结合分段函数一起使用。</p>
-<p>实例：<br>md文本</p>
-<pre><code class="lang-bash"> $$ 
-f(n)=\begin{cases}
-n/2, &amp; \text{如果$ x&lt;=2 $}\\
-3n+1, &amp; \text{如果$ x&gt;2 $}
-\end{cases}
-$$
-</code></pre>
+<p>实例：<br>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> $$ </span><br><span class="line">f(n)=\begin&#123;cases&#125;</span><br><span class="line">n/2, &amp; \text&#123;如果$ x&lt;=2 $&#125;\\</span><br><span class="line">3n+1, &amp; \text&#123;如果$ x&gt;2 $&#125;</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
 <p>最终效果:</p>
 <script type="math/tex; mode=display">
 f(n)=\begin{cases}
@@ -1498,29 +1106,10 @@ n/2, & \text{如果$ x<=2 $}\\
 3n+1, & \text{如果$ x>2 $}
 \end{cases}</script><h3 id="大括号和小括号"><a href="#大括号和小括号" class="headerlink" title="大括号和小括号"></a>大括号和小括号</h3><p>()、[]、{}表示的即是符号本身，使用\{\}来表示{}。但是如果要显示大号的括号时，需要使用\left和\right命令。</p>
 <p>实例：</p>
-<p>正常括号<br>md文本</p>
-<pre><code class="lang-bash"> $$
-f([\frac{1+\{x,y\}}{(\frac{x}{y}+\frac{y}{x})(u+1)}+a]^{3\2})
-$$
-</code></pre>
+<p>正常括号<br>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> $$</span><br><span class="line">f([\frac&#123;1+\&#123;x,y\&#125;&#125;&#123;(\frac&#123;x&#125;&#123;y&#125;+\frac&#123;y&#125;&#123;x&#125;)(u+1)&#125;+a]^&#123;3\2&#125;)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
 <p>最终效果</p>
 <script type="math/tex; mode=display">
-f([\frac{1+\{x,y\}}{(\frac{x}{y}+\frac{y}{x})(u+1)}+a]^{3\2})</script><p>大括号<br>md文本</p>
-<pre><code class="lang-bash">    $$
-f\left(
-    \left[
-        \frac{
-            1+\left\{x,y\right\}
-        }{
-        \left(
-            \frac{x}{y}+\frac{y}{x}
-        \right)
-        \left(u+1\right)
-        }+a
-    \right]^{3\2}
-\right)
-$$
-</code></pre>
+f([\frac{1+\{x,y\}}{(\frac{x}{y}+\frac{y}{x})(u+1)}+a]^{3\2})</script><p>大括号<br>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    $$</span><br><span class="line">f\left(</span><br><span class="line">    \left[</span><br><span class="line">        \frac&#123;</span><br><span class="line">            1+\left\&#123;x,y\right\&#125;</span><br><span class="line">        &#125;&#123;</span><br><span class="line">        \left(</span><br><span class="line">            \frac&#123;x&#125;&#123;y&#125;+\frac&#123;y&#125;&#123;x&#125;</span><br><span class="line">        \right)</span><br><span class="line">        \left(u+1\right)</span><br><span class="line">        &#125;+a</span><br><span class="line">    \right]^&#123;3\2&#125;</span><br><span class="line">\right)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
 <p>最终效果</p>
 <script type="math/tex; mode=display">
 f\left(
@@ -1537,27 +1126,13 @@ f\left(
 \right)</script><h3 id="添加删除线"><a href="#添加删除线" class="headerlink" title="添加删除线"></a>添加删除线</h3><p>使用删除线功能必须使用行间公式，删除线分为片段删除线和整段删除线，样式比较多，在这里我只列举一种比较常用的水平删除线，它属于整段删除线的一种。</p>
 <p>整段删除线使用<code>\require{enclose}</code>来显示，声明整段删除线后，使用<code>\enclose{删除线效果}{字符}</code>来实现删除线效果，而水平删除线效果用关键字horizontalstrike。</p>
 <p>实例：</p>
-<p>md文本</p>
-<pre><code class="lang-bash">$$
-\require{enclose}\begin{array}{}
-\enclose{horizontalstrike}{x+y}\\
-\enclose{horizontalstrike}{x*y}\\
-\end{array}
-$$
-</code></pre>
+<p>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\require&#123;enclose&#125;\begin&#123;array&#125;&#123;&#125;</span><br><span class="line">\enclose&#123;horizontalstrike&#125;&#123;x+y&#125;\\</span><br><span class="line">\enclose&#123;horizontalstrike&#125;&#123;x*y&#125;\\</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
 <p>最终效果</p>
 <script type="math/tex; mode=display">
 \require{enclose}\begin{array}{}
 \enclose{horizontalstrike}{x+y}\\
 \enclose{horizontalstrike}{x*y}\\
-\end{array}</script><h3 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h3><p><code>\begin{align}</code>用于开头，<code>\end{align}</code>用于结尾，对齐的位置用<code>&amp;</code>开始，用<code>\\</code>结束<br>输入：</p>
-<pre><code class="lang-bash">$$
-\begin{align}
-f(x) &amp;=a+b+a\\
-&amp; = 2a+b
-\end{align}
-$$
-</code></pre>
+\end{array}</script><h3 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h3><p><code>\begin{align}</code>用于开头，<code>\end{align}</code>用于结尾，对齐的位置用<code>&amp;</code>开始，用<code>\\</code>结束<br>输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\begin&#123;align&#125;</span><br><span class="line">f(x) &amp;=a+b+a\\</span><br><span class="line">&amp; = 2a+b</span><br><span class="line">\end&#123;align&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
 <p>输出： </p>
 <script type="math/tex; mode=display">
 \begin{align}

@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="开发环境虚拟机 Ubuntu 16.04.3 LTS JDK安装通过终端在/usr/local目录下新建java文件夹，命令行： sudo mkdir /usr/local/java  然后进入java目录，命令行： cd /usr/local/java  到官网下载jdk：http://www.oracle.com/technetwork/java/javase/downloads/jdk8-d">
+  <meta name="description" content="开发环境虚拟机 Ubuntu 16.04.3 LTS JDK安装通过终端在/usr/local目录下新建java文件夹，命令行：1sudo mkdir /usr/local/java 然后进入java目录，命令行：1cd /usr/local/java 到官网下载jdk：http://www.oracle.com/technetwork/java/javase/downloads/jdk8-dow">
 <meta name="keywords" content="Linux,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu安装JDK1.8.0并配置环境变量">
 <meta property="og:url" content="http://iotts.top/2018/01/11/Ubuntu安装JDK1-8-0并配置环境变量/index.html">
 <meta property="og:site_name" content="IOTTS">
-<meta property="og:description" content="开发环境虚拟机 Ubuntu 16.04.3 LTS JDK安装通过终端在/usr/local目录下新建java文件夹，命令行： sudo mkdir /usr/local/java  然后进入java目录，命令行： cd /usr/local/java  到官网下载jdk：http://www.oracle.com/technetwork/java/javase/downloads/jdk8-d">
+<meta property="og:description" content="开发环境虚拟机 Ubuntu 16.04.3 LTS JDK安装通过终端在/usr/local目录下新建java文件夹，命令行：1sudo mkdir /usr/local/java 然后进入java目录，命令行：1cd /usr/local/java 到官网下载jdk：http://www.oracle.com/technetwork/java/javase/downloads/jdk8-dow">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-01-14T16:05:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu安装JDK1.8.0并配置环境变量">
-<meta name="twitter:description" content="开发环境虚拟机 Ubuntu 16.04.3 LTS JDK安装通过终端在/usr/local目录下新建java文件夹，命令行： sudo mkdir /usr/local/java  然后进入java目录，命令行： cd /usr/local/java  到官网下载jdk：http://www.oracle.com/technetwork/java/javase/downloads/jdk8-d">
+<meta name="twitter:description" content="开发环境虚拟机 Ubuntu 16.04.3 LTS JDK安装通过终端在/usr/local目录下新建java文件夹，命令行：1sudo mkdir /usr/local/java 然后进入java目录，命令行：1cd /usr/local/java 到官网下载jdk：http://www.oracle.com/technetwork/java/javase/downloads/jdk8-dow">
   <link rel="canonical" href="http://iotts.top/2018/01/11/Ubuntu安装JDK1-8-0并配置环境变量/">
 
 
@@ -316,48 +316,20 @@
 
       
         <h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>虚拟机 Ubuntu 16.04.3 LTS</p>
-<h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2><p>通过终端在<code>/usr/local</code>目录下新建<code>java</code>文件夹，命令行：</p>
-<pre><code class="lang-bash">sudo mkdir /usr/local/java
-</code></pre>
-<p>然后进入java目录，命令行：</p>
-<pre><code class="lang-bash">cd /usr/local/java
-</code></pre>
+<h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2><p>通过终端在<code>/usr/local</code>目录下新建<code>java</code>文件夹，命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure></p>
+<p>然后进入java目录，命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure></p>
 <p>到官网下载jdk：<br><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
-<p>注意操作系统位数的选择，我的Ubuntu系统为32位的所以直接输入下面命令：</p>
-<pre><code class="lang-bash">wget http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-i586.tar.gz
-</code></pre>
+<p>注意操作系统位数的选择，我的Ubuntu系统为32位的所以直接输入下面命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure></p>
 <p>解压源码包</p>
-<p>解压压缩包，命令行：</p>
-<pre><code class="lang-bash">sudo tar xvf jdk-8u151-linux-i586.tar.gz
-</code></pre>
+<p>解压压缩包，命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar xvf jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure></p>
 <p>然后可以把压缩包删除，命令行：</p>
-<pre><code class="lang-bash">sudo rm jdk-8u151-linux-i586.tar.gz
-</code></pre>
-<h2 id="设置JDK环境变量"><a href="#设置JDK环境变量" class="headerlink" title="设置JDK环境变量"></a>设置JDK环境变量</h2><p>这里采用全局设置方法，它是是所有用户的共用的环境变量</p>
-<pre><code class="lang-bash">$sudo gedit ~/.bashrc
-</code></pre>
-<p>命令行下可以输入</p>
-<pre><code class="lang-bash">vi ~/.bashrc
-</code></pre>
-<p>在.bashrc文件末尾输入</p>
-<pre><code class="lang-bash">export JAVA_HOME=/usr/local/java/jdk1.8.0_151  
-export JRE_HOME=${JAVA_HOME}/jre  
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib  
-export PATH=${JAVA_HOME}/bin:$PATH
-</code></pre>
-<p>$\color{red}{注意：}$在添加环境变量时中，等号两侧不要加入空格，不然会出现“不是有效的标识符”，因为<code>source /etc/profile</code> 时不能识别多余到空格，会理解为是路径一部分。然后保存。<br>命令行下输入以下命令生效</p>
-<pre><code class="lang-bash">source ~/.bashrc
-</code></pre>
-<h2 id="检验是否安装成功"><a href="#检验是否安装成功" class="headerlink" title="检验是否安装成功"></a>检验是否安装成功</h2><p>重启终端，然后在终端输入如下命令</p>
-<pre><code class="lang-bash">java -version
-</code></pre>
-<p>看看是否安装成功，成功则显示如下：</p>
-<pre><code class="lang-bash">iotts@jacklu:~$ java -version
-java version &quot;1.8.0_151&quot;
-Java(TM) SE Runtime Environment (build 1.8.0_151-b12)
-Java HotSpot(TM) Client VM (build 25.151-b12, mixed mode)
-iotts@jacklu:~$
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure>
+<h2 id="设置JDK环境变量"><a href="#设置JDK环境变量" class="headerlink" title="设置JDK环境变量"></a>设置JDK环境变量</h2><p>这里采用全局设置方法，它是是所有用户的共用的环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> gedit ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>命令行下可以输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>在.bashrc文件末尾输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_151  </span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre  </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib  </span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>$\color{red}{注意：}$在添加环境变量时中，等号两侧不要加入空格，不然会出现“不是有效的标识符”，因为<code>source /etc/profile</code> 时不能识别多余到空格，会理解为是路径一部分。然后保存。<br>命令行下输入以下命令生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h2 id="检验是否安装成功"><a href="#检验是否安装成功" class="headerlink" title="检验是否安装成功"></a>检验是否安装成功</h2><p>重启终端，然后在终端输入如下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></p>
+<p>看看是否安装成功，成功则显示如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~$ java -version</span><br><span class="line">java version <span class="string">"1.8.0_151"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) Client VM (build 25.151-b12, mixed mode)</span><br><span class="line">iotts@jacklu:~$</span><br></pre></td></tr></table></figure></p>
 
     </div>
 

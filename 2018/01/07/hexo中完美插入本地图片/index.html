@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="Hexo配置文件的设置确保你的Hexo的配置文件_config.yml里面有个这个选项配置，并将其置为true post_asset_folder: true  这个功能实际上是Hexo官方文档中提到的资源文件夹功能，它的作用在于当你使用 hexo new &amp;quot;hexo中完美插入本地图片&amp;quot;  生成一篇新文章时，会在 \source \_posts 目录下生成一个 hexo中完美插">
+  <meta name="description" content="Hexo配置文件的设置确保你的Hexo的配置文件_config.yml里面有个这个选项配置，并将其置为true 1post_asset_folder: true 这个功能实际上是Hexo官方文档中提到的资源文件夹功能，它的作用在于当你使用 1hexo new &quot;hexo中完美插入本地图片&quot; 生成一篇新文章时，会在 \source \_posts 目录下生成一个 hexo中完美插入本地图片(文章名)">
 <meta name="keywords" content="Hexo教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo中完美插入本地图片">
 <meta property="og:url" content="http://iotts.top/2018/01/07/hexo中完美插入本地图片/index.html">
 <meta property="og:site_name" content="IOTTS">
-<meta property="og:description" content="Hexo配置文件的设置确保你的Hexo的配置文件_config.yml里面有个这个选项配置，并将其置为true post_asset_folder: true  这个功能实际上是Hexo官方文档中提到的资源文件夹功能，它的作用在于当你使用 hexo new &amp;quot;hexo中完美插入本地图片&amp;quot;  生成一篇新文章时，会在 \source \_posts 目录下生成一个 hexo中完美插">
+<meta property="og:description" content="Hexo配置文件的设置确保你的Hexo的配置文件_config.yml里面有个这个选项配置，并将其置为true 1post_asset_folder: true 这个功能实际上是Hexo官方文档中提到的资源文件夹功能，它的作用在于当你使用 1hexo new &quot;hexo中完美插入本地图片&quot; 生成一篇新文章时，会在 \source \_posts 目录下生成一个 hexo中完美插入本地图片(文章名)">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://iotts.top/2018/01/07/hexo中完美插入本地图片/2018-01-07%2016-39-28屏幕截图.png">
 <meta property="og:updated_time" content="2018-01-13T16:00:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo中完美插入本地图片">
-<meta name="twitter:description" content="Hexo配置文件的设置确保你的Hexo的配置文件_config.yml里面有个这个选项配置，并将其置为true post_asset_folder: true  这个功能实际上是Hexo官方文档中提到的资源文件夹功能，它的作用在于当你使用 hexo new &amp;quot;hexo中完美插入本地图片&amp;quot;  生成一篇新文章时，会在 \source \_posts 目录下生成一个 hexo中完美插">
+<meta name="twitter:description" content="Hexo配置文件的设置确保你的Hexo的配置文件_config.yml里面有个这个选项配置，并将其置为true 1post_asset_folder: true 这个功能实际上是Hexo官方文档中提到的资源文件夹功能，它的作用在于当你使用 1hexo new &quot;hexo中完美插入本地图片&quot; 生成一篇新文章时，会在 \source \_posts 目录下生成一个 hexo中完美插入本地图片(文章名)">
 <meta name="twitter:image" content="http://iotts.top/2018/01/07/hexo中完美插入本地图片/2018-01-07%2016-39-28屏幕截图.png">
   <link rel="canonical" href="http://iotts.top/2018/01/07/hexo中完美插入本地图片/">
 
@@ -311,21 +311,13 @@
 
       
         <h1 id="Hexo配置文件的设置"><a href="#Hexo配置文件的设置" class="headerlink" title="Hexo配置文件的设置"></a>Hexo配置文件的设置</h1><p>确保你的Hexo的配置文件<strong>_config.yml</strong>里面有个这个选项配置，并将其置为true</p>
-<pre><code class="lang-bash">post_asset_folder: true
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>这个功能实际上是Hexo官方文档中提到的资源文件夹功能，它的作用在于当你使用</p>
-<pre><code class="lang-bash">hexo new &quot;hexo中完美插入本地图片&quot;
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"hexo中完美插入本地图片"</span></span><br></pre></td></tr></table></figure>
 <p>生成一篇新文章时，会在 <strong>\source \_posts</strong> 目录下生成一个 hexo中完美插入本地图片(文章名).md 文件外，附带生成一个与 文章名 同名的文件夹，可以用它来存放这篇文章的所有资源，比如图片，附件等</p>
-<h1 id="安装hexo-asset-image插件"><a href="#安装hexo-asset-image插件" class="headerlink" title="安装hexo-asset-image插件"></a>安装hexo-asset-image插件</h1><p>需要安装一个图片路径转换的插件， 进入博客  /根目录 使用如下命令安装插件</p>
-<pre><code class="lang-bash">npm install https://github.com/CodeFalling/hexo-asset-image --save
-</code></pre>
-<p>插件安装完以后，会生成</p>
-<pre><code class="lang-bash">\blog\node_modules\hexo-asset-image
-</code></pre>
-<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>首先要把需要插入的图片放到<strong>“hexo中完美插入本地图片”</strong>这个资源文件夹下，然后进行路径引用，这是上面插入图片时的实际引用代码</p>
-<pre><code class="lang-bash">![2018-01-07 16-39-28屏幕截图.png](2018-01-07 16-39-28屏幕截图.png)
-</code></pre>
+<h1 id="安装hexo-asset-image插件"><a href="#安装hexo-asset-image插件" class="headerlink" title="安装hexo-asset-image插件"></a>安装hexo-asset-image插件</h1><p>需要安装一个图片路径转换的插件， 进入博客  /根目录 使用如下命令安装插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure></p>
+<p>插件安装完以后，会生成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\blog\node_modules\hexo-asset-image</span><br></pre></td></tr></table></figure></p>
+<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>首先要把需要插入的图片放到<strong>“hexo中完美插入本地图片”</strong>这个资源文件夹下，然后进行路径引用，这是上面插入图片时的实际引用代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![2018-01-07 16-39-28屏幕截图.png](2018-01-07 16-39-28屏幕截图.png)</span><br></pre></td></tr></table></figure></p>
 <p>实际效果<br>  <img src="2018-01-07 16-39-28屏幕截图.png" alt="2018-01-07 16-39-28屏幕截图.png"></p>
 
     </div>

@@ -364,30 +364,18 @@
 <li>superuser rights (configured sudo or root access).</li>
 </ul>
 <p>(2) 开始编译<br>这里要注意的是网络得通畅，编译过程中会下载一下工具和源码包，一般编译下来没什么问题。我们先编译内核再编译整个系统，编译时使用root用户或者sudo</p>
-<p>Execution</p>
-<pre><code>apt-get -y install git
-git clone https://github.com/armbian/build
-cd build
-./compile.sh
-</code></pre><p>Make sure that full path to the build script does not contain spaces.<br>检查所有路径不包含空格<br>You will be prompted with a selection menu for a build option, a board name, a kernel branch and an OS release. Please check the documentation for advanced options and additional customization.<br>编译过程中会有编译选项选择，板子的名称，内核和系统版本。请查看高级选项和额外定制的文档。<br>Build process uses caching for the compilation and the debootstrap process, so consecutive runs with similar settings will be much faster.</p>
+<p>Execution<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install git</span><br><span class="line">git clone https://github.com/armbian/build</span><br><span class="line">cd build</span><br><span class="line">./compile.sh</span><br></pre></td></tr></table></figure></p>
+<p>Make sure that full path to the build script does not contain spaces.<br>检查所有路径不包含空格<br>You will be prompted with a selection menu for a build option, a board name, a kernel branch and an OS release. Please check the documentation for advanced options and additional customization.<br>编译过程中会有编译选项选择，板子的名称，内核和系统版本。请查看高级选项和额外定制的文档。<br>Build process uses caching for the compilation and the debootstrap process, so consecutive runs with similar settings will be much faster.</p>
 <p><strong>具体步骤：</strong></p>
 <p>(1)首先安装git,Ctrl+Alt+T打开终端输入下面的命令</p>
-<pre><code class="lang-bash">apt-get -y install git
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install git</span><br></pre></td></tr></table></figure>
 <p> 检查git版本</p>
-<pre><code class="lang-bash">git --version
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
 <p><img src="2018-01-20 21-40-09屏幕截图.png" alt="2018-01-20 21-40-09屏幕截图"></p>
 <p>(2)下载源码，在终端中输入下面的命令</p>
-<p>源码可以放在自己习惯的文件夹下，下面是我的</p>
-<pre><code class="lang-bash">cd /home/iotts/
-mkdir armbian
-git clone https://github.com/armbian/build
-</code></pre>
+<p>源码可以放在自己习惯的文件夹下，下面是我的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/iotts/</span><br><span class="line">mkdir armbian</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/armbian/build</span><br></pre></td></tr></table></figure></p>
 <p>(3)开始编译，在终端中输入下面的命令</p>
-<pre><code class="lang-bash">cd build
-./compile.sh
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">./compile.sh</span><br></pre></td></tr></table></figure>
 <p><img src="2018-01-20 21-31-30屏幕截图.png" alt="2018-01-20 21-31-30屏幕截图"></p>
 <p> <img src="2018-01-20 21-32-37屏幕截图.png" alt="2018-01-20 21-32-37屏幕截图"></p>
 <p> 安装编译工具完成后会进入配置编译配置界面<img src="2018-01-20 21-51-53屏幕截图.png" alt="2018-01-20 21-51-53屏幕截图"></p>

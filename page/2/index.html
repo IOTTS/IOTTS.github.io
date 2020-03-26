@@ -811,17 +811,10 @@
 
       
           <p>新建一篇文章</p>
-<pre><code>hexo new &quot;Hexo教程&quot;
-</code></pre><p>通过vim编辑器或者其他编辑器打开：添加tags和categories</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;Hexo教程&quot;</span><br></pre></td></tr></table></figure>
+<p>通过vim编辑器或者其他编辑器打开：添加tags和categories</p>
 <p>修改如下：</p>
-<pre><code>title: title #文章标题
-date: 2016-06-01 23:47:44 #文章生成时间
-categories: &quot;Hexo教程&quot; #文章分类目录 可以省略
-tags: #文章标签 可以省略
-     - 标签1
-     - 标签2
- description: #对本页的描述 可以省略
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: title #文章标题</span><br><span class="line">date: 2016-06-01 23:47:44 #文章生成时间</span><br><span class="line">categories: &quot;Hexo教程&quot; #文章分类目录 可以省略</span><br><span class="line">tags: #文章标签 可以省略</span><br><span class="line">     - 标签1</span><br><span class="line">     - 标签2</span><br><span class="line"> description: #对本页的描述 可以省略</span><br></pre></td></tr></table></figure>
         
       
     </div>
@@ -915,10 +908,9 @@ tags: #文章标签 可以省略
 
       
           <p>新建一篇博客，在cmd执行命令：</p>
-<pre><code>hexo new post “博客名”
-</code></pre><p>这时候在文件夹_posts目录下将会看到已经创建的文件<br>使用编辑器编好文章，那么就可以使用命令：</p>
-<pre><code>hexo d -g
-</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post “博客名”</span><br></pre></td></tr></table></figure>
+<p>这时候在文件夹_posts目录下将会看到已经创建的文件<br>使用编辑器编好文章，那么就可以使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
+
         
       
     </div>
@@ -1117,16 +1109,8 @@ tags: #文章标签 可以省略
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="netstat命令各个参数说明如下："><a href="#netstat命令各个参数说明如下：" class="headerlink" title="netstat命令各个参数说明如下："></a>netstat命令各个参数说明如下：</h2><pre><code>　　-t : 指明显示TCP端口
-
-　　-u : 指明显示UDP端口
-
-　　-l : 仅显示监听套接字(所谓套接字就是使应用程序能够读写与收发通讯协议(protocol)与资料的程序)
-
-　　-p : 显示进程标识符和程序名称，每一个套接字/端口都属于一个程序。
-
-　　-n : 不进行DNS轮询，显示IP(可以加速操作)
-</code></pre><p><strong>即可显示当前服务器上所有端口及进程服务，于grep结合可查看某个具体端口及服务情况··</strong></p>
+          <h2 id="netstat命令各个参数说明如下："><a href="#netstat命令各个参数说明如下：" class="headerlink" title="netstat命令各个参数说明如下："></a>netstat命令各个参数说明如下：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">　　-t : 指明显示TCP端口</span><br><span class="line"></span><br><span class="line">　　-u : 指明显示UDP端口</span><br><span class="line"></span><br><span class="line">　　-l : 仅显示监听套接字(所谓套接字就是使应用程序能够读写与收发通讯协议(protocol)与资料的程序)</span><br><span class="line"></span><br><span class="line">　　-p : 显示进程标识符和程序名称，每一个套接字/端口都属于一个程序。</span><br><span class="line"></span><br><span class="line">　　-n : 不进行DNS轮询，显示IP(可以加速操作)</span><br></pre></td></tr></table></figure>
+<p><strong>即可显示当前服务器上所有端口及进程服务，于grep结合可查看某个具体端口及服务情况··</strong></p>
 <p><strong>netstat -ntlp   //查看当前所有tcp端口·</strong></p>
 <p><strong>netstat -ntulp |grep 80   //查看所有80端口使用情况·</strong></p>
 <p><strong>netstat -an | grep 3306   //查看所有3306端口使用情况·</strong></p>
@@ -1138,15 +1122,8 @@ tags: #文章标签 可以省略
 <p><strong>netstat -pnt |grep :3306 |wc</strong></p>
 <p><strong>查看某一端口的连接客户端IP 比如3306端口</strong></p>
 <p><strong>netstat -anp |grep 3306</strong></p>
-<pre><code>netstat -an 查看网络端口 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">netstat -an 查看网络端口 </span><br><span class="line"></span><br><span class="line">lsof -i :port，使用lsof -i :port就能看见所指定端口运行的程序，同时还有当前连接。 </span><br><span class="line"></span><br><span class="line">nmap 端口扫描</span><br><span class="line">netstat -nupl  (UDP类型的端口)</span><br><span class="line">netstat -ntpl  (TCP类型的端口)</span><br><span class="line">netstat -anp 显示系统端口使用情况</span><br></pre></td></tr></table></figure>
 
-lsof -i :port，使用lsof -i :port就能看见所指定端口运行的程序，同时还有当前连接。 
-
-nmap 端口扫描
-netstat -nupl  (UDP类型的端口)
-netstat -ntpl  (TCP类型的端口)
-netstat -anp 显示系统端口使用情况
-</code></pre>
         
       
     </div>

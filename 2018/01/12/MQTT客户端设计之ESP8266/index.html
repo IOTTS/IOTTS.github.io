@@ -352,38 +352,7 @@
 <p>mqtt_config.h</p>
 <p>其中user_main.c不用说了，玩过ESP8266的朋友都知道这是放主代码的地方，其中<strong>user_init</strong>函数是SDK提供开发者放置初始化代码的地方。下面主要分析mqtt_config.h。</p>
 <p><code>mqtt_config.h</code>代码清单</p>
-<pre><code class="lang-bash">#ifndef __MQTT_CONFIG_H__
-#define __MQTT_CONFIG_H__
-
-#define CFG_HOLDER  0x00FF55A4  /* Change this value to load default configurations */
-#define CFG_LOCATION    0x79    /* Please don&#39;t change or if you know what you doing */
-#define MQTT_SSL_ENABLE
-
-/*DEFAULT CONFIGURATIONS*/
-
-#define MQTT_HOST           &quot;192.168.1.100&quot; //or &quot;mqtt.yourdomain.com&quot;
-#define MQTT_PORT           1883
-#define MQTT_BUF_SIZE       1024
-#define MQTT_KEEPALIVE      120  /*second*/
-
-#define MQTT_CLIENT_ID      &quot;DVES_%08X&quot;
-#define MQTT_USER           &quot;DVES_USER&quot;
-#define MQTT_PASS           &quot;DVES_PASS&quot;
-
-#define STA_SSID &quot;DVES_HOME&quot;
-#define STA_PASS &quot;yourpassword&quot;
-#define STA_TYPE AUTH_WPA2_PSK
-
-#define MQTT_RECONNECT_TIMEOUT  5   /*second*/
-
-#define DEFAULT_SECURITY    0
-#define QUEUE_BUFFER_SIZE               2048
-
-#define PROTOCOL_NAMEv31    /*MQTT version 3.1 compatible with Mosquitto v0.15*/
-//PROTOCOL_NAMEv311         /*MQTT version 3.11 compatible with https://eclipse.org/paho/clients/testing/*/
-
-#endif // __MQTT_CONFIG_H__
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#ifndef __MQTT_CONFIG_H__</span></span><br><span class="line"><span class="comment">#define __MQTT_CONFIG_H__</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define CFG_HOLDER  0x00FF55A4  /* Change this value to load default configurations */</span></span><br><span class="line"><span class="comment">#define CFG_LOCATION    0x79    /* Please don't change or if you know what you doing */</span></span><br><span class="line"><span class="comment">#define MQTT_SSL_ENABLE</span></span><br><span class="line"></span><br><span class="line">/*DEFAULT CONFIGURATIONS*/</span><br><span class="line"></span><br><span class="line"><span class="comment">#define MQTT_HOST           "192.168.1.100" //or "mqtt.yourdomain.com"</span></span><br><span class="line"><span class="comment">#define MQTT_PORT           1883</span></span><br><span class="line"><span class="comment">#define MQTT_BUF_SIZE       1024</span></span><br><span class="line"><span class="comment">#define MQTT_KEEPALIVE      120  /*second*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define MQTT_CLIENT_ID      "DVES_%08X"</span></span><br><span class="line"><span class="comment">#define MQTT_USER           "DVES_USER"</span></span><br><span class="line"><span class="comment">#define MQTT_PASS           "DVES_PASS"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define STA_SSID "DVES_HOME"</span></span><br><span class="line"><span class="comment">#define STA_PASS "yourpassword"</span></span><br><span class="line"><span class="comment">#define STA_TYPE AUTH_WPA2_PSK</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define MQTT_RECONNECT_TIMEOUT  5   /*second*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define DEFAULT_SECURITY    0</span></span><br><span class="line"><span class="comment">#define QUEUE_BUFFER_SIZE               2048</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define PROTOCOL_NAMEv31    /*MQTT version 3.1 compatible with Mosquitto v0.15*/</span></span><br><span class="line">//PROTOCOL_NAMEv311         /*MQTT version 3.11 compatible with https://eclipse.org/paho/clients/testing/*/</span><br><span class="line"></span><br><span class="line"><span class="comment">#endif // __MQTT_CONFIG_H__</span></span><br></pre></td></tr></table></figure>
 <p>在这个文件中，有几个宏定义可能需要修改的</p>
 <ul>
 <li>MQTT_HOST，MQTT服务器地址</li>
@@ -414,36 +383,7 @@
 <p><img src="20161202104437633.png" alt="img"></p>
 <p>下载配置</p>
 <p>提醒：blank.bin和default.bin烧写一次就行，另外也要留意不同的Flash大小，blank.bin和default.bin烧写地址也不同。</p>
-<h2 id="上电测试"><a href="#上电测试" class="headerlink" title="上电测试"></a>上电测试</h2><p>如果前面一切顺利，打开串口，设置波特率为<strong>115200</strong>，上电后前面的乱码不用管，之后串口打印信息如下，省略了一部分信息：</p>
-<pre><code class="lang-bash">&gt; load ...
-&gt; default configuration
-&gt; MQTT_InitConnection
-&gt; MQTT_InitClient
-
-WIFI_INIT
-
-&gt; ……（省略）
-
-&gt; connected with **[你的WiFi名]**, channel 6
-&gt; dhcp client start...
-&gt; STATION_IDLE
-&gt; STATION_IDLE
-&gt; ip:**[WiFi分配给ESP8266的IP]**,mask:255.255.255.0,gw:**[WiFi网关IP]**
-&gt; TCP: Connect to ip **[MQTT服务器IP:PORT]**
-&gt; MQTT: Connected to broker **[MQTT服务器IP:PORT]**
-&gt; MQTT: Sending, type: 1, id: 0000
-&gt; TCP: Sent
-&gt; TCP: data received 4 bytes
-&gt; MQTT: Connected to **[MQTT服务器IP:PORT]**
-&gt; MQTT: Connected
-&gt; MQTT: queue subscribe, topic&quot;/mqtt/topic/0&quot;, id: 1
-&gt; MQTT: queue subscribe, topic&quot;/mqtt/topic/1&quot;, id: 2
-&gt; MQTT: queue subscribe, topic&quot;/mqtt/topic/2&quot;, id: 3
-&gt; MQTT: queuing publish, length: 23, queue size(66/2048)
-&gt; MQTT: queuing publish, length: 25, queue size(91/2048)
-&gt; MQTT: queuing publish, length: 25, queue size(118/2048)
-&gt; ……
-</code></pre>
+<h2 id="上电测试"><a href="#上电测试" class="headerlink" title="上电测试"></a>上电测试</h2><p>如果前面一切顺利，打开串口，设置波特率为<strong>115200</strong>，上电后前面的乱码不用管，之后串口打印信息如下，省略了一部分信息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt; load ...</span><br><span class="line">&gt; default configuration</span><br><span class="line">&gt; MQTT_InitConnection</span><br><span class="line">&gt; MQTT_InitClient</span><br><span class="line"></span><br><span class="line">WIFI_INIT</span><br><span class="line"></span><br><span class="line">&gt; ……（省略）</span><br><span class="line"></span><br><span class="line">&gt; connected with **[你的WiFi名]**, channel 6</span><br><span class="line">&gt; dhcp client start...</span><br><span class="line">&gt; STATION_IDLE</span><br><span class="line">&gt; STATION_IDLE</span><br><span class="line">&gt; ip:**[WiFi分配给ESP8266的IP]**,mask:255.255.255.0,gw:**[WiFi网关IP]**</span><br><span class="line">&gt; TCP: Connect to ip **[MQTT服务器IP:PORT]**</span><br><span class="line">&gt; MQTT: Connected to broker **[MQTT服务器IP:PORT]**</span><br><span class="line">&gt; MQTT: Sending, <span class="built_in">type</span>: 1, id: 0000</span><br><span class="line">&gt; TCP: Sent</span><br><span class="line">&gt; TCP: data received 4 bytes</span><br><span class="line">&gt; MQTT: Connected to **[MQTT服务器IP:PORT]**</span><br><span class="line">&gt; MQTT: Connected</span><br><span class="line">&gt; MQTT: queue subscribe, topic<span class="string">"/mqtt/topic/0"</span>, id: 1</span><br><span class="line">&gt; MQTT: queue subscribe, topic<span class="string">"/mqtt/topic/1"</span>, id: 2</span><br><span class="line">&gt; MQTT: queue subscribe, topic<span class="string">"/mqtt/topic/2"</span>, id: 3</span><br><span class="line">&gt; MQTT: queuing publish, length: 23, queue size(66/2048)</span><br><span class="line">&gt; MQTT: queuing publish, length: 25, queue size(91/2048)</span><br><span class="line">&gt; MQTT: queuing publish, length: 25, queue size(118/2048)</span><br><span class="line">&gt; ……</span><br></pre></td></tr></table></figure></p>
 <p>其中加粗带方括号的字段根据测试环境不同而不同。</p>
 <p>同时看源码和串口信息可知，ESP8266向MQTT服务器订阅了三个主题，假设使用的是本地搭建的MQTT服务器，那么查看MQTT服务器后台就可以看到：</p>
 <p><img src="20161120150133169.png" alt="img"></p>
@@ -453,8 +393,7 @@ WIFI_INIT
 <p>ESP8266后台链接</p>
 <p>MQTT本地服务器搭建教程Windows版链接在后面。</p>
 <p>另外博主已经用ESP8266的MQTT连接上了OneNET云，连接该云需要<strong>注释掉</strong>下面这条语句，在<code>user_init</code>函数下。</p>
-<pre><code class="lang-bash">MQTT_InitLWT(&amp;mqttClient, &quot;/lwt&quot;, &quot;offline&quot;, 0, 0);
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MQTT_InitLWT(&amp;mqttClient, <span class="string">"/lwt"</span>, <span class="string">"offline"</span>, 0, 0);</span><br></pre></td></tr></table></figure>
 <p>原因是OneNET不支持，否则连接不上。</p>
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
 <li>【MQTT服务器】<ul>

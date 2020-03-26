@@ -785,9 +785,8 @@
           <p>前言：<br>实现MQTT服务器及客户端的方法有很多种，今天我们学习一下怎么使用nodejs实现mqtt协议，这里我们主要使用两个工具mosca和mqtt.js<br>首先需要了解一下mosca和mqtt.js的关系，下面这张图能清晰的解释如何通过mqtt协议进行交互通信</p>
 <p><img src="mqtt.png" alt="mqtt.png"></p>
 <h2 id="1-下载nodejs"><a href="#1-下载nodejs" class="headerlink" title="1.下载nodejs"></a>1.下载nodejs</h2><p>下载地址：<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a><br>根据需要下载合适的自己平台的软件<br>这里我下载的是windows的64位msi，下载好直接安装就行了，直接下一步直到完成。</p>
-<h2 id="2-安装mqtt-js模块"><a href="#2-安装mqtt-js模块" class="headerlink" title="2.安装mqtt.js模块"></a>2.安装mqtt.js模块</h2><p>这一步非常简单，在你心仪的那个文件夹下打开cmd窗口然后输入</p>
-<pre><code>npm install mqtt --save命令即可。
-</code></pre><p>安装好会出现如下图红圈内的文件夹及文件</p>
+<h2 id="2-安装mqtt-js模块"><a href="#2-安装mqtt-js模块" class="headerlink" title="2.安装mqtt.js模块"></a>2.安装mqtt.js模块</h2><p>这一步非常简单，在你心仪的那个文件夹下打开cmd窗口然后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mqtt --save命令即可。</span><br></pre></td></tr></table></figure></p>
+<p>安装好会出现如下图红圈内的文件夹及文件</p>
           <!--noindex-->
           
             <div class="post-button">
@@ -1183,25 +1182,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>以下代码对应的CRC模型请参照最后面的图片</p>
-<pre><code>uint8_t crc4_itu(uint8_t *data, uint_len length) 
-{ 
-    uint8_t i; 
-    uint8_t crc = 0;        // Initial value 
-    while(length--) 
-    { 
-        crc ^= *data++;     // crc ^= *data; data++; 
-        for (i = 0; i &lt; 8; ++i) 
-        { 
-            if (crc &amp; 1) 
-                crc = (crc &gt;&gt; 1) ^ 0x0C;// 0x0C = (reverse 0x03)&gt;&gt;(8-4) 
-            else 
-                crc = (crc &gt;&gt; 1); 
-        } 
-    } 
-    return crc; 
-}
-</code></pre>
+          <p>以下代码对应的CRC模型请参照最后面的图片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">uint8_t crc4_itu(uint8_t *data, uint_len length) </span><br><span class="line">&#123; </span><br><span class="line">    uint8_t i; </span><br><span class="line">    uint8_t crc = 0;        // Initial value </span><br><span class="line">    while(length--) </span><br><span class="line">    &#123; </span><br><span class="line">        crc ^= *data++;     // crc ^= *data; data++; </span><br><span class="line">        for (i = 0; i &lt; 8; ++i) </span><br><span class="line">        &#123; </span><br><span class="line">            if (crc &amp; 1) </span><br><span class="line">                crc = (crc &gt;&gt; 1) ^ 0x0C;// 0x0C = (reverse 0x03)&gt;&gt;(8-4) </span><br><span class="line">            else </span><br><span class="line">                crc = (crc &gt;&gt; 1); </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    return crc; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
             <div class="post-button">
