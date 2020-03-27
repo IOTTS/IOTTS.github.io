@@ -234,6 +234,112 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/05/13/linux命令之netstat/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/05/13/linux命令之netstat/" class="post-title-link" itemprop="url">linux命令之netstat</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-13 22:13:07 / 修改时间：22:15:56" itemprop="dateCreated datePublished" datetime="2018-05-13T22:13:07+08:00">2018-05-13</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="netstat命令各个参数说明如下："><a href="#netstat命令各个参数说明如下：" class="headerlink" title="netstat命令各个参数说明如下："></a>netstat命令各个参数说明如下：</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">　　-t : 指明显示<span class="type">TCP</span>端口</span><br><span class="line"></span><br><span class="line">　　-u : 指明显示<span class="type">UDP</span>端口</span><br><span class="line"></span><br><span class="line">　　-l : 仅显示监听套接字(所谓套接字就是使应用程序能够读写与收发通讯协议(<span class="type">protocol</span>)与资料的程序)</span><br><span class="line"></span><br><span class="line">　　-p : 显示进程标识符和程序名称，每一个套接字/端口都属于一个程序。</span><br><span class="line"></span><br><span class="line">　　-n : 不进行<span class="type">DNS</span>轮询，显示IP(可以加速操作)</span><br></pre></td></tr></table></figure>
+<p><strong>即可显示当前服务器上所有端口及进程服务，于grep结合可查看某个具体端口及服务情况··</strong></p>
+<p><strong>netstat -ntlp   //查看当前所有tcp端口·</strong></p>
+<p><strong>netstat -ntulp |grep 80   //查看所有80端口使用情况·</strong></p>
+<p><strong>netstat -an | grep 3306   //查看所有3306端口使用情况·</strong></p>
+<p><strong>查看一台服务器上面哪些服务及端口</strong></p>
+<p><strong>netstat  -lanp</strong></p>
+<p><strong>查看一个服务有几个端口。比如要查看mysqld</strong></p>
+<p><strong>ps -ef |grep mysqld</strong></p>
+<p><strong>查看某一端口的连接数量,比如3306端口</strong></p>
+<p><strong>netstat -pnt |grep :3306 |wc</strong></p>
+<p><strong>查看某一端口的连接客户端IP 比如3306端口</strong></p>
+<p><strong>netstat -anp |grep 3306</strong></p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">netstat</span> -an 查看网络端口 </span><br><span class="line"></span><br><span class="line"><span class="title">lsof</span> -i :<span class="keyword">port</span>，使用lsof -i :<span class="keyword">port</span>就能看见所指定端口运行的程序，同时还有当前连接。 </span><br><span class="line"></span><br><span class="line">nmap 端口扫描</span><br><span class="line">netstat -nupl  (<span class="type">UDP</span>类型的端口)</span><br><span class="line">netstat -ntpl  (<span class="type">TCP</span>类型的端口)</span><br><span class="line">netstat -anp 显示系统端口使用情况</span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/05/13/Allegro修改shape网络/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1441,121 +1547,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/11/Ubuntu安装JDK1-8-0并配置环境变量/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/11/Ubuntu安装JDK1-8-0并配置环境变量/" class="post-title-link" itemprop="url">Ubuntu安装JDK1.8.0并配置环境变量</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-11 23:00:20" itemprop="dateCreated datePublished" datetime="2018-01-11T23:00:20+08:00">2018-01-11</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-15 00:05:16" itemprop="dateModified" datetime="2018-01-15T00:05:16+08:00">2018-01-15</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/java环境变量配置/" itemprop="url" rel="index"><span itemprop="name">java环境变量配置</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>虚拟机 Ubuntu 16.04.3 LTS</p>
-<h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2><p>通过终端在<code>/usr/local</code>目录下新建<code>java</code>文件夹，命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure></p>
-<p>然后进入java目录，命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure></p>
-<p>到官网下载jdk：<br><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
-<p>注意操作系统位数的选择，我的Ubuntu系统为32位的所以直接输入下面命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>解压源码包</p>
-<p>解压压缩包，命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar xvf jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>然后可以把压缩包删除，命令行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure>
-<h2 id="设置JDK环境变量"><a href="#设置JDK环境变量" class="headerlink" title="设置JDK环境变量"></a>设置JDK环境变量</h2><p>这里采用全局设置方法，它是是所有用户的共用的环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> gedit ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<p>命令行下可以输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<p>在.bashrc文件末尾输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_151  </span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre  </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib  </span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
-<p>$\color{red}{注意：}$在添加环境变量时中，等号两侧不要加入空格，不然会出现“不是有效的标识符”，因为<code>source /etc/profile</code> 时不能识别多余到空格，会理解为是路径一部分。然后保存。<br>命令行下输入以下命令生效<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<h2 id="检验是否安装成功"><a href="#检验是否安装成功" class="headerlink" title="检验是否安装成功"></a>检验是否安装成功</h2><p>重启终端，然后在终端输入如下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></p>
-<p>看看是否安装成功，成功则显示如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iotts@jacklu:~$ java -version</span><br><span class="line">java version <span class="string">"1.8.0_151"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) Client VM (build 25.151-b12, mixed mode)</span><br><span class="line">iotts@jacklu:~$</span><br></pre></td></tr></table></figure></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1609,7 +1600,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1622,7 +1613,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1635,7 +1626,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

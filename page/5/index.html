@@ -234,6 +234,113 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/简单实用的双向电平转换电路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/08/简单实用的双向电平转换电路/" class="post-title-link" itemprop="url">简单实用的双向电平转换电路</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-17 21:21:06" itemprop="dateModified" datetime="2018-01-17T21:21:06+08:00">2018-01-17</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/电平转换电路/" itemprop="url" rel="index"><span itemprop="name">电平转换电路</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>当你使用3.3V的单片机的时候，电平转换就在所难免了，经常会遇到3.3转5V或者5V转3.3V的情况，这里介绍一个简单的电路，他可以实现两个电平的相互转换(注意是相互哦，双向的，不是单向的!).电路十分简单，仅由3个电阻加一个MOS管构成。</p>
+<p>　　电路图如下:<br> <img src="1.png" alt="1"></p>
+<p>上图中，S1，S2为两个信号端，VCC_S1和VCC_S2为这两个信号的高电平电压.另外限制条件为:<br>　　1，VCC_S1&lt;=VCC_S2.<br>　　2，S1的低电平门限大于0.7V左右(视NMOS内的二极管压降而定).<br>　　3，Vgs&lt;=VCC_S1.<br>　　4，Vds&lt;=VCC_S2<br>　　对于3.3V和5V/12V等电路的相互转换，NMOS管选择AP2306即可.原理比较简单，大家自行分析吧!此电路我已在多处应用，效果很好.</p>
+<p> <img src="2.png" alt="2"></p>
+<p>I2C<br>　　类似这种吧，只是不知道这种电路的速率能达到多少<br>　　电平转换器的操作<br>　　在电平转换器的操作中要考虑下面的三种状态：<br>　　1 没有器件下拉总线线路。“低电压”部分的总线线路通过上拉电阻Rp 上拉至3.3V。 MOS-FET 管的门极和源极都是3.3V， 所以它的VGS 低于阀值电压，MOS-FET 管不导通。这就允许“高电压”部分的总线线路通过它的上拉电阻Rp 拉到5V。 此时两部分的总线线路都是高电平，只是电压电平不同。<br>　　2 一个3.3V器件下拉总线线路到低电平。MOS-FET管的源极也变成低电平，而门极是3.3V。VGS上升高于阀值，MOS-FET管开始导通。然后“高电压”部分的总线线路通过导通的MOS-FET管被3.3V器件下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　3 一个5V的器件下拉总线线路到低电平。MOS-FET管的漏极基底二极管“低电压”部分被下拉直到VGS超过阀值，MOS-FET管开始导通。“低电压”部分的总线线路通过导通的MOS-FET管被5V的器件进一步下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　这三种状态显示了逻辑电平在总线系统的两个方向上传输，与驱动的部分无关。状态1执行了电平转换功能。状态2和3按照I2C总线规范的要求在两部分的总线线路之间实现“线与”的功能。<br>　　除了3.3V VDD1和5V VDD2的电源电压外，还可以是例如：2V VDD1和10V VDD2。在正常操作中，VDD2必须等于或高于VDD1(在开关电源时允许VDD2低于VDD1)。<br>　　MOS-N场效应管双向电平转换电路—适用于低频信号电平转换的简单应用</p>
+<p> <img src="3.png" alt="3"></p>
+<p>如上图所示，是MOS-N场效应管双向电平转换电路。<br>　　双向传输原理：<br>　　为了方便讲述，定义 3.3V 为 A 端，5.0V 为 B 端。<br>　　A端输出低电平时(0V)，MOS管导通，B端输出是低电平(0V)<br>　　A端输出高电平时(3.3V)，MOS管截至，B端输出是高电平(5V)<br>　　A端输出高阻时(OC) ，MOS管截至，B端输出是高电平(5V)<br>　　B端输出低电平时(0V)，MOS管内的二极管导通，从而使MOS管导通，A端输出是低电平(0V)<br>　　B端输出高电平时(5V)，MOS管截至，A端输出是高电平(3.3V)<br>　　B端输出高阻时(OC) ，MOS管截至，A端输出是高电平(3.3V)<br>　　优点：<br>　　1、适用于低频信号电平转换，价格低廉。<br>　　2、导通后，压降比三极管小。<br>　　3、正反向双向导通，相当于机械开关。<br>　　4、电压型驱动，当然也需要一定的驱动电流，而且有的应用也许比三极管大。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1603,115 +1710,6 @@ _   底线
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/06/STM32F103x教程之按键操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/06/STM32F103x教程之按键操作/" class="post-title-link" itemprop="url">STM32F103x教程之按键操作</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-06 19:58:51" itemprop="dateCreated datePublished" datetime="2018-01-06T19:58:51+08:00">2018-01-06</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-07 14:27:56" itemprop="dateModified" datetime="2018-01-07T14:27:56+08:00">2018-01-07</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/STM32相关/" itemprop="url" rel="index"><span itemprop="name">STM32相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/STM32相关/STM32F1教程/" itemprop="url" rel="index"><span itemprop="name">STM32F1教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          按键基本操作
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/01/06/STM32F103x教程之按键操作/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1765,7 +1763,7 @@ _   底线
         
           <a href="/archives">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1778,7 +1776,7 @@ _   底线
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1791,7 +1789,7 @@ _   底线
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1954,9 +1952,9 @@ _   底线
   
     
       
-        
-      
     
+      
+        
       
     
       
