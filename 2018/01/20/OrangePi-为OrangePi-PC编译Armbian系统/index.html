@@ -364,7 +364,7 @@
 <li>superuser rights (configured sudo or root access).</li>
 </ul>
 <p>(2) 开始编译<br>这里要注意的是网络得通畅，编译过程中会下载一下工具和源码包，一般编译下来没什么问题。我们先编译内核再编译整个系统，编译时使用root用户或者sudo</p>
-<p>Execution<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install git</span><br><span class="line">git clone https://github.com/armbian/build</span><br><span class="line">cd build</span><br><span class="line">./compile.sh</span><br></pre></td></tr></table></figure></p>
+<p>Execution<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="built_in">get</span> -<span class="keyword">y</span> install git</span><br><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/armbian/build</span><br><span class="line"><span class="keyword">cd</span> build</span><br><span class="line">./compile.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure></p>
 <p>Make sure that full path to the build script does not contain spaces.<br>检查所有路径不包含空格<br>You will be prompted with a selection menu for a build option, a board name, a kernel branch and an OS release. Please check the documentation for advanced options and additional customization.<br>编译过程中会有编译选项选择，板子的名称，内核和系统版本。请查看高级选项和额外定制的文档。<br>Build process uses caching for the compilation and the debootstrap process, so consecutive runs with similar settings will be much faster.</p>
 <p><strong>具体步骤：</strong></p>
 <p>(1)首先安装git,Ctrl+Alt+T打开终端输入下面的命令</p>
@@ -497,7 +497,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

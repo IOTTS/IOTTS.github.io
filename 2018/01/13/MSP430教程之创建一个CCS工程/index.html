@@ -337,7 +337,7 @@
 </ul>
 <h2 id="开始编写自己的程序"><a href="#开始编写自己的程序" class="headerlink" title="开始编写自己的程序"></a>开始编写自己的程序</h2><p>上面我们创建好了MSP430的工程，具体如下：<br> <img src="TIM截图20180113194545.png" alt="fig3"><br>创建工程后系统已经添加好了msp430的头文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;msp430.h&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>当然也可以自己根据具体型号添加头文件，我用的是MSP430FR2433,所以我们可以改成<code>#include &lt;msp430fr2433.h&gt;</code>这个头文件包含了 MSP430FR2433 的寄存器定义和内置函数。<br>main函数部分，以下是闪灯的程序，也是CCS自带的示例代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int main(void) &#123;</span><br><span class="line">    WDTCTL = WDTPW | WDTHOLD;	    // Stop watchdog timer</span><br><span class="line">    PM5CTL0 &amp;= ~LOCKLPM5;           // Disable the GPIO power-on default high-impedance mode</span><br><span class="line">    P1DIR |= BIT0;					// Set P1.0 to output direction</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(;;) &#123;</span><br><span class="line">		volatile unsigned int i;	// volatile to prevent optimization</span><br><span class="line"></span><br><span class="line">		P1OUT ^= 0x01;				// Toggle P1.0 using exclusive-OR</span><br><span class="line"></span><br><span class="line">		i = 10000;					// SW Delay</span><br><span class="line">		<span class="keyword">do</span> i--;</span><br><span class="line">		<span class="keyword">while</span>(i != 0);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P1DIR |= BIT0;</span><br></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P1DIR <span class="string">|= BIT0;</span></span><br></pre></td></tr></table></figure>
 <p>这一行中,我们将 P1.0 引脚设置为输出(P1.0 与开发板上 Led1 相连)。在 MSP430 中,P1DIR 是一个控制 Port1 引脚方 向的八位寄存器。如果你把某一位配置为 0,则它作输入用,反之 是输出。BIT0 是一个系统定义的常量,即 0x0001（详见<code>&lt;msp430fr2433.h&gt;</code>）。</p>
 <p>如果一切顺利的话,现在我们可以把我们的程序下载到单片机运行了。</p>
 <h2 id="将程序下载到单片机"><a href="#将程序下载到单片机" class="headerlink" title="将程序下载到单片机"></a>将程序下载到单片机</h2><p> <img src="TIM截图20180113203355.png" alt="TIM截图20180113203355">编译按钮</p>
@@ -453,7 +453,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

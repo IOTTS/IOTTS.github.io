@@ -234,6 +234,114 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/05/13/Allegro修改shape网络/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/05/13/Allegro修改shape网络/" class="post-title-link" itemprop="url">Allegro修改shape网络</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-13 22:06:17 / 修改时间：22:10:12" itemprop="dateCreated datePublished" datetime="2018-05-13T22:06:17+08:00">2018-05-13</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PCB相关/" itemprop="url" rel="index"><span itemprop="name">PCB相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PCB相关/Cadence/" itemprop="url" rel="index"><span itemprop="name">Cadence</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PCB相关/Cadence/Allegro小技巧/" itemprop="url" rel="index"><span itemprop="name">Allegro小技巧</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          AD画原理图库时将一个元件拆分为多部分#对本页的描述 可以省略
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2018/05/13/Allegro修改shape网络/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/04/17/AD画原理图库时将一个元件拆分为多部分/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -452,7 +560,7 @@
 <li>superuser rights (configured sudo or root access).</li>
 </ul>
 <p>(2) 开始编译<br>这里要注意的是网络得通畅，编译过程中会下载一下工具和源码包，一般编译下来没什么问题。我们先编译内核再编译整个系统，编译时使用root用户或者sudo</p>
-<p>Execution<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install git</span><br><span class="line">git clone https://github.com/armbian/build</span><br><span class="line">cd build</span><br><span class="line">./compile.sh</span><br></pre></td></tr></table></figure></p>
+<p>Execution<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="built_in">get</span> -<span class="keyword">y</span> install git</span><br><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/armbian/build</span><br><span class="line"><span class="keyword">cd</span> build</span><br><span class="line">./compile.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure></p>
 <p>Make sure that full path to the build script does not contain spaces.<br>检查所有路径不包含空格<br>You will be prompted with a selection menu for a build option, a board name, a kernel branch and an OS release. Please check the documentation for advanced options and additional customization.<br>编译过程中会有编译选项选择，板子的名称，内核和系统版本。请查看高级选项和额外定制的文档。<br>Build process uses caching for the compilation and the debootstrap process, so consecutive runs with similar settings will be much faster.</p>
 <p><strong>具体步骤：</strong></p>
 <p>(1)首先安装git,Ctrl+Alt+T打开终端输入下面的命令</p>
@@ -590,16 +698,16 @@
 <p>以上规定说明了RS-232C标准对逻辑电平的定义。对于数据（信息码）：逻辑“1”（传号）的电平低于-3V，逻辑“0”（空号）的电平高于+3V；对于控制信号；接通状态（ON）即信号有效的电平高于+3V，断开状态（OFF）即信号无效的电平低于-3V，也就是当传输电平的绝对值大于3V时，电路可以有效地检查出来，介于-3～+3V之间的电压无意义，低于-15V或高于+15V的电压也认为无意义，因此，实际工作时，应保证电平在-3V～-15V或+3V～+15V之间。</p>
 <h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>连接器：由于RS-232C并未定义连接器的物理特性，因此，出现了DB-25、DB-15和DB-9各种类型的连接器，其引脚的定义也各不相同。下面分别介绍两种连接器。<br>（1）DB-25：PC和XT机采用DB-25型连接器。DB-25连接器定义了25根信号线，分为4组：<br>①异步通信的9个电压信号（含信号地SG）2，3，4，5，6，7，8，20，22<br>②20mA电流环信号 9个（12，13，14，15，16，17，19,23，24）<br>③空6个（9，10，11，18，21，25）<br>④保护地（PE）1个，作为设备接地端（1脚）<br>注意，20mA电流环信号仅IBM PC和IBM PC/XT机提供，至AT机及以后，已不支持。<br>（2）DB-9：<br>在AT机及以后，不支持20mA电流环接口，使用DB-9连接器，作为提供多功能I/O卡或主板上COM1和COM2两个串行接口的连接器。它只提供异步通信的9个信号。DB-9型连接器的引脚分配与DB-25型引脚信号完全不同。因此，若与配接DB-25型连接器的DCE设备连接，必须使用专门的电缆线。<br>电缆长度：在通信速率低于20kb/s时，RS-232C 所直接连接的最大物理距离为15m（50英尺）。<br>最大直接传输距离说明：RS-232C标准规定，若不使用MODEM，在码元畸变小于4%的情况下，DTE和DCE之间最大传输距离为15m（50英尺）。可见这个最大的距离是在码元畸变小于4%的前提下给出的。为了保证码元畸变小于4%的要求，接口标准在电气特性中规定，驱动器的负载电容应小于2500pF。</p>
 <h2 id="接口信号"><a href="#接口信号" class="headerlink" title="接口信号"></a>接口信号</h2><p>RS-232C 的功能特性定义了25芯标准连接器中的20根信号线，其中2条地线、4条数据线、11条控制线、3条定时信号线，剩下的5根线作备用或未定义。常用的只有10根，它们是：</p>
-<p>（1）联络控制信号线：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据发送准备好（Data set ready-DSR）——有效时（ON）状态，表明MODEM处于可以使用的状态。</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据终端准备好（Data terminal ready-DTR）——有效时（ON）状态，表明数据终端可以使用。</span><br></pre></td></tr></table></figure>
-<p>这两个信号有时连到电源上，一上电就立即有效。这两个设备状态信号有效，只表示设备本身可用，并不说明通信链路可以开始进行通信了，能否开始进行通信要由下面的控制信号决定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请求发送（Request to send-RTS）——用来表示DTE请求DCE发送数据，即当终端准备要接收MODEM传来的数据时，使该信号有效（ON状态），请求MODEM发送数据。它用来控制MODEM是否要进入发送状态。</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">允许发送（Clear to send-CTS）——用来表示DCE准备好接收DTE发来的数据，是与请求发送信号RTS相应的信号。当MODEM准备好接收终端传来的数据，并向前发送时，使该信号有效，通知终端开始沿发送数据线TxD发送数据。</span><br></pre></td></tr></table></figure>
-<p>这对RTS/CTS请求应答联络信号是用于半双工MODEM系统中发送方式和接收方式之间的切换。在全双工系统中，因配置双向通道，故不需要RTS/CTS联络信号，使其变高。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">接收线信号检出（Received Line detection-RLSD）——用来表示DCE已接通通信链路，告知DTE准备接收数据。当本地的MODEM收到由通信链路另一端（远地）的MODEM送来的载波信号时，使RLSD信号有效，通知终端准备接收，并且由MODEM将接收下来的载波信号解调成数字量数据后，沿接收数据线RxD送到终端。此线也叫做数据载波检出（Data Carrier dectection-DCD）线。</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">振铃指示（Ringing-RI）——当MODEM收到交换台送来的振铃呼叫信号时，使该信号有效（ON状态），通知终端，已被呼叫。</span><br></pre></td></tr></table></figure>
-<p>（2）数据发送与接收线：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发送数据（Transmitted data-TxD）——通过TxD终端将串行数据发送到MODEM，（DTE→DCE）。</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">接收数据（Received data-RxD）——通过RxD线终端接收从MODEM发来的串行数据，（DCE→DTE）。</span><br></pre></td></tr></table></figure>
+<p>（1）联络控制信号线：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据发送准备好（<span class="built_in">Data</span> <span class="built_in">set</span> ready<span class="params">-DSR</span>）——有效时（<span class="keyword">ON</span>）状态，表明MODEM处于可以使用的状态。</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据终端准备好（<span class="built_in">Data</span> terminal ready<span class="params">-DTR</span>）——有效时（<span class="keyword">ON</span>）状态，表明数据终端可以使用。</span><br></pre></td></tr></table></figure>
+<p>这两个信号有时连到电源上，一上电就立即有效。这两个设备状态信号有效，只表示设备本身可用，并不说明通信链路可以开始进行通信了，能否开始进行通信要由下面的控制信号决定。<br><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请求发送（<span class="built_in">Request</span> <span class="keyword">to</span> send-RTS）——用来表示DTE请求DCE发送数据，即当终端准备要接收MODEM传来的数据时，使该信号有效（<span class="keyword">ON</span>状态），请求MODEM发送数据。它用来控制MODEM是否要进入发送状态。</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">允许发送（Clear <span class="keyword">to</span> <span class="built_in">send</span>-CTS）——用来表示DCE准备好接收DTE发来的数据，是与请求发送信号RTS相应的信号。当MODEM准备好接收终端传来的数据，并向前发送时，使该信号有效，通知终端开始沿发送数据线TxD发送数据。</span><br></pre></td></tr></table></figure>
+<p>这对RTS/CTS请求应答联络信号是用于半双工MODEM系统中发送方式和接收方式之间的切换。在全双工系统中，因配置双向通道，故不需要RTS/CTS联络信号，使其变高。<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">接收线信号检出（Received Line detection-RLSD）——用来表示DCE已接通通信链路，告知DTE准备接收数据。当本地的MODEM收到由通信链路另一端（远地）的MODEM送来的载波信号时，使RLSD信号有效，通知终端准备接收，并且由MODEM将接收下来的载波信号解调成数字量数据后，沿接收数据线RxD送到终端。此线也叫做数据载波检出（<span class="meta">Data</span> Carrier dectection-<span class="meta">DCD</span>）线。</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">振铃指示（Ringing-RI）——当MODEM收到交换台送来的振铃呼叫信号时，使该信号有效（<span class="keyword">ON</span>状态），通知终端，已被呼叫。</span><br></pre></td></tr></table></figure>
+<p>（2）数据发送与接收线：<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">发送数据（<span class="type">Transmitted</span> <span class="class"><span class="keyword">data</span>-<span class="type">TxD</span>）——通过<span class="type">TxD</span>终端将串行数据发送到<span class="type">MODEM</span>，（<span class="type">DTE</span>→<span class="type">DCE</span>）。</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">接收数据（<span class="type">Received</span> <span class="class"><span class="keyword">data</span>-<span class="type">RxD</span>）——通过<span class="type">RxD</span>线终端接收从<span class="type">MODEM</span>发来的串行数据，（<span class="type">DCE</span>→<span class="type">DTE</span>）。</span></span><br></pre></td></tr></table></figure>
 <p>（3）地线 ：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GND、Sig.GND——保护地和信号地，无方向。</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">GND</span>、<span class="selector-tag">Sig</span><span class="selector-class">.GND</span>——保护地和信号地，无方向。</span><br></pre></td></tr></table></figure>
 <p>上述控制信号线何时有效，何时无效的顺序表示了接口信号的传送过程。例如，只有当DSR和DTR都处于有效（ON）状态时，才能在DTE和DCE之间进行传送操作。若DTE要发送数据，则预先将DTR线置成有效（ON）状态，等CTS线上收到有效（ON）状态的回答后，才能在TxD线上发送串行数据。这种顺序的规定对半双工的通信线路特别有用，因为半双工的通信才能确定DCE已由接收方向改为发送方向，这时线路才能开始发送。</p>
 <h2 id="接线"><a href="#接线" class="headerlink" title="接线"></a>接线</h2><p>在工程当中经常会用到232口，一般是圆头8针与D型9针两种串口。在一定的条件下，必须要自己制作一个相应的”圆头或者是D型的”232串口。<br>RS232C串口通信接线方法（三线制）<br>首先，串口传输数据只要有接收数据针脚和发送针脚就能实现：同一个串口的接收脚和发送脚直接用线相连，两个串口相连或一个串口和多个串口相连</p>
 <h4 id="同一个串口"><a href="#同一个串口" class="headerlink" title="同一个串口"></a>同一个串口</h4><p>接收脚和发送脚直接用线相连对9针串口和25针串口，均是2与3直接相连；</p>
@@ -901,8 +1009,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">插入视频代码：</span><br><span class="line"></span><br><span class="line">&lt;iframe height=498 width=510 src=&quot;http://player.youku.com/embed/XNjcyMDU4Njg0&quot;&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">插入gif代码：</span><br><span class="line"></span><br><span class="line">&lt;iframe height=500 width=500 src=&quot;http://ww4.sinaimg.cn/mw690/e75a115bgw1f3rrbzv1m8g209v0diqv7.gif&quot;&gt;</span><br></pre></td></tr></table></figure>
+          <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">插入视频代码：</span><br><span class="line"></span><br><span class="line">&lt;iframe <span class="attribute">height</span>=498 <span class="attribute">width</span>=510 <span class="attribute">src</span>=<span class="string">"http://player.youku.com/embed/XNjcyMDU4Njg0"</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">插入gif代码：</span><br><span class="line"></span><br><span class="line">&lt;iframe <span class="attribute">height</span>=500 <span class="attribute">width</span>=500 <span class="attribute">src</span>=<span class="string">"http://ww4.sinaimg.cn/mw690/e75a115bgw1f3rrbzv1m8g209v0diqv7.gif"</span>&gt;</span><br></pre></td></tr></table></figure>
         
       
     </div>
@@ -1016,7 +1124,7 @@
 </ul>
 <h2 id="开始编写自己的程序"><a href="#开始编写自己的程序" class="headerlink" title="开始编写自己的程序"></a>开始编写自己的程序</h2><p>上面我们创建好了MSP430的工程，具体如下：<br> <img src="TIM截图20180113194545.png" alt="fig3"><br>创建工程后系统已经添加好了msp430的头文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;msp430.h&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>当然也可以自己根据具体型号添加头文件，我用的是MSP430FR2433,所以我们可以改成<code>#include &lt;msp430fr2433.h&gt;</code>这个头文件包含了 MSP430FR2433 的寄存器定义和内置函数。<br>main函数部分，以下是闪灯的程序，也是CCS自带的示例代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int main(void) &#123;</span><br><span class="line">    WDTCTL = WDTPW | WDTHOLD;	    // Stop watchdog timer</span><br><span class="line">    PM5CTL0 &amp;= ~LOCKLPM5;           // Disable the GPIO power-on default high-impedance mode</span><br><span class="line">    P1DIR |= BIT0;					// Set P1.0 to output direction</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(;;) &#123;</span><br><span class="line">		volatile unsigned int i;	// volatile to prevent optimization</span><br><span class="line"></span><br><span class="line">		P1OUT ^= 0x01;				// Toggle P1.0 using exclusive-OR</span><br><span class="line"></span><br><span class="line">		i = 10000;					// SW Delay</span><br><span class="line">		<span class="keyword">do</span> i--;</span><br><span class="line">		<span class="keyword">while</span>(i != 0);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P1DIR |= BIT0;</span><br></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P1DIR <span class="string">|= BIT0;</span></span><br></pre></td></tr></table></figure>
 <p>这一行中,我们将 P1.0 引脚设置为输出(P1.0 与开发板上 Led1 相连)。在 MSP430 中,P1DIR 是一个控制 Port1 引脚方 向的八位寄存器。如果你把某一位配置为 0,则它作输入用,反之 是输出。BIT0 是一个系统定义的常量,即 0x0001（详见<code>&lt;msp430fr2433.h&gt;</code>）。</p>
 <p>如果一切顺利的话,现在我们可以把我们的程序下载到单片机运行了。</p>
 <h2 id="将程序下载到单片机"><a href="#将程序下载到单片机" class="headerlink" title="将程序下载到单片机"></a>将程序下载到单片机</h2><p> <img src="TIM截图20180113203355.png" alt="TIM截图20180113203355">编译按钮</p>
@@ -1448,110 +1556,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/10/物联网技术之服务器端数据采集环境简单搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/10/物联网技术之服务器端数据采集环境简单搭建/" class="post-title-link" itemprop="url">物联网技术之服务器端数据采集环境简单搭建</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-10 23:56:33" itemprop="dateCreated datePublished" datetime="2018-01-10T23:56:33+08:00">2018-01-10</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-12 00:02:22" itemprop="dateModified" datetime="2018-01-12T00:02:22+08:00">2018-01-12</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网相关/" itemprop="url" rel="index"><span itemprop="name">物联网相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网相关/服务器端相关/" itemprop="url" rel="index"><span itemprop="name">服务器端相关</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h2><p>在MySql数据库中创建一个名为<code>Sensor_server</code>的数据库，如下图：<br><img src="微信截图_20180111003012.png" alt="微信截图_20180111003012.png"><br>在数据库中创建一个名为<code>sensor_test</code>的数据表，使用如下SQL语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS `sensor_test` (</span><br><span class="line">  `id` int(11) NOT NULL,</span><br><span class="line">  `sen_id` int(11) NOT NULL,</span><br><span class="line">  `temp` int(11) NOT NULL,</span><br><span class="line">  `humi` int(11) NOT NULL,</span><br><span class="line">  `pm25` int(11) NOT NULL,</span><br><span class="line">  `pm10` int(11) NOT NULL,</span><br><span class="line">  `pm100` int(11) NOT NULL,</span><br><span class="line">  `co2` int(11) NOT NULL,</span><br><span class="line">  `ze08` int(11) NOT NULL,</span><br><span class="line">  `tvoc` int(11) NOT NULL,</span><br><span class="line">  `timeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</span><br><span class="line">) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;</span><br></pre></td></tr></table></figure></p>
-<p><img src="微信截图_20180111001007.png" alt="微信截图_20180111001007.png"></p>
-<h2 id="2-创建PHP文件"><a href="#2-创建PHP文件" class="headerlink" title="2.创建PHP文件"></a>2.创建PHP文件</h2><h3 id="2-1-创建数据库连接PHP文件"><a href="#2-1-创建数据库连接PHP文件" class="headerlink" title="2.1 创建数据库连接PHP文件"></a>2.1 创建数据库连接PHP文件</h3><p>创建名为<code>database.php</code> 的文件，写入以下代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$connect=mysqli_connect(<span class="string">'localhost'</span>,<span class="string">'用户名（最好不用root）'</span>,<span class="string">'数据库密码'</span>,<span class="string">'sensor_server'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>(mysqli_connect_errno($connect)) printf(<span class="string">"Failed to connect"</span>);</span><br><span class="line"><span class="keyword">else</span> printf(<span class="string">"Success to Connect\r\n"</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="2-2-创建数据库操作PHP文件"><a href="#2-2-创建数据库操作PHP文件" class="headerlink" title="2.2 创建数据库操作PHP文件"></a>2.2 创建数据库操作PHP文件</h3><p>创建名为<code>process.php</code> 的文件，写入以下代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">"Content-type:text/html;charset=utf-8"</span>);</span><br><span class="line">date_default_timezone_set(<span class="string">"Asia/Shanghai"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"当前时间是 "</span> . date(<span class="string">"H:i:s"</span>).<span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">include</span>(<span class="string">"database.php"</span>);</span><br><span class="line">	$sen_id=$_POST[<span class="string">'sen_id'</span>];</span><br><span class="line">	$pm25=$_POST[<span class="string">'pm25'</span>];</span><br><span class="line">	$pm10=$_POST[<span class="string">'pm10'</span>];</span><br><span class="line">	$co2=$_POST[<span class="string">'co2'</span>];</span><br><span class="line">	$tvoc=$_POST[<span class="string">'tvoc'</span>];</span><br><span class="line">	$pm100=$_POST[<span class="string">'pm100'</span>];</span><br><span class="line">	$ze08=$_POST[<span class="string">'ze08'</span>];</span><br><span class="line">	$temp=$_POST[<span class="string">'temp'</span>];</span><br><span class="line">	$humi=$_POST[<span class="string">'humi'</span>];</span><br><span class="line">	$id=$_POST[<span class="string">'id'</span>];</span><br><span class="line">	print_r($_POST);</span><br><span class="line">	mysqli_query($connect,<span class="string">"INSERT INTO sensor_test(pm25,pm10,pm100,co2,tvoc,temp,humi,ze08,id,sen_id) VALUES('$pm25','$pm10','$pm100','$co2','$tvoc','$temp','$humi','$ze08','$id','$sen_id')"</span>);</span><br><span class="line"></span><br><span class="line">	mysqli_close($connect);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1605,7 +1609,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
