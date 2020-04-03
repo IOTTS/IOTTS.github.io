@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -219,11 +219,38 @@
     <a href="/opensource/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>开源项目</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
     
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -274,12 +301,25 @@
                 
               
 
-              <time title="创建时间：2020-04-04 00:32:33 / 修改时间：01:27:22" itemprop="dateCreated datePublished" datetime="2020-04-04T00:32:33+08:00">2020-04-04</time>
+              <time title="创建时间：2020-04-04 00:32:33 / 修改时间：03:07:42" itemprop="dateCreated datePublished" datetime="2020-04-04T00:32:33+08:00">2020-04-04</time>
             </span>
           
             
 
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/常用资料/" itemprop="url" rel="index"><span itemprop="name">常用资料</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -293,119 +333,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Ethernet-EIA-TIA-568A-B"><a href="#Ethernet-EIA-TIA-568A-B" class="headerlink" title="Ethernet EIA/TIA-568A/B"></a>Ethernet EIA/TIA-568A/B</h2><p><img src="A1.png" alt="A1"><img src="B1.png" alt="B1"></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>pin</th>
-<th>Pair</th>
-<th><strong>Pair</strong></th>
-<th>Signal</th>
-<th>Signal</th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td><strong>T568A</strong></td>
-<td><strong>T568B</strong></td>
-<td><strong>10/100Base-T</strong></td>
-<td><strong>1000Base-T</strong></td>
-<td><strong>Wire</strong></td>
-<td><strong>T568A</strong></td>
-<td><strong>T568B</strong></td>
-</tr>
-<tr>
-<td>1</td>
-<td>3</td>
-<td>2</td>
-<td>TX+</td>
-<td>BI_DA+</td>
-<td>+/tip</td>
-<td>绿白<img src="GW.png" alt="GW.png"></td>
-<td>橙白<img src="YW.png" alt="YW.png"></td>
-</tr>
-<tr>
-<td>2</td>
-<td>3</td>
-<td>2</td>
-<td>TX-</td>
-<td>BI_DA-</td>
-<td>-/ring</td>
-<td>绿<img src="G.png" alt="G.png"></td>
-<td>橙<img src="Y.png" alt="Y.png"></td>
-</tr>
-<tr>
-<td>3</td>
-<td>2</td>
-<td>3</td>
-<td>RX+</td>
-<td>BI_DB+</td>
-<td>+/tip</td>
-<td>橙白<img src="YW.png" alt="YW.png"></td>
-<td>绿白<img src="GW.png" alt="GW.png"></td>
-</tr>
-<tr>
-<td>4</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-<td>BI_DC+</td>
-<td>-/ring</td>
-<td>蓝<img src="B.png" alt="B.png"></td>
-<td>蓝<img src="B.png" alt="B.png"></td>
-</tr>
-<tr>
-<td>5</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-<td>BI_DC-</td>
-<td>+/tip</td>
-<td>蓝白<img src="BW.png" alt="BW.png"></td>
-<td>蓝白<img src="BW.png" alt="BW.png"></td>
-</tr>
-<tr>
-<td>6</td>
-<td>2</td>
-<td>3</td>
-<td>RX-</td>
-<td>BI_DB-</td>
-<td>-/ring</td>
-<td>橙<img src="Y.png" alt="Y.png"></td>
-<td>绿<img src="G.png" alt="G.png"></td>
-</tr>
-<tr>
-<td>7</td>
-<td>4</td>
-<td>4</td>
-<td></td>
-<td>BI_DD+</td>
-<td>+/tip</td>
-<td>棕白<img src="BRW.png" alt="BRW.png"></td>
-<td>棕白<img src="BRW.png" alt="BRW.png"></td>
-</tr>
-<tr>
-<td>8</td>
-<td>4</td>
-<td>4</td>
-<td></td>
-<td>BI_DD-</td>
-<td>-/ring</td>
-<td>棕<img src="BR.png" alt="BR.png"></td>
-<td>棕<img src="BR.png" alt="BR.png"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="Direct-Connection-EIA-TIA-568A"><a href="#Direct-Connection-EIA-TIA-568A" class="headerlink" title="Direct Connection EIA/TIA-568A"></a>Direct Connection EIA/TIA-568A</h2><p><img src="A1.png" alt="A1.png"><img src="A2.png" alt="A2.png"></p>
-<h2 id="Direct-Connection-EIA-TIA-568B"><a href="#Direct-Connection-EIA-TIA-568B" class="headerlink" title="Direct Connection EIA/TIA-568B"></a>Direct Connection EIA/TIA-568B</h2><p><img src="A1.png" alt="B1.png"><img src="A2.png" alt="B2.png"></p>
-<h2 id="Cross-over-cable-pinouts"><a href="#Cross-over-cable-pinouts" class="headerlink" title="Cross-over cable pinouts"></a>Cross-over cable pinouts</h2><h3 id="Cross-over-cable-EIA-TIA-568A-B-10Base-T-100Base-TX"><a href="#Cross-over-cable-EIA-TIA-568A-B-10Base-T-100Base-TX" class="headerlink" title="Cross-over cable EIA/TIA-568A/B (10Base-T, 100Base-TX)"></a>Cross-over cable EIA/TIA-568A/B (10Base-T, 100Base-TX)</h3><p><img src="B1.png" alt="B1.png">   <img src="A2.png" alt="A2.png"></p>
-
+          <p>本文主要用于查询网络传输过程中，线路线序的几种规则<br>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2020/04/04/Ethernet-EIA-TIA-568A-B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -665,12 +602,40 @@
                 
               
 
-              <time title="创建时间：2020-04-03 16:53:19 / 修改时间：17:37:05" itemprop="dateCreated datePublished" datetime="2020-04-03T16:53:19+08:00">2020-04-03</time>
+              <time title="创建时间：2020-04-03 16:53:19" itemprop="dateCreated datePublished" datetime="2020-04-03T16:53:19+08:00">2020-04-03</time>
             </span>
           
             
 
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-04 02:28:20" itemprop="dateModified" datetime="2020-04-04T02:28:20+08:00">2020-04-04</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/通信方式/" itemprop="url" rel="index"><span itemprop="name">通信方式</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -684,10 +649,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><br><br><div class="pdf" target="Modbus.pdf" height></div></p>
-<div class="pdf" target="http://www.ti.com.cn/cn/lit/ds/symlink/dlp4500nir.pdf" height></div>
-<p><br></p>
-
+          <p>  Modbus是一种串行通信协议，是Modicon公司（现在的施耐德电气 Schneider Electric）于1979年为使用可编程逻辑控制器（PLC）通信而发表。Modbus已经成为工业领域通信协议的业界标准（De facto），并且现在是工业电子设备之间常用的连接方式。<br>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2020/04/03/通信-Modbus协议/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1526,6 +1497,8 @@
 
 
 
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
 
 
 

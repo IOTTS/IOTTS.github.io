@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -64,7 +64,7 @@
 <meta property="og:description" content="Linux下建议的命名规则如下。 （1）变量名必须有一定的意义，并且意义准确。例如有一个变量用于保存图书的数目，可以命名为number_of_book或者num_of_book。不建议使用i，因为它没有意义。也不建议使用number或book，因为意义不准确。 （2）不建议大小写混用。如定义一个计数变量，int nCount；这在Windows中是一个很好的变量名，其中nCount的首字母n用来说">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://iotts.top/2019/10/24/linux下的命名规则/25498312_1345797279nPdQ.png">
-<meta property="og:updated_time" content="2019-10-24T16:12:18.147Z">
+<meta property="og:updated_time" content="2020-04-03T19:16:50.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下的命名规则">
 <meta name="twitter:description" content="Linux下建议的命名规则如下。 （1）变量名必须有一定的意义，并且意义准确。例如有一个变量用于保存图书的数目，可以命名为number_of_book或者num_of_book。不建议使用i，因为它没有意义。也不建议使用number或book，因为意义不准确。 （2）不建议大小写混用。如定义一个计数变量，int nCount；这在Windows中是一个很好的变量名，其中nCount的首字母n用来说">
@@ -226,11 +226,38 @@
     <a href="/opensource/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>开源项目</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
     
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -292,7 +319,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-25 00:12:18" itemprop="dateModified" datetime="2019-10-25T00:12:18+08:00">2019-10-25</time>
+                <time title="修改时间：2020-04-04 03:16:50" itemprop="dateModified" datetime="2020-04-04T03:16:50+08:00">2020-04-04</time>
               </span>
             
           
@@ -331,7 +358,8 @@
 <p>比如：</p>
 <p><img src="25498312_1345797279nPdQ.png" alt="image"></p>
 <p>2、在界面层中尽量使用异常处理try语句，不要将系统级别的错误直接暴露给用户，而更应该的是把系统抛出的错误信息记录到LOG日志文件中去，告诉用户友好的提示信息</p>
-
+<p>下面了解一下华为内部的编程规范</p>
+<div class="pdf" target="华为技术有限公司C语言编程规范原文.pdf" height></div>
     </div>
 
     
@@ -606,6 +634,8 @@
 
 
 
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
 
 
 

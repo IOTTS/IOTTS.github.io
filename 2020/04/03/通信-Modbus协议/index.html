@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,14 +55,18 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="Modbus是一种串行通信协议，是Modicon公司（现在的施耐德电气 Schneider Electric）于1979年为使用可编程逻辑控制器（PLC）通信而发表。Modbus已经成为工业领域通信协议的业界标准（De facto），并且现在是工业电子设备之间常用的连接方式。">
+<meta name="keywords" content="电路设计,RS232 RS485">
+<meta property="og:type" content="article">
 <meta property="og:title" content="[通信]Modbus协议">
 <meta property="og:url" content="http://iotts.top/2020/04/03/通信-Modbus协议/index.html">
 <meta property="og:site_name" content="IOTTS">
+<meta property="og:description" content="Modbus是一种串行通信协议，是Modicon公司（现在的施耐德电气 Schneider Electric）于1979年为使用可编程逻辑控制器（PLC）通信而发表。Modbus已经成为工业领域通信协议的业界标准（De facto），并且现在是工业电子设备之间常用的连接方式。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-03T09:37:05.842Z">
+<meta property="og:updated_time" content="2020-04-03T18:28:20.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[通信]Modbus协议">
+<meta name="twitter:description" content="Modbus是一种串行通信协议，是Modicon公司（现在的施耐德电气 Schneider Electric）于1979年为使用可编程逻辑控制器（PLC）通信而发表。Modbus已经成为工业领域通信协议的业界标准（De facto），并且现在是工业电子设备之间常用的连接方式。">
   <link rel="canonical" href="http://iotts.top/2020/04/03/通信-Modbus协议/">
 
 
@@ -220,11 +224,38 @@
     <a href="/opensource/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>开源项目</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
     
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -275,12 +306,40 @@
                 
               
 
-              <time title="创建时间：2020-04-03 16:53:19 / 修改时间：17:37:05" itemprop="dateCreated datePublished" datetime="2020-04-03T16:53:19+08:00">2020-04-03</time>
+              <time title="创建时间：2020-04-03 16:53:19" itemprop="dateCreated datePublished" datetime="2020-04-03T16:53:19+08:00">2020-04-03</time>
             </span>
           
             
 
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-04 02:28:20" itemprop="dateModified" datetime="2020-04-04T02:28:20+08:00">2020-04-04</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/通信方式/" itemprop="url" rel="index"><span itemprop="name">通信方式</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -294,10 +353,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><br><br><div class="pdf" target="Modbus.pdf" height></div></p>
-<div class="pdf" target="http://www.ti.com.cn/cn/lit/ds/symlink/dlp4500nir.pdf" height></div>
-<p><br></p>
-
+        <p>  Modbus是一种串行通信协议，是Modicon公司（现在的施耐德电气 Schneider Electric）于1979年为使用可编程逻辑控制器（PLC）通信而发表。Modbus已经成为工业领域通信协议的业界标准（De facto），并且现在是工业电子设备之间常用的连接方式。<br><a id="more"></a><br>Modbus比其他通信协议使用的更广泛的主要原因有: </p>
+<ol>
+<li>公开发表并且无版权要求</li>
+<li>易于部署和维护</li>
+<li>对供应商来说，修改移动本地的比特或字节没有很多限制<br>Modbus允许多个 (大约240个) 设备连接在同一个网络上进行通信，举个例子，一个由测量温度和湿度的装置，并且将结果发送给计算机。在数据采集与监视控制系统（SCADA）中，Modbus通常用来连接监控计算机和远程终端控制系统（RTU）。</li>
+</ol>
+<p>Modbus协议是一个master/slave架构的协议。有一个节点是master节点，其他使用Modbus协议参与通信的节点是slave节点。每一个slave设备都有一个唯一的地址。在串行和MB+网络中，只有被指定为主节点的节点可以启动一个命令（在以太网上，任何一个设备都能发送一个Modbus命令，但是通常也只有一个主节点设备启动指令）。<br>一个ModBus命令包含了打算执行的设备的Modbus地址。所有设备都会收到命令，但只有指定位置的设备会执行及回应指令（地址0例外，指定地址0的指令是广播指令，所有收到指令的设备都会运行，不过不回应指令）。所有的Modbus命令包含了检查码，以确定到达的命令没有被破坏。基本的ModBus命令能指令一个RTU改变它的寄存器的某个值，控制或者读取一个I/O端口，以及指挥设备回送一个或者多个其寄存器中的数据。<br>有许多modems和网关支持Modbus协议，因为Modbus协议很简单而且容易复制。它们当中一些为这个协议特别设计的。有使用有线、无线通信甚至短消息和GPRS的不同实现。不过设计者需要克服一些包括高延迟和时序的问题。</p>
+<div class="pdf" target="Modbus.pdf" height></div>
     </div>
 
     
@@ -307,6 +370,17 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/电路设计/" rel="tag"><i class="fa fa-tag"></i> 电路设计</a>
+            
+              <a href="/tags/RS232-RS485/" rel="tag"><i class="fa fa-tag"></i> RS232 RS485</a>
+            
+          </div>
+        
 
         
 
@@ -561,6 +635,8 @@
 
 
 
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
 
 
 

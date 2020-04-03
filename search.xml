@@ -1345,14 +1345,14 @@
   <entry>
     <title>Allegro相同模块布局克隆</title>
     <url>/2018/06/19/Allegro%E7%9B%B8%E5%90%8C%E6%A8%A1%E5%9D%97%E5%B8%83%E5%B1%80%E5%85%8B%E9%9A%86/</url>
-    <content><![CDATA[<h1 id="Allegro16-6-相同模块布局克隆"><a href="#Allegro16-6-相同模块布局克隆" class="headerlink" title="Allegro16.6  相同模块布局克隆"></a>Allegro16.6  相同模块布局克隆</h1><h3 id="1-布局好其中一个模块，如下图"><a href="#1-布局好其中一个模块，如下图" class="headerlink" title="1:布局好其中一个模块，如下图"></a>1:布局好其中一个模块，如下图</h3><p><img src="1.png" alt="1"></p>
-<h3 id="2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit"><a href="#2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit" class="headerlink" title="2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit"></a>2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit</h3><p><img src="2.png" alt="2"></p>
-<h3 id="3-选择之前画好的器件-右键-选择place-replicate-create"><a href="#3-选择之前画好的器件-右键-选择place-replicate-create" class="headerlink" title="3:选择之前画好的器件,右键,选择place replicate create"></a>3:选择之前画好的器件,右键,选择place replicate create</h3><p><img src="3.png" alt="3"></p>
-<p>4:再次右键,选择 Done</p>
-<p><img src="4.png" alt="4"></p>
-<h3 id="5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd"><a href="#5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd" class="headerlink" title="5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd"></a>5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd</h3><p><img src="5.png" alt="5"></p>
-<h3 id="6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2"><a href="#6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2" class="headerlink" title="6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2"></a>6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2</h3><p><img src="6.png" alt="6"></p>
-<h3 id="7-这样就好了"><a href="#7-这样就好了" class="headerlink" title="7:这样就好了"></a>7:这样就好了</h3><p><img src="7.png" alt="7"></p>
+    <content><![CDATA[<p>   我们在使用Allegro来布局PCB的时候经常会遇到布局一样的模块，如果我们一个个的去布局很浪费时间，怎么解决这个问题呢，那就用到我们今天讲的一个知识点了，答题思路是先布局好一个模块，然后其他的按照这个布局复制即可，是不是很简单，接下来看一下具体如何操作<br><a id="more"></a></p>
+<h2 id="1-布局好其中一个模块，如下图"><a href="#1-布局好其中一个模块，如下图" class="headerlink" title="1:布局好其中一个模块，如下图"></a>1:布局好其中一个模块，如下图</h2><p><img src="1.png" alt="1"></p>
+<h2 id="2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit"><a href="#2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit" class="headerlink" title="2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit"></a>2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit</h2><p><img src="2.png" alt="2"></p>
+<h2 id="3-选择之前画好的器件-右键-选择place-replicate-create"><a href="#3-选择之前画好的器件-右键-选择place-replicate-create" class="headerlink" title="3:选择之前画好的器件,右键,选择place replicate create"></a>3:选择之前画好的器件,右键,选择place replicate create</h2><p><img src="3.png" alt="3"></p>
+<h2 id="4-再次右键-选择-Done"><a href="#4-再次右键-选择-Done" class="headerlink" title="4:再次右键,选择 Done"></a>4:再次右键,选择 Done</h2><p><img src="4.png" alt="4"></p>
+<h2 id="5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd"><a href="#5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd" class="headerlink" title="5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd"></a>5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd</h2><p><img src="5.png" alt="5"></p>
+<h2 id="6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2"><a href="#6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2" class="headerlink" title="6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2"></a>6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2</h2><p><img src="6.png" alt="6"></p>
+<h2 id="7-这样就好了"><a href="#7-这样就好了" class="headerlink" title="7:这样就好了"></a>7:这样就好了</h2><p><img src="7.png" alt="7"></p>
 ]]></content>
       <categories>
         <category>PCB相关</category>
@@ -1367,7 +1367,8 @@
   <entry>
     <title>Ethernet EIA/TIA-568A/B</title>
     <url>/2020/04/04/Ethernet-EIA-TIA-568A-B/</url>
-    <content><![CDATA[<h2 id="Ethernet-EIA-TIA-568A-B"><a href="#Ethernet-EIA-TIA-568A-B" class="headerlink" title="Ethernet EIA/TIA-568A/B"></a>Ethernet EIA/TIA-568A/B</h2><p><img src="A1.png" alt="A1"><img src="B1.png" alt="B1"></p>
+    <content><![CDATA[<p>本文主要用于查询网络传输过程中，线路线序的几种规则<br><a id="more"></a></p>
+<h2 id="Ethernet-EIA-TIA-568A-B"><a href="#Ethernet-EIA-TIA-568A-B" class="headerlink" title="Ethernet EIA/TIA-568A/B"></a>Ethernet EIA/TIA-568A/B</h2><p><img src="A1.png" alt="A1"> <img src="B1.png" alt="B1"></p>
 <div class="table-container">
 <table>
 <thead>
@@ -1477,9 +1478,312 @@
 </table>
 </div>
 <h2 id="Direct-Connection-EIA-TIA-568A"><a href="#Direct-Connection-EIA-TIA-568A" class="headerlink" title="Direct Connection EIA/TIA-568A"></a>Direct Connection EIA/TIA-568A</h2><p><img src="A1.png" alt="A1.png"><img src="A2.png" alt="A2.png"></p>
-<h2 id="Direct-Connection-EIA-TIA-568B"><a href="#Direct-Connection-EIA-TIA-568B" class="headerlink" title="Direct Connection EIA/TIA-568B"></a>Direct Connection EIA/TIA-568B</h2><p><img src="A1.png" alt="B1.png"><img src="A2.png" alt="B2.png"></p>
+<h2 id="Direct-Connection-EIA-TIA-568B"><a href="#Direct-Connection-EIA-TIA-568B" class="headerlink" title="Direct Connection EIA/TIA-568B"></a>Direct Connection EIA/TIA-568B</h2><p><img src="B1.png" alt="B1.png">    <img src="B2.png" alt="B2.png"></p>
 <h2 id="Cross-over-cable-pinouts"><a href="#Cross-over-cable-pinouts" class="headerlink" title="Cross-over cable pinouts"></a>Cross-over cable pinouts</h2><h3 id="Cross-over-cable-EIA-TIA-568A-B-10Base-T-100Base-TX"><a href="#Cross-over-cable-EIA-TIA-568A-B-10Base-T-100Base-TX" class="headerlink" title="Cross-over cable EIA/TIA-568A/B (10Base-T, 100Base-TX)"></a>Cross-over cable EIA/TIA-568A/B (10Base-T, 100Base-TX)</h3><p><img src="B1.png" alt="B1.png">   <img src="A2.png" alt="A2.png"></p>
+<p>10BASE-T or 100BASE-TX crossover</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>pin</th>
+<th></th>
+<th><strong>T568A</strong></th>
+<th></th>
+<th><strong>T568B</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Pair</strong></td>
+<td><strong>Signal</strong></td>
+<td><strong>color</strong></td>
+<td><strong>Pair</strong></td>
+<td><strong>Signal</strong></td>
+<td><strong>color</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>TX+</td>
+<td>绿白<img src="GW.png" alt="GW.png"></td>
+<td>2</td>
+<td>RX+</td>
+<td>橙白<img src="YW.png" alt="YW.png"></td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>TX-</td>
+<td>绿<img src="G.png" alt="G.png"></td>
+<td>2</td>
+<td>RX-</td>
+<td>橙<img src="Y.png" alt="Y.png"></td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>RX+</td>
+<td>橙白<img src="YW.png" alt="YW.png"></td>
+<td>3</td>
+<td>TX+</td>
+<td>绿白<img src="GW.png" alt="GW.png"></td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td></td>
+<td>蓝<img src="B.png" alt="B.png"></td>
+<td>1</td>
+<td></td>
+<td>蓝<img src="B.png" alt="B.png"></td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td></td>
+<td>蓝白<img src="BW.png" alt="BW.png"></td>
+<td>1</td>
+<td></td>
+<td>蓝白<img src="BW.png" alt="BW.png"></td>
+</tr>
+<tr>
+<td>6</td>
+<td>2</td>
+<td>RX-</td>
+<td>橙<img src="Y.png" alt="Y.png"></td>
+<td>3</td>
+<td>TX-</td>
+<td>绿<img src="G.png" alt="G.png"></td>
+</tr>
+<tr>
+<td>7</td>
+<td>4</td>
+<td></td>
+<td>棕白<img src="BRW.png" alt="BRW.png"></td>
+<td>4</td>
+<td></td>
+<td>棕白<img src="BRW.png" alt="BRW.png"></td>
+</tr>
+<tr>
+<td>8</td>
+<td>4</td>
+<td></td>
+<td>棕<img src="BR.png" alt="BR.png"></td>
+<td>4</td>
+<td></td>
+<td>棕<img src="BR.png" alt="BR.png"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Gigabit-T568A-crossover"><a href="#Gigabit-T568A-crossover" class="headerlink" title="Gigabit T568A crossover"></a>Gigabit T568A crossover</h3><p>10BASE-T, 100BASE-TX, 100BASE-T4 or 1000BASE-T crossover</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>pin</strong></th>
+<th></th>
+<th><strong>T568A</strong></th>
+<th></th>
+<th><strong>T568A Crossed</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Pair</strong></td>
+<td><strong>Signal</strong></td>
+<td><strong>color</strong></td>
+<td><strong>Pair</strong></td>
+<td><strong>Signal</strong></td>
+<td><strong>color</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>BI_DA+</td>
+<td>绿白<img src="GW.png" alt="GW.png"></td>
+<td>2</td>
+<td>BI_DB+</td>
+<td>橙白<img src="YW.png" alt="YW.png"></td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>BI_DA-</td>
+<td>绿<img src="G.png" alt="G.png"></td>
+<td>2</td>
+<td>BI_DB-</td>
+<td>橙<img src="Y.png" alt="Y.png"></td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>BI_DB+</td>
+<td>橙白<img src="YW.png" alt="YW.png"></td>
+<td>3</td>
+<td>BI_DA+</td>
+<td>绿白<img src="GW.png" alt="GW.png"></td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>BI_DC+</td>
+<td>蓝<img src="B.png" alt="B.png"></td>
+<td>4</td>
+<td>BI_DD+</td>
+<td>棕白<img src="BRW.png" alt="BRW.png"></td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>BI_DC-</td>
+<td>蓝白<img src="BW.png" alt="BW.png"></td>
+<td>4</td>
+<td>BI_DD-</td>
+<td>棕<img src="BR.png" alt="BR.png"></td>
+</tr>
+<tr>
+<td>6</td>
+<td>2</td>
+<td>BI_DB-</td>
+<td>橙<img src="Y.png" alt="Y.png"></td>
+<td>3</td>
+<td>BI_DA-</td>
+<td>绿<img src="G.png" alt="G.png"></td>
+</tr>
+<tr>
+<td>7</td>
+<td>4</td>
+<td>BI_DD+</td>
+<td>棕白<img src="BRW.png" alt="BRW.png"></td>
+<td>1</td>
+<td>BI_DC+</td>
+<td>蓝<img src="B.png" alt="B.png"></td>
+</tr>
+<tr>
+<td>8</td>
+<td>4</td>
+<td>BI_DD-</td>
+<td>棕<img src="BR.png" alt="BR.png"></td>
+<td>1</td>
+<td>BI_DC-</td>
+<td>蓝白<img src="BW.png" alt="BW.png"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Gigabit-T568B-crossover"><a href="#Gigabit-T568B-crossover" class="headerlink" title="Gigabit T568B crossover"></a>Gigabit T568B crossover</h3><p>10BASE-T, 100BASE-TX,<br>100BASE-T4 or 1000BASE-T crossover</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>pin</strong></th>
+<th></th>
+<th><strong>T568B</strong></th>
+<th></th>
+<th><strong>T568B Crossed</strong></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong>Pair</strong></td>
+<td><strong>Signal</strong></td>
+<td><strong>color</strong></td>
+<td><strong>Pair</strong></td>
+<td><strong>Signal</strong></td>
+<td><strong>color</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>BI_DA+</td>
+<td>橙白<img src="YW.png" alt="YW.png"></td>
+<td>3</td>
+<td>BI_DB+</td>
+<td>绿白<img src="GW.png" alt="GW.png"></td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>BI_DA-</td>
+<td>橙<img src="Y.png" alt="Y.png"></td>
+<td>3</td>
+<td>BI_DB-</td>
+<td>绿<img src="G.png" alt="G.png"></td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>BI_DB+</td>
+<td>绿白<img src="GW.png" alt="GW.png"></td>
+<td>2</td>
+<td>BI_DA+</td>
+<td>橙白<img src="YW.png" alt="YW.png"></td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>BI_DC+</td>
+<td>蓝<img src="B.png" alt="B.png"></td>
+<td>4</td>
+<td>BI_DD+</td>
+<td>棕白<img src="BRW.png" alt="BRW.png"></td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>BI_DC-</td>
+<td>蓝白<img src="BW.png" alt="BW.png"></td>
+<td>4</td>
+<td>BI_DD-</td>
+<td>棕<img src="BR.png" alt="BR.png"></td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>BI_DB-</td>
+<td>绿<img src="G.png" alt="G.png"></td>
+<td>2</td>
+<td>BI_DA-</td>
+<td>橙<img src="Y.png" alt="Y.png"></td>
+</tr>
+<tr>
+<td>7</td>
+<td>4</td>
+<td>BI_DD+</td>
+<td>棕白<img src="BRW.png" alt="BRW.png"></td>
+<td>1</td>
+<td>BI_DC+</td>
+<td>蓝<img src="B.png" alt="B.png"></td>
+</tr>
+<tr>
+<td>8</td>
+<td>4</td>
+<td>BI_DD-</td>
+<td>棕<img src="BR.png" alt="BR.png"></td>
+<td>1</td>
+<td>BI_DC-</td>
+<td>蓝白<img src="BW.png" alt="BW.png"></td>
+</tr>
+</tbody>
+</table>
+</div>
 ]]></content>
+      <categories>
+        <category>常用资料</category>
+      </categories>
+      <tags>
+        <tag>常用资料</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hexo创建新页面</title>
@@ -1852,8 +2156,9 @@ f(x) &=a+b+a\\
   <entry>
     <title>MarkDown插入视频,插入gif</title>
     <url>/2018/01/13/MarkDown%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91-%E6%8F%92%E5%85%A5gif/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">插入视频代码：</span><br><span class="line"></span><br><span class="line">&lt;iframe height=498 width=510 src=&quot;http://player.youku.com/embed/XNjcyMDU4Njg0&quot;&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">插入gif代码：</span><br><span class="line"></span><br><span class="line">&lt;iframe height=500 width=500 src=&quot;http://ww4.sinaimg.cn/mw690/e75a115bgw1f3rrbzv1m8g209v0diqv7.gif&quot;&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">插入视频代码：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">height</span>=<span class="string">498</span> <span class="attr">width</span>=<span class="string">510</span> <span class="attr">src</span>=<span class="string">"http://player.youku.com/embed/XNjcyMDU4Njg0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">插入gif代码：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">height</span>=<span class="string">500</span> <span class="attr">width</span>=<span class="string">500</span> <span class="attr">src</span>=<span class="string">"http://ww4.sinaimg.cn/mw690/e75a115bgw1f3rrbzv1m8g209v0diqv7.gif"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>Markdown</category>
       </categories>
@@ -2298,7 +2603,8 @@ f(x) &=a+b+a\\
 <p>比如：</p>
 <p><img src="25498312_1345797279nPdQ.png" alt="image"></p>
 <p>2、在界面层中尽量使用异常处理try语句，不要将系统级别的错误直接暴露给用户，而更应该的是把系统抛出的错误信息记录到LOG日志文件中去，告诉用户友好的提示信息</p>
-]]></content>
+<p>下面了解一下华为内部的编程规范</p>
+<div class="pdf" target="华为技术有限公司C语言编程规范原文.pdf" height></div>]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -2409,13 +2715,15 @@ f(x) &=a+b+a\\
   <entry>
     <title>nodejs-快速搭建mqtt服务器</title>
     <url>/2019/11/15/nodejs-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BAmqtt%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
-    <content><![CDATA[<p>前言：<br>实现MQTT服务器及客户端的方法有很多种，今天我们学习一下怎么使用nodejs实现mqtt协议，这里我们主要使用两个工具mosca和mqtt.js<br>首先需要了解一下mosca和mqtt.js的关系，下面这张图能清晰的解释如何通过mqtt协议进行交互通信</p>
+    <content><![CDATA[<p>前言：<br>实现MQTT服务器及客户端的方法有很多种，今天我们学习一下怎么使用nodejs实现mqtt协议，这里我们主要使用两个工具mosca和mqtt.js</p>
+<a id="more"></a>
+<p>首先需要了解一下mosca和mqtt.js的关系，下面这张图能清晰的解释如何通过mqtt协议进行交互通信</p>
 <p><img src="mqtt.png" alt="mqtt.png"></p>
 <h2 id="1-下载nodejs"><a href="#1-下载nodejs" class="headerlink" title="1.下载nodejs"></a>1.下载nodejs</h2><p>下载地址：<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">http://nodejs.cn/download/</a><br>根据需要下载合适的自己平台的软件<br>这里我下载的是windows的64位msi，下载好直接安装就行了，直接下一步直到完成。</p>
 <h2 id="2-安装mqtt-js模块"><a href="#2-安装mqtt-js模块" class="headerlink" title="2.安装mqtt.js模块"></a>2.安装mqtt.js模块</h2><p>这一步非常简单，在你心仪的那个文件夹下打开cmd窗口然后输入<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install mqtt --save命令即可。</span><br></pre></td></tr></table></figure></p>
 <p>安装好会出现如下图红圈内的文件夹及文件</p>
-<a id="more"></a>
-<p>创建一个客户端进行测试<br>在刚刚安装mqtt.js文件夹下创建一个mqtt-test.js文件，然后键入以下代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var mqtt = require(&apos;mqtt&apos;)</span><br><span class="line">var client  = mqtt.connect(&apos;mqtt://test.mosquitto.org&apos;)</span><br><span class="line"></span><br><span class="line">client.on(&apos;connect&apos;, function () &#123;</span><br><span class="line">  client.subscribe(&apos;presence&apos;)</span><br><span class="line">  client.publish(&apos;presence&apos;, &apos;Hello mqtt&apos;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">client.on(&apos;message&apos;, function (topic, message) &#123;</span><br><span class="line">  // message is Buffer</span><br><span class="line">  console.log(message.toString())</span><br><span class="line">  client.end()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>创建一个客户端进行测试<br>在刚刚安装mqtt.js文件夹下创建一个mqtt-test.js文件，然后键入以下代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var mqtt = require(&apos;mqtt&apos;)</span><br><span class="line">var client  = mqtt.connect(&apos;mqtt://test.mosquitto.org&apos;)</span><br><span class="line"></span><br><span class="line">client.on(&apos;connect&apos;, function () &#123;</span><br><span class="line">  client.subscribe(&apos;presence&apos;)</span><br><span class="line">  client.publish(&apos;presence&apos;, &apos;Hello mqtt&apos;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">client.on(&apos;message&apos;, function (topic, message) &#123;</span><br><span class="line">  // message is Buffer</span><br><span class="line">  console.log(message.toString())</span><br><span class="line">  client.end()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>然后在此文件夹下打开cmd输入node mqtt-test.js就会出现如下图所示结果</p>
 <p>测试结果.png<br>这样就说明你的mqtt模块就建立好了，但这仅限于客户端的使用为了使我们更方便的使用我们将在本地搭建一个服务器</p>
 <h2 id="3-安装mosca"><a href="#3-安装mosca" class="headerlink" title="3.安装mosca"></a>3.安装mosca</h2><p>下面来说说如何建立服务端<br>安装mosca（和上面安装mqtt.js一样）<br>打开cmd然后输入<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install mosca --save</span><br></pre></td></tr></table></figure></p>
@@ -2579,88 +2887,6 @@ f(x) &=a+b+a\\
         <tag>电路设计</tag>
         <tag>3.3v 5v电平转换</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>经典电路之一键开关机及多用途按键设计</title>
-    <url>/2019/12/19/%E7%BB%8F%E5%85%B8%E7%94%B5%E8%B7%AF%E4%B9%8B%E4%B8%80%E9%94%AE%E5%BC%80%E5%85%B3%E6%9C%BA%E5%8F%8A%E5%A4%9A%E7%94%A8%E9%80%94%E6%8C%89%E9%94%AE%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<h3 id="mos管开关电路图"><a href="#mos管开关电路图" class="headerlink" title="mos管开关电路图"></a><strong>mos管开关电路图</strong></h3><p>图中电池的正电通过开关S1接到场效应管Q1的2脚源极，由于Q1是一个P沟道管，它的1脚栅极通过R20电阻提供一个正电位电压，所以不能通电，电压不能继续通过，3v稳压IC输入脚得不到电压所以就不能工作不开机！<br><a id="more"></a><br>这时，如果我们按下SW1开机按键时，正电通过按键、R11、R23、D4加到三极管Q2的基极，三极管Q2的基极得到一个正电位，三极管导通（前面讲到三极管的时候已经讲过），由于三极管的发射极直接接地，三极管Q2导通就相当于Q1的栅极直接接地，加在它上面的通过R20电阻的电压就直接入了地，Q1的栅极就从高电位变为低电位，Q1导通电就从Q1同过加到3v稳压IC的输入脚，3v稳压IC就是那个U1输出3v的工作电压vcc供给主控，主控通过复位清0，读取固件程序检测等一系列动作，输处一个控制电压到PWR_ON再通过R24、R13分压送到Q2的基极，保持Q2一直处于导通状态，即使你松开开机键断开Q1的基极电压，这时候有主控送来的控制电压保持着，Q2也就一直能够处于导通状态，Q1就能源源不断的给3v稳压IC提供工作电压！SW1还同时通过R11、R30两个电阻的分压，给主控PLAYON脚送去时间长短、次数不同的控制信号，主控通过固件鉴别是播放、暂停、开机、关机而输出不同的结果给相应的控制点，以达到不同的工作状态！<br><img src="20180612114430_9155.jpg" alt="最简单的mos管开关电路图"></p>
-]]></content>
-      <categories>
-        <category>电路设计相关</category>
-        <category>经典电路</category>
-      </categories>
-      <tags>
-        <tag>PCB</tag>
-        <tag>电路设计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>经典电路之减法器</title>
-    <url>/2018/01/08/%E7%BB%8F%E5%85%B8%E7%94%B5%E8%B7%AF%E4%B9%8B%E5%87%8F%E6%B3%95%E5%99%A8/</url>
-    <content><![CDATA[<p>减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现</p>
-<h3 id="1-输入信号实现反相实现减法器"><a href="#1-输入信号实现反相实现减法器" class="headerlink" title="1.输入信号实现反相实现减法器"></a>1.输入信号实现反相实现减法器</h3><p><img src="543cf225x7ca35edcb97b&amp;690.jpg" alt="543cf225x7ca35edcb97b&amp;690.jpg"></p>
-<h3 id="2-差分电路实现减法器"><a href="#2-差分电路实现减法器" class="headerlink" title="2.差分电路实现减法器"></a>2.差分电路实现减法器</h3><p><img src="543cf225x72dd2aab7ff5&amp;690.jpg" alt="543cf225x72dd2aab7ff5&amp;690.jpg"><br>我使用差分减法器比较多，主要用于电流、电压的测量<br>其计算输出电压的公式如下：</p>
-<script type="math/tex; mode=display">V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})</script><p>若令<strong>R1=R2,R3=R4</strong>,上式可简化为：</p>
-<script type="math/tex; mode=display">V_o=\frac{R3}{R2}(V_{i2}-V_{i1})</script>]]></content>
-      <categories>
-        <category>电路设计相关</category>
-        <category>经典电路</category>
-      </categories>
-      <tags>
-        <tag>电路设计</tag>
-        <tag>减法器电路</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>经典电路之惠斯通电桥原理及应用</title>
-    <url>/2018/01/08/%E7%BB%8F%E5%85%B8%E7%94%B5%E8%B7%AF%E4%B9%8B%E6%83%A0%E6%96%AF%E9%80%9A%E7%94%B5%E6%A1%A5%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="1-电阻桥定义解释"><a href="#1-电阻桥定义解释" class="headerlink" title="1. 电阻桥定义解释"></a>1. 电阻桥定义解释</h2><p>   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。</p>
-<p> <img src="110945pzcuhva3gm2cpncy.jpg" alt="110945pzcuhva3gm2cpncy"></p>
-<p>   在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通过采集电压的变化就可以知道环境中物理量的变化，而从实现测量的目的。下面举例介绍电桥电路的计算方式。</p>
-<h2 id="2-电阻桥相关计算"><a href="#2-电阻桥相关计算" class="headerlink" title="2. 电阻桥相关计算"></a>2. 电阻桥相关计算</h2><p>   假设流过R1，R2桥臂的电流为I1，流过R3，Rx桥臂的电流为I2，电桥供电电压为VCC，如下图所示。<br><img src="fig1.png" alt="fig1"><br>   通过欧姆定律可以计算出每个电阻两端的电压。在R1和R2这两个桥臂上，R1，R2将VCC电压分压，R2电阻两端得到的电压即为V1；在R3和Rx这个桥臂上，R3，Rx将VCC电压分压，R3电阻两端得到的电压即为V2。下面分别用欧姆定律计算V1和V2。</p>
-<p>   流过电阻R1和R2的电流I1: </p>
-<script type="math/tex; mode=display">\ I1=\frac{VCC}{R1+R2}</script><p>   R2两端的电压V1：</p>
-<script type="math/tex; mode=display">\ V1=I1\cdot R2=VCC\cdot\frac{R2}{R1+R2}</script><p>   流过电阻R3和Rx的电流I2:</p>
-<script type="math/tex; mode=display">\ I2=\frac{VCC}{R3+Rx}</script><p>   R3两端的电压：</p>
-<script type="math/tex; mode=display">\ V2=I2\cdot R3=VCC\cdot\frac{R3}{R3+Rx}</script><p>   V1和V2的电压差：</p>
-<script type="math/tex; mode=display">\Delta V=V1-V2=VCC\cdot(\frac{R2}{R1+R2}-\frac{R3}{R3+Rx})</script><p>进一步计算得到：</p>
-<script type="math/tex; mode=display">\Delta V=VCC\cdot(\frac{R2\cdot Rx-R3\cdot R1}{(R1+R2)(R3+Rx)})</script><p>由此可以看出：<br>如果4个电阻都相等，即R1=R2=R3=Rx，那么ΔV=0，即电桥处于平衡状态；　Rx发生变化会导致△V发生变化；</p>
-<h2 id="3-电阻桥的应用"><a href="#3-电阻桥的应用" class="headerlink" title="3.电阻桥的应用"></a>3.电阻桥的应用</h2><p>   在实际使用中，我们通常将其中三个电阻值固定，而将另外一个电阻换成热敏电阻、压敏电阻、PT100等，这时候就可以用电桥来测物理量了。如果将PT100接入电桥，随着环境温度的变化，PT100的阻值发生变化导致ΔV发生变化，将差分电压ΔV通过差分运放放大后进入单片机的AD采样，再对照PT100的电阻-温度对应表就可以知道当前环境的温度了。</p>
-]]></content>
-      <categories>
-        <category>电路设计相关</category>
-        <category>经典电路</category>
-      </categories>
-      <tags>
-        <tag>电路设计</tag>
-        <tag>电阻测量</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>继电器驱动电路带隔离</title>
-    <url>/2020/01/05/%E7%BB%A7%E7%94%B5%E5%99%A8%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF%E5%B8%A6%E9%9A%94%E7%A6%BB/</url>
-    <content><![CDATA[<p>本文主要介绍如何使用光耦隔离并驱动继电器<br><a id="more"></a><br><img src="2c33ad368a65e4a08bb36a1ad44a6181.png" alt="2c33ad368a65e4a08bb36a1ad44a6181"></p>
-]]></content>
-      <categories>
-        <category>电路设计相关</category>
-        <category>控制类</category>
-      </categories>
-      <tags>
-        <tag>PCB</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>[通信]Modbus协议</title>
-    <url>/2020/04/03/%E9%80%9A%E4%BF%A1-Modbus%E5%8D%8F%E8%AE%AE/</url>
-    <content><![CDATA[<p><br><br><div class="pdf" target="Modbus.pdf" height></div></p>
-<div class="pdf" target="http://www.ti.com.cn/cn/lit/ds/symlink/dlp4500nir.pdf" height></div>
-<p><br></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>驱动数码管的几种方法</title>
-    <url>/2020/02/26/%E9%A9%B1%E5%8A%A8%E6%95%B0%E7%A0%81%E7%AE%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Arduino教程之编写自己的Arduino库</title>
@@ -2997,60 +3223,6 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
-    <title>c语言教程之枚举类型</title>
-    <url>/2018/01/10/c%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B%E4%B9%8B%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<p><a href="https://www.cnblogs.com/JCSU/articles/1299051.html" target="_blank" rel="noopener">原文链接</a><br>注：以下全部代码的执行环境为VC++ 6.0</p>
-<p>在程序中，可能需要为某些整数定义一个别名，我们可以利用预处理指令#define来完成这项工作，您的代码可能是：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#define MON  1</span></span><br><span class="line"><span class="comment">#define TUE   2</span></span><br><span class="line"><span class="comment">#define WED  3</span></span><br><span class="line"><span class="comment">#define THU   4</span></span><br><span class="line"><span class="comment">#define FRI    5</span></span><br><span class="line"><span class="comment">#define SAT   6</span></span><br><span class="line"><span class="comment">#define SUN   7</span></span><br></pre></td></tr></table></figure>
-<p>在此，我们定义一种新的数据类型，希望它能完成同样的工作。这种新的数据类型叫枚举型。</p>
-<h2 id="1-定义一种新的数据类型-枚举型"><a href="#1-定义一种新的数据类型-枚举型" class="headerlink" title="1. 定义一种新的数据类型 - 枚举型"></a>1. 定义一种新的数据类型 - 枚举型</h2><p> 以下代码定义了这种新的数据类型 - 枚举型<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>(1) 枚举型是一个集合，集合中的元素(枚举成员)是一些命名的整型常量，元素之间用逗号,隔开。</p>
-<p>(2) DAY是一个标识符，可以看成这个集合的名字，是一个可选项，即是可有可无的项。</p>
-<p>(3) 第一个枚举成员的默认值为整型的0，后续枚举成员的值在前一个成员上加1。</p>
-<p>(4) 可以人为设定枚举成员的值，从而自定义某个范围内的整数。</p>
-<p>(5) 枚举型是预处理指令#define的替代。</p>
-<p>(6) 类型定义以分号;结束。</p>
-<h2 id="2-使用枚举类型对变量进行声明"><a href="#2-使用枚举类型对变量进行声明" class="headerlink" title="2. 使用枚举类型对变量进行声明"></a>2. 使用枚举类型对变量进行声明</h2><p>新的数据类型定义完成后，它就可以使用了。我们已经见过最基本的数据类型，如：整型int, 单精度浮点型float, 双精度浮点型double, 字符型char, 短整型short等等。用这些基本数据类型声明变量通常是这样：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">char     a; //变量a的类型均为字符型char</span><br><span class="line">char     letter;</span><br><span class="line">int        x,</span><br><span class="line">           y,</span><br><span class="line">           z; //变量x,y和z的类型均为整型int</span><br><span class="line">int       number;</span><br><span class="line">double  m, n;</span><br><span class="line">double  result; //变量result的类型为双精度浮点型double</span><br></pre></td></tr></table></figure></p>
-<p>既然枚举也是一种数据类型，那么它和基本数据类型一样也可以对变量进行声明。</p>
-<h4 id="方法一：枚举类型的定义和变量的声明分开"><a href="#方法一：枚举类型的定义和变量的声明分开" class="headerlink" title="方法一：枚举类型的定义和变量的声明分开"></a>方法一：枚举类型的定义和变量的声明分开</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum DAY yesterday;</span><br><span class="line">enum DAY today;</span><br><span class="line">enum DAY tomorrow; //变量tomorrow的类型为枚举型enum DAY</span><br><span class="line">enum DAY good_day, bad_day; //变量good_day和bad_day的类型均为枚举型enum DAY</span><br></pre></td></tr></table></figure>
-<h4 id="方法二：类型定义与变量声明同时进行："><a href="#方法二：类型定义与变量声明同时进行：" class="headerlink" title="方法二：类型定义与变量声明同时进行："></a>方法二：类型定义与变量声明同时进行：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum //跟第一个定义不同的是，此处的标号DAY省略，这是允许的。</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //变量workday的类型为枚举型enum DAY</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum week &#123; Mon=1, Tue, Wed, Thu, Fri Sat, Sun&#125; days; //变量days的类型为枚举型enum week</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum BOOLEAN &#123; <span class="literal">false</span>, <span class="literal">true</span> &#125; end_flag, match_flag; //定义枚举类型并声明了两个枚举型变量</span><br></pre></td></tr></table></figure>
-<h4 id="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："><a href="#方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：" class="headerlink" title="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："></a>方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
-<p>enum workday中的workday可以省略：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
-<p>也可以用这种方式：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
-<p>注意：同一个程序中不能定义同名的枚举类型，不同的枚举类型中也不能存在同名的命名常量。错误示例如下所示：</p>
-<p>$\color{red}{错误声明一：}$存在同名的枚举类型</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
-<p>$\color{red}{错误声明二：}$存在同名的枚举成员</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday_1;</span><br><span class="line"></span><br><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday_2;</span><br></pre></td></tr></table></figure>
-<h2 id="3-使用枚举类型的变量"><a href="#3-使用枚举类型的变量" class="headerlink" title="3.使用枚举类型的变量"></a>3.使用枚举类型的变量</h2><h3 id="3-1-对枚举型的变量赋值。"><a href="#3-1-对枚举型的变量赋值。" class="headerlink" title="3.1 对枚举型的变量赋值。"></a>3.1 对枚举型的变量赋值。</h3><p>实例将枚举类型的赋值与基本数据类型的赋值进行了对比：</p>
-<h4 id="方法一：先声明变量，再对变量赋值"><a href="#方法一：先声明变量，再对变量赋值" class="headerlink" title="方法一：先声明变量，再对变量赋值"></a>方法一：先声明变量，再对变量赋值</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量，然后对变量赋值 */</span><br><span class="line">    int x, y, z;</span><br><span class="line">    </span><br><span class="line">    x = 10;</span><br><span class="line">    y = 20;</span><br><span class="line">    z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量，再对枚举型变量赋值 */</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line">    </span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法二：声明变量的同时赋初值"><a href="#方法二：声明变量的同时赋初值" class="headerlink" title="方法二：声明变量的同时赋初值"></a>方法二：声明变量的同时赋初值</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量同时对变量赋初值 */</span><br><span class="line">    int x=10, y=20, z=30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量同时对枚举型变量赋初值 */</span><br><span class="line">    enum DAY yesterday = MON, </span><br><span class="line">                        today = TUE,</span><br><span class="line">                   tomorrow = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法三：定义类型的同时声明变量，然后对变量赋值。"><a href="#方法三：定义类型的同时声明变量，然后对变量赋值。" class="headerlink" title="方法三：定义类型的同时声明变量，然后对变量赋值。"></a>方法三：定义类型的同时声明变量，然后对变量赋值。</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，它们都为全局变量 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125; yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，它们都为全局变量 */</span><br><span class="line">int x, y, z;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 对基本数据类型的变量赋值 */</span><br><span class="line">    x = 10;  y = 20;  z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 对枚举型的变量赋值 */</span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法四：类型定义，变量声明，赋初值同时进行。"><a href="#方法四：类型定义，变量声明，赋初值同时进行。" class="headerlink" title="方法四：类型定义，变量声明，赋初值同时进行。"></a>方法四：类型定义，变量声明，赋初值同时进行。</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，并赋初值。它们都为全局变量 */</span><br><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">    MON=1, </span><br><span class="line">    TUE,</span><br><span class="line">    WED,</span><br><span class="line">    THU,</span><br><span class="line">    FRI,</span><br><span class="line">    SAT,</span><br><span class="line">    SUN </span><br><span class="line">&#125;</span><br><span class="line">yesterday = MON, today = TUE, tomorrow = WED;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，并赋初值。它们都为全局变量 */</span><br><span class="line">int x = 10, y = 20, z = 30;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-对枚举型的变量赋整数值时，需要进行类型转换。"><a href="#3-2-对枚举型的变量赋整数值时，需要进行类型转换。" class="headerlink" title="3.2 对枚举型的变量赋整数值时，需要进行类型转换。"></a>3.2 对枚举型的变量赋整数值时，需要进行类型转换。</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">    yesterday = TUE;</span><br><span class="line">    today = (enum DAY) (yesterday + 1); //类型转换</span><br><span class="line">    tomorrow = (enum DAY) 30; //类型转换</span><br><span class="line">    //tomorrow = 3; //错误</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：2 3 30</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-3-使用枚举型变量"><a href="#3-3-使用枚举型变量" class="headerlink" title="3.3 使用枚举型变量"></a>3.3 使用枚举型变量</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum</span><br><span class="line">&#123; </span><br><span class="line">    BELL          = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB         = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN      = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE    = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB         = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE       = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int index = 0;</span><br><span class="line">    int count_of_letter = 0;</span><br><span class="line">    int count_of_space = 0;</span><br><span class="line">    </span><br><span class="line">    char str[] = <span class="string">"I'm Ely efod"</span>;</span><br><span class="line">    </span><br><span class="line">    match_flag = FALSE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(; str[index] != <span class="string">'\0'</span>; index++)</span><br><span class="line">        <span class="keyword">if</span>( SPACE != str[index] )</span><br><span class="line">            count_of_letter++;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            match_flag = (enum BOOLEAN) 1;</span><br><span class="line">            count_of_space++;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s %d times %c"</span>, match_flag ? <span class="string">"match"</span> : <span class="string">"not match"</span>, count_of_space, NEWLINE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"count of letters: %d %c%c"</span>, count_of_letter, NEWLINE, RETURN);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">match 2 <span class="built_in">times</span></span><br><span class="line">count of letters: 10</span><br><span class="line">Press any key to <span class="built_in">continue</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="4-枚举类型与sizeof运算符"><a href="#4-枚举类型与sizeof运算符" class="headerlink" title="4. 枚举类型与sizeof运算符"></a>4. 枚举类型与sizeof运算符</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum escapes</span><br><span class="line">&#123; </span><br><span class="line">    BELL      = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB      = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN    = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE   = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB      = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE     = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum escapes)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(escapes)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(match_flag)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(SPACE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(NEWLINE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(FALSE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(0)); //4 bytes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-综合举例"><a href="#5-综合举例" class="headerlink" title="5. 综合举例"></a>5. 综合举例</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum Season</span><br><span class="line">&#123;</span><br><span class="line">    spring, summer=100, fall=96, winter</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</span><br><span class="line">&#125;</span><br><span class="line">Weekday;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* Season */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, spring); // 0</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %c \n"</span>, summer, summer); // 100, d</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, fall+winter); // 193</span><br><span class="line">    </span><br><span class="line">    Season mySeason=winter;</span><br><span class="line">    <span class="keyword">if</span>(winter==mySeason)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"mySeason is winter \n"</span>); // mySeason is winter</span><br><span class="line">    </span><br><span class="line">    int x=100;</span><br><span class="line">    <span class="keyword">if</span>(x==summer)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"x is equal to summer\n"</span>); // x is equal to summer</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes\n"</span>, sizeof(spring)); // 4 bytes</span><br><span class="line">    </span><br><span class="line">    /* Weekday */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"sizeof Weekday is: %d \n"</span>, sizeof(Weekday)); //sizeof Weekday is: 4</span><br><span class="line">    </span><br><span class="line">    Weekday today = Saturday;</span><br><span class="line">    Weekday tomorrow;</span><br><span class="line">    <span class="keyword">if</span>(today == Monday)</span><br><span class="line">        tomorrow = Tuesday;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        tomorrow = (Weekday) (today + 1); //remember to convert from int to Weekday</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>C语言</category>
-        <category>C语言教程</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-        <tag>枚举</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux命令之解压缩命令</title>
     <url>/2018/01/09/linux%E5%91%BD%E4%BB%A4%E4%B9%8B%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<p>Linux下的压缩解压缩命令详解及实例</p>
@@ -3222,6 +3394,60 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
+    <title>c语言教程之枚举类型</title>
+    <url>/2018/01/10/c%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B%E4%B9%8B%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<p><a href="https://www.cnblogs.com/JCSU/articles/1299051.html" target="_blank" rel="noopener">原文链接</a><br>注：以下全部代码的执行环境为VC++ 6.0</p>
+<p>在程序中，可能需要为某些整数定义一个别名，我们可以利用预处理指令#define来完成这项工作，您的代码可能是：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#define MON  1</span></span><br><span class="line"><span class="comment">#define TUE   2</span></span><br><span class="line"><span class="comment">#define WED  3</span></span><br><span class="line"><span class="comment">#define THU   4</span></span><br><span class="line"><span class="comment">#define FRI    5</span></span><br><span class="line"><span class="comment">#define SAT   6</span></span><br><span class="line"><span class="comment">#define SUN   7</span></span><br></pre></td></tr></table></figure>
+<p>在此，我们定义一种新的数据类型，希望它能完成同样的工作。这种新的数据类型叫枚举型。</p>
+<h2 id="1-定义一种新的数据类型-枚举型"><a href="#1-定义一种新的数据类型-枚举型" class="headerlink" title="1. 定义一种新的数据类型 - 枚举型"></a>1. 定义一种新的数据类型 - 枚举型</h2><p> 以下代码定义了这种新的数据类型 - 枚举型<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>(1) 枚举型是一个集合，集合中的元素(枚举成员)是一些命名的整型常量，元素之间用逗号,隔开。</p>
+<p>(2) DAY是一个标识符，可以看成这个集合的名字，是一个可选项，即是可有可无的项。</p>
+<p>(3) 第一个枚举成员的默认值为整型的0，后续枚举成员的值在前一个成员上加1。</p>
+<p>(4) 可以人为设定枚举成员的值，从而自定义某个范围内的整数。</p>
+<p>(5) 枚举型是预处理指令#define的替代。</p>
+<p>(6) 类型定义以分号;结束。</p>
+<h2 id="2-使用枚举类型对变量进行声明"><a href="#2-使用枚举类型对变量进行声明" class="headerlink" title="2. 使用枚举类型对变量进行声明"></a>2. 使用枚举类型对变量进行声明</h2><p>新的数据类型定义完成后，它就可以使用了。我们已经见过最基本的数据类型，如：整型int, 单精度浮点型float, 双精度浮点型double, 字符型char, 短整型short等等。用这些基本数据类型声明变量通常是这样：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">char     a; //变量a的类型均为字符型char</span><br><span class="line">char     letter;</span><br><span class="line">int        x,</span><br><span class="line">           y,</span><br><span class="line">           z; //变量x,y和z的类型均为整型int</span><br><span class="line">int       number;</span><br><span class="line">double  m, n;</span><br><span class="line">double  result; //变量result的类型为双精度浮点型double</span><br></pre></td></tr></table></figure></p>
+<p>既然枚举也是一种数据类型，那么它和基本数据类型一样也可以对变量进行声明。</p>
+<h4 id="方法一：枚举类型的定义和变量的声明分开"><a href="#方法一：枚举类型的定义和变量的声明分开" class="headerlink" title="方法一：枚举类型的定义和变量的声明分开"></a>方法一：枚举类型的定义和变量的声明分开</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">      MON=1, TUE, WED, THU, FRI, SAT, SUN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum DAY yesterday;</span><br><span class="line">enum DAY today;</span><br><span class="line">enum DAY tomorrow; //变量tomorrow的类型为枚举型enum DAY</span><br><span class="line">enum DAY good_day, bad_day; //变量good_day和bad_day的类型均为枚举型enum DAY</span><br></pre></td></tr></table></figure>
+<h4 id="方法二：类型定义与变量声明同时进行："><a href="#方法二：类型定义与变量声明同时进行：" class="headerlink" title="方法二：类型定义与变量声明同时进行："></a>方法二：类型定义与变量声明同时进行：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum //跟第一个定义不同的是，此处的标号DAY省略，这是允许的。</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //变量workday的类型为枚举型enum DAY</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum week &#123; Mon=1, Tue, Wed, Thu, Fri Sat, Sun&#125; days; //变量days的类型为枚举型enum week</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">enum BOOLEAN &#123; <span class="literal">false</span>, <span class="literal">true</span> &#125; end_flag, match_flag; //定义枚举类型并声明了两个枚举型变量</span><br></pre></td></tr></table></figure>
+<h4 id="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："><a href="#方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：" class="headerlink" title="方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明："></a>方法三：用typedef关键字将枚举类型定义成别名，并利用该别名进行变量声明：</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
+<p>enum workday中的workday可以省略：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday; //此处的workday为枚举型enum workday的别名</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
+<p>也可以用这种方式：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum workday</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">    tuesday,</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">workday today, tomorrow; //变量today和tomorrow的类型为枚举型workday，也即enum workday</span><br></pre></td></tr></table></figure>
+<p>注意：同一个程序中不能定义同名的枚举类型，不同的枚举类型中也不能存在同名的命名常量。错误示例如下所示：</p>
+<p>$\color{red}{错误声明一：}$存在同名的枚举类型</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    saturday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday;</span><br></pre></td></tr></table></figure>
+<p>$\color{red}{错误声明二：}$存在同名的枚举成员</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    thursday,</span><br><span class="line">    friday</span><br><span class="line">&#125; workday_1;</span><br><span class="line"></span><br><span class="line">typedef enum WEEK</span><br><span class="line">&#123;</span><br><span class="line">    wednesday,</span><br><span class="line">    sunday = 0,</span><br><span class="line">    monday,</span><br><span class="line">&#125; workday_2;</span><br></pre></td></tr></table></figure>
+<h2 id="3-使用枚举类型的变量"><a href="#3-使用枚举类型的变量" class="headerlink" title="3.使用枚举类型的变量"></a>3.使用枚举类型的变量</h2><h3 id="3-1-对枚举型的变量赋值。"><a href="#3-1-对枚举型的变量赋值。" class="headerlink" title="3.1 对枚举型的变量赋值。"></a>3.1 对枚举型的变量赋值。</h3><p>实例将枚举类型的赋值与基本数据类型的赋值进行了对比：</p>
+<h4 id="方法一：先声明变量，再对变量赋值"><a href="#方法一：先声明变量，再对变量赋值" class="headerlink" title="方法一：先声明变量，再对变量赋值"></a>方法一：先声明变量，再对变量赋值</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量，然后对变量赋值 */</span><br><span class="line">    int x, y, z;</span><br><span class="line">    </span><br><span class="line">    x = 10;</span><br><span class="line">    y = 20;</span><br><span class="line">    z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量，再对枚举型变量赋值 */</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line">    </span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法二：声明变量的同时赋初值"><a href="#方法二：声明变量的同时赋初值" class="headerlink" title="方法二：声明变量的同时赋初值"></a>方法二：声明变量的同时赋初值</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 使用基本数据类型声明变量同时对变量赋初值 */</span><br><span class="line">    int x=10, y=20, z=30;</span><br><span class="line">    </span><br><span class="line">    /* 使用枚举类型声明变量同时对枚举型变量赋初值 */</span><br><span class="line">    enum DAY yesterday = MON, </span><br><span class="line">                        today = TUE,</span><br><span class="line">                   tomorrow = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法三：定义类型的同时声明变量，然后对变量赋值。"><a href="#方法三：定义类型的同时声明变量，然后对变量赋值。" class="headerlink" title="方法三：定义类型的同时声明变量，然后对变量赋值。"></a>方法三：定义类型的同时声明变量，然后对变量赋值。</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，它们都为全局变量 */</span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125; yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，它们都为全局变量 */</span><br><span class="line">int x, y, z;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* 对基本数据类型的变量赋值 */</span><br><span class="line">    x = 10;  y = 20;  z = 30;</span><br><span class="line">    </span><br><span class="line">    /* 对枚举型的变量赋值 */</span><br><span class="line">    yesterday = MON;</span><br><span class="line">    today     = TUE;</span><br><span class="line">    tomorrow  = WED;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法四：类型定义，变量声明，赋初值同时进行。"><a href="#方法四：类型定义，变量声明，赋初值同时进行。" class="headerlink" title="方法四：类型定义，变量声明，赋初值同时进行。"></a>方法四：类型定义，变量声明，赋初值同时进行。</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">/* 定义枚举类型，同时声明该类型的三个变量，并赋初值。它们都为全局变量 */</span><br><span class="line">enum DAY</span><br><span class="line">&#123;</span><br><span class="line">    MON=1, </span><br><span class="line">    TUE,</span><br><span class="line">    WED,</span><br><span class="line">    THU,</span><br><span class="line">    FRI,</span><br><span class="line">    SAT,</span><br><span class="line">    SUN </span><br><span class="line">&#125;</span><br><span class="line">yesterday = MON, today = TUE, tomorrow = WED;</span><br><span class="line"></span><br><span class="line">/* 定义三个具有基本数据类型的变量，并赋初值。它们都为全局变量 */</span><br><span class="line">int x = 10, y = 20, z = 30;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, x, y, z); //输出：10 20 30</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：1 2 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-对枚举型的变量赋整数值时，需要进行类型转换。"><a href="#3-2-对枚举型的变量赋整数值时，需要进行类型转换。" class="headerlink" title="3.2 对枚举型的变量赋整数值时，需要进行类型转换。"></a>3.2 对枚举型的变量赋整数值时，需要进行类型转换。</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum DAY &#123; MON=1, TUE, WED, THU, FRI, SAT, SUN &#125;;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    enum DAY yesterday, today, tomorrow;</span><br><span class="line"></span><br><span class="line">    yesterday = TUE;</span><br><span class="line">    today = (enum DAY) (yesterday + 1); //类型转换</span><br><span class="line">    tomorrow = (enum DAY) 30; //类型转换</span><br><span class="line">    //tomorrow = 3; //错误</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d \n"</span>, yesterday, today, tomorrow); //输出：2 3 30</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-使用枚举型变量"><a href="#3-3-使用枚举型变量" class="headerlink" title="3.3 使用枚举型变量"></a>3.3 使用枚举型变量</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum</span><br><span class="line">&#123; </span><br><span class="line">    BELL          = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB         = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN      = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE    = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB         = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE       = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    int index = 0;</span><br><span class="line">    int count_of_letter = 0;</span><br><span class="line">    int count_of_space = 0;</span><br><span class="line">    </span><br><span class="line">    char str[] = <span class="string">"I'm Ely efod"</span>;</span><br><span class="line">    </span><br><span class="line">    match_flag = FALSE;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(; str[index] != <span class="string">'\0'</span>; index++)</span><br><span class="line">        <span class="keyword">if</span>( SPACE != str[index] )</span><br><span class="line">            count_of_letter++;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            match_flag = (enum BOOLEAN) 1;</span><br><span class="line">            count_of_space++;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s %d times %c"</span>, match_flag ? <span class="string">"match"</span> : <span class="string">"not match"</span>, count_of_space, NEWLINE);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"count of letters: %d %c%c"</span>, count_of_letter, NEWLINE, RETURN);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">match 2 <span class="built_in">times</span></span><br><span class="line">count of letters: 10</span><br><span class="line">Press any key to <span class="built_in">continue</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="4-枚举类型与sizeof运算符"><a href="#4-枚举类型与sizeof运算符" class="headerlink" title="4. 枚举类型与sizeof运算符"></a>4. 枚举类型与sizeof运算符</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum escapes</span><br><span class="line">&#123; </span><br><span class="line">    BELL      = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB      = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN    = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE   = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB      = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE     = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum escapes)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(escapes)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(match_flag)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(SPACE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(NEWLINE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(FALSE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(0)); //4 bytes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-综合举例"><a href="#5-综合举例" class="headerlink" title="5. 综合举例"></a>5. 综合举例</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum Season</span><br><span class="line">&#123;</span><br><span class="line">    spring, summer=100, fall=96, winter</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</span><br><span class="line">&#125;</span><br><span class="line">Weekday;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* Season */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, spring); // 0</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %c \n"</span>, summer, summer); // 100, d</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, fall+winter); // 193</span><br><span class="line">    </span><br><span class="line">    Season mySeason=winter;</span><br><span class="line">    <span class="keyword">if</span>(winter==mySeason)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"mySeason is winter \n"</span>); // mySeason is winter</span><br><span class="line">    </span><br><span class="line">    int x=100;</span><br><span class="line">    <span class="keyword">if</span>(x==summer)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"x is equal to summer\n"</span>); // x is equal to summer</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes\n"</span>, sizeof(spring)); // 4 bytes</span><br><span class="line">    </span><br><span class="line">    /* Weekday */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"sizeof Weekday is: %d \n"</span>, sizeof(Weekday)); //sizeof Weekday is: 4</span><br><span class="line">    </span><br><span class="line">    Weekday today = Saturday;</span><br><span class="line">    Weekday tomorrow;</span><br><span class="line">    <span class="keyword">if</span>(today == Monday)</span><br><span class="line">        tomorrow = Tuesday;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        tomorrow = (Weekday) (today + 1); //remember to convert from int to Weekday</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C语言</category>
+        <category>C语言教程</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>枚举</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ubuntu下ReText编辑器安装与配置</title>
     <url>/2018/01/07/ubuntu%E4%B8%8BReText%E7%BC%96%E8%BE%91%E5%99%A8%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="1-Retext-的安装"><a href="#1-Retext-的安装" class="headerlink" title="1. Retext 的安装"></a>1. Retext 的安装</h1><p>在Ubuntu中只需要<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install retext</span><br></pre></td></tr></table></figure></p>
@@ -3250,6 +3476,100 @@ f(x) &=a+b+a\\
         <tag>ReText使用说明</tag>
         <tag>ReText配置</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>经典电路之减法器</title>
+    <url>/2018/01/08/%E7%BB%8F%E5%85%B8%E7%94%B5%E8%B7%AF%E4%B9%8B%E5%87%8F%E6%B3%95%E5%99%A8/</url>
+    <content><![CDATA[<p>减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现</p>
+<h3 id="1-输入信号实现反相实现减法器"><a href="#1-输入信号实现反相实现减法器" class="headerlink" title="1.输入信号实现反相实现减法器"></a>1.输入信号实现反相实现减法器</h3><p><img src="543cf225x7ca35edcb97b&amp;690.jpg" alt="543cf225x7ca35edcb97b&amp;690.jpg"></p>
+<h3 id="2-差分电路实现减法器"><a href="#2-差分电路实现减法器" class="headerlink" title="2.差分电路实现减法器"></a>2.差分电路实现减法器</h3><p><img src="543cf225x72dd2aab7ff5&amp;690.jpg" alt="543cf225x72dd2aab7ff5&amp;690.jpg"><br>我使用差分减法器比较多，主要用于电流、电压的测量<br>其计算输出电压的公式如下：</p>
+<script type="math/tex; mode=display">V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})</script><p>若令<strong>R1=R2,R3=R4</strong>,上式可简化为：</p>
+<script type="math/tex; mode=display">V_o=\frac{R3}{R2}(V_{i2}-V_{i1})</script>]]></content>
+      <categories>
+        <category>电路设计相关</category>
+        <category>经典电路</category>
+      </categories>
+      <tags>
+        <tag>电路设计</tag>
+        <tag>减法器电路</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>经典电路之一键开关机及多用途按键设计</title>
+    <url>/2019/12/19/%E7%BB%8F%E5%85%B8%E7%94%B5%E8%B7%AF%E4%B9%8B%E4%B8%80%E9%94%AE%E5%BC%80%E5%85%B3%E6%9C%BA%E5%8F%8A%E5%A4%9A%E7%94%A8%E9%80%94%E6%8C%89%E9%94%AE%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h3 id="mos管开关电路图"><a href="#mos管开关电路图" class="headerlink" title="mos管开关电路图"></a><strong>mos管开关电路图</strong></h3><p>图中电池的正电通过开关S1接到场效应管Q1的2脚源极，由于Q1是一个P沟道管，它的1脚栅极通过R20电阻提供一个正电位电压，所以不能通电，电压不能继续通过，3v稳压IC输入脚得不到电压所以就不能工作不开机！<br><a id="more"></a><br>这时，如果我们按下SW1开机按键时，正电通过按键、R11、R23、D4加到三极管Q2的基极，三极管Q2的基极得到一个正电位，三极管导通（前面讲到三极管的时候已经讲过），由于三极管的发射极直接接地，三极管Q2导通就相当于Q1的栅极直接接地，加在它上面的通过R20电阻的电压就直接入了地，Q1的栅极就从高电位变为低电位，Q1导通电就从Q1同过加到3v稳压IC的输入脚，3v稳压IC就是那个U1输出3v的工作电压vcc供给主控，主控通过复位清0，读取固件程序检测等一系列动作，输处一个控制电压到PWR_ON再通过R24、R13分压送到Q2的基极，保持Q2一直处于导通状态，即使你松开开机键断开Q1的基极电压，这时候有主控送来的控制电压保持着，Q2也就一直能够处于导通状态，Q1就能源源不断的给3v稳压IC提供工作电压！SW1还同时通过R11、R30两个电阻的分压，给主控PLAYON脚送去时间长短、次数不同的控制信号，主控通过固件鉴别是播放、暂停、开机、关机而输出不同的结果给相应的控制点，以达到不同的工作状态！<br><img src="20180612114430_9155.jpg" alt="最简单的mos管开关电路图"></p>
+]]></content>
+      <categories>
+        <category>电路设计相关</category>
+        <category>经典电路</category>
+      </categories>
+      <tags>
+        <tag>PCB</tag>
+        <tag>电路设计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>继电器驱动电路带隔离</title>
+    <url>/2020/01/05/%E7%BB%A7%E7%94%B5%E5%99%A8%E9%A9%B1%E5%8A%A8%E7%94%B5%E8%B7%AF%E5%B8%A6%E9%9A%94%E7%A6%BB/</url>
+    <content><![CDATA[<p>本文主要介绍如何使用光耦隔离并驱动继电器<br><a id="more"></a><br><img src="2c33ad368a65e4a08bb36a1ad44a6181.png" alt="2c33ad368a65e4a08bb36a1ad44a6181"></p>
+]]></content>
+      <categories>
+        <category>电路设计相关</category>
+        <category>控制类</category>
+      </categories>
+      <tags>
+        <tag>PCB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>[通信]Modbus协议</title>
+    <url>/2020/04/03/%E9%80%9A%E4%BF%A1-Modbus%E5%8D%8F%E8%AE%AE/</url>
+    <content><![CDATA[<p>  Modbus是一种串行通信协议，是Modicon公司（现在的施耐德电气 Schneider Electric）于1979年为使用可编程逻辑控制器（PLC）通信而发表。Modbus已经成为工业领域通信协议的业界标准（De facto），并且现在是工业电子设备之间常用的连接方式。<br><a id="more"></a><br>Modbus比其他通信协议使用的更广泛的主要原因有: </p>
+<ol>
+<li>公开发表并且无版权要求</li>
+<li>易于部署和维护</li>
+<li>对供应商来说，修改移动本地的比特或字节没有很多限制<br>Modbus允许多个 (大约240个) 设备连接在同一个网络上进行通信，举个例子，一个由测量温度和湿度的装置，并且将结果发送给计算机。在数据采集与监视控制系统（SCADA）中，Modbus通常用来连接监控计算机和远程终端控制系统（RTU）。</li>
+</ol>
+<p>Modbus协议是一个master/slave架构的协议。有一个节点是master节点，其他使用Modbus协议参与通信的节点是slave节点。每一个slave设备都有一个唯一的地址。在串行和MB+网络中，只有被指定为主节点的节点可以启动一个命令（在以太网上，任何一个设备都能发送一个Modbus命令，但是通常也只有一个主节点设备启动指令）。<br>一个ModBus命令包含了打算执行的设备的Modbus地址。所有设备都会收到命令，但只有指定位置的设备会执行及回应指令（地址0例外，指定地址0的指令是广播指令，所有收到指令的设备都会运行，不过不回应指令）。所有的Modbus命令包含了检查码，以确定到达的命令没有被破坏。基本的ModBus命令能指令一个RTU改变它的寄存器的某个值，控制或者读取一个I/O端口，以及指挥设备回送一个或者多个其寄存器中的数据。<br>有许多modems和网关支持Modbus协议，因为Modbus协议很简单而且容易复制。它们当中一些为这个协议特别设计的。有使用有线、无线通信甚至短消息和GPRS的不同实现。不过设计者需要克服一些包括高延迟和时序的问题。</p>
+<div class="pdf" target="Modbus.pdf" height></div>]]></content>
+      <categories>
+        <category>电路设计相关</category>
+        <category>通信方式</category>
+      </categories>
+      <tags>
+        <tag>电路设计</tag>
+        <tag>RS232 RS485</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>经典电路之惠斯通电桥原理及应用</title>
+    <url>/2018/01/08/%E7%BB%8F%E5%85%B8%E7%94%B5%E8%B7%AF%E4%B9%8B%E6%83%A0%E6%96%AF%E9%80%9A%E7%94%B5%E6%A1%A5%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-电阻桥定义解释"><a href="#1-电阻桥定义解释" class="headerlink" title="1. 电阻桥定义解释"></a>1. 电阻桥定义解释</h2><p>   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。</p>
+<p> <img src="110945pzcuhva3gm2cpncy.jpg" alt="110945pzcuhva3gm2cpncy"></p>
+<p>   在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通过采集电压的变化就可以知道环境中物理量的变化，而从实现测量的目的。下面举例介绍电桥电路的计算方式。</p>
+<h2 id="2-电阻桥相关计算"><a href="#2-电阻桥相关计算" class="headerlink" title="2. 电阻桥相关计算"></a>2. 电阻桥相关计算</h2><p>   假设流过R1，R2桥臂的电流为I1，流过R3，Rx桥臂的电流为I2，电桥供电电压为VCC，如下图所示。<br><img src="fig1.png" alt="fig1"><br>   通过欧姆定律可以计算出每个电阻两端的电压。在R1和R2这两个桥臂上，R1，R2将VCC电压分压，R2电阻两端得到的电压即为V1；在R3和Rx这个桥臂上，R3，Rx将VCC电压分压，R3电阻两端得到的电压即为V2。下面分别用欧姆定律计算V1和V2。</p>
+<p>   流过电阻R1和R2的电流I1: </p>
+<script type="math/tex; mode=display">\ I1=\frac{VCC}{R1+R2}</script><p>   R2两端的电压V1：</p>
+<script type="math/tex; mode=display">\ V1=I1\cdot R2=VCC\cdot\frac{R2}{R1+R2}</script><p>   流过电阻R3和Rx的电流I2:</p>
+<script type="math/tex; mode=display">\ I2=\frac{VCC}{R3+Rx}</script><p>   R3两端的电压：</p>
+<script type="math/tex; mode=display">\ V2=I2\cdot R3=VCC\cdot\frac{R3}{R3+Rx}</script><p>   V1和V2的电压差：</p>
+<script type="math/tex; mode=display">\Delta V=V1-V2=VCC\cdot(\frac{R2}{R1+R2}-\frac{R3}{R3+Rx})</script><p>进一步计算得到：</p>
+<script type="math/tex; mode=display">\Delta V=VCC\cdot(\frac{R2\cdot Rx-R3\cdot R1}{(R1+R2)(R3+Rx)})</script><p>由此可以看出：<br>如果4个电阻都相等，即R1=R2=R3=Rx，那么ΔV=0，即电桥处于平衡状态；　Rx发生变化会导致△V发生变化；</p>
+<h2 id="3-电阻桥的应用"><a href="#3-电阻桥的应用" class="headerlink" title="3.电阻桥的应用"></a>3.电阻桥的应用</h2><p>   在实际使用中，我们通常将其中三个电阻值固定，而将另外一个电阻换成热敏电阻、压敏电阻、PT100等，这时候就可以用电桥来测物理量了。如果将PT100接入电桥，随着环境温度的变化，PT100的阻值发生变化导致ΔV发生变化，将差分电压ΔV通过差分运放放大后进入单片机的AD采样，再对照PT100的电阻-温度对应表就可以知道当前环境的温度了。</p>
+]]></content>
+      <categories>
+        <category>电路设计相关</category>
+        <category>经典电路</category>
+      </categories>
+      <tags>
+        <tag>电路设计</tag>
+        <tag>电阻测量</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>驱动数码管的几种方法</title>
+    <url>/2020/02/26/%E9%A9%B1%E5%8A%A8%E6%95%B0%E7%A0%81%E7%AE%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>经典电路之运算放大器基本电路</title>
