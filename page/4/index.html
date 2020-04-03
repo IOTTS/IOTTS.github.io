@@ -234,6 +234,136 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/14/用Visual-Studio-2015开发Arduino应用程序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/14/用Visual-Studio-2015开发Arduino应用程序/" class="post-title-link" itemprop="url">用Visual Studio 2015开发Arduino应用程序</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-14 13:36:54 / 修改时间：14:34:30" itemprop="dateCreated datePublished" datetime="2018-01-14T13:36:54+08:00">2018-01-14</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Arduino相关/" itemprop="url" rel="index"><span itemprop="name">Arduino相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Arduino相关/Arduino-IDE/" itemprop="url" rel="index"><span itemprop="name">Arduino IDE</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="http://blog.csdn.net/yapingxin/article/details/51386451" target="_blank" rel="noopener">原文连接</a></p>
+<h2 id="Arduino-IDE-的缺点"><a href="#Arduino-IDE-的缺点" class="headerlink" title="Arduino IDE 的缺点"></a>Arduino IDE 的缺点</h2><p>虽然 Arduino 很流行很火爆，但是 Arduino IDE 却非常、非常、非常弱。编写代码很不方便，只能说提供了一个最基本的写代码的工具而已，调试代码也很不方便。而且，Arduino IDE 中写代码，只能是把所有的源代码都集中在一个 .ino 文件中，对于写惯了 C++ 程序的工程师来说，Arduino IDE 完全不具备工程化的可能，只能给一般的爱好者当一个玩具而已。</p>
+<p>所以，本教程既然大言不惭地号称是“高级”教程，首先要做的就是替换掉 Arduino IDE 这个开发工具。当然实际上并不是真的替换掉了 Arduino IDE 的所有的东西，而是把它的有用的工具链（gcc toolchain）进行了重用，然后编写代码、代码管理和调试等工作由更现代化的工具来完成。</p>
+<h2 id="代替Arduino-IDE工具安装"><a href="#代替Arduino-IDE工具安装" class="headerlink" title="代替Arduino IDE工具安装"></a>代替Arduino IDE工具安装</h2><p>替代工具：Arduino for Visual Studio（Visual Micro）</p>
+<p>说到太阳系中最强大和最友好的 C++ IDE，我个人认为是Visual Studio。当然您可能并不赞同我的说法，或许您更倾向于 Eclipse。好吧，您可以自行寻找解决办法，用 Eclipse 开发 Arduino 也是完全可行的，也有好事者用 vim 开发 Arduino……抱歉，扯远了。</p>
+<p>在本节中，我们需要用到两个软件：</p>
+<ol>
+<li><p>Visual Studio</p>
+</li>
+<li><p>Visual Micro (Arduino for Visual Studio 插件)</p>
+</li>
+</ol>
+<p>Visual Micro 的原理</p>
+<p>简单说一下为什么我们可以在 Visual Studio 中开发 Arduino 应用程序。</p>
+<p>官方的 Arduino IDE 开发 Arduino 应用程序，是这样的：<br><img src="clip_image001.png" alt="clip_image001.png"></p>
+<p>而 Visual Studio + Visual Micro 开发 Arduino 应用程序，是这样的：<br><img src="clip_image002.png" alt="clip_image002.png"></p>
+<p>所以说，我们替换掉的仅仅是 Arduino IDE 这个蹩脚的代码开发工具，但是编译、调试和代码烧写用的还是原来的 gcc toolchain。</p>
+<p>$\color{red}{Notes：}$上图中，你会看到Atmel Studio。Atmel Studio是Atmel公司推出的免费开发工具，它是基于Visual Studio Shell的。所以本文虽然是针对Visual Studio来讲的，但也同时适用于Atmel Studio。</p>
+<p>有关详细的Visual Micro工作原理的解释，请看这里：<a href="http://www.visualmicro.com/page/User-Guide.aspx?doc=How-The-Tools-Play-Together.html" target="_blank" rel="noopener">How the Software Tools WorkTogether</a></p>
+<h3 id="Visual-Studio-安装"><a href="#Visual-Studio-安装" class="headerlink" title="Visual Studio 安装"></a>Visual Studio 安装</h3><p>Visual Studio 有很多版本，比如说 Professional、Enterprise、Ultimate……这些都可以用来开发 Arduino 应用程序。当然对于个人开发者来说，可能不会去购买付费版本的 Visual Studio，那么用免费的 Community 版本就可以了。</p>
+<p>在本例中，我使用的是 Visual Studio Community 2015。</p>
+<p>在安装 Visual Studio 的时候，有很多可选项，对于开发 Arduino 应用程序来说，只要装有 C++ 开发的安装选项即可。</p>
+<h3 id="Visual-Micro-安装"><a href="#Visual-Micro-安装" class="headerlink" title="Visual Micro 安装"></a>Visual Micro 安装</h3><p>Visual Micro 的官方网站是：<a href="http://www.visualmicro.com/" target="_blank" rel="noopener">http://www.visualmicro.com</a><br>这个软件有收费版和免费版，收费版也不贵，Commercial $75<br>for 1 PC，批量有优惠。对于个人来说，装免费版就完全够用了。</p>
+<p>所以说我们用的 Visual Studio 和 Visual Micro 都可以用免费的版本，对个人来说经济上零压力。</p>
+<p>Visual Micro 下载下来是一个 .vsix 的安装包，双击就可以进行安装了。注意安装前要关掉 Visual Studio。<br><img src="clip_image003.png" alt="clip_image003"></p>
+<p>接下来我们应该进行 Visual Micro 的设置。</p>
+<h3 id="设置-Visual-Micro"><a href="#设置-Visual-Micro" class="headerlink" title="设置 Visual Micro"></a>设置 Visual Micro</h3><p>安装 Visual Micro 之后，首次打开 Visual Studio，就会弹出以下窗口：<br><img src="clip_image004.png" alt="clip_image004"></p>
+<p>以上窗口中，我们需要正确选择 Arduino IDE 的版本和安装位置，好让 Visual Micro 能够帮助 Visual Studio 找到相应的 gcc toolchain。</p>
+<p>至于其它的设置项（Optional sketchbook location、Optional additional boards manager urls），我们现在初始设置的时候可以先不理会，以后需要的时候可以再对此做设置。</p>
+<p>实际上 Visual Micro 已经根据注册表里面的信息自动填好了初始设置项，我现在需要做的仅仅是确认无误之后点击“OK”按钮就可以了。</p>
+<p>选择软件版本、开发板型号和端口</p>
+<p>然后，你会发现 Visual Studio 的工具栏和菜单里面多了这些东西：</p>
+<p><img src="clip_image005.png" alt="clip_image005"></p>
+<p><img src="clip_image006.png" alt="clip_image006"></p>
+<p>看来它是把 Arduino IDE 的工具栏和菜单里面的东西搬到这里来了。</p>
+<h2 id="新建Arduino工程"><a href="#新建Arduino工程" class="headerlink" title="新建Arduino工程"></a>新建Arduino工程</h2><p>接下来我们就可以体验在 Visual Studio 里面写 Arduino 程序了。</p>
+<p>如下图新建一个Aarduino工程<br><img src="clip_image008.png" alt="clip_image008.png"><br><img src="clip_image009.png" alt="clip_image009.png"><br>接下来我们先写一个点灯的程序<br>直接贴代码了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void setup()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  /* add setup code here */</span><br><span class="line">	pinMode(13,OUTPUT);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop()</span><br><span class="line">&#123;</span><br><span class="line">	digitalWrite(13, HIGH);</span><br><span class="line">	delay(200);</span><br><span class="line">	digitalWrite(13, LOW);</span><br><span class="line">	delay(200);</span><br><span class="line">  /* add main program code here */</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>编译的话我们选择正式编译Release<br>接下来根据开发板的具体情况选择板子类型、端口号<br><img src="clip_image010.png" alt="clip_image010.png"><br>点击<code>Start</code>编译并将程序下载到开发板上，然后就会看到灯在闪烁<br><img src="1.gif" alt="1.gif"></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/13/MarkDown插入视频-插入gif/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1084,6 +1214,116 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/09/linux命令之关机命令/" class="post-title-link" itemprop="url">linux命令之关机命令</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-07 15:27:46" itemprop="dateModified" datetime="2020-01-07T15:27:46+08:00">2020-01-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>ubuntu关机和重启命令</p>
+<p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。<br>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2018/01/09/linux命令之关机命令/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之解压缩命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1329,228 +1569,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之ubuntu查看系统信息/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" class="post-title-link" itemprop="url">linux命令之ubuntu查看系统信息</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-16 21:09:58" itemprop="dateModified" datetime="2018-01-16T21:09:58+08:00">2018-01-16</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
-<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure></p>
-<p>输出结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-46-51屏幕截图.png" alt="2018-01-16 20-46-51屏幕截图.png"><br>也可以输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux jacklu 4.13.0-26-generic <span class="comment">#29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-47-17屏幕截图.png" alt="2018-01-16 20-47-17屏幕截图.png"></p>
-<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure></p>
-<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 16.04.3 LTS \n \l</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-48-47屏幕截图.png" alt="2018-01-16 20-48-47屏幕截图.png"></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br></pre></td></tr></table></figure></p>
-<p>将输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04.3 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-48-27屏幕截图.png" alt="2018-01-16 20-48-27屏幕截图.png"></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/09/linux命令之关机命令/" class="post-title-link" itemprop="url">linux命令之关机命令</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-07 15:27:46" itemprop="dateModified" datetime="2020-01-07T15:27:46+08:00">2020-01-07</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ubuntu关机和重启命令</p>
-<p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。<br>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/01/09/linux命令之关机命令/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1604,7 +1622,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
