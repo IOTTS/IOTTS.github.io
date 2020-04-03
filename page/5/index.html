@@ -234,6 +234,329 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/MySQL忘记root密码解决方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/09/MySQL忘记root密码解决方法/" class="post-title-link" itemprop="url">MySQL忘记root密码解决方法</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:31:38 / 修改时间：23:42:04" itemprop="dateCreated datePublished" datetime="2018-01-09T23:31:38+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/MySql教程/" itemprop="url" rel="index"><span itemprop="name">MySql教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="http://www.cnblogs.com/sbaicl/articles/3132010.html" target="_blank" rel="noopener">原文链接</a><br>1．首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。<br>因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的<br>状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对<br>外的端口封闭，并且停止Apache以及所有的用户进程的方法实现服务器的准安全<br>状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线。</p>
+<p>2．修改MySQL的登录设置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure></p>
+<p>在<code>[mysqld]</code>的段中加上一句：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure></p>
+<p>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[mysqld] </span><br><span class="line">datadir=/var/lib/mysql </span><br><span class="line">socket=/var/lib/mysql/mysql.sock </span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure></p>
+<p>保存并且退出vi。</p>
+<p>3．重新启动mysqld<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># service mysqld restart </span></span><br><span class="line">Stopping MySQL: [ OK ] </span><br><span class="line">Starting MySQL: [ OK ]</span><br></pre></td></tr></table></figure></p>
+<p>4．登录并修改MySQL的root密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mysql </span></span><br><span class="line">Welcome to the MySQL monitor. Commands end with ; or \g. </span><br><span class="line">Your MySQL connection id is 3 to server version: 3.23.56 </span><br><span class="line">Type <span class="string">'help;'</span> or <span class="string">'\h'</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">'\c'</span> to clear the buffer. </span><br><span class="line">mysql&gt; USE mysql ; </span><br><span class="line">Database changed </span><br><span class="line">mysql&gt; UPDATE user SET Password = password ( <span class="string">'new-password'</span> ) WHERE User = <span class="string">'root'</span> ; </span><br><span class="line">Query OK, 0 rows affected (0.00 sec) </span><br><span class="line">Rows matched: 2 Changed: 0 Warnings: 0 </span><br><span class="line">mysql&gt; flush privileges ; </span><br><span class="line">Query OK, 0 rows affected (0.01 sec) </span><br><span class="line">mysql&gt; quit</span><br></pre></td></tr></table></figure></p>
+<p>5．将MySQL的登录设置修改回来<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure></p>
+<p>将刚才在<code>[mysqld]</code>的段中加上的<code>skip-grant-tables</code>删除<br>保存并且退出vim</p>
+<p>6．重新启动mysqld<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># service mysqld restart </span></span><br><span class="line">Stopping MySQL: [ OK ] </span><br><span class="line">Starting MySQL: [ OK ]</span><br></pre></td></tr></table></figure></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/Hexo教程之MathJax公式渲染问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/08/Hexo教程之MathJax公式渲染问题/" class="post-title-link" itemprop="url">Hexo教程之MathJax公式渲染问题</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 22:46:01" itemprop="dateCreated datePublished" datetime="2018-01-08T22:46:01+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-07 15:07:49" itemprop="dateModified" datetime="2020-01-07T15:07:49+08:00">2020-01-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo教程/" itemprop="url" rel="index"><span itemprop="name">Hexo教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天在写一篇博客的时候，遇到使用MathJax公式下标出现问题，然后在网上找到解决办法</p>
+<h1 id="出现问题的原因"><a href="#出现问题的原因" class="headerlink" title="出现问题的原因"></a>出现问题的原因</h1><p>hexo默认使用hexo-renderer-marked引擎去渲染网页，它会把利用Markdown语法写的文本去转换为相应的html标签。在利用Markdown写MathJax公式的时候，经常会用到下划线<code>_</code>表示下标，但是下划线<code>_</code>会被hexo的默认引擎hexo-renderer-marked渲染成html中的<code>&lt;em&gt;</code>标签，表示斜体，这样一来，我们写的MathJax公式就被错误渲染了，也就没办法正确显示出来。</p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>从上面的分析，我们可以知道问题或许出在hexo的渲染引擎上，如果渲染引擎不把公式中的一些特殊字符渲染成html标签，也就避免了这个问题。当然已经有人意识到了这个问题，并且对原先的渲染引擎进行了改进，生成了新的<code>hexo-renderer-kramed</code>引擎，这里是它的Github页面，所以我们只需要卸载默认引擎，并安装这个新的渲染引擎即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+<p>当我把渲染引擎更换之后，发现大部分公式都正确渲染了，而从网上其他人的叙述中，也同样提到了这个问题，即是行间公式都没有问题，但是个别行内公式还会出现渲染出错，从网上找到了一个方法，解决了这一问题。<br>定位到你的博客根目录，找到../node_modules/kramed/lib/rules/inline.js文件，<br>进行部分修改：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//escape: /^\\([\\`*&#123;&#125;\[\]()<span class="comment">#$+\-.!_&gt;])/,      第11行，将其修改为</span></span><br><span class="line">escape: /^\\([`*\[\]()<span class="comment">#$+\-.!_&gt;])/,</span></span><br><span class="line">//em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,    第20行，将其修改为</span><br><span class="line">em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure></p>
+<p>它取消了该渲染引擎对 <strong>\,{,}</strong> 的转义，然后再<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure></p>
+<p>重新部署，即可解决问题。</p>
+<p>另外需要注意一点，对于需要用到MathJax公式的文章，要在Front-matter中打开MathJax开关，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">date: 2017/8/3 18:20:00</span><br><span class="line">tags: hexo</span><br><span class="line">mathjax: <span class="literal">true</span></span><br><span class="line">title: hexo博客MathJax公式渲染</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<h1 id="MathJax公式语法"><a href="#MathJax公式语法" class="headerlink" title="MathJax公式语法"></a>MathJax公式语法</h1><p><a href="lshort-zh-cn.pdf">LaTeX语法</a><br>下面呢，我整理总结了一番比较常用的MathJax公式语法，同时也可以用来测试一下渲染效果。</p>
+<h2 id="gt-添加公式的方法"><a href="#gt-添加公式的方法" class="headerlink" title="&gt;添加公式的方法"></a>&gt;添加公式的方法</h2><h3 id="1-行内公式"><a href="#1-行内公式" class="headerlink" title="1.行内公式"></a>1.行内公式</h3><pre><code>$行内公式$
+</code></pre><h3 id="2-行间公式"><a href="#2-行间公式" class="headerlink" title="2.行间公式"></a>2.行间公式</h3><pre><code>$$行间公式$$
+</code></pre><h2 id="gt-常用的MathJax公式语法"><a href="#gt-常用的MathJax公式语法" class="headerlink" title="&gt;常用的MathJax公式语法"></a>&gt;常用的MathJax公式语法</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th style="text-align:center">释义</th>
+<th style="text-align:left">测试用例</th>
+<th style="text-align:left">最终效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^\{}</td>
+<td style="text-align:center">上标</td>
+<td style="text-align:left">x^{y^z}=(1+e^x)^{-2xy^w}</td>
+<td style="text-align:left">$x^{y^z}=(1+e^x)^{-2xy^w}$</td>
+</tr>
+<tr>
+<td>_\{}</td>
+<td style="text-align:center">下标</td>
+<td style="text-align:left">CO_2</td>
+<td style="text-align:left">$CO_2$</td>
+</tr>
+<tr>
+<td>\frac{分子}{分母} or 分子 \over 分母</td>
+<td style="text-align:center">分数</td>
+<td style="text-align:left">f(x,y,z)=3y^2z(3+\frac{7x+5}{1+y^2})</td>
+<td style="text-align:left">$f(x,y,z)=3y^2z(3+\frac{7x+5}{1+y^2})$</td>
+</tr>
+<tr>
+<td>\sqrt[根指数，省略时为2]{被开方数}</td>
+<td style="text-align:center">开方</td>
+<td style="text-align:left">\sqrt{2}、\sqrt[3]{9}</td>
+<td style="text-align:left">$\sqrt{2}$ $\sqrt[3]{9}$</td>
+</tr>
+<tr>
+<td>\ldots</td>
+<td style="text-align:center">与文本底线对齐的省略号</td>
+<td style="text-align:left">x_1x_2{\ldots}x_n</td>
+<td style="text-align:left">$x_1x_2{\ldots}x_n$</td>
+</tr>
+<tr>
+<td>\cdots</td>
+<td style="text-align:center">与文本中线对齐的省略号</td>
+<td style="text-align:left">x_1x_2{\cdots}x_n</td>
+<td style="text-align:left">$x_1x_2{\cdots}x_n$</td>
+</tr>
+<tr>
+<td>\int_积分下限^积分上限(被积表达式)</td>
+<td style="text-align:center">积分</td>
+<td style="text-align:left">\int_1^n{x^2}dx</td>
+<td style="text-align:left">$\int_1^n{x^2}dx$</td>
+</tr>
+<tr>
+<td>\sum_{下标表达式}^{上标表达式} {累加表达式}</td>
+<td style="text-align:center">累加</td>
+<td style="text-align:left">\sum_{i=1}^n \frac{1}{i^2}</td>
+<td style="text-align:left">$\sum_{i=1}^n \frac{1}{i^2}$</td>
+</tr>
+<tr>
+<td>\, or ; or \quad or \qquad</td>
+<td style="text-align:center">不同宽度的空格</td>
+<td style="text-align:left">a , b \mid a ; b \mid a \quad b \mid a</td>
+<td style="text-align:left">$\qquad b    a,b∣a;b∣ab∣aba,b∣a;b∣ab∣ab$</td>
+</tr>
+<tr>
+<td>\color{颜色}{文字}</td>
+<td style="text-align:center">更改文字颜色</td>
+<td style="text-align:left">\color{red}{红色}</td>
+<td style="text-align:left">$\color{red}{红色}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>上面的一些基本语法使用了行内公式， 渲染效果没有问题，下面再利用行间公式写一些较为复杂的公式。</p>
+<h3 id="分段函数"><a href="#分段函数" class="headerlink" title="分段函数"></a>分段函数</h3><p>分段函数格式为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(x)=\begin&#123;cases&#125;语句1\\语句2\\...\end&#123;cases&#125;</span><br></pre></td></tr></table></figure></p>
+<p>\text{文字}中仍可以使用$公式$去插入其他公式，所以可以将其结合分段函数一起使用。</p>
+<p>实例：<br>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> $$ </span><br><span class="line">f(n)=\begin&#123;cases&#125;</span><br><span class="line">n/2, &amp; \text&#123;如果$ x&lt;=2 $&#125;\\</span><br><span class="line">3n+1, &amp; \text&#123;如果$ x&gt;2 $&#125;</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
+<p>最终效果:</p>
+<script type="math/tex; mode=display">
+f(n)=\begin{cases}
+n/2, & \text{如果$ x<=2 $}\\
+3n+1, & \text{如果$ x>2 $}
+\end{cases}</script><h3 id="大括号和小括号"><a href="#大括号和小括号" class="headerlink" title="大括号和小括号"></a>大括号和小括号</h3><p>()、[]、{}表示的即是符号本身，使用\{\}来表示{}。但是如果要显示大号的括号时，需要使用\left和\right命令。</p>
+<p>实例：</p>
+<p>正常括号<br>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> $$</span><br><span class="line">f([\frac&#123;1+\&#123;x,y\&#125;&#125;&#123;(\frac&#123;x&#125;&#123;y&#125;+\frac&#123;y&#125;&#123;x&#125;)(u+1)&#125;+a]^&#123;3\2&#125;)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
+<p>最终效果</p>
+<script type="math/tex; mode=display">
+f([\frac{1+\{x,y\}}{(\frac{x}{y}+\frac{y}{x})(u+1)}+a]^{3\2})</script><p>大括号<br>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    $$</span><br><span class="line">f\left(</span><br><span class="line">    \left[</span><br><span class="line">        \frac&#123;</span><br><span class="line">            1+\left\&#123;x,y\right\&#125;</span><br><span class="line">        &#125;&#123;</span><br><span class="line">        \left(</span><br><span class="line">            \frac&#123;x&#125;&#123;y&#125;+\frac&#123;y&#125;&#123;x&#125;</span><br><span class="line">        \right)</span><br><span class="line">        \left(u+1\right)</span><br><span class="line">        &#125;+a</span><br><span class="line">    \right]^&#123;3\2&#125;</span><br><span class="line">\right)</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
+<p>最终效果</p>
+<script type="math/tex; mode=display">
+f\left(
+    \left[
+        \frac{
+            1+\left\{x,y\right\}
+        }{
+        \left(
+            \frac{x}{y}+\frac{y}{x}
+        \right)
+        \left(u+1\right)
+        }+a
+    \right]^{3\2}
+\right)</script><h3 id="添加删除线"><a href="#添加删除线" class="headerlink" title="添加删除线"></a>添加删除线</h3><p>使用删除线功能必须使用行间公式，删除线分为片段删除线和整段删除线，样式比较多，在这里我只列举一种比较常用的水平删除线，它属于整段删除线的一种。</p>
+<p>整段删除线使用<code>\require{enclose}</code>来显示，声明整段删除线后，使用<code>\enclose{删除线效果}{字符}</code>来实现删除线效果，而水平删除线效果用关键字horizontalstrike。</p>
+<p>实例：</p>
+<p>md文本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\require&#123;enclose&#125;\begin&#123;array&#125;&#123;&#125;</span><br><span class="line">\enclose&#123;horizontalstrike&#125;&#123;x+y&#125;\\</span><br><span class="line">\enclose&#123;horizontalstrike&#125;&#123;x*y&#125;\\</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
+<p>最终效果</p>
+<script type="math/tex; mode=display">
+\require{enclose}\begin{array}{}
+\enclose{horizontalstrike}{x+y}\\
+\enclose{horizontalstrike}{x*y}\\
+\end{array}</script><h3 id="对齐"><a href="#对齐" class="headerlink" title="对齐"></a>对齐</h3><p><code>\begin{align}</code>用于开头，<code>\end{align}</code>用于结尾，对齐的位置用<code>&amp;</code>开始，用<code>\\</code>结束<br>输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">\begin&#123;align&#125;</span><br><span class="line">f(x) &amp;=a+b+a\\</span><br><span class="line">&amp; = 2a+b</span><br><span class="line">\end&#123;align&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure></p>
+<p>输出： </p>
+<script type="math/tex; mode=display">
+\begin{align}
+f(x) &=a+b+a\\
+& = 2a+b
+\end{align}</script>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之减法器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -307,6 +630,113 @@
 <h3 id="2-差分电路实现减法器"><a href="#2-差分电路实现减法器" class="headerlink" title="2.差分电路实现减法器"></a>2.差分电路实现减法器</h3><p><img src="543cf225x72dd2aab7ff5&amp;690.jpg" alt="543cf225x72dd2aab7ff5&amp;690.jpg"><br>我使用差分减法器比较多，主要用于电流、电压的测量<br>其计算输出电压的公式如下：</p>
 <script type="math/tex; mode=display">V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})</script><p>若令<strong>R1=R2,R3=R4</strong>,上式可简化为：</p>
 <script type="math/tex; mode=display">V_o=\frac{R3}{R2}(V_{i2}-V_{i1})</script>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/简单实用的双向电平转换电路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/08/简单实用的双向电平转换电路/" class="post-title-link" itemprop="url">简单实用的双向电平转换电路</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-17 21:21:06" itemprop="dateModified" datetime="2018-01-17T21:21:06+08:00">2018-01-17</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/电平转换电路/" itemprop="url" rel="index"><span itemprop="name">电平转换电路</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>当你使用3.3V的单片机的时候，电平转换就在所难免了，经常会遇到3.3转5V或者5V转3.3V的情况，这里介绍一个简单的电路，他可以实现两个电平的相互转换(注意是相互哦，双向的，不是单向的!).电路十分简单，仅由3个电阻加一个MOS管构成。</p>
+<p>　　电路图如下:<br> <img src="1.png" alt="1"></p>
+<p>上图中，S1，S2为两个信号端，VCC_S1和VCC_S2为这两个信号的高电平电压.另外限制条件为:<br>　　1，VCC_S1&lt;=VCC_S2.<br>　　2，S1的低电平门限大于0.7V左右(视NMOS内的二极管压降而定).<br>　　3，Vgs&lt;=VCC_S1.<br>　　4，Vds&lt;=VCC_S2<br>　　对于3.3V和5V/12V等电路的相互转换，NMOS管选择AP2306即可.原理比较简单，大家自行分析吧!此电路我已在多处应用，效果很好.</p>
+<p> <img src="2.png" alt="2"></p>
+<p>I2C<br>　　类似这种吧，只是不知道这种电路的速率能达到多少<br>　　电平转换器的操作<br>　　在电平转换器的操作中要考虑下面的三种状态：<br>　　1 没有器件下拉总线线路。“低电压”部分的总线线路通过上拉电阻Rp 上拉至3.3V。 MOS-FET 管的门极和源极都是3.3V， 所以它的VGS 低于阀值电压，MOS-FET 管不导通。这就允许“高电压”部分的总线线路通过它的上拉电阻Rp 拉到5V。 此时两部分的总线线路都是高电平，只是电压电平不同。<br>　　2 一个3.3V器件下拉总线线路到低电平。MOS-FET管的源极也变成低电平，而门极是3.3V。VGS上升高于阀值，MOS-FET管开始导通。然后“高电压”部分的总线线路通过导通的MOS-FET管被3.3V器件下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　3 一个5V的器件下拉总线线路到低电平。MOS-FET管的漏极基底二极管“低电压”部分被下拉直到VGS超过阀值，MOS-FET管开始导通。“低电压”部分的总线线路通过导通的MOS-FET管被5V的器件进一步下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　这三种状态显示了逻辑电平在总线系统的两个方向上传输，与驱动的部分无关。状态1执行了电平转换功能。状态2和3按照I2C总线规范的要求在两部分的总线线路之间实现“线与”的功能。<br>　　除了3.3V VDD1和5V VDD2的电源电压外，还可以是例如：2V VDD1和10V VDD2。在正常操作中，VDD2必须等于或高于VDD1(在开关电源时允许VDD2低于VDD1)。<br>　　MOS-N场效应管双向电平转换电路—适用于低频信号电平转换的简单应用</p>
+<p> <img src="3.png" alt="3"></p>
+<p>如上图所示，是MOS-N场效应管双向电平转换电路。<br>　　双向传输原理：<br>　　为了方便讲述，定义 3.3V 为 A 端，5.0V 为 B 端。<br>　　A端输出低电平时(0V)，MOS管导通，B端输出是低电平(0V)<br>　　A端输出高电平时(3.3V)，MOS管截至，B端输出是高电平(5V)<br>　　A端输出高阻时(OC) ，MOS管截至，B端输出是高电平(5V)<br>　　B端输出低电平时(0V)，MOS管内的二极管导通，从而使MOS管导通，A端输出是低电平(0V)<br>　　B端输出高电平时(5V)，MOS管截至，A端输出是高电平(3.3V)<br>　　B端输出高阻时(OC) ，MOS管截至，A端输出是高电平(3.3V)<br>　　优点：<br>　　1、适用于低频信号电平转换，价格低廉。<br>　　2、导通后，压降比三极管小。<br>　　3、正反向双向导通，相当于机械开关。<br>　　4、电压型驱动，当然也需要一定的驱动电流，而且有的应用也许比三极管大。</p>
+
         
       
     </div>
@@ -418,113 +848,6 @@
 <script type="math/tex; mode=display">\Delta V=V1-V2=VCC\cdot(\frac{R2}{R1+R2}-\frac{R3}{R3+Rx})</script><p>进一步计算得到：</p>
 <script type="math/tex; mode=display">\Delta V=VCC\cdot(\frac{R2\cdot Rx-R3\cdot R1}{(R1+R2)(R3+Rx)})</script><p>由此可以看出：<br>如果4个电阻都相等，即R1=R2=R3=Rx，那么ΔV=0，即电桥处于平衡状态；　Rx发生变化会导致△V发生变化；</p>
 <h2 id="3-电阻桥的应用"><a href="#3-电阻桥的应用" class="headerlink" title="3.电阻桥的应用"></a>3.电阻桥的应用</h2><p>   在实际使用中，我们通常将其中三个电阻值固定，而将另外一个电阻换成热敏电阻、压敏电阻、PT100等，这时候就可以用电桥来测物理量了。如果将PT100接入电桥，随着环境温度的变化，PT100的阻值发生变化导致ΔV发生变化，将差分电压ΔV通过差分运放放大后进入单片机的AD采样，再对照PT100的电阻-温度对应表就可以知道当前环境的温度了。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/简单实用的双向电平转换电路/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/08/简单实用的双向电平转换电路/" class="post-title-link" itemprop="url">简单实用的双向电平转换电路</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-17 21:21:06" itemprop="dateModified" datetime="2018-01-17T21:21:06+08:00">2018-01-17</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/电平转换电路/" itemprop="url" rel="index"><span itemprop="name">电平转换电路</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>当你使用3.3V的单片机的时候，电平转换就在所难免了，经常会遇到3.3转5V或者5V转3.3V的情况，这里介绍一个简单的电路，他可以实现两个电平的相互转换(注意是相互哦，双向的，不是单向的!).电路十分简单，仅由3个电阻加一个MOS管构成。</p>
-<p>　　电路图如下:<br> <img src="1.png" alt="1"></p>
-<p>上图中，S1，S2为两个信号端，VCC_S1和VCC_S2为这两个信号的高电平电压.另外限制条件为:<br>　　1，VCC_S1&lt;=VCC_S2.<br>　　2，S1的低电平门限大于0.7V左右(视NMOS内的二极管压降而定).<br>　　3，Vgs&lt;=VCC_S1.<br>　　4，Vds&lt;=VCC_S2<br>　　对于3.3V和5V/12V等电路的相互转换，NMOS管选择AP2306即可.原理比较简单，大家自行分析吧!此电路我已在多处应用，效果很好.</p>
-<p> <img src="2.png" alt="2"></p>
-<p>I2C<br>　　类似这种吧，只是不知道这种电路的速率能达到多少<br>　　电平转换器的操作<br>　　在电平转换器的操作中要考虑下面的三种状态：<br>　　1 没有器件下拉总线线路。“低电压”部分的总线线路通过上拉电阻Rp 上拉至3.3V。 MOS-FET 管的门极和源极都是3.3V， 所以它的VGS 低于阀值电压，MOS-FET 管不导通。这就允许“高电压”部分的总线线路通过它的上拉电阻Rp 拉到5V。 此时两部分的总线线路都是高电平，只是电压电平不同。<br>　　2 一个3.3V器件下拉总线线路到低电平。MOS-FET管的源极也变成低电平，而门极是3.3V。VGS上升高于阀值，MOS-FET管开始导通。然后“高电压”部分的总线线路通过导通的MOS-FET管被3.3V器件下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　3 一个5V的器件下拉总线线路到低电平。MOS-FET管的漏极基底二极管“低电压”部分被下拉直到VGS超过阀值，MOS-FET管开始导通。“低电压”部分的总线线路通过导通的MOS-FET管被5V的器件进一步下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　这三种状态显示了逻辑电平在总线系统的两个方向上传输，与驱动的部分无关。状态1执行了电平转换功能。状态2和3按照I2C总线规范的要求在两部分的总线线路之间实现“线与”的功能。<br>　　除了3.3V VDD1和5V VDD2的电源电压外，还可以是例如：2V VDD1和10V VDD2。在正常操作中，VDD2必须等于或高于VDD1(在开关电源时允许VDD2低于VDD1)。<br>　　MOS-N场效应管双向电平转换电路—适用于低频信号电平转换的简单应用</p>
-<p> <img src="3.png" alt="3"></p>
-<p>如上图所示，是MOS-N场效应管双向电平转换电路。<br>　　双向传输原理：<br>　　为了方便讲述，定义 3.3V 为 A 端，5.0V 为 B 端。<br>　　A端输出低电平时(0V)，MOS管导通，B端输出是低电平(0V)<br>　　A端输出高电平时(3.3V)，MOS管截至，B端输出是高电平(5V)<br>　　A端输出高阻时(OC) ，MOS管截至，B端输出是高电平(5V)<br>　　B端输出低电平时(0V)，MOS管内的二极管导通，从而使MOS管导通，A端输出是低电平(0V)<br>　　B端输出高电平时(5V)，MOS管截至，A端输出是高电平(3.3V)<br>　　B端输出高阻时(OC) ，MOS管截至，A端输出是高电平(3.3V)<br>　　优点：<br>　　1、适用于低频信号电平转换，价格低廉。<br>　　2、导通后，压降比三极管小。<br>　　3、正反向双向导通，相当于机械开关。<br>　　4、电压型驱动，当然也需要一定的驱动电流，而且有的应用也许比三极管大。</p>
 
         
       
@@ -1097,185 +1420,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/07/STM32F103x教程之DAC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/07/STM32F103x教程之DAC/" class="post-title-link" itemprop="url">STM32F103x教程之DAC</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-07 13:22:48 / 修改时间：14:27:46" itemprop="dateCreated datePublished" datetime="2018-01-07T13:22:48+08:00">2018-01-07</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/STM32相关/" itemprop="url" rel="index"><span itemprop="name">STM32相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/STM32相关/STM32F1教程/" itemprop="url" rel="index"><span itemprop="name">STM32F1教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/07/Hexo创建新页面/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/07/Hexo创建新页面/" class="post-title-link" itemprop="url">Hexo创建新页面</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-07 11:27:55 / 修改时间：11:29:02" itemprop="dateCreated datePublished" datetime="2018-01-07T11:27:55+08:00">2018-01-07</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo教程/" itemprop="url" rel="index"><span itemprop="name">Hexo教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>命令行键入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page about</span><br></pre></td></tr></table></figure></p>
-<p>会在source/about中生成index.html。这个就叫做页面，不在文章列表显示，可以通过<a href="http://localhost/about浏览。" target="_blank" rel="noopener">http://localhost/about浏览。</a><br>页面支持文章的大部分属性，除了分类和标签。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1329,7 +1473,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1342,7 +1486,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1355,7 +1499,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">50</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
