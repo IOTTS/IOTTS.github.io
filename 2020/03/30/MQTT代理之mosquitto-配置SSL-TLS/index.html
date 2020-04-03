@@ -308,23 +308,23 @@
 
       
         <p>在服务器电脑上面创建myCA文件夹, 如在/home/qa/ 文件夹下使用命令，</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> myCA</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir myCA</span><br></pre></td></tr></table></figure>
 <p>然后执行以下命令，我们将创建并使用其他用户没有权限访问的目录。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 700 </span><br><span class="line"><span class="built_in">cd</span> myCA</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 700 </span><br><span class="line">cd myCA</span><br></pre></td></tr></table></figure>
 <p>进入myCA文件夹，然后执行以下命令下载生成证书用的脚本。</p>
 <a id="more"></a>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//gi</span>thub.com<span class="regexp">/owntracks/</span>tools<span class="regexp">/raw/m</span>aster<span class="regexp">/TLS/g</span>enerate-CA.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/owntracks/tools/raw/master/TLS/generate-CA.sh</span><br></pre></td></tr></table></figure>
 <p>下载完之后，在myCA文件夹下面执行命令</p>
 <p>注：在生产环境中使用此实例之前，你应该定制the generate-CA.sh脚本</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./<span class="keyword">generate</span>-CA<span class="variable">.sh</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./generate-CA.sh</span><br></pre></td></tr></table></figure>
 <p>generate-CA.sh会产生3个文件：ca.crt，ca.key，ca.csr分别为: 证书（.CRT），钥匙（.KEY），请求（.csr文件），这三个文件是给服务器使用的</p>
-<p>在myCA文件夹下面执行命令<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./generate-CA.sh<span class="built_in"> client </span>myclient</span><br></pre></td></tr></table></figure></p>
+<p>在myCA文件夹下面执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./generate-CA.sh client myclient</span><br></pre></td></tr></table></figure></p>
 <p>其中myclient是给客户端生成证书的名称，可随意更改。执行完上述命令后，会新生成几个文件。</p>
 <p>客户端需要使用的是ca.crt/myclient.crt/myclient.key这三个文件。</p>
 <p>经过上述步骤之后，生成了服务器使用的ca.crt/localhost.crt/localhost.key文件和客户端使用的</p>
 <p>ca.crt/myclient.crt/myclient.key这几个文件，其中ca.crt是同一个文件。</p>
 <p>配置mosquitto.conf文件。该文件在mosquitto-1.4.11安装文件夹里面，打开该文件，修改成如下配置：</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">port <span class="number">8883</span>   </span><br><span class="line">protocol mqtt    </span><br><span class="line">cafile <span class="regexp">/home/my</span>CA<span class="regexp">/ubuntu/</span>ca.crt    </span><br><span class="line">certfile <span class="regexp">/home/my</span>CA<span class="regexp">/ubuntu/</span>localhost.crt    </span><br><span class="line">keyfile <span class="regexp">/home/my</span>CA<span class="regexp">/ubuntu/</span>localhost.key</span><br><span class="line">require_certificate <span class="keyword">true</span></span><br><span class="line">use_identity_as_username <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">port 8883   </span><br><span class="line">protocol mqtt    </span><br><span class="line">cafile /home/myCA/ubuntu/ca.crt    </span><br><span class="line">certfile /home/myCA/ubuntu/localhost.crt    </span><br><span class="line">keyfile /home/myCA/ubuntu/localhost.key</span><br><span class="line">require_certificate true</span><br><span class="line">use_identity_as_username true</span><br></pre></td></tr></table></figure>
 <p>修改完配置文件之后，执行启动命令mosquitto -c /home/qa/mosquitto-1.4.11/mosquitto.conf -v　　</p>
 <p> 根据自己的mosquitto-conf文件所在的位置修改上述命令中的参数，然后服务器就以SSL/TSL的方式开始启动。</p>
 <p>  此时客户端使用上述过程产生的客户端证书连接该服务器，即可进行通信。</p>
@@ -439,7 +439,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

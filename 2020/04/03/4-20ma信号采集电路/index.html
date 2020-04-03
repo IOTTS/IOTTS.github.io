@@ -55,21 +55,21 @@
   };
 </script>
 
-  <meta name="description" content="一般仪器仪表的信号电流都为4-20mA，指最小电流为4mA,最大电流为20mA 。传输信号时候，要考虑到导线上也有电阻，如果用电压传输则会在导线的产生一定的压降，那接收端的信号就会产生一定的误差了。所以使用电流信号作为变送器的标准传输。 那么为什么选择4-20mA而不是0-20mA，有如下几点原因：">
+  <meta name="description" content="​    一般仪器仪表的信号电流都为4-20mA，指最小电流为4mA,最大电流为20mA 。传输信号时候，要考虑到导线上也有电阻，如果用电压传输则会在导线的产生一定的压降，那接收端的信号就会产生一定的误差了。所以使用电流信号作为变送器的标准传输。 那么为什么选择4-20mA而不是0-20mA，有如下几点原因：">
 <meta name="keywords" content="PCB,电路设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="4~20ma信号采集电路">
 <meta property="og:url" content="http://iotts.top/2020/04/03/4-20ma信号采集电路/index.html">
 <meta property="og:site_name" content="IOTTS">
-<meta property="og:description" content="一般仪器仪表的信号电流都为4-20mA，指最小电流为4mA,最大电流为20mA 。传输信号时候，要考虑到导线上也有电阻，如果用电压传输则会在导线的产生一定的压降，那接收端的信号就会产生一定的误差了。所以使用电流信号作为变送器的标准传输。 那么为什么选择4-20mA而不是0-20mA，有如下几点原因：">
+<meta property="og:description" content="​    一般仪器仪表的信号电流都为4-20mA，指最小电流为4mA,最大电流为20mA 。传输信号时候，要考虑到导线上也有电阻，如果用电压传输则会在导线的产生一定的压降，那接收端的信号就会产生一定的误差了。所以使用电流信号作为变送器的标准传输。 那么为什么选择4-20mA而不是0-20mA，有如下几点原因：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://iotts.top/2020/04/03/4-20ma信号采集电路/4ma.png">
 <meta property="og:image" content="http://iotts.top/2020/04/03/4-20ma信号采集电路/10ma.png">
 <meta property="og:image" content="http://iotts.top/2020/04/03/4-20ma信号采集电路/20ma.png">
-<meta property="og:updated_time" content="2020-04-03T15:11:19.111Z">
+<meta property="og:updated_time" content="2020-04-03T15:19:10.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="4~20ma信号采集电路">
-<meta name="twitter:description" content="一般仪器仪表的信号电流都为4-20mA，指最小电流为4mA,最大电流为20mA 。传输信号时候，要考虑到导线上也有电阻，如果用电压传输则会在导线的产生一定的压降，那接收端的信号就会产生一定的误差了。所以使用电流信号作为变送器的标准传输。 那么为什么选择4-20mA而不是0-20mA，有如下几点原因：">
+<meta name="twitter:description" content="​    一般仪器仪表的信号电流都为4-20mA，指最小电流为4mA,最大电流为20mA 。传输信号时候，要考虑到导线上也有电阻，如果用电压传输则会在导线的产生一定的压降，那接收端的信号就会产生一定的误差了。所以使用电流信号作为变送器的标准传输。 那么为什么选择4-20mA而不是0-20mA，有如下几点原因：">
 <meta name="twitter:image" content="http://iotts.top/2020/04/03/4-20ma信号采集电路/4ma.png">
   <link rel="canonical" href="http://iotts.top/2020/04/03/4-20ma信号采集电路/">
 
@@ -272,7 +272,7 @@
                 
               
 
-              <time title="创建时间：2020-04-03 22:59:01 / 修改时间：23:11:19" itemprop="dateCreated datePublished" datetime="2020-04-03T22:59:01+08:00">2020-04-03</time>
+              <time title="创建时间：2020-04-03 22:59:01 / 修改时间：23:19:10" itemprop="dateCreated datePublished" datetime="2020-04-03T22:59:01+08:00">2020-04-03</time>
             </span>
           
             
@@ -311,17 +311,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>一般仪器仪表的信号电流都为4-20mA，指最小电流为4mA,最大电流为20mA 。传输信号时候，要考虑到导线上也有电阻，如果用电压传输则会在导线的产生一定的压降，那接收端的信号就会产生一定的误差了。所以使用电流信号作为变送器的标准传输。</p>
-<p>那么为什么选择4-20mA而不是0-20mA，有如下几点原因：<br><a id="more"></a><br>1.电流信号的抗干扰能力更好，传输距离较远。</p>
-<p>2.接150Ω采样电阻，很容易得到0.6-3V信号。</p>
-<p>3.电流小可以直接使用采样电阻，功耗小，简化了采样电路</p>
-<p>4.用来检测线路开路的，如果0是最小，那么开路故障就检测不到了。</p>
+        <p>​    一般仪器仪表的信号电流都为4-20mA，指最小电流为4mA,最大电流为20mA 。传输信号时候，要考虑到导线上也有电阻，如果用电压传输则会在导线的产生一定的压降，那接收端的信号就会产生一定的误差了。所以使用电流信号作为变送器的标准传输。</p>
+<p>那么为什么选择4-20mA而不是0-20mA，有如下几点原因：<br><a id="more"></a> </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 电流信号的抗干扰能力更好，传输距离较远。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 接<span class="number">150</span>Ω采样电阻，很容易得到<span class="number">0.6</span><span class="number">-3</span>V信号。</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 电流小可以直接使用采样电阻，功耗小，简化了采样电路</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 用来检测线路开路的，如果<span class="number">0</span>是最小，那么开路故障就检测不到了。</span><br></pre></td></tr></table></figure>
 <p>简单仿真了一个4-20mA转换为0.6V-3V的转换电路。</p>
 <p><img src="4ma.png" alt="1"></p>
 <p>图一：4mA输入<br> <img src="10ma.png" alt="2"></p>
 <p>图二：10mA输入<br> <img src="20ma.png" alt="3"></p>
 <p>图三：20mA输入</p>
-<p>那么我们实际如何来采集4-20mA的电流，首先我们可以把电流信号转换为电压信号，然后经过单片机的12位ADC转换，结果是把0~VCC的值转换成了0~4096。如果VCC是3V，我们可以再利用等比公式，把0~4095转换成0~3V的电压值，最后把电压转换为电流值。这就是我们所采集的最终电流了。</p>
+<p>​    那么我们实际如何来采集4-20mA的电流，首先我们可以把电流信号转换为电压信号，然后经过单片机的12位ADC转换，结果是把0~VCC的值转换成了0~4096。如果VCC是3V，我们可以再利用等比公式，把0~4095转换成0~3V的电压值，最后把电压转换为电流值。这就是我们所采集的最终电流了。</p>
 
     </div>
 
@@ -358,6 +356,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/04/03/ATX电源接口线序定义/" rel="prev" title="ATX电源接口线序定义">
+                  ATX电源接口线序定义 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -423,7 +425,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">60</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
