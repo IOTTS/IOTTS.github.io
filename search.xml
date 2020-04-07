@@ -1322,6 +1322,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Allegro相同模块布局克隆</title>
+    <url>/2018/06/19/Allegro%E7%9B%B8%E5%90%8C%E6%A8%A1%E5%9D%97%E5%B8%83%E5%B1%80%E5%85%8B%E9%9A%86/</url>
+    <content><![CDATA[<p>   我们在使用Allegro来布局PCB的时候经常会遇到布局一样的模块，如果我们一个个的去布局很浪费时间，怎么解决这个问题呢，那就用到我们今天讲的一个知识点了，答题思路是先布局好一个模块，然后其他的按照这个布局复制即可，是不是很简单，接下来看一下具体如何操作<br><a id="more"></a></p>
+<h2 id="1-布局好其中一个模块，如下图"><a href="#1-布局好其中一个模块，如下图" class="headerlink" title="1:布局好其中一个模块，如下图"></a>1:布局好其中一个模块，如下图</h2><p><img src="1.png" alt="1"></p>
+<h2 id="2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit"><a href="#2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit" class="headerlink" title="2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit"></a>2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit</h2><p><img src="2.png" alt="2"></p>
+<h2 id="3-选择之前画好的器件-右键-选择place-replicate-create"><a href="#3-选择之前画好的器件-右键-选择place-replicate-create" class="headerlink" title="3:选择之前画好的器件,右键,选择place replicate create"></a>3:选择之前画好的器件,右键,选择place replicate create</h2><p><img src="3.png" alt="3"></p>
+<h2 id="4-再次右键-选择-Done"><a href="#4-再次右键-选择-Done" class="headerlink" title="4:再次右键,选择 Done"></a>4:再次右键,选择 Done</h2><p><img src="4.png" alt="4"></p>
+<h2 id="5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd"><a href="#5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd" class="headerlink" title="5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd"></a>5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd</h2><p><img src="5.png" alt="5"></p>
+<h2 id="6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2"><a href="#6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2" class="headerlink" title="6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2"></a>6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2</h2><p><img src="6.png" alt="6"></p>
+<h2 id="7-这样就好了"><a href="#7-这样就好了" class="headerlink" title="7:这样就好了"></a>7:这样就好了</h2><p><img src="7.png" alt="7"></p>
+]]></content>
+      <categories>
+        <category>PCB相关</category>
+        <category>Cadence</category>
+        <category>Allegro小技巧</category>
+      </categories>
+      <tags>
+        <tag>PCB</tag>
+        <tag>Allegro</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Allegro修改shape网络</title>
     <url>/2018/05/13/Allegro%E4%BF%AE%E6%94%B9shape%E7%BD%91%E7%BB%9C/</url>
     <content><![CDATA[<h6 id="Allegro修改shape网络节点"><a href="#Allegro修改shape网络节点" class="headerlink" title="Allegro修改shape网络节点"></a>Allegro修改shape网络节点</h6><p>使用Allegro时修改shape的网络节点方法：</p>
@@ -1343,26 +1365,14 @@
       </tags>
   </entry>
   <entry>
-    <title>Allegro相同模块布局克隆</title>
-    <url>/2018/06/19/Allegro%E7%9B%B8%E5%90%8C%E6%A8%A1%E5%9D%97%E5%B8%83%E5%B1%80%E5%85%8B%E9%9A%86/</url>
-    <content><![CDATA[<p>   我们在使用Allegro来布局PCB的时候经常会遇到布局一样的模块，如果我们一个个的去布局很浪费时间，怎么解决这个问题呢，那就用到我们今天讲的一个知识点了，答题思路是先布局好一个模块，然后其他的按照这个布局复制即可，是不是很简单，接下来看一下具体如何操作<br><a id="more"></a></p>
-<h2 id="1-布局好其中一个模块，如下图"><a href="#1-布局好其中一个模块，如下图" class="headerlink" title="1:布局好其中一个模块，如下图"></a>1:布局好其中一个模块，如下图</h2><p><img src="1.png" alt="1"></p>
-<h2 id="2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit"><a href="#2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit" class="headerlink" title="2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit"></a>2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit</h2><p><img src="2.png" alt="2"></p>
-<h2 id="3-选择之前画好的器件-右键-选择place-replicate-create"><a href="#3-选择之前画好的器件-右键-选择place-replicate-create" class="headerlink" title="3:选择之前画好的器件,右键,选择place replicate create"></a>3:选择之前画好的器件,右键,选择place replicate create</h2><p><img src="3.png" alt="3"></p>
-<h2 id="4-再次右键-选择-Done"><a href="#4-再次右键-选择-Done" class="headerlink" title="4:再次右键,选择 Done"></a>4:再次右键,选择 Done</h2><p><img src="4.png" alt="4"></p>
-<h2 id="5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd"><a href="#5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd" class="headerlink" title="5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd"></a>5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd</h2><p><img src="5.png" alt="5"></p>
-<h2 id="6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2"><a href="#6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2" class="headerlink" title="6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2"></a>6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2</h2><p><img src="6.png" alt="6"></p>
-<h2 id="7-这样就好了"><a href="#7-这样就好了" class="headerlink" title="7:这样就好了"></a>7:这样就好了</h2><p><img src="7.png" alt="7"></p>
+    <title>Hexo创建新页面</title>
+    <url>/2018/01/07/Hexo%E5%88%9B%E5%BB%BA%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<p>命令行键入：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page about</span><br></pre></td></tr></table></figure></p>
+<p>会在source/about中生成index.html。这个就叫做页面，不在文章列表显示，可以通过<a href="http://localhost/about浏览。" target="_blank" rel="noopener">http://localhost/about浏览。</a><br>页面支持文章的大部分属性，除了分类和标签。</p>
 ]]></content>
       <categories>
-        <category>PCB相关</category>
-        <category>Cadence</category>
-        <category>Allegro小技巧</category>
+        <category>Hexo教程</category>
       </categories>
-      <tags>
-        <tag>PCB</tag>
-        <tag>Allegro</tag>
-      </tags>
   </entry>
   <entry>
     <title>Ethernet EIA/TIA-568A/B</title>
@@ -1784,16 +1794,6 @@
       <tags>
         <tag>常用资料</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hexo创建新页面</title>
-    <url>/2018/01/07/Hexo%E5%88%9B%E5%BB%BA%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
-    <content><![CDATA[<p>命令行键入：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page about</span><br></pre></td></tr></table></figure></p>
-<p>会在source/about中生成index.html。这个就叫做页面，不在文章列表显示，可以通过<a href="http://localhost/about浏览。" target="_blank" rel="noopener">http://localhost/about浏览。</a><br>页面支持文章的大部分属性，除了分类和标签。</p>
-]]></content>
-      <categories>
-        <category>Hexo教程</category>
-      </categories>
   </entry>
   <entry>
     <title>Hexo删除文章</title>
@@ -2290,15 +2290,6 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
-    <title>STM32F103x教程之ADC</title>
-    <url>/2018/01/07/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8BADC/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>STM32相关</category>
-        <category>STM32F1教程</category>
-      </categories>
-  </entry>
-  <entry>
     <title>STM32F103x教程之DAC</title>
     <url>/2018/01/07/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8BDAC/</url>
     <content><![CDATA[]]></content>
@@ -2310,6 +2301,15 @@ f(x) &=a+b+a\\
   <entry>
     <title>STM32F103x教程之定时器</title>
     <url>/2018/01/07/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>STM32相关</category>
+        <category>STM32F1教程</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>STM32F103x教程之ADC</title>
+    <url>/2018/01/07/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8BADC/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>STM32相关</category>
