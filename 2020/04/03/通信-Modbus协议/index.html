@@ -362,7 +362,15 @@
 <p>Modbus协议是一个master/slave架构的协议。有一个节点是master节点，其他使用Modbus协议参与通信的节点是slave节点。每一个slave设备都有一个唯一的地址。在串行和MB+网络中，只有被指定为主节点的节点可以启动一个命令（在以太网上，任何一个设备都能发送一个Modbus命令，但是通常也只有一个主节点设备启动指令）。<br>一个ModBus命令包含了打算执行的设备的Modbus地址。所有设备都会收到命令，但只有指定位置的设备会执行及回应指令（地址0例外，指定地址0的指令是广播指令，所有收到指令的设备都会运行，不过不回应指令）。所有的Modbus命令包含了检查码，以确定到达的命令没有被破坏。基本的ModBus命令能指令一个RTU改变它的寄存器的某个值，控制或者读取一个I/O端口，以及指挥设备回送一个或者多个其寄存器中的数据。<br>有许多modems和网关支持Modbus协议，因为Modbus协议很简单而且容易复制。它们当中一些为这个协议特别设计的。有使用有线、无线通信甚至短消息和GPRS的不同实现。不过设计者需要克服一些包括高延迟和时序的问题。</p>
 <div class="pdf" target="Modbus.pdf" height></div>
     </div>
-
+    <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
     
     
     
@@ -608,6 +616,9 @@
   </div>
 
   
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>

@@ -358,7 +358,15 @@
         <h3 id="mos管开关电路图"><a href="#mos管开关电路图" class="headerlink" title="mos管开关电路图"></a><strong>mos管开关电路图</strong></h3><p>图中电池的正电通过开关S1接到场效应管Q1的2脚源极，由于Q1是一个P沟道管，它的1脚栅极通过R20电阻提供一个正电位电压，所以不能通电，电压不能继续通过，3v稳压IC输入脚得不到电压所以就不能工作不开机！<br><a id="more"></a><br>这时，如果我们按下SW1开机按键时，正电通过按键、R11、R23、D4加到三极管Q2的基极，三极管Q2的基极得到一个正电位，三极管导通（前面讲到三极管的时候已经讲过），由于三极管的发射极直接接地，三极管Q2导通就相当于Q1的栅极直接接地，加在它上面的通过R20电阻的电压就直接入了地，Q1的栅极就从高电位变为低电位，Q1导通电就从Q1同过加到3v稳压IC的输入脚，3v稳压IC就是那个U1输出3v的工作电压vcc供给主控，主控通过复位清0，读取固件程序检测等一系列动作，输处一个控制电压到PWR_ON再通过R24、R13分压送到Q2的基极，保持Q2一直处于导通状态，即使你松开开机键断开Q1的基极电压，这时候有主控送来的控制电压保持着，Q2也就一直能够处于导通状态，Q1就能源源不断的给3v稳压IC提供工作电压！SW1还同时通过R11、R30两个电阻的分压，给主控PLAYON脚送去时间长短、次数不同的控制信号，主控通过固件鉴别是播放、暂停、开机、关机而输出不同的结果给相应的控制点，以达到不同的工作状态！<br><img src="20180612114430_9155.jpg" alt="最简单的mos管开关电路图"></p>
 
     </div>
-
+    <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
     
     
     
@@ -444,6 +452,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mos管开关电路图"><span class="nav-number">1.</span> <span class="nav-text">mos管开关电路图</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -604,6 +614,9 @@
   </div>
 
   
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>

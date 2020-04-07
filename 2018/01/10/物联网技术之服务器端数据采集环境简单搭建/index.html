@@ -362,7 +362,15 @@
 <h3 id="2-2-创建数据库操作PHP文件"><a href="#2-2-创建数据库操作PHP文件" class="headerlink" title="2.2 创建数据库操作PHP文件"></a>2.2 创建数据库操作PHP文件</h3><p>创建名为<code>process.php</code> 的文件，写入以下代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">"Content-type:text/html;charset=utf-8"</span>);</span><br><span class="line">date_default_timezone_set(<span class="string">"Asia/Shanghai"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"当前时间是 "</span> . date(<span class="string">"H:i:s"</span>).<span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">include</span>(<span class="string">"database.php"</span>);</span><br><span class="line">	$sen_id=$_POST[<span class="string">'sen_id'</span>];</span><br><span class="line">	$pm25=$_POST[<span class="string">'pm25'</span>];</span><br><span class="line">	$pm10=$_POST[<span class="string">'pm10'</span>];</span><br><span class="line">	$co2=$_POST[<span class="string">'co2'</span>];</span><br><span class="line">	$tvoc=$_POST[<span class="string">'tvoc'</span>];</span><br><span class="line">	$pm100=$_POST[<span class="string">'pm100'</span>];</span><br><span class="line">	$ze08=$_POST[<span class="string">'ze08'</span>];</span><br><span class="line">	$temp=$_POST[<span class="string">'temp'</span>];</span><br><span class="line">	$humi=$_POST[<span class="string">'humi'</span>];</span><br><span class="line">	$id=$_POST[<span class="string">'id'</span>];</span><br><span class="line">	print_r($_POST);</span><br><span class="line">	mysqli_query($connect,<span class="string">"INSERT INTO sensor_test(pm25,pm10,pm100,co2,tvoc,temp,humi,ze08,id,sen_id) VALUES('$pm25','$pm10','$pm100','$co2','$tvoc','$temp','$humi','$ze08','$id','$sen_id')"</span>);</span><br><span class="line"></span><br><span class="line">	mysqli_close($connect);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 
     </div>
-
+    <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
     
     
     
@@ -454,7 +462,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-创建数据库"><span class="nav-number">1.</span> <span class="nav-text">1.创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-创建PHP文件"><span class="nav-number">2.</span> <span class="nav-text">2.创建PHP文件</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-创建数据库"><span class="nav-number">1.</span> <span class="nav-text">1.创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-创建PHP文件"><span class="nav-number">2.</span> <span class="nav-text">2.创建PHP文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-创建数据库连接PHP文件"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 创建数据库连接PHP文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-创建数据库操作PHP文件"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 创建数据库操作PHP文件</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -616,6 +624,9 @@
   </div>
 
   
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>

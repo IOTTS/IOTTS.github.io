@@ -429,7 +429,15 @@
 <h2 id="10-三线制PT100前置放大电路"><a href="#10-三线制PT100前置放大电路" class="headerlink" title="10.三线制PT100前置放大电路"></a>10.三线制PT100前置放大电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/36e6042c7ef601d35393aee859d5399c.jpg" alt="img"><br>图十一是一个三线制PT100前置放大电路。<br>PT100传感器引出三根材质、线径、长度完全相同的线，接法如图所示。有2V的电压加在由R14、R20、R15、Z1、PT100及其线电阻组成的桥电路上。Z1、Z2、Z3、D11、D12、D83及各电容在电路中起滤波和保护作用，静态分析时可不予理会，Z1、Z2、Z3可视为短路，D11、D12、D83及各电容可视为开路。<br>由电阻分压知， V3=2<em>R20/(R14+20)=200/1100=2/11 ……a<br>由虚短知，U8B第6、7脚 电压和第5脚电压相等 V4=V3 ……b<br>由虚断知，U8A第2脚没有电流流过，则流过R18和R19上的电流相等。<br>(V2-V4)/R19=(V5-V2)/R18 ……c<br>由虚断知，U8A第3脚没有电流流过， V1=V7 ……d<br>在桥电路中R15和Z1、PT100及线电阻串联，PT100与线电阻串联分得的电压通过电阻R17加至U8A的第3脚， V7=2</em>(Rx+2R0)/(R15+Rx+2R0) …..e<br>由虚短知，U8A第3脚和第2脚电压相等， V1=V2 ……f<br>由abcdef得， (V5-V7)/100=(V7-V3)/2.2 化简得 V5=(102.2<em>V7-100V3)/2.2 即 V5=204.4(Rx+2R0)/(1000+Rx+2R0) – 200/11 ……g<br>上式输出电压V5是Rx的函数我们再看线电阻的影响。Pt100最下端线电阻上产生的电压降经过中间的线电阻、Z2、R22，加至U8C的第10脚，<br>由虚断知， V5=V8=V9=2</em>R0/(R15+Rx+2R0) ……a<br>(V6-V10)/R25=V10/R26 ……b<br>由虚短知， V10=V5 ……c<br>由式abc得 V6=(102.2/2.2)V5=204.4R0/[2.2(1000+Rx+2R0)] ……h<br>由式gh组成的方程组知，如果测出V5、V6的值，就可算出Rx及R0，知道Rx，查pt100分度表就知道温度的大小了。</p>
 
     </div>
-
+    <div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
     
     
     
@@ -677,6 +685,9 @@
   </div>
 
   
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
