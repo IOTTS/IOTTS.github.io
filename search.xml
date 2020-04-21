@@ -1343,6 +1343,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Allegro相同模块布局克隆</title>
+    <url>/2018/06/19/Allegro%E7%9B%B8%E5%90%8C%E6%A8%A1%E5%9D%97%E5%B8%83%E5%B1%80%E5%85%8B%E9%9A%86/</url>
+    <content><![CDATA[<p>   我们在使用Allegro来布局PCB的时候经常会遇到布局一样的模块，如果我们一个个的去布局很浪费时间，怎么解决这个问题呢，那就用到我们今天讲的一个知识点了，答题思路是先布局好一个模块，然后其他的按照这个布局复制即可，是不是很简单，接下来看一下具体如何操作<br><a id="more"></a></p>
+<h2 id="1-布局好其中一个模块，如下图"><a href="#1-布局好其中一个模块，如下图" class="headerlink" title="1:布局好其中一个模块，如下图"></a>1:布局好其中一个模块，如下图</h2><p><img src="1.png" alt="1"></p>
+<h2 id="2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit"><a href="#2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit" class="headerlink" title="2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit"></a>2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit</h2><p><img src="2.png" alt="2"></p>
+<h2 id="3-选择之前画好的器件-右键-选择place-replicate-create"><a href="#3-选择之前画好的器件-右键-选择place-replicate-create" class="headerlink" title="3:选择之前画好的器件,右键,选择place replicate create"></a>3:选择之前画好的器件,右键,选择place replicate create</h2><p><img src="3.png" alt="3"></p>
+<h2 id="4-再次右键-选择-Done"><a href="#4-再次右键-选择-Done" class="headerlink" title="4:再次右键,选择 Done"></a>4:再次右键,选择 Done</h2><p><img src="4.png" alt="4"></p>
+<h2 id="5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd"><a href="#5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd" class="headerlink" title="5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd"></a>5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd</h2><p><img src="5.png" alt="5"></p>
+<h2 id="6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2"><a href="#6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2" class="headerlink" title="6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2"></a>6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2</h2><p><img src="6.png" alt="6"></p>
+<h2 id="7-这样就好了"><a href="#7-这样就好了" class="headerlink" title="7:这样就好了"></a>7:这样就好了</h2><p><img src="7.png" alt="7"></p>
+]]></content>
+      <categories>
+        <category>PCB相关</category>
+        <category>Cadence</category>
+        <category>Allegro小技巧</category>
+      </categories>
+      <tags>
+        <tag>PCB</tag>
+        <tag>Allegro</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ethernet EIA/TIA-568A/B</title>
     <url>/2020/04/04/Ethernet-EIA-TIA-568A-B/</url>
     <content><![CDATA[<p>本文主要用于查询网络传输过程中，线路线序的几种规则<br><a id="more"></a></p>
@@ -1785,20 +1807,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo新建文章</title>
-    <url>/2019/09/30/Hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>新建一篇博客，在cmd执行命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new post “博客名”</span><br></pre></td></tr></table></figure>
-<p>这时候在文件夹_posts目录下将会看到已经创建的文件<br>使用编辑器编好文章，那么就可以使用命令：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>Hexo教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo教程之MathJax公式渲染问题</title>
     <url>/2018/01/08/Hexo%E6%95%99%E7%A8%8B%E4%B9%8BMathJax%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>今天在写一篇博客的时候，遇到使用MathJax公式下标出现问题，然后在网上找到解决办法</p>
@@ -1933,6 +1941,20 @@ f(x) &=a+b+a\\
       <categories>
         <category>Hexo教程</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Hexo新建文章</title>
+    <url>/2019/09/30/Hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>新建一篇博客，在cmd执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new post “博客名”</span><br></pre></td></tr></table></figure>
+<p>这时候在文件夹_posts目录下将会看到已经创建的文件<br>使用编辑器编好文章，那么就可以使用命令：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>Hexo教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>MQTT代理之Mosquitto-centos环境下搭建</title>
@@ -2088,42 +2110,6 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
-    <title>Allegro相同模块布局克隆</title>
-    <url>/2018/06/19/Allegro%E7%9B%B8%E5%90%8C%E6%A8%A1%E5%9D%97%E5%B8%83%E5%B1%80%E5%85%8B%E9%9A%86/</url>
-    <content><![CDATA[<p>   我们在使用Allegro来布局PCB的时候经常会遇到布局一样的模块，如果我们一个个的去布局很浪费时间，怎么解决这个问题呢，那就用到我们今天讲的一个知识点了，答题思路是先布局好一个模块，然后其他的按照这个布局复制即可，是不是很简单，接下来看一下具体如何操作<br><a id="more"></a></p>
-<h2 id="1-布局好其中一个模块，如下图"><a href="#1-布局好其中一个模块，如下图" class="headerlink" title="1:布局好其中一个模块，如下图"></a>1:布局好其中一个模块，如下图</h2><p><img src="1.png" alt="1"></p>
-<h2 id="2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit"><a href="#2-将另一个模块的所有器件选中-右键，application-mode-gt-placement-Edit" class="headerlink" title="2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit"></a>2:将另一个模块的所有器件选中,右键，application mode -&gt; placement Edit</h2><p><img src="2.png" alt="2"></p>
-<h2 id="3-选择之前画好的器件-右键-选择place-replicate-create"><a href="#3-选择之前画好的器件-右键-选择place-replicate-create" class="headerlink" title="3:选择之前画好的器件,右键,选择place replicate create"></a>3:选择之前画好的器件,右键,选择place replicate create</h2><p><img src="3.png" alt="3"></p>
-<h2 id="4-再次右键-选择-Done"><a href="#4-再次右键-选择-Done" class="headerlink" title="4:再次右键,选择 Done"></a>4:再次右键,选择 Done</h2><p><img src="4.png" alt="4"></p>
-<h2 id="5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd"><a href="#5-选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2-mdd" class="headerlink" title="5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd"></a>5:选中布局好的元件，弹出以下对话框，输入任意名字保存，这里输入2.mdd</h2><p><img src="5.png" alt="5"></p>
-<h2 id="6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2"><a href="#6-选中所有需要布局的元件，右键，选择place-relicate-apply-gt-2" class="headerlink" title="6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2"></a>6:选中所有需要布局的元件，右键，选择place relicate apply -&gt; 2</h2><p><img src="6.png" alt="6"></p>
-<h2 id="7-这样就好了"><a href="#7-这样就好了" class="headerlink" title="7:这样就好了"></a>7:这样就好了</h2><p><img src="7.png" alt="7"></p>
-]]></content>
-      <categories>
-        <category>PCB相关</category>
-        <category>Cadence</category>
-        <category>Allegro小技巧</category>
-      </categories>
-      <tags>
-        <tag>PCB</tag>
-        <tag>Allegro</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MarkDown插入视频,插入gif</title>
-    <url>/2018/01/13/MarkDown%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91-%E6%8F%92%E5%85%A5gif/</url>
-    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">插入视频代码：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">height</span>=<span class="string">498</span> <span class="attr">width</span>=<span class="string">510</span> <span class="attr">src</span>=<span class="string">"http://player.youku.com/embed/XNjcyMDU4Njg0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">插入gif代码：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">height</span>=<span class="string">500</span> <span class="attr">width</span>=<span class="string">500</span> <span class="attr">src</span>=<span class="string">"http://ww4.sinaimg.cn/mw690/e75a115bgw1f3rrbzv1m8g209v0diqv7.gif"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Markdown</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-        <tag>Markdown教程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MSP430教程之创建一个CCS工程</title>
     <url>/2018/01/13/MSP430%E6%95%99%E7%A8%8B%E4%B9%8B%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AACCS%E5%B7%A5%E7%A8%8B/</url>
     <content><![CDATA[<p>前几天花了4.3美元在TI官网买了一开MSP430FR2433 LaunchPad™ Development Kit<br>(MSPEXP430FR2433)，今天花一点时间来个简单的入门。板子很简单见下图<br> <img src="TIM截图20180113204831.png" alt="TIM截图20180113204831.png"></p>
@@ -2168,40 +2154,60 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
-    <title>STM32F103x教程之ADC</title>
-    <url>/2018/01/07/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8BADC/</url>
-    <content><![CDATA[]]></content>
+    <title>MarkDown插入视频,插入gif</title>
+    <url>/2018/01/13/MarkDown%E6%8F%92%E5%85%A5%E8%A7%86%E9%A2%91-%E6%8F%92%E5%85%A5gif/</url>
+    <content><![CDATA[<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">插入视频代码：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">height</span>=<span class="string">498</span> <span class="attr">width</span>=<span class="string">510</span> <span class="attr">src</span>=<span class="string">"http://player.youku.com/embed/XNjcyMDU4Njg0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">插入gif代码：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">height</span>=<span class="string">500</span> <span class="attr">width</span>=<span class="string">500</span> <span class="attr">src</span>=<span class="string">"http://ww4.sinaimg.cn/mw690/e75a115bgw1f3rrbzv1m8g209v0diqv7.gif"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
-        <category>STM32相关</category>
-        <category>STM32F1教程</category>
+        <category>Markdown</category>
       </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>Markdown教程</tag>
+      </tags>
   </entry>
   <entry>
-    <title>STM32F103x教程之DAC</title>
-    <url>/2018/01/07/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8BDAC/</url>
-    <content><![CDATA[]]></content>
+    <title>MySQL忘记root密码解决方法</title>
+    <url>/2018/01/09/MySQL%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p><a href="http://www.cnblogs.com/sbaicl/articles/3132010.html" target="_blank" rel="noopener">原文链接</a><br>1．首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。<br>因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的<br>状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对<br>外的端口封闭，并且停止Apache以及所有的用户进程的方法实现服务器的准安全<br>状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线。</p>
+<p>2．修改MySQL的登录设置：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure></p>
+<p>在<code>[mysqld]</code>的段中加上一句：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure></p>
+<p>例如：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[mysqld] </span><br><span class="line">datadir=/var/lib/mysql </span><br><span class="line">socket=/var/lib/mysql/mysql.sock </span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure></p>
+<p>保存并且退出vi。</p>
+<p>3．重新启动mysqld<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># service mysqld restart </span></span><br><span class="line">Stopping MySQL: [ OK ] </span><br><span class="line">Starting MySQL: [ OK ]</span><br></pre></td></tr></table></figure></p>
+<p>4．登录并修改MySQL的root密码<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mysql </span></span><br><span class="line">Welcome to the MySQL monitor. Commands end with ; or \g. </span><br><span class="line">Your MySQL connection id is 3 to server version: 3.23.56 </span><br><span class="line">Type <span class="string">'help;'</span> or <span class="string">'\h'</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">'\c'</span> to clear the buffer. </span><br><span class="line">mysql&gt; USE mysql ; </span><br><span class="line">Database changed </span><br><span class="line">mysql&gt; UPDATE user SET Password = password ( <span class="string">'new-password'</span> ) WHERE User = <span class="string">'root'</span> ; </span><br><span class="line">Query OK, 0 rows affected (0.00 sec) </span><br><span class="line">Rows matched: 2 Changed: 0 Warnings: 0 </span><br><span class="line">mysql&gt; flush privileges ; </span><br><span class="line">Query OK, 0 rows affected (0.01 sec) </span><br><span class="line">mysql&gt; quit</span><br></pre></td></tr></table></figure></p>
+<p>5．将MySQL的登录设置修改回来<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure></p>
+<p>将刚才在<code>[mysqld]</code>的段中加上的<code>skip-grant-tables</code>删除<br>保存并且退出vim</p>
+<p>6．重新启动mysqld<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># service mysqld restart </span></span><br><span class="line">Stopping MySQL: [ OK ] </span><br><span class="line">Starting MySQL: [ OK ]</span><br></pre></td></tr></table></figure></p>
+]]></content>
       <categories>
-        <category>STM32相关</category>
-        <category>STM32F1教程</category>
+        <category>Linux</category>
+        <category>MySql教程</category>
       </categories>
+      <tags>
+        <tag>MySql教程</tag>
+        <tag>MySql相关问题</tag>
+      </tags>
   </entry>
   <entry>
-    <title>STM32F103x教程之工程模板</title>
-    <url>/2018/01/06/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8B%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[]]></content>
+    <title>OpenELEC中文设置教程</title>
+    <url>/2019/10/01/OpenELEC%E4%B8%AD%E6%96%87%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>XBMC / OpenELEC 在安装后大家是不是和小编一样，发现没有中文? 可是要怎么设置成中文呢？接下来就为大家说明：</p>
+<p>1.鼠标移动到 SYSTEM然后点击 Settings</p>
+<p>Tips:也可以直接点击SYSTEM默认进入Settings</p>
+<p>2.点击Appearance</p>
+<p>3.点击左侧的International，在右侧的Language中选择Chinese (Simple)<br><a id="more"></a><br>这时界面会出现很多个“□”，</p>
+<p>4.点击左侧第一项□□(皮肤)，然后在右边第四项选择□□Arial□□</p>
+<p>稍等1秒中，系统会自动变成中文</p>
+<p>再次返回到主界面下，此时已经完全变成简体中文的UI了</p>
+]]></content>
       <categories>
-        <category>STM32相关</category>
-        <category>STM32F1教程</category>
+        <category>ELEC</category>
       </categories>
-  </entry>
-  <entry>
-    <title>STM32F103x教程之定时器</title>
-    <url>/2018/01/07/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>STM32相关</category>
-        <category>STM32F1教程</category>
-      </categories>
+      <tags>
+        <tag>XBMC</tag>
+      </tags>
   </entry>
   <entry>
     <title>[OrangePi]为OrangePi-PC编译Armbian系统</title>
@@ -2284,23 +2290,40 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
-    <title>OpenELEC中文设置教程</title>
-    <url>/2019/10/01/OpenELEC%E4%B8%AD%E6%96%87%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<p>XBMC / OpenELEC 在安装后大家是不是和小编一样，发现没有中文? 可是要怎么设置成中文呢？接下来就为大家说明：</p>
-<p>1.鼠标移动到 SYSTEM然后点击 Settings</p>
-<p>Tips:也可以直接点击SYSTEM默认进入Settings</p>
-<p>2.点击Appearance</p>
-<p>3.点击左侧的International，在右侧的Language中选择Chinese (Simple)<br><a id="more"></a><br>这时界面会出现很多个“□”，</p>
-<p>4.点击左侧第一项□□(皮肤)，然后在右边第四项选择□□Arial□□</p>
-<p>稍等1秒中，系统会自动变成中文</p>
-<p>再次返回到主界面下，此时已经完全变成简体中文的UI了</p>
-]]></content>
+    <title>STM32F103x教程之ADC</title>
+    <url>/2018/01/07/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8BADC/</url>
+    <content><![CDATA[]]></content>
       <categories>
-        <category>ELEC</category>
+        <category>STM32相关</category>
+        <category>STM32F1教程</category>
       </categories>
-      <tags>
-        <tag>XBMC</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>STM32F103x教程之DAC</title>
+    <url>/2018/01/07/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8BDAC/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>STM32相关</category>
+        <category>STM32F1教程</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>STM32F103x教程之定时器</title>
+    <url>/2018/01/07/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8B%E5%AE%9A%E6%97%B6%E5%99%A8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>STM32相关</category>
+        <category>STM32F1教程</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>STM32F103x教程之工程模板</title>
+    <url>/2018/01/06/STM32F103x%E6%95%99%E7%A8%8B%E4%B9%8B%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>STM32相关</category>
+        <category>STM32F1教程</category>
+      </categories>
   </entry>
   <entry>
     <title>STM32F103x教程之按键操作</title>
@@ -2331,29 +2354,6 @@ f(x) &=a+b+a\\
         <category>STM32相关</category>
         <category>STM32F1教程</category>
       </categories>
-  </entry>
-  <entry>
-    <title>MySQL忘记root密码解决方法</title>
-    <url>/2018/01/09/MySQL%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p><a href="http://www.cnblogs.com/sbaicl/articles/3132010.html" target="_blank" rel="noopener">原文链接</a><br>1．首先确认服务器出于安全的状态，也就是没有人能够任意地连接MySQL数据库。<br>因为在重新设置MySQL的root密码的期间，MySQL数据库完全出于没有密码保护的<br>状态下，其他的用户也可以任意地登录和修改MySQL的信息。可以采用将MySQL对<br>外的端口封闭，并且停止Apache以及所有的用户进程的方法实现服务器的准安全<br>状态。最安全的状态是到服务器的Console上面操作，并且拔掉网线。</p>
-<p>2．修改MySQL的登录设置：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure></p>
-<p>在<code>[mysqld]</code>的段中加上一句：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure></p>
-<p>例如：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[mysqld] </span><br><span class="line">datadir=/var/lib/mysql </span><br><span class="line">socket=/var/lib/mysql/mysql.sock </span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure></p>
-<p>保存并且退出vi。</p>
-<p>3．重新启动mysqld<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># service mysqld restart </span></span><br><span class="line">Stopping MySQL: [ OK ] </span><br><span class="line">Starting MySQL: [ OK ]</span><br></pre></td></tr></table></figure></p>
-<p>4．登录并修改MySQL的root密码<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mysql </span></span><br><span class="line">Welcome to the MySQL monitor. Commands end with ; or \g. </span><br><span class="line">Your MySQL connection id is 3 to server version: 3.23.56 </span><br><span class="line">Type <span class="string">'help;'</span> or <span class="string">'\h'</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">'\c'</span> to clear the buffer. </span><br><span class="line">mysql&gt; USE mysql ; </span><br><span class="line">Database changed </span><br><span class="line">mysql&gt; UPDATE user SET Password = password ( <span class="string">'new-password'</span> ) WHERE User = <span class="string">'root'</span> ; </span><br><span class="line">Query OK, 0 rows affected (0.00 sec) </span><br><span class="line">Rows matched: 2 Changed: 0 Warnings: 0 </span><br><span class="line">mysql&gt; flush privileges ; </span><br><span class="line">Query OK, 0 rows affected (0.01 sec) </span><br><span class="line">mysql&gt; quit</span><br></pre></td></tr></table></figure></p>
-<p>5．将MySQL的登录设置修改回来<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vim /etc/my.cnf</span></span><br></pre></td></tr></table></figure></p>
-<p>将刚才在<code>[mysqld]</code>的段中加上的<code>skip-grant-tables</code>删除<br>保存并且退出vim</p>
-<p>6．重新启动mysqld<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># service mysqld restart </span></span><br><span class="line">Stopping MySQL: [ OK ] </span><br><span class="line">Starting MySQL: [ OK ]</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>MySql教程</category>
-      </categories>
-      <tags>
-        <tag>MySql教程</tag>
-        <tag>MySql相关问题</tag>
-      </tags>
   </entry>
   <entry>
     <title>STM32FXX之Lua解释器移植</title>
@@ -2400,21 +2400,6 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
-    <title>WINDOWS命令行关闭本地占用的端口</title>
-    <url>/2020/04/02/WINDOWS%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%85%B3%E9%97%AD%E6%9C%AC%E5%9C%B0%E5%8D%A0%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3/</url>
-    <content><![CDATA[<p>1.查找对应的端口占用的进程：netstat  -aon|findstr  “8080”    ，找到占用8080端口对应的程序的PID号；<br><a id="more"></a><br><img src="1.png" alt="1.png"></p>
-<p>2.根据PID号找到对应的程序：tasklist|findstr “PID号”    ，找到对应的程序名；</p>
-<p><img src="2.png" alt="2.png"></p>
-<p>3.结束该进程：taskkill /f /t /im ApplicationWebServer.exe；或者taskkill /pid 7644 /F。</p>
-]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu下搭建MQTT服务器</title>
     <url>/2018/01/11/Ubuntu%E4%B8%8B%E6%90%AD%E5%BB%BAMQTT%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>现在物联网这么火，当然不能落伍，MQTT极有可能成为物联网应用最广的协议，因此需要一个MQTT测试环境就很有必要了</p>
@@ -2445,6 +2430,77 @@ f(x) &=a+b+a\\
         <tag>数据采集</tag>
         <tag>linux</tag>
         <tag>MQTT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu安装JDK1.8.0并配置环境变量</title>
+    <url>/2018/01/11/Ubuntu%E5%AE%89%E8%A3%85JDK1-8-0%E5%B9%B6%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>虚拟机 Ubuntu 16.04.3 LTS</p>
+<h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2><p>通过终端在<code>/usr/local</code>目录下新建<code>java</code>文件夹，命令行：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mkdir /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure></p>
+<p>然后进入java目录，命令行：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure></p>
+<p>到官网下载jdk：<br><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+<p>注意操作系统位数的选择，我的Ubuntu系统为32位的所以直接输入下面命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>解压源码包</p>
+<p>解压压缩包，命令行：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo tar xvf jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>然后可以把压缩包删除，命令行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo rm jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure>
+<h2 id="设置JDK环境变量"><a href="#设置JDK环境变量" class="headerlink" title="设置JDK环境变量"></a>设置JDK环境变量</h2><p>这里采用全局设置方法，它是是所有用户的共用的环境变量<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$sudo</span> gedit ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>命令行下可以输入<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>在.bashrc文件末尾输入<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_151  </span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre  </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib  </span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+<p>$\color{red}{注意：}$在添加环境变量时中，等号两侧不要加入空格，不然会出现“不是有效的标识符”，因为<code>source /etc/profile</code> 时不能识别多余到空格，会理解为是路径一部分。然后保存。<br>命令行下输入以下命令生效<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h2 id="检验是否安装成功"><a href="#检验是否安装成功" class="headerlink" title="检验是否安装成功"></a>检验是否安装成功</h2><p>重启终端，然后在终端输入如下命令<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></p>
+<p>看看是否安装成功，成功则显示如下：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">iotts@jacklu:~$ java -version</span><br><span class="line">java version <span class="string">"1.8.0_151"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) Client VM (build 25.151-b12, mixed mode)</span><br><span class="line">iotts@jacklu:~$</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>java环境变量配置</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows下搭建MQTT服务器</title>
+    <url>/2019/10/01/Windows%E4%B8%8B%E6%90%AD%E5%BB%BAMQTT%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在项目中要使用MQTT协议，需要搭建一个MQTT服务器来进行调试，在网络上找了一天，找到的大多数都是MQTT客户端，最后发现这篇博客写的教程可以使用，特此记录。</p>
+<h2 id="寻找过程"><a href="#寻找过程" class="headerlink" title="寻找过程"></a>寻找过程</h2><p>在寻找MQTT服务器的过程中，我发现的Mosquitto是一款「An Open Source MQTT v3.1/v3.1.1 Broker」——开源的MQTT代理服务器，其下也有Windows的安装包。<br><a id="more"></a><br><img src="20160929175146631.png" alt="mosquitto"></p>
+<p>但是我使用的是Win10 64位系统，这两个都下载安装后不是报错就是缺少dll文件，不能使用。</p>
+<p>最后参考了前面博客说的，搭建了Apollo服务器，这里使用的Apollo 1.7.1。</p>
+<p>官网：<a href="http://activemq.apache.org/index.html" target="_blank" rel="noopener">http://activemq.apache.org/index.html</a><br>下载地址：<a href="http://activemq.apache.org/apollo/download.html" target="_blank" rel="noopener">http://activemq.apache.org/apollo/download.html</a><br>快速开始教程：<a href="http://activemq.apache.org/apollo/documentation/getting-started.html" target="_blank" rel="noopener">http://activemq.apache.org/apollo/documentation/getting-started.html</a></p>
+<h2 id="搭建MQTT服务器"><a href="#搭建MQTT服务器" class="headerlink" title="搭建MQTT服务器"></a>搭建MQTT服务器</h2><p>使用Apollo搭建MQTT服务器步骤：</p>
+<p>下载Apollo服务器并解压，在CMD环境运行其工作目录下的<strong>…\bin\apollo.cmd</strong>，命令后面带上参数<strong>create mybroker</strong>，创建服务器实例。这里需要Java环境，系统环境变量下要有JAVA_HOME。<br>创建实例之后会在bin目录下生成mybroker文件夹，其中<strong>…\etc\apollo.xml</strong>文件下是配置服务器信息的文件，<strong>…\etc\users.properties</strong> 文件包含连接MQTT服务器时用到的用户名和密码，初始默认帐号是admin，密码password；<br>进入<strong>…\mybroker\bin </strong>目录，在CMD输入命令<strong>apollo-broker.cmd run</strong>，可以使用TAB键自动补全，运行后输出信息如下：</p>
+<p><img src="20161120143250439.png" alt="MQTT服务运行信息"><br>其中我们要留意的：</p>
+<p>MQTT服务器TCP连接端口：tcp://0.0.0.0:61613</p>
+<p>后台Web管理页面：<a href="https://127.0.0.1:61681/或http://127.0.0.1:61680/" target="_blank" rel="noopener">https://127.0.0.1:61681/或http://127.0.0.1:61680/</a></p>
+<p>登录服务器后，如果MQTT服务器有客户端连接，后台会显示如下</p>
+<p><img src="20160929213931331.png" alt="后台"></p>
+<h2 id="Python的MQTT客户端"><a href="#Python的MQTT客户端" class="headerlink" title="Python的MQTT客户端"></a>Python的MQTT客户端</h2><p>在Python环境下有MQTT客户端包——paho-mqtt。</p>
+<h3 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install paho-mqtt1</span><br></pre></td></tr></table></figure>
+<h3 id="客户端代码清单"><a href="#客户端代码清单" class="headerlink" title="客户端代码清单"></a>客户端代码清单</h3><p>下面是MQTT客户端代码清单<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import paho.mqtt.client as mqtt</span><br><span class="line"></span><br><span class="line">def on_connect(client, userdata, flags, rc):</span><br><span class="line">    print(&quot;Connected with result code &quot;+str(rc))</span><br><span class="line"></span><br><span class="line">    client.subscribe(&quot;lettuce&quot;)</span><br><span class="line"></span><br><span class="line">def on_message(client, userdata, msg):</span><br><span class="line">    print(msg.topic+&quot; &quot;+str(msg.payload))</span><br><span class="line"></span><br><span class="line">client = mqtt.Client()</span><br><span class="line">client.username_pw_set(&quot;admin&quot;, &quot;password&quot;) # 必须设置，否则会返回「Connected with result code 4」</span><br><span class="line">client.on_connect = on_connect</span><br><span class="line">client.on_message = on_message</span><br><span class="line"></span><br><span class="line">HOST = &quot;127.0.0.1&quot;</span><br><span class="line"></span><br><span class="line">client.connect(HOST, 61613, 60)</span><br><span class="line">client.loop_forever()</span><br></pre></td></tr></table></figure></p>
+<h3 id="发布消息代码"><a href="#发布消息代码" class="headerlink" title="发布消息代码"></a>发布消息代码</h3><p>下面是往MQTT服务器发布消息的代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import paho.mqtt.publish as publish</span><br><span class="line"></span><br><span class="line">HOST = &quot;127.0.0.1&quot;</span><br><span class="line"></span><br><span class="line">publish.single(&quot;lettuce&quot;, &quot;payload&quot;, hostname=HOST, port=61613,</span><br><span class="line">               auth=&#123;&apos;username&apos;: &quot;admin&quot;, &apos;password&apos;:&quot;password&quot;&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>物联网相关</category>
+        <category>服务器端相关</category>
+      </categories>
+      <tags>
+        <tag>MQTT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>WINDOWS命令行关闭本地占用的端口</title>
+    <url>/2020/04/02/WINDOWS%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%85%B3%E9%97%AD%E6%9C%AC%E5%9C%B0%E5%8D%A0%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3/</url>
+    <content><![CDATA[<p>1.查找对应的端口占用的进程：netstat  -aon|findstr  “8080”    ，找到占用8080端口对应的程序的PID号；<br><a id="more"></a><br><img src="1.png" alt="1.png"></p>
+<p>2.根据PID号找到对应的程序：tasklist|findstr “PID号”    ，找到对应的程序名；</p>
+<p><img src="2.png" alt="2.png"></p>
+<p>3.结束该进程：taskkill /f /t /im ApplicationWebServer.exe；或者taskkill /pid 7644 /F。</p>
+]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
@@ -2481,34 +2537,6 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
-    <title>Windows下搭建MQTT服务器</title>
-    <url>/2019/10/01/Windows%E4%B8%8B%E6%90%AD%E5%BB%BAMQTT%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在项目中要使用MQTT协议，需要搭建一个MQTT服务器来进行调试，在网络上找了一天，找到的大多数都是MQTT客户端，最后发现这篇博客写的教程可以使用，特此记录。</p>
-<h2 id="寻找过程"><a href="#寻找过程" class="headerlink" title="寻找过程"></a>寻找过程</h2><p>在寻找MQTT服务器的过程中，我发现的Mosquitto是一款「An Open Source MQTT v3.1/v3.1.1 Broker」——开源的MQTT代理服务器，其下也有Windows的安装包。<br><a id="more"></a><br><img src="20160929175146631.png" alt="mosquitto"></p>
-<p>但是我使用的是Win10 64位系统，这两个都下载安装后不是报错就是缺少dll文件，不能使用。</p>
-<p>最后参考了前面博客说的，搭建了Apollo服务器，这里使用的Apollo 1.7.1。</p>
-<p>官网：<a href="http://activemq.apache.org/index.html" target="_blank" rel="noopener">http://activemq.apache.org/index.html</a><br>下载地址：<a href="http://activemq.apache.org/apollo/download.html" target="_blank" rel="noopener">http://activemq.apache.org/apollo/download.html</a><br>快速开始教程：<a href="http://activemq.apache.org/apollo/documentation/getting-started.html" target="_blank" rel="noopener">http://activemq.apache.org/apollo/documentation/getting-started.html</a></p>
-<h2 id="搭建MQTT服务器"><a href="#搭建MQTT服务器" class="headerlink" title="搭建MQTT服务器"></a>搭建MQTT服务器</h2><p>使用Apollo搭建MQTT服务器步骤：</p>
-<p>下载Apollo服务器并解压，在CMD环境运行其工作目录下的<strong>…\bin\apollo.cmd</strong>，命令后面带上参数<strong>create mybroker</strong>，创建服务器实例。这里需要Java环境，系统环境变量下要有JAVA_HOME。<br>创建实例之后会在bin目录下生成mybroker文件夹，其中<strong>…\etc\apollo.xml</strong>文件下是配置服务器信息的文件，<strong>…\etc\users.properties</strong> 文件包含连接MQTT服务器时用到的用户名和密码，初始默认帐号是admin，密码password；<br>进入<strong>…\mybroker\bin </strong>目录，在CMD输入命令<strong>apollo-broker.cmd run</strong>，可以使用TAB键自动补全，运行后输出信息如下：</p>
-<p><img src="20161120143250439.png" alt="MQTT服务运行信息"><br>其中我们要留意的：</p>
-<p>MQTT服务器TCP连接端口：tcp://0.0.0.0:61613</p>
-<p>后台Web管理页面：<a href="https://127.0.0.1:61681/或http://127.0.0.1:61680/" target="_blank" rel="noopener">https://127.0.0.1:61681/或http://127.0.0.1:61680/</a></p>
-<p>登录服务器后，如果MQTT服务器有客户端连接，后台会显示如下</p>
-<p><img src="20160929213931331.png" alt="后台"></p>
-<h2 id="Python的MQTT客户端"><a href="#Python的MQTT客户端" class="headerlink" title="Python的MQTT客户端"></a>Python的MQTT客户端</h2><p>在Python环境下有MQTT客户端包——paho-mqtt。</p>
-<h3 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install paho-mqtt1</span><br></pre></td></tr></table></figure>
-<h3 id="客户端代码清单"><a href="#客户端代码清单" class="headerlink" title="客户端代码清单"></a>客户端代码清单</h3><p>下面是MQTT客户端代码清单<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import paho.mqtt.client as mqtt</span><br><span class="line"></span><br><span class="line">def on_connect(client, userdata, flags, rc):</span><br><span class="line">    print(&quot;Connected with result code &quot;+str(rc))</span><br><span class="line"></span><br><span class="line">    client.subscribe(&quot;lettuce&quot;)</span><br><span class="line"></span><br><span class="line">def on_message(client, userdata, msg):</span><br><span class="line">    print(msg.topic+&quot; &quot;+str(msg.payload))</span><br><span class="line"></span><br><span class="line">client = mqtt.Client()</span><br><span class="line">client.username_pw_set(&quot;admin&quot;, &quot;password&quot;) # 必须设置，否则会返回「Connected with result code 4」</span><br><span class="line">client.on_connect = on_connect</span><br><span class="line">client.on_message = on_message</span><br><span class="line"></span><br><span class="line">HOST = &quot;127.0.0.1&quot;</span><br><span class="line"></span><br><span class="line">client.connect(HOST, 61613, 60)</span><br><span class="line">client.loop_forever()</span><br></pre></td></tr></table></figure></p>
-<h3 id="发布消息代码"><a href="#发布消息代码" class="headerlink" title="发布消息代码"></a>发布消息代码</h3><p>下面是往MQTT服务器发布消息的代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import paho.mqtt.publish as publish</span><br><span class="line"></span><br><span class="line">HOST = &quot;127.0.0.1&quot;</span><br><span class="line"></span><br><span class="line">publish.single(&quot;lettuce&quot;, &quot;payload&quot;, hostname=HOST, port=61613,</span><br><span class="line">               auth=&#123;&apos;username&apos;: &quot;admin&quot;, &apos;password&apos;:&quot;password&quot;&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>物联网相关</category>
-        <category>服务器端相关</category>
-      </categories>
-      <tags>
-        <tag>MQTT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>c语言教程之函数返回字符串的四种方法</title>
     <url>/2019/10/25/c%E8%AF%AD%E8%A8%80%E6%95%99%E7%A8%8B%E4%B9%8B%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>在讨论着四种方法之前，首先要对函数有一个简单的认识，无论是在形实结合时，还是在return语句返回时，都有一个拷贝的过程。你传进来的参数是个值，自然函数在工作之前要把这个值拷贝一份供自己使用，你传进来的是个地址，函数也就会拷贝该地址供自己使用。同样return返回时，如果返回一个值，函数会将该值拷贝一份以提供给主调函数使用，返回的是一个指针（也就是地址），自然拷贝的就是一个地址，供主调函数使用。</p>
@@ -2539,34 +2567,6 @@ f(x) &=a+b+a\\
       </categories>
       <tags>
         <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu安装JDK1.8.0并配置环境变量</title>
-    <url>/2018/01/11/Ubuntu%E5%AE%89%E8%A3%85JDK1-8-0%E5%B9%B6%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>虚拟机 Ubuntu 16.04.3 LTS</p>
-<h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2><p>通过终端在<code>/usr/local</code>目录下新建<code>java</code>文件夹，命令行：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mkdir /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure></p>
-<p>然后进入java目录，命令行：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/java</span><br></pre></td></tr></table></figure></p>
-<p>到官网下载jdk：<br><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
-<p>注意操作系统位数的选择，我的Ubuntu系统为32位的所以直接输入下面命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>解压源码包</p>
-<p>解压压缩包，命令行：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo tar xvf jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>然后可以把压缩包删除，命令行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo rm jdk-8u151-linux-i586.tar.gz</span><br></pre></td></tr></table></figure>
-<h2 id="设置JDK环境变量"><a href="#设置JDK环境变量" class="headerlink" title="设置JDK环境变量"></a>设置JDK环境变量</h2><p>这里采用全局设置方法，它是是所有用户的共用的环境变量<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="variable">$sudo</span> gedit ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<p>命令行下可以输入<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<p>在.bashrc文件末尾输入<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/<span class="built_in">local</span>/java/jdk1.8.0_151  </span><br><span class="line"><span class="built_in">export</span> JRE_HOME=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre  </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib  </span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
-<p>$\color{red}{注意：}$在添加环境变量时中，等号两侧不要加入空格，不然会出现“不是有效的标识符”，因为<code>source /etc/profile</code> 时不能识别多余到空格，会理解为是路径一部分。然后保存。<br>命令行下输入以下命令生效<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<h2 id="检验是否安装成功"><a href="#检验是否安装成功" class="headerlink" title="检验是否安装成功"></a>检验是否安装成功</h2><p>重启终端，然后在终端输入如下命令<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></p>
-<p>看看是否安装成功，成功则显示如下：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">iotts@jacklu:~$ java -version</span><br><span class="line">java version <span class="string">"1.8.0_151"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) Client VM (build 25.151-b12, mixed mode)</span><br><span class="line">iotts@jacklu:~$</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>java环境变量配置</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -2604,6 +2604,26 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
+    <title>hexo中完美插入本地图片</title>
+    <url>/2018/01/07/hexo%E4%B8%AD%E5%AE%8C%E7%BE%8E%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<h1 id="Hexo配置文件的设置"><a href="#Hexo配置文件的设置" class="headerlink" title="Hexo配置文件的设置"></a>Hexo配置文件的设置</h1><p>确保你的Hexo的配置文件<strong>_config.yml</strong>里面有个这个选项配置，并将其置为true</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>这个功能实际上是Hexo官方文档中提到的资源文件夹功能，它的作用在于当你使用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">"hexo中完美插入本地图片"</span></span><br></pre></td></tr></table></figure>
+<p>生成一篇新文章时，会在 <strong>\source \_posts</strong> 目录下生成一个 hexo中完美插入本地图片(文章名).md 文件外，附带生成一个与 文章名 同名的文件夹，可以用它来存放这篇文章的所有资源，比如图片，附件等</p>
+<h1 id="安装hexo-asset-image插件"><a href="#安装hexo-asset-image插件" class="headerlink" title="安装hexo-asset-image插件"></a>安装hexo-asset-image插件</h1><p>需要安装一个图片路径转换的插件， 进入博客  /根目录 使用如下命令安装插件<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure></p>
+<p>插件安装完以后，会生成<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">\blog\node_modules\hexo-asset-image</span><br></pre></td></tr></table></figure></p>
+<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>首先要把需要插入的图片放到<strong>“hexo中完美插入本地图片”</strong>这个资源文件夹下，然后进行路径引用，这是上面插入图片时的实际引用代码<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![2018-01-07 16-39-28屏幕截图.png](2018-01-07 16-39-28屏幕截图.png)</span><br></pre></td></tr></table></figure></p>
+<p>实际效果<br>  <img src="2018-01-07 16-39-28屏幕截图.png" alt="2018-01-07 16-39-28屏幕截图.png"></p>
+]]></content>
+      <categories>
+        <category>Hexo教程</category>
+      </categories>
+      <tags>
+        <tag>Hexo教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>linux下的命名规则</title>
     <url>/2019/10/24/linux%E4%B8%8B%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99/</url>
     <content><![CDATA[<p>Linux下建议的命名规则如下。</p>
@@ -2624,31 +2644,6 @@ f(x) &=a+b+a\\
       <tags>
         <tag>Linux</tag>
         <tag>编程规范</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux命令之ubuntu查看系统信息</title>
-    <url>/2018/01/09/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bubuntu%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
-<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure></p>
-<p>输出结果<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-46-51屏幕截图.png" alt="2018-01-16 20-46-51屏幕截图.png"><br>也可以输入：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Linux jacklu 4.13.0-26-generic <span class="comment">#29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-47-17屏幕截图.png" alt="2018-01-16 20-47-17屏幕截图.png"></p>
-<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure></p>
-<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ubuntu 16.04.3 LTS \n \l</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-48-47屏幕截图.png" alt="2018-01-16 20-48-47屏幕截图.png"></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo lsb_release -a</span><br></pre></td></tr></table></figure></p>
-<p>将输出结果：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04.3 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-48-27屏幕截图.png" alt="2018-01-16 20-48-27屏幕截图.png"></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>linux命令</category>
-      </categories>
-      <tags>
-        <tag>linux命令</tag>
-        <tag>查看系统信息</tag>
       </tags>
   </entry>
   <entry>
@@ -2677,6 +2672,31 @@ f(x) &=a+b+a\\
         <tag>linux命令</tag>
         <tag>netstat命令</tag>
         <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux命令之ubuntu查看系统信息</title>
+    <url>/2018/01/09/linux%E5%91%BD%E4%BB%A4%E4%B9%8Bubuntu%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
+<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure></p>
+<p>输出结果<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-46-51屏幕截图.png" alt="2018-01-16 20-46-51屏幕截图.png"><br>也可以输入：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Linux jacklu 4.13.0-26-generic <span class="comment">#29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-47-17屏幕截图.png" alt="2018-01-16 20-47-17屏幕截图.png"></p>
+<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure></p>
+<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Ubuntu 16.04.3 LTS \n \l</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-48-47屏幕截图.png" alt="2018-01-16 20-48-47屏幕截图.png"></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo lsb_release -a</span><br></pre></td></tr></table></figure></p>
+<p>将输出结果：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04.3 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-48-27屏幕截图.png" alt="2018-01-16 20-48-27屏幕截图.png"></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>linux命令</category>
+      </categories>
+      <tags>
+        <tag>linux命令</tag>
+        <tag>查看系统信息</tag>
       </tags>
   </entry>
   <entry>
@@ -2723,26 +2743,6 @@ f(x) &=a+b+a\\
         <tag>linux命令</tag>
         <tag>基础</tag>
         <tag>关机重启</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo中完美插入本地图片</title>
-    <url>/2018/01/07/hexo%E4%B8%AD%E5%AE%8C%E7%BE%8E%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<h1 id="Hexo配置文件的设置"><a href="#Hexo配置文件的设置" class="headerlink" title="Hexo配置文件的设置"></a>Hexo配置文件的设置</h1><p>确保你的Hexo的配置文件<strong>_config.yml</strong>里面有个这个选项配置，并将其置为true</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>这个功能实际上是Hexo官方文档中提到的资源文件夹功能，它的作用在于当你使用</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">"hexo中完美插入本地图片"</span></span><br></pre></td></tr></table></figure>
-<p>生成一篇新文章时，会在 <strong>\source \_posts</strong> 目录下生成一个 hexo中完美插入本地图片(文章名).md 文件外，附带生成一个与 文章名 同名的文件夹，可以用它来存放这篇文章的所有资源，比如图片，附件等</p>
-<h1 id="安装hexo-asset-image插件"><a href="#安装hexo-asset-image插件" class="headerlink" title="安装hexo-asset-image插件"></a>安装hexo-asset-image插件</h1><p>需要安装一个图片路径转换的插件， 进入博客  /根目录 使用如下命令安装插件<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure></p>
-<p>插件安装完以后，会生成<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">\blog\node_modules\hexo-asset-image</span><br></pre></td></tr></table></figure></p>
-<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>首先要把需要插入的图片放到<strong>“hexo中完美插入本地图片”</strong>这个资源文件夹下，然后进行路径引用，这是上面插入图片时的实际引用代码<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">![2018-01-07 16-39-28屏幕截图.png](2018-01-07 16-39-28屏幕截图.png)</span><br></pre></td></tr></table></figure></p>
-<p>实际效果<br>  <img src="2018-01-07 16-39-28屏幕截图.png" alt="2018-01-07 16-39-28屏幕截图.png"></p>
-]]></content>
-      <categories>
-        <category>Hexo教程</category>
-      </categories>
-      <tags>
-        <tag>Hexo教程</tag>
       </tags>
   </entry>
   <entry>
@@ -2803,11 +2803,6 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
-    <title>按键处理模块:MultiButton</title>
-    <url>/2020/04/21/%E6%8C%89%E9%94%AE%E5%A4%84%E7%90%86%E6%A8%A1%E5%9D%97-MultiButton/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>开源NAS操作系统</title>
     <url>/2020/03/27/%E5%BC%80%E6%BA%90NAS%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<p>   作为一个程序员，资料备份经常会用到NAS服务器，也就是文件服务器，NAS除了能够办公使用外，还可以作为家庭媒体中心，我们可以存储一些电影，游戏。商用比较有名的有群晖，大家可能都听说过，很好用，但是机器的价格有点偏贵，为了克服这点网上也有用户用普通PC制作黑群晖的教程，今天给大家介绍几款免费开源的NAS系统，首先声明，本文是在网上收集的资料，实际使用难免会有一些不同的地方，仅供参考</p>
@@ -2833,6 +2828,88 @@ f(x) &=a+b+a\\
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>按键处理模块:MultiButton</title>
+    <url>/2020/04/21/%E6%8C%89%E9%94%AE%E5%A4%84%E7%90%86%E6%A8%A1%E5%9D%97-MultiButton/</url>
+    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MultiButton 是一个小巧简单易用的事件驱动型按键驱动模块，可无限量扩展按键，按键事件的回调异步处理方式可以简化你的程序结构，去除冗余的按键处理硬编码，让你的按键业务逻辑更清晰。<br><a id="more"></a></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>1.先申请一个按键结构<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Button</span> <span class="title">button1</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>2.初始化按键对象，绑定按键的GPIO电平读取接口read_button_pin() ，后一个参数设置有效触发电平<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">button_init(&amp;button1, read_button_pin, <span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
+<p>3.注册按键事件<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">button_attach(&amp;button1, SINGLE_CLICK, Callback_SINGLE_CLICK_Handler);</span><br><span class="line">button_attach(&amp;button1, DOUBLE_CLICK, Callback_DOUBLE_Click_Handler);</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>4.启动按键<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">button_start(&amp;button1);</span><br></pre></td></tr></table></figure></p>
+<p>5.设置一个5ms间隔的定时器循环调用后台处理函数<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span>(timer_ticks == <span class="number">5</span>) &#123;</span><br><span class="line">        timer_ticks = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        button_ticks();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><p>MultiButton 使用C语言实现，基于面向对象方式设计思路，每个按键对象单独用一份数据结构管理：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">struct Button &#123;</span><br><span class="line">	uint16_t ticks;</span><br><span class="line">	uint8_t  repeat: 4;</span><br><span class="line">	uint8_t  event : 4;</span><br><span class="line">	uint8_t  state : 3;</span><br><span class="line">	uint8_t  debounce_cnt : 3; </span><br><span class="line">	uint8_t  active_level : 1;</span><br><span class="line">	uint8_t  button_level : 1;</span><br><span class="line">	uint8_t  (*hal_button_Level)(void);</span><br><span class="line">	BtnCallback  cb[number_of_event];</span><br><span class="line">	struct Button* next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>这样每个按键使用单向链表相连，依次进入 button_handler(struct Button* handle) 状态机处理，所以每个按键的状态彼此独立。</p>
+<h2 id="按键事件"><a href="#按键事件" class="headerlink" title="按键事件"></a>按键事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PRESS_DOWN</td>
+<td>按键按下，每次按下都触发</td>
+</tr>
+<tr>
+<td>PRESS_UP</td>
+<td>按键弹起，每次松开都触发</td>
+</tr>
+<tr>
+<td>PRESS_REPEAT</td>
+<td>重复按下触发，变量repeat计数连击次数</td>
+</tr>
+<tr>
+<td>SINGLE_CLICK</td>
+<td>单击按键事件</td>
+</tr>
+<tr>
+<td>DOUBLE_CLICK</td>
+<td>双击按键事件</td>
+</tr>
+<tr>
+<td>LONG_RRESS_START</td>
+<td>达到长按时间阈值时触发一次</td>
+</tr>
+<tr>
+<td>LONG_PRESS_HOLD</td>
+<td>长按期间一直触发</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"button.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Button</span> <span class="title">btn1</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read_button1_GPIO</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	button_init(&amp;btn1, read_button1_GPIO, <span class="number">0</span>);</span><br><span class="line">	button_attach(&amp;btn1, PRESS_DOWN,       BTN1_PRESS_DOWN_Handler);</span><br><span class="line">	button_attach(&amp;btn1, PRESS_UP,         BTN1_PRESS_UP_Handler);</span><br><span class="line">	button_attach(&amp;btn1, PRESS_REPEAT,     BTN1_PRESS_REPEAT_Handler);</span><br><span class="line">	button_attach(&amp;btn1, SINGLE_CLICK,     BTN1_SINGLE_Click_Handler);</span><br><span class="line">	button_attach(&amp;btn1, DOUBLE_CLICK,     BTN1_DOUBLE_Click_Handler);</span><br><span class="line">	button_attach(&amp;btn1, LONG_RRESS_START, BTN1_LONG_RRESS_START_Handler);</span><br><span class="line">	button_attach(&amp;btn2, LONG_PRESS_HOLD,  BTN1_LONG_PRESS_HOLD_Handler);</span><br><span class="line">	button_start(&amp;btn1);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//make the timer invoking the button_ticks() interval 5ms.</span></span><br><span class="line">	<span class="comment">//This function is implemented by yourself.</span></span><br><span class="line">	__timer_start(button_ticks, <span class="number">0</span>, <span class="number">5</span>); </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>) </span><br><span class="line">	&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BTN1_PRESS_DOWN_Handler</span><span class="params">(<span class="keyword">void</span>* btn)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//do something...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BTN1_PRESS_UP_Handler</span><span class="params">(<span class="keyword">void</span>* btn)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//do something...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>MultiButton模块下载地址：<a href="https://github.com/0x1abin/MultiButton" target="_blank" rel="noopener">https://github.com/0x1abin/MultiButton</a></p>
+]]></content>
+      <categories>
+        <category>开源代码</category>
+        <category>嵌入式单片机</category>
+      </categories>
+      <tags>
+        <tag>开源代码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>物联网技术之服务器端数据采集环境简单搭建</title>
+    <url>/2018/01/10/%E7%89%A9%E8%81%94%E7%BD%91%E6%8A%80%E6%9C%AF%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E7%8E%AF%E5%A2%83%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h2><p>在MySql数据库中创建一个名为<code>Sensor_server</code>的数据库，如下图：<br><img src="微信截图_20180111003012.png" alt="微信截图_20180111003012.png"><br>在数据库中创建一个名为<code>sensor_test</code>的数据表，使用如下SQL语句：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS `sensor_test` (</span><br><span class="line">  `id` int(11) NOT NULL,</span><br><span class="line">  `sen_id` int(11) NOT NULL,</span><br><span class="line">  `temp` int(11) NOT NULL,</span><br><span class="line">  `humi` int(11) NOT NULL,</span><br><span class="line">  `pm25` int(11) NOT NULL,</span><br><span class="line">  `pm10` int(11) NOT NULL,</span><br><span class="line">  `pm100` int(11) NOT NULL,</span><br><span class="line">  `co2` int(11) NOT NULL,</span><br><span class="line">  `ze08` int(11) NOT NULL,</span><br><span class="line">  `tvoc` int(11) NOT NULL,</span><br><span class="line">  `timeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</span><br><span class="line">) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;</span><br></pre></td></tr></table></figure></p>
+<p><img src="微信截图_20180111001007.png" alt="微信截图_20180111001007.png"></p>
+<h2 id="2-创建PHP文件"><a href="#2-创建PHP文件" class="headerlink" title="2.创建PHP文件"></a>2.创建PHP文件</h2><h3 id="2-1-创建数据库连接PHP文件"><a href="#2-1-创建数据库连接PHP文件" class="headerlink" title="2.1 创建数据库连接PHP文件"></a>2.1 创建数据库连接PHP文件</h3><p>创建名为<code>database.php</code> 的文件，写入以下代码：<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$connect=mysqli_connect(<span class="string">'localhost'</span>,<span class="string">'用户名（最好不用root）'</span>,<span class="string">'数据库密码'</span>,<span class="string">'sensor_server'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>(mysqli_connect_errno($connect)) printf(<span class="string">"Failed to connect"</span>);</span><br><span class="line"><span class="keyword">else</span> printf(<span class="string">"Success to Connect\r\n"</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-创建数据库操作PHP文件"><a href="#2-2-创建数据库操作PHP文件" class="headerlink" title="2.2 创建数据库操作PHP文件"></a>2.2 创建数据库操作PHP文件</h3><p>创建名为<code>process.php</code> 的文件，写入以下代码：<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">"Content-type:text/html;charset=utf-8"</span>);</span><br><span class="line">date_default_timezone_set(<span class="string">"Asia/Shanghai"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"当前时间是 "</span> . date(<span class="string">"H:i:s"</span>).<span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">include</span>(<span class="string">"database.php"</span>);</span><br><span class="line">	$sen_id=$_POST[<span class="string">'sen_id'</span>];</span><br><span class="line">	$pm25=$_POST[<span class="string">'pm25'</span>];</span><br><span class="line">	$pm10=$_POST[<span class="string">'pm10'</span>];</span><br><span class="line">	$co2=$_POST[<span class="string">'co2'</span>];</span><br><span class="line">	$tvoc=$_POST[<span class="string">'tvoc'</span>];</span><br><span class="line">	$pm100=$_POST[<span class="string">'pm100'</span>];</span><br><span class="line">	$ze08=$_POST[<span class="string">'ze08'</span>];</span><br><span class="line">	$temp=$_POST[<span class="string">'temp'</span>];</span><br><span class="line">	$humi=$_POST[<span class="string">'humi'</span>];</span><br><span class="line">	$id=$_POST[<span class="string">'id'</span>];</span><br><span class="line">	print_r($_POST);</span><br><span class="line">	mysqli_query($connect,<span class="string">"INSERT INTO sensor_test(pm25,pm10,pm100,co2,tvoc,temp,humi,ze08,id,sen_id) VALUES('$pm25','$pm10','$pm100','$co2','$tvoc','$temp','$humi','$ze08','$id','$sen_id')"</span>);</span><br><span class="line"></span><br><span class="line">	mysqli_close($connect);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>物联网相关</category>
+        <category>服务器端相关</category>
+      </categories>
+      <tags>
+        <tag>物联网</tag>
+        <tag>服务器操作</tag>
+        <tag>数据采集</tag>
+        <tag>Mysql</tag>
+        <tag>php</tag>
       </tags>
   </entry>
   <entry>
@@ -2907,23 +2984,17 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
-    <title>物联网技术之服务器端数据采集环境简单搭建</title>
-    <url>/2018/01/10/%E7%89%A9%E8%81%94%E7%BD%91%E6%8A%80%E6%9C%AF%E4%B9%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E7%8E%AF%E5%A2%83%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h2><p>在MySql数据库中创建一个名为<code>Sensor_server</code>的数据库，如下图：<br><img src="微信截图_20180111003012.png" alt="微信截图_20180111003012.png"><br>在数据库中创建一个名为<code>sensor_test</code>的数据表，使用如下SQL语句：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS `sensor_test` (</span><br><span class="line">  `id` int(11) NOT NULL,</span><br><span class="line">  `sen_id` int(11) NOT NULL,</span><br><span class="line">  `temp` int(11) NOT NULL,</span><br><span class="line">  `humi` int(11) NOT NULL,</span><br><span class="line">  `pm25` int(11) NOT NULL,</span><br><span class="line">  `pm10` int(11) NOT NULL,</span><br><span class="line">  `pm100` int(11) NOT NULL,</span><br><span class="line">  `co2` int(11) NOT NULL,</span><br><span class="line">  `ze08` int(11) NOT NULL,</span><br><span class="line">  `tvoc` int(11) NOT NULL,</span><br><span class="line">  `timeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</span><br><span class="line">) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;</span><br></pre></td></tr></table></figure></p>
-<p><img src="微信截图_20180111001007.png" alt="微信截图_20180111001007.png"></p>
-<h2 id="2-创建PHP文件"><a href="#2-创建PHP文件" class="headerlink" title="2.创建PHP文件"></a>2.创建PHP文件</h2><h3 id="2-1-创建数据库连接PHP文件"><a href="#2-1-创建数据库连接PHP文件" class="headerlink" title="2.1 创建数据库连接PHP文件"></a>2.1 创建数据库连接PHP文件</h3><p>创建名为<code>database.php</code> 的文件，写入以下代码：<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$connect=mysqli_connect(<span class="string">'localhost'</span>,<span class="string">'用户名（最好不用root）'</span>,<span class="string">'数据库密码'</span>,<span class="string">'sensor_server'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>(mysqli_connect_errno($connect)) printf(<span class="string">"Failed to connect"</span>);</span><br><span class="line"><span class="keyword">else</span> printf(<span class="string">"Success to Connect\r\n"</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="2-2-创建数据库操作PHP文件"><a href="#2-2-创建数据库操作PHP文件" class="headerlink" title="2.2 创建数据库操作PHP文件"></a>2.2 创建数据库操作PHP文件</h3><p>创建名为<code>process.php</code> 的文件，写入以下代码：<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">"Content-type:text/html;charset=utf-8"</span>);</span><br><span class="line">date_default_timezone_set(<span class="string">"Asia/Shanghai"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"当前时间是 "</span> . date(<span class="string">"H:i:s"</span>).<span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">include</span>(<span class="string">"database.php"</span>);</span><br><span class="line">	$sen_id=$_POST[<span class="string">'sen_id'</span>];</span><br><span class="line">	$pm25=$_POST[<span class="string">'pm25'</span>];</span><br><span class="line">	$pm10=$_POST[<span class="string">'pm10'</span>];</span><br><span class="line">	$co2=$_POST[<span class="string">'co2'</span>];</span><br><span class="line">	$tvoc=$_POST[<span class="string">'tvoc'</span>];</span><br><span class="line">	$pm100=$_POST[<span class="string">'pm100'</span>];</span><br><span class="line">	$ze08=$_POST[<span class="string">'ze08'</span>];</span><br><span class="line">	$temp=$_POST[<span class="string">'temp'</span>];</span><br><span class="line">	$humi=$_POST[<span class="string">'humi'</span>];</span><br><span class="line">	$id=$_POST[<span class="string">'id'</span>];</span><br><span class="line">	print_r($_POST);</span><br><span class="line">	mysqli_query($connect,<span class="string">"INSERT INTO sensor_test(pm25,pm10,pm100,co2,tvoc,temp,humi,ze08,id,sen_id) VALUES('$pm25','$pm10','$pm100','$co2','$tvoc','$temp','$humi','$ze08','$id','$sen_id')"</span>);</span><br><span class="line"></span><br><span class="line">	mysqli_close($connect);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+    <title>经典电路之一键开关机及多用途按键设计</title>
+    <url>/2019/12/19/%E7%BB%8F%E5%85%B8%E7%94%B5%E8%B7%AF%E4%B9%8B%E4%B8%80%E9%94%AE%E5%BC%80%E5%85%B3%E6%9C%BA%E5%8F%8A%E5%A4%9A%E7%94%A8%E9%80%94%E6%8C%89%E9%94%AE%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h3 id="mos管开关电路图"><a href="#mos管开关电路图" class="headerlink" title="mos管开关电路图"></a><strong>mos管开关电路图</strong></h3><p>图中电池的正电通过开关S1接到场效应管Q1的2脚源极，由于Q1是一个P沟道管，它的1脚栅极通过R20电阻提供一个正电位电压，所以不能通电，电压不能继续通过，3v稳压IC输入脚得不到电压所以就不能工作不开机！<br><a id="more"></a><br>这时，如果我们按下SW1开机按键时，正电通过按键、R11、R23、D4加到三极管Q2的基极，三极管Q2的基极得到一个正电位，三极管导通（前面讲到三极管的时候已经讲过），由于三极管的发射极直接接地，三极管Q2导通就相当于Q1的栅极直接接地，加在它上面的通过R20电阻的电压就直接入了地，Q1的栅极就从高电位变为低电位，Q1导通电就从Q1同过加到3v稳压IC的输入脚，3v稳压IC就是那个U1输出3v的工作电压vcc供给主控，主控通过复位清0，读取固件程序检测等一系列动作，输处一个控制电压到PWR_ON再通过R24、R13分压送到Q2的基极，保持Q2一直处于导通状态，即使你松开开机键断开Q1的基极电压，这时候有主控送来的控制电压保持着，Q2也就一直能够处于导通状态，Q1就能源源不断的给3v稳压IC提供工作电压！SW1还同时通过R11、R30两个电阻的分压，给主控PLAYON脚送去时间长短、次数不同的控制信号，主控通过固件鉴别是播放、暂停、开机、关机而输出不同的结果给相应的控制点，以达到不同的工作状态！<br><img src="20180612114430_9155.jpg" alt="最简单的mos管开关电路图"></p>
 ]]></content>
       <categories>
-        <category>物联网相关</category>
-        <category>服务器端相关</category>
+        <category>电路设计相关</category>
+        <category>经典电路</category>
       </categories>
       <tags>
-        <tag>物联网</tag>
-        <tag>服务器操作</tag>
-        <tag>数据采集</tag>
-        <tag>Mysql</tag>
-        <tag>php</tag>
+        <tag>PCB</tag>
+        <tag>电路设计</tag>
       </tags>
   </entry>
   <entry>
@@ -2982,23 +3053,23 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
-    <title>经典电路之一键开关机及多用途按键设计</title>
-    <url>/2019/12/19/%E7%BB%8F%E5%85%B8%E7%94%B5%E8%B7%AF%E4%B9%8B%E4%B8%80%E9%94%AE%E5%BC%80%E5%85%B3%E6%9C%BA%E5%8F%8A%E5%A4%9A%E7%94%A8%E9%80%94%E6%8C%89%E9%94%AE%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<h3 id="mos管开关电路图"><a href="#mos管开关电路图" class="headerlink" title="mos管开关电路图"></a><strong>mos管开关电路图</strong></h3><p>图中电池的正电通过开关S1接到场效应管Q1的2脚源极，由于Q1是一个P沟道管，它的1脚栅极通过R20电阻提供一个正电位电压，所以不能通电，电压不能继续通过，3v稳压IC输入脚得不到电压所以就不能工作不开机！<br><a id="more"></a><br>这时，如果我们按下SW1开机按键时，正电通过按键、R11、R23、D4加到三极管Q2的基极，三极管Q2的基极得到一个正电位，三极管导通（前面讲到三极管的时候已经讲过），由于三极管的发射极直接接地，三极管Q2导通就相当于Q1的栅极直接接地，加在它上面的通过R20电阻的电压就直接入了地，Q1的栅极就从高电位变为低电位，Q1导通电就从Q1同过加到3v稳压IC的输入脚，3v稳压IC就是那个U1输出3v的工作电压vcc供给主控，主控通过复位清0，读取固件程序检测等一系列动作，输处一个控制电压到PWR_ON再通过R24、R13分压送到Q2的基极，保持Q2一直处于导通状态，即使你松开开机键断开Q1的基极电压，这时候有主控送来的控制电压保持着，Q2也就一直能够处于导通状态，Q1就能源源不断的给3v稳压IC提供工作电压！SW1还同时通过R11、R30两个电阻的分压，给主控PLAYON脚送去时间长短、次数不同的控制信号，主控通过固件鉴别是播放、暂停、开机、关机而输出不同的结果给相应的控制点，以达到不同的工作状态！<br><img src="20180612114430_9155.jpg" alt="最简单的mos管开关电路图"></p>
+    <title>超精简的软件定时器:multitimer</title>
+    <url>/2020/04/21/%E8%B6%85%E7%B2%BE%E7%AE%80%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9A%E6%97%B6%E5%99%A8-multitimer/</url>
+    <content><![CDATA[<h2 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h2><p>在裸机开发中，经常要使用定时器来实现某些定时功能，面对需要比较多定时器的场合，以前都是使用一个吻硬件定时器作为提供时间基准，然后使用计数器+标志位的方法来实现，其实就是采用时间片的方法。<br><a id="more"></a><br>比如：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 2ms执行 软件时钟系统</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span> == sys_var._1msFlag)  </span><br><span class="line">	&#123;</span><br><span class="line">	   sys._1msFlag = <span class="number">0</span>;	<span class="comment">// 该标志由定时器中断置位</span></span><br><span class="line">	</span><br><span class="line">	   clock_system();      <span class="comment">// 管理各种时间标志（将各个时钟标志置位）</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 200ms执行</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="number">1</span> == sys_var.System200msFlag)</span><br><span class="line">	&#123;   </span><br><span class="line">	    sys_var.System200msFlag = <span class="number">0</span>;</span><br><span class="line">	    <span class="comment">// 执行各种任务</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在发现了某位大佬开源的软件定时器multi_timer项目，令人耳目一新。<br>很棒的是，软件定时器multi_timer 将上面的方法抽象出来，同样也是基于一个硬件定时器，但是无需自己在while循环上加各种判断语句，让程序看起来更加简洁，更加好维护。</p>
+<h2 id="使用和代码分析"><a href="#使用和代码分析" class="headerlink" title="使用和代码分析"></a>使用和代码分析</h2><h2 id="项目源代码和个人的注释"><a href="#项目源代码和个人的注释" class="headerlink" title="项目源代码和个人的注释"></a>项目源代码和个人的注释</h2><p>multi_timer.h<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Copyright (c) 2016 Zibin Zheng &lt;znbin@qq.com&gt;</span></span><br><span class="line"><span class="comment"> * All rights reserved</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _MULTI_TIMER_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _MULTI_TIMER_H_</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdint.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Timer</span> &#123;</span></span><br><span class="line">    <span class="keyword">uint32_t</span> timeout;   		<span class="comment">// 超时时间（用来与定时器心跳比较）</span></span><br><span class="line">    <span class="keyword">uint32_t</span> repeat;			<span class="comment">// 循环定时触发时间（周期定时设置），为0时代表单次定时</span></span><br><span class="line">    <span class="keyword">void</span> (*timeout_cb)(<span class="keyword">void</span>);	<span class="comment">// 定时器回调处理函数</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Timer</span>* <span class="title">next</span>;</span>			<span class="comment">// 指向下一个定时器节点</span></span><br><span class="line">&#125;Timer;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus  </span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timer_init</span><span class="params">(struct Timer* handle, <span class="keyword">void</span>(*timeout_cb)(), <span class="keyword">uint32_t</span> timeout, <span class="keyword">uint32_t</span> repeat)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span>  <span class="title">timer_start</span><span class="params">(struct Timer* handle)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timer_stop</span><span class="params">(struct Timer* handle)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timer_ticks</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timer_loop</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure></p>
+<p>multi_timer.c</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Copyright (c) 2016 Zibin Zheng &lt;znbin@qq.com&gt;</span></span><br><span class="line"><span class="comment"> * All rights reserved</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"multi_timer.h"</span></span></span><br><span class="line"><span class="comment">//timer handle list head.</span></span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">Timer</span>* <span class="title">head_handle</span> = <span class="title">NULL</span>;</span></span><br><span class="line"><span class="comment">//Timer ticks</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">uint32_t</span> _timer_ticks = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Initializes the timer struct handle.</span></span><br><span class="line"><span class="comment">  * @param  handle: the timer handle strcut.</span></span><br><span class="line"><span class="comment">  * @param  timeout_cb: timeout callback.</span></span><br><span class="line"><span class="comment">  * @param  repeat: repeat interval time.</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timer_init</span><span class="params">(struct Timer* handle, <span class="keyword">void</span>(*timeout_cb)(), <span class="keyword">uint32_t</span> timeout, <span class="keyword">uint32_t</span> repeat)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	handle-&gt;timeout_cb = timeout_cb;</span><br><span class="line">	handle-&gt;timeout = _timer_ticks + timeout;</span><br><span class="line">	handle-&gt;repeat = repeat;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Start the timer work, add the handle into work list.</span></span><br><span class="line"><span class="comment">  * @param  btn: target handle strcut.</span></span><br><span class="line"><span class="comment">  * @retval 0: succeed. -1: already exist.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">timer_start</span><span class="params">(struct Timer* handle)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Timer</span>* <span class="title">target</span> = <span class="title">head_handle</span>;</span> <span class="comment">// 设置一个临时变量就不会改变</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 遍历查找判断该节点是否已存在</span></span><br><span class="line">    <span class="keyword">while</span>(target) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(target == handle) <span class="keyword">return</span> <span class="number">-1</span>;	<span class="comment">//already exist.</span></span><br><span class="line">    </span><br><span class="line">        target = target-&gt;next; <span class="comment">// 不断遍历下一个节点</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 采用链表前插的方式，最新的定时器放在前面并作为头结点</span></span><br><span class="line">    handle-&gt;next = head_handle;</span><br><span class="line">    head_handle = handle;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  Stop the timer work, remove the handle off work list.</span></span><br><span class="line"><span class="comment">  * @param  handle: target handle strcut.</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timer_stop</span><span class="params">(struct Timer* handle)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Timer</span>** <span class="title">curr</span>;</span></span><br><span class="line">	<span class="keyword">for</span>(curr = &amp;head_handle; *curr; ) &#123;</span><br><span class="line">		<span class="class"><span class="keyword">struct</span> <span class="title">Timer</span>* <span class="title">entry</span> = *<span class="title">curr</span>;</span></span><br><span class="line">		<span class="keyword">if</span> (entry == handle) &#123;</span><br><span class="line">			*curr = entry-&gt;next; <span class="comment">// 将当前节点脱离队列</span></span><br><span class="line">		&#125; <span class="keyword">else</span></span><br><span class="line">			curr = &amp;entry-&gt;next; <span class="comment">// 二级指针curr不断后移</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  main loop.</span></span><br><span class="line"><span class="comment">  * @param  None.</span></span><br><span class="line"><span class="comment">  * @retval None</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timer_loop</span><span class="params">()</span> <span class="comment">// 在While循环中使用，定时器才会起作用</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Timer</span>* <span class="title">target</span>;</span></span><br><span class="line">	<span class="keyword">for</span>(target=head_handle; target; target=target-&gt;next) &#123;</span><br><span class="line">		<span class="keyword">if</span>(_timer_ticks &gt;= target-&gt;timeout) &#123;</span><br><span class="line">			<span class="keyword">if</span>(target-&gt;repeat == <span class="number">0</span>) &#123;</span><br><span class="line">				timer_stop(target);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				target-&gt;timeout = _timer_ticks + target-&gt;repeat;</span><br><span class="line">			&#125;</span><br><span class="line">			target-&gt;timeout_cb();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @brief  background ticks, timer repeat invoking interval 1ms.</span></span><br><span class="line"><span class="comment">  * @param  None.</span></span><br><span class="line"><span class="comment">  * @retval None.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">timer_ticks</span><span class="params">()</span> <span class="comment">// 在定时器中断中调用该函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	_timer_ticks++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>项目的仓库地址：<a href="https://github.com/0x1abin/MultiTimer" target="_blank" rel="noopener">https://github.com/0x1abin/MultiTimer</a></p>
 ]]></content>
       <categories>
-        <category>电路设计相关</category>
-        <category>经典电路</category>
+        <category>开源代码</category>
+        <category>嵌入式单片机</category>
       </categories>
       <tags>
-        <tag>PCB</tag>
-        <tag>电路设计</tag>
+        <tag>开源代码</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>驱动数码管的几种方法</title>
-    <url>/2020/02/26/%E9%A9%B1%E5%8A%A8%E6%95%B0%E7%A0%81%E7%AE%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>[通信]Modbus协议</title>
@@ -3018,6 +3089,81 @@ f(x) &=a+b+a\\
       <tags>
         <tag>电路设计</tag>
         <tag>RS232 RS485</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>驱动数码管的几种方法</title>
+    <url>/2020/02/26/%E9%A9%B1%E5%8A%A8%E6%95%B0%E7%A0%81%E7%AE%A1%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Arduino教程之编写自己的Arduino库</title>
+    <url>/2019/10/04/Arduino%E6%95%99%E7%A8%8B%E4%B9%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84Arduino%E5%BA%93/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Arduino作为比较火的开源开发板，其丰富的库可以大大缩短开发周期,Arduino编程软件为Arduino IDE,编程思路和我们平常使用的IDE有所不同，Arduino编程没有main函数，因为好多东西都被隐藏了。一直想搞清楚，以便编写自己的库文件。下面是一些在网上搜集到的关于如何建立自己的库文件</p>
+<a id="more"></a>
+<h2 id="Arduino工程的初步认识"><a href="#Arduino工程的初步认识" class="headerlink" title="Arduino工程的初步认识"></a>Arduino工程的初步认识</h2><h3 id="1、目录规范"><a href="#1、目录规范" class="headerlink" title="1、目录规范"></a>1、目录规范</h3><p>首先创建一个空的工程，先按下ctrl+s保存一下。这个时候弹出对话框，命名工程。假如命名为IOTTS_LED，并保存在 我自己的Arduino工作目录下 <code>E:\arduino\IOTTS_Arduino\</code></p>
+<p>于是IDE会自动帮我们在IOTTS_Arduino下创建1个文件夹，并将sketch(IOTTS_LED.ino)主文件放在里面，而且主文件和文件夹同名。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IOTTS_Arduino</span><br><span class="line">|---IOTTS_LED</span><br><span class="line">    |---IOTTS_LED.ino</span><br></pre></td></tr></table></figure>
+<h3 id="2、主文件代码框架规范"><a href="#2、主文件代码框架规范" class="headerlink" title="2、主文件代码框架规范"></a>2、主文件代码框架规范</h3><p>每一个Arduino程序（Sketch）都有1个主文件，后缀为 <strong>.ino</strong> ，它是程序的setup 函数和 loop函数所在的文件。</p>
+<p>代码框架如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void setup() &#123;</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  //初始化操作代码放在setup函数中，他们将在程序启动的第一步得到执行 并只执行一次</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop() &#123;</span><br><span class="line">  // put your main code here, to run repeatedly:</span><br><span class="line">  //将程序的主要逻辑代码，放在loop里。他们将会反复执行下去。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有C/C++开发经验的人看到这个程序框架会愣住：<strong>我的main函数去哪里呢？</strong></p>
+<p>Arduino 为了让更多的人能够使用Arduino平台开发出好玩的东西出来，绞尽脑汁降低门槛，它隐藏了程序的细节，使得开发者将注意力放在实现上。</p>
+<p>但我觉得这样适得其反。下面是Arduino程序的实质结构（这都是Arduino IDE 隐藏了的细节）。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&quot;Arduino.h&quot; </span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">     init();   //arduino硬件初始化，不用你自己写</span><br><span class="line">    </span><br><span class="line">     setup();</span><br><span class="line">    </span><br><span class="line">     for(;;)</span><br><span class="line">        loop();</span><br><span class="line"> </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="开始创建自己的库文件"><a href="#开始创建自己的库文件" class="headerlink" title="开始创建自己的库文件"></a>开始创建自己的库文件</h2><p>有时会程序越写越大，越大越乱。多文件管理可以解决这个麻烦。Arduino程序叫 Sketch。 一个Sketch可以有多个源代码文件，分离的源代码便于管理。但只有 1个 主文件，也就是存放 setup loop函数的文件。</p>
+<p>让主文件用来控制程序的主要逻辑部分，而把具体的细节封装成单个模块，存放在其他的文件中，这样方便管理。那么怎么创建其他的文件呢？？？</p>
+<p>下面开始介绍。</p>
+<h3 id="1-使用IDE自动处理机制完成创建"><a href="#1-使用IDE自动处理机制完成创建" class="headerlink" title="1.使用IDE自动处理机制完成创建"></a>1.使用IDE自动处理机制完成创建</h3><p>点击下图中标记的按钮，选择第一个选项 【新建标签】，输入文件名即可。</p>
+<p><img src="TIM截图20180114003102.png" alt="TIM截图20180114003102"></p>
+<p>这样我们的工程就有了2个文件了。如下，一个主文件和一个名为LED的文件。这就是最简单的多文件方法。</p>
+<p><img src="TIM截图20180114003146.png" alt="TIM截图20180114003146"></p>
+<p>我不推荐使用这种方法，这是为没有C/C++编程经验的小白准备的，他们不懂函数定义 后还要声明才能使用，不懂得头文件的包含。这些都被Arduino IDE帮他们做了。IDE的具体处理是:</p>
+<p>在编译前期，Arduino IDE会将无后缀的文件 和 主文件合并成为1个文件，效果就像是写在主文件中一样。并在主文件第一行添加 <code>#include &quot;Arduino.h&quot;</code>。 Arduino.h是 Arduino程序的核心头文件。然后，IDE将扫描合并后文件的函数定义，并对已经定义的函数添加函数的声明。（这个就是为什么即便我们定义的函数不声明也能编译通过的原因了）</p>
+<p>但是官方明确说了，这个自动插入函数声明的机制是不完美的！所以我也建议大家养成手动声明函数的习惯。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Also, this generation isn&apos;t perfect: it won&apos;t create prototypes for functions that have default argument values, or which are declared within a namespace or class.</span><br></pre></td></tr></table></figure>
+<h3 id="2-使用传统的-C-C-分离式文件"><a href="#2-使用传统的-C-C-分离式文件" class="headerlink" title="2.使用传统的 C/C++分离式文件"></a>2.使用传统的 C/C++分离式文件</h3><p>一般程序员都会将程序组织成源文件与库文件的形式，方便调用和代码修改,也就是 .c 和.h 或者 .cpp 和 .h 。前者是C语言风格，后者是对会使用C++来说的。官方貌似推崇我们使用C++编写Arduino代码，无论是Arduino 的从标准库，还是教程中，都透露出一股强烈的OOP气息。所以我下面使用C++风格来举例子。</p>
+<p>例如我们想要将LED的控制封装成一个模块。</p>
+<p>一开始我们需要创建2个文件 ：IOTTS_Led.cpp 、 IOTTS_Led.h 创建方式基本上分为两种：一是自己手动创建，二是利用上面提到的新建标签的方式创建</p>
+<p><img src="TIM截图20180114005202.png" alt="TIM截图20180114005202"></p>
+<p>然后是想清楚我们需要让提供LED控制的哪些操作。发挥你的想象力时候到了。规定操作后，我们先写出头文件，然后写出实现，最后在主文件中使用这个模块。在主文件中使用</p>
+<p><code>#include&quot;IOTTS_Led.h&quot;</code>预处理指令包含。</p>
+<p><strong>IOTTS_Led.h</strong>内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/*******************</span><br><span class="line"> *IOTTS_Led.h</span><br><span class="line"> *******************/</span><br><span class="line"></span><br><span class="line">#ifndef _IOTTS_LED_H__</span><br><span class="line">#define _IOTTS_LED_H__</span><br><span class="line"></span><br><span class="line">//导入Arduino核心头文件</span><br><span class="line">#include&quot;Arduino.h&quot;  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class LED</span><br><span class="line">&#123;</span><br><span class="line">     private:</span><br><span class="line">          byte pin;        //控制led使用的引脚</span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">     public:</span><br><span class="line">          </span><br><span class="line">          LED(byte p , bool state=LOW );   //构造函数</span><br><span class="line">          </span><br><span class="line">          ~LED();          //析构函数</span><br><span class="line"></span><br><span class="line">          byte getPin();   //获取控制的引脚</span><br><span class="line">          </span><br><span class="line">          void on();      //打开LED</span><br><span class="line"></span><br><span class="line">          void off();     //关闭LED</span><br><span class="line"></span><br><span class="line">          bool getState();  //获取LED状态</span><br><span class="line">          void disattach(); //释放引脚与LED的绑定，使得引脚可以控制其他的东西</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<p><strong>IOTTS_Led.cpp</strong>内容如下:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/*****************</span><br><span class="line"> *IOTTS_Led.cpp</span><br><span class="line"> ******************/</span><br><span class="line"></span><br><span class="line">#include&quot;IOTTS_Led.h&quot;</span><br><span class="line">#include&quot;Arduino.h&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">LED::LED(byte p,bool state):pin(p)</span><br><span class="line">&#123;</span><br><span class="line">   </span><br><span class="line">   pinMode(pin,OUTPUT);</span><br><span class="line">   digitalWrite(pin,state);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LED::~LED()</span><br><span class="line">&#123;</span><br><span class="line">    disattach();</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">         </span><br><span class="line">void LED::on()</span><br><span class="line">&#123;</span><br><span class="line">    digitalWrite(pin,HIGH);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LED::off()</span><br><span class="line">&#123;</span><br><span class="line">   digitalWrite(pin,LOW);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool LED::getState()</span><br><span class="line">&#123;</span><br><span class="line">    return digitalRead(pin);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LED::disattach()        //引脚回收，恢复到上电状态</span><br><span class="line">&#123;</span><br><span class="line">    digitalWrite(pin,LOW);</span><br><span class="line">    pinMode(pin,INPUT);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>实例化程序</strong>内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/**********************</span><br><span class="line">实例化1个LED对象，用13脚控制，闪烁10次，并在串口打印出引脚输出状态。</span><br><span class="line">10次完毕后释放回收引脚</span><br><span class="line">**********************/</span><br><span class="line">#include“IOTTS_Led.h”    </span><br><span class="line"></span><br><span class="line">LED led(13);</span><br><span class="line">byte count =0;</span><br><span class="line"></span><br><span class="line">void setup() &#123;</span><br><span class="line">   Serial.begin(9600);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop() &#123;</span><br><span class="line"></span><br><span class="line">   if(count&lt;10)&#123;</span><br><span class="line">     led.on();</span><br><span class="line">     delay(300);</span><br><span class="line">     Serial.println(led.getState(),DEC);</span><br><span class="line">     </span><br><span class="line">     led.off();</span><br><span class="line">     delay(300);</span><br><span class="line">     Serial.println(led.getState(),DEC);</span><br><span class="line">     </span><br><span class="line">     ++count;</span><br><span class="line">     if(count==10)</span><br><span class="line">        led.disattach();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="让它成为自己的库"><a href="#让它成为自己的库" class="headerlink" title="让它成为自己的库"></a>让它成为自己的库</h2><p>如果上面的模块你觉得好用，符合自己的使用习惯，而且经常要用到，那么你可以将它变成你自己的库文件,这样以后就可以直接拿来用啦。</p>
+<p>Arduino的扩展库都是放在 libraries目录下的。</p>
+<p><img src="TIM截图20180114010905.png" alt="TIM截图20180114010905"></p>
+<p>所以我们需要在这个目录下创建一个文件夹，比如上面的例子是LED控制，于是我创建了IOTTS_Arduino_LED_Demo文件夹，最好命名和官方的区分开。然后把写好的.cpp 和 .h文件拷贝到里面去。</p>
+<p><img src="TIM截图20180114010842.png" alt="TIM截图20180114010842"></p>
+<p>这样我们 的Sketch就变成了下面这样，是不是很简洁干净呢。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;IOTTS_Led.h&gt; //注意，由于LED控制模块已经是标准库了，所以使用尖括号&lt;&gt; 包含</span><br><span class="line">                 </span><br><span class="line">LED led(13);</span><br><span class="line">byte count =0;</span><br><span class="line"></span><br><span class="line">void setup() &#123;</span><br><span class="line">   Serial.begin(9600);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop() &#123;</span><br><span class="line"></span><br><span class="line">   if(count&lt;10)&#123;</span><br><span class="line">     led.on();</span><br><span class="line">     delay(300);</span><br><span class="line">     Serial.println(led.getState(),DEC);</span><br><span class="line">     </span><br><span class="line">     led.off();</span><br><span class="line">     delay(300);</span><br><span class="line">     Serial.println(led.getState(),DEC);</span><br><span class="line">     </span><br><span class="line">     ++count;</span><br><span class="line">     if(count==10)</span><br><span class="line">        led.disattach();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以新建一个examples放入我们刚刚验证过的例程，目录结构按照文章开始讲的创建，这样就可以像加载官方历程一样加载自己的例程了。</p>
+<p><img src="无标题.png" alt="无标题"></p>
+<p>一般和自己建立的库一起的还有个 keywords.txt文件，这个是什么用呢？ 其实它没有太大的实用性，只是为了配置自定义库的语法高亮。让我们自己的库能在IDE下显示不同的颜色而已。如果不配置，Arduino IDE不能渲染出颜色的。</p>
+<p>下面是keywords.txt 的内容，其中#开头的是注释，完全可以不写。格式：<code>word【tab】DESCRIPTION</code></p>
+<p>word就是你要高亮的关键字接着1 个 tab 键 ，然后就是DESCRIPTION。</p>
+<p>DESCRIPTION可以取的值：</p>
+<p>KEYWORD1 高亮类名</p>
+<p>KEYWORD2 高亮方法名</p>
+<p>LITERAL1 高亮常量</p>
+<p>注意中间使用的是 1 个 tab 键 隔开的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#class (KEYWORD1)</span><br><span class="line"></span><br><span class="line">LED	KEYWORD1</span><br><span class="line"></span><br><span class="line">#function and method (KEYWORD2)</span><br><span class="line"></span><br><span class="line">on	KEYWORD2</span><br><span class="line"></span><br><span class="line">off	KEYWORD2</span><br><span class="line"></span><br><span class="line">getState	KEYWORD2</span><br><span class="line"></span><br><span class="line">disattach	KEYWORD2</span><br><span class="line"></span><br><span class="line">#constant (LITERAL1)</span><br><span class="line"></span><br><span class="line">#none</span><br></pre></td></tr></table></figure>
+<p>来一张做好的库文件图：</p>
+<p><img src="TIM截图20180114131535.png" alt="TIM截图20180114131535.png"></p>
+<p>文章中涉及到的源代码:</p>
+<p><a href="https://iotts.top/2019/10/04/Arduino%E6%95%99%E7%A8%8B%E4%B9%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84Arduino%E5%BA%93/IOTTS_Arduino_LED_Demo.rar">IOTTS_Arduino_LED_Demo.rar</a></p>
+]]></content>
+      <categories>
+        <category>Arduino相关</category>
+        <category>Arduino编程</category>
+      </categories>
+      <tags>
+        <tag>单片机</tag>
+        <tag>Arduino</tag>
       </tags>
   </entry>
   <entry>
@@ -3282,76 +3428,6 @@ f(x) &=a+b+a\\
       <tags>
         <tag>C语言</tag>
         <tag>CRC算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Arduino教程之编写自己的Arduino库</title>
-    <url>/2019/10/04/Arduino%E6%95%99%E7%A8%8B%E4%B9%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84Arduino%E5%BA%93/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Arduino作为比较火的开源开发板，其丰富的库可以大大缩短开发周期,Arduino编程软件为Arduino IDE,编程思路和我们平常使用的IDE有所不同，Arduino编程没有main函数，因为好多东西都被隐藏了。一直想搞清楚，以便编写自己的库文件。下面是一些在网上搜集到的关于如何建立自己的库文件</p>
-<a id="more"></a>
-<h2 id="Arduino工程的初步认识"><a href="#Arduino工程的初步认识" class="headerlink" title="Arduino工程的初步认识"></a>Arduino工程的初步认识</h2><h3 id="1、目录规范"><a href="#1、目录规范" class="headerlink" title="1、目录规范"></a>1、目录规范</h3><p>首先创建一个空的工程，先按下ctrl+s保存一下。这个时候弹出对话框，命名工程。假如命名为IOTTS_LED，并保存在 我自己的Arduino工作目录下 <code>E:\arduino\IOTTS_Arduino\</code></p>
-<p>于是IDE会自动帮我们在IOTTS_Arduino下创建1个文件夹，并将sketch(IOTTS_LED.ino)主文件放在里面，而且主文件和文件夹同名。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IOTTS_Arduino</span><br><span class="line">|---IOTTS_LED</span><br><span class="line">    |---IOTTS_LED.ino</span><br></pre></td></tr></table></figure>
-<h3 id="2、主文件代码框架规范"><a href="#2、主文件代码框架规范" class="headerlink" title="2、主文件代码框架规范"></a>2、主文件代码框架规范</h3><p>每一个Arduino程序（Sketch）都有1个主文件，后缀为 <strong>.ino</strong> ，它是程序的setup 函数和 loop函数所在的文件。</p>
-<p>代码框架如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void setup() &#123;</span><br><span class="line">  // put your setup code here, to run once:</span><br><span class="line">  //初始化操作代码放在setup函数中，他们将在程序启动的第一步得到执行 并只执行一次</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop() &#123;</span><br><span class="line">  // put your main code here, to run repeatedly:</span><br><span class="line">  //将程序的主要逻辑代码，放在loop里。他们将会反复执行下去。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>有C/C++开发经验的人看到这个程序框架会愣住：<strong>我的main函数去哪里呢？</strong></p>
-<p>Arduino 为了让更多的人能够使用Arduino平台开发出好玩的东西出来，绞尽脑汁降低门槛，它隐藏了程序的细节，使得开发者将注意力放在实现上。</p>
-<p>但我觉得这样适得其反。下面是Arduino程序的实质结构（这都是Arduino IDE 隐藏了的细节）。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&quot;Arduino.h&quot; </span><br><span class="line"></span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">     init();   //arduino硬件初始化，不用你自己写</span><br><span class="line">    </span><br><span class="line">     setup();</span><br><span class="line">    </span><br><span class="line">     for(;;)</span><br><span class="line">        loop();</span><br><span class="line"> </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="开始创建自己的库文件"><a href="#开始创建自己的库文件" class="headerlink" title="开始创建自己的库文件"></a>开始创建自己的库文件</h2><p>有时会程序越写越大，越大越乱。多文件管理可以解决这个麻烦。Arduino程序叫 Sketch。 一个Sketch可以有多个源代码文件，分离的源代码便于管理。但只有 1个 主文件，也就是存放 setup loop函数的文件。</p>
-<p>让主文件用来控制程序的主要逻辑部分，而把具体的细节封装成单个模块，存放在其他的文件中，这样方便管理。那么怎么创建其他的文件呢？？？</p>
-<p>下面开始介绍。</p>
-<h3 id="1-使用IDE自动处理机制完成创建"><a href="#1-使用IDE自动处理机制完成创建" class="headerlink" title="1.使用IDE自动处理机制完成创建"></a>1.使用IDE自动处理机制完成创建</h3><p>点击下图中标记的按钮，选择第一个选项 【新建标签】，输入文件名即可。</p>
-<p><img src="TIM截图20180114003102.png" alt="TIM截图20180114003102"></p>
-<p>这样我们的工程就有了2个文件了。如下，一个主文件和一个名为LED的文件。这就是最简单的多文件方法。</p>
-<p><img src="TIM截图20180114003146.png" alt="TIM截图20180114003146"></p>
-<p>我不推荐使用这种方法，这是为没有C/C++编程经验的小白准备的，他们不懂函数定义 后还要声明才能使用，不懂得头文件的包含。这些都被Arduino IDE帮他们做了。IDE的具体处理是:</p>
-<p>在编译前期，Arduino IDE会将无后缀的文件 和 主文件合并成为1个文件，效果就像是写在主文件中一样。并在主文件第一行添加 <code>#include &quot;Arduino.h&quot;</code>。 Arduino.h是 Arduino程序的核心头文件。然后，IDE将扫描合并后文件的函数定义，并对已经定义的函数添加函数的声明。（这个就是为什么即便我们定义的函数不声明也能编译通过的原因了）</p>
-<p>但是官方明确说了，这个自动插入函数声明的机制是不完美的！所以我也建议大家养成手动声明函数的习惯。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Also, this generation isn&apos;t perfect: it won&apos;t create prototypes for functions that have default argument values, or which are declared within a namespace or class.</span><br></pre></td></tr></table></figure>
-<h3 id="2-使用传统的-C-C-分离式文件"><a href="#2-使用传统的-C-C-分离式文件" class="headerlink" title="2.使用传统的 C/C++分离式文件"></a>2.使用传统的 C/C++分离式文件</h3><p>一般程序员都会将程序组织成源文件与库文件的形式，方便调用和代码修改,也就是 .c 和.h 或者 .cpp 和 .h 。前者是C语言风格，后者是对会使用C++来说的。官方貌似推崇我们使用C++编写Arduino代码，无论是Arduino 的从标准库，还是教程中，都透露出一股强烈的OOP气息。所以我下面使用C++风格来举例子。</p>
-<p>例如我们想要将LED的控制封装成一个模块。</p>
-<p>一开始我们需要创建2个文件 ：IOTTS_Led.cpp 、 IOTTS_Led.h 创建方式基本上分为两种：一是自己手动创建，二是利用上面提到的新建标签的方式创建</p>
-<p><img src="TIM截图20180114005202.png" alt="TIM截图20180114005202"></p>
-<p>然后是想清楚我们需要让提供LED控制的哪些操作。发挥你的想象力时候到了。规定操作后，我们先写出头文件，然后写出实现，最后在主文件中使用这个模块。在主文件中使用</p>
-<p><code>#include&quot;IOTTS_Led.h&quot;</code>预处理指令包含。</p>
-<p><strong>IOTTS_Led.h</strong>内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/*******************</span><br><span class="line"> *IOTTS_Led.h</span><br><span class="line"> *******************/</span><br><span class="line"></span><br><span class="line">#ifndef _IOTTS_LED_H__</span><br><span class="line">#define _IOTTS_LED_H__</span><br><span class="line"></span><br><span class="line">//导入Arduino核心头文件</span><br><span class="line">#include&quot;Arduino.h&quot;  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class LED</span><br><span class="line">&#123;</span><br><span class="line">     private:</span><br><span class="line">          byte pin;        //控制led使用的引脚</span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">     public:</span><br><span class="line">          </span><br><span class="line">          LED(byte p , bool state=LOW );   //构造函数</span><br><span class="line">          </span><br><span class="line">          ~LED();          //析构函数</span><br><span class="line"></span><br><span class="line">          byte getPin();   //获取控制的引脚</span><br><span class="line">          </span><br><span class="line">          void on();      //打开LED</span><br><span class="line"></span><br><span class="line">          void off();     //关闭LED</span><br><span class="line"></span><br><span class="line">          bool getState();  //获取LED状态</span><br><span class="line">          void disattach(); //释放引脚与LED的绑定，使得引脚可以控制其他的东西</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-<p><strong>IOTTS_Led.cpp</strong>内容如下:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/*****************</span><br><span class="line"> *IOTTS_Led.cpp</span><br><span class="line"> ******************/</span><br><span class="line"></span><br><span class="line">#include&quot;IOTTS_Led.h&quot;</span><br><span class="line">#include&quot;Arduino.h&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">LED::LED(byte p,bool state):pin(p)</span><br><span class="line">&#123;</span><br><span class="line">   </span><br><span class="line">   pinMode(pin,OUTPUT);</span><br><span class="line">   digitalWrite(pin,state);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">LED::~LED()</span><br><span class="line">&#123;</span><br><span class="line">    disattach();</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">         </span><br><span class="line">void LED::on()</span><br><span class="line">&#123;</span><br><span class="line">    digitalWrite(pin,HIGH);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LED::off()</span><br><span class="line">&#123;</span><br><span class="line">   digitalWrite(pin,LOW);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool LED::getState()</span><br><span class="line">&#123;</span><br><span class="line">    return digitalRead(pin);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void LED::disattach()        //引脚回收，恢复到上电状态</span><br><span class="line">&#123;</span><br><span class="line">    digitalWrite(pin,LOW);</span><br><span class="line">    pinMode(pin,INPUT);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>实例化程序</strong>内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/**********************</span><br><span class="line">实例化1个LED对象，用13脚控制，闪烁10次，并在串口打印出引脚输出状态。</span><br><span class="line">10次完毕后释放回收引脚</span><br><span class="line">**********************/</span><br><span class="line">#include“IOTTS_Led.h”    </span><br><span class="line"></span><br><span class="line">LED led(13);</span><br><span class="line">byte count =0;</span><br><span class="line"></span><br><span class="line">void setup() &#123;</span><br><span class="line">   Serial.begin(9600);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop() &#123;</span><br><span class="line"></span><br><span class="line">   if(count&lt;10)&#123;</span><br><span class="line">     led.on();</span><br><span class="line">     delay(300);</span><br><span class="line">     Serial.println(led.getState(),DEC);</span><br><span class="line">     </span><br><span class="line">     led.off();</span><br><span class="line">     delay(300);</span><br><span class="line">     Serial.println(led.getState(),DEC);</span><br><span class="line">     </span><br><span class="line">     ++count;</span><br><span class="line">     if(count==10)</span><br><span class="line">        led.disattach();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="让它成为自己的库"><a href="#让它成为自己的库" class="headerlink" title="让它成为自己的库"></a>让它成为自己的库</h2><p>如果上面的模块你觉得好用，符合自己的使用习惯，而且经常要用到，那么你可以将它变成你自己的库文件,这样以后就可以直接拿来用啦。</p>
-<p>Arduino的扩展库都是放在 libraries目录下的。</p>
-<p><img src="TIM截图20180114010905.png" alt="TIM截图20180114010905"></p>
-<p>所以我们需要在这个目录下创建一个文件夹，比如上面的例子是LED控制，于是我创建了IOTTS_Arduino_LED_Demo文件夹，最好命名和官方的区分开。然后把写好的.cpp 和 .h文件拷贝到里面去。</p>
-<p><img src="TIM截图20180114010842.png" alt="TIM截图20180114010842"></p>
-<p>这样我们 的Sketch就变成了下面这样，是不是很简洁干净呢。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;IOTTS_Led.h&gt; //注意，由于LED控制模块已经是标准库了，所以使用尖括号&lt;&gt; 包含</span><br><span class="line">                 </span><br><span class="line">LED led(13);</span><br><span class="line">byte count =0;</span><br><span class="line"></span><br><span class="line">void setup() &#123;</span><br><span class="line">   Serial.begin(9600);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop() &#123;</span><br><span class="line"></span><br><span class="line">   if(count&lt;10)&#123;</span><br><span class="line">     led.on();</span><br><span class="line">     delay(300);</span><br><span class="line">     Serial.println(led.getState(),DEC);</span><br><span class="line">     </span><br><span class="line">     led.off();</span><br><span class="line">     delay(300);</span><br><span class="line">     Serial.println(led.getState(),DEC);</span><br><span class="line">     </span><br><span class="line">     ++count;</span><br><span class="line">     if(count==10)</span><br><span class="line">        led.disattach();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>也可以新建一个examples放入我们刚刚验证过的例程，目录结构按照文章开始讲的创建，这样就可以像加载官方历程一样加载自己的例程了。</p>
-<p><img src="无标题.png" alt="无标题"></p>
-<p>一般和自己建立的库一起的还有个 keywords.txt文件，这个是什么用呢？ 其实它没有太大的实用性，只是为了配置自定义库的语法高亮。让我们自己的库能在IDE下显示不同的颜色而已。如果不配置，Arduino IDE不能渲染出颜色的。</p>
-<p>下面是keywords.txt 的内容，其中#开头的是注释，完全可以不写。格式：<code>word【tab】DESCRIPTION</code></p>
-<p>word就是你要高亮的关键字接着1 个 tab 键 ，然后就是DESCRIPTION。</p>
-<p>DESCRIPTION可以取的值：</p>
-<p>KEYWORD1 高亮类名</p>
-<p>KEYWORD2 高亮方法名</p>
-<p>LITERAL1 高亮常量</p>
-<p>注意中间使用的是 1 个 tab 键 隔开的</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#class (KEYWORD1)</span><br><span class="line"></span><br><span class="line">LED	KEYWORD1</span><br><span class="line"></span><br><span class="line">#function and method (KEYWORD2)</span><br><span class="line"></span><br><span class="line">on	KEYWORD2</span><br><span class="line"></span><br><span class="line">off	KEYWORD2</span><br><span class="line"></span><br><span class="line">getState	KEYWORD2</span><br><span class="line"></span><br><span class="line">disattach	KEYWORD2</span><br><span class="line"></span><br><span class="line">#constant (LITERAL1)</span><br><span class="line"></span><br><span class="line">#none</span><br></pre></td></tr></table></figure>
-<p>来一张做好的库文件图：</p>
-<p><img src="TIM截图20180114131535.png" alt="TIM截图20180114131535.png"></p>
-<p>文章中涉及到的源代码:</p>
-<p><a href="https://iotts.top/2019/10/04/Arduino%E6%95%99%E7%A8%8B%E4%B9%8B%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84Arduino%E5%BA%93/IOTTS_Arduino_LED_Demo.rar">IOTTS_Arduino_LED_Demo.rar</a></p>
-]]></content>
-      <categories>
-        <category>Arduino相关</category>
-        <category>Arduino编程</category>
-      </categories>
-      <tags>
-        <tag>单片机</tag>
-        <tag>Arduino</tag>
       </tags>
   </entry>
   <entry>

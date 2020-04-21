@@ -55,14 +55,20 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="简介MultiButton 是一个小巧简单易用的事件驱动型按键驱动模块，可无限量扩展按键，按键事件的回调异步处理方式可以简化你的程序结构，去除冗余的按键处理硬编码，让你的按键业务逻辑更清晰。">
+<meta name="keywords" content="开源代码">
+<meta property="og:type" content="article">
 <meta property="og:title" content="按键处理模块:MultiButton">
 <meta property="og:url" content="http://iotts.top/2020/04/21/按键处理模块-MultiButton/index.html">
 <meta property="og:site_name" content="IOTTS">
+<meta property="og:description" content="简介MultiButton 是一个小巧简单易用的事件驱动型按键驱动模块，可无限量扩展按键，按键事件的回调异步处理方式可以简化你的程序结构，去除冗余的按键处理硬编码，让你的按键业务逻辑更清晰。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-21T14:44:17.975Z">
+<meta property="og:image" content="http://iotts.top/images/6cb5e694ba9df7a3e9780dc41d404d6f.jpg">
+<meta property="og:updated_time" content="2020-04-21T15:08:03.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="按键处理模块:MultiButton">
+<meta name="twitter:description" content="简介MultiButton 是一个小巧简单易用的事件驱动型按键驱动模块，可无限量扩展按键，按键事件的回调异步处理方式可以简化你的程序结构，去除冗余的按键处理硬编码，让你的按键业务逻辑更清晰。">
+<meta name="twitter:image" content="http://iotts.top/images/6cb5e694ba9df7a3e9780dc41d404d6f.jpg">
   <link rel="canonical" href="http://iotts.top/2020/04/21/按键处理模块-MultiButton/">
 
 
@@ -302,7 +308,31 @@
                 
               
 
-              <time title="创建时间：2020-04-21 22:44:17" itemprop="dateCreated datePublished" datetime="2020-04-21T22:44:17+08:00">2020-04-21</time>
+              <time title="创建时间：2020-04-21 22:44:17 / 修改时间：23:08:03" itemprop="dateCreated datePublished" datetime="2020-04-21T22:44:17+08:00">2020-04-21</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开源代码/" itemprop="url" rel="index"><span itemprop="name">开源代码</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开源代码/嵌入式单片机/" itemprop="url" rel="index"><span itemprop="name">嵌入式单片机</span></a></span>
+
+                
+                
+              
             </span>
           
 
@@ -317,7 +347,65 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+            <div class="post-gallery-row">
+              <img src="/images/6cb5e694ba9df7a3e9780dc41d404d6f.jpg" itemprop="contentUrl">
+            
+          
+
+          </div>
+        </div>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MultiButton 是一个小巧简单易用的事件驱动型按键驱动模块，可无限量扩展按键，按键事件的回调异步处理方式可以简化你的程序结构，去除冗余的按键处理硬编码，让你的按键业务逻辑更清晰。<br><a id="more"></a></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>1.先申请一个按键结构<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Button</span> <span class="title">button1</span>;</span></span><br></pre></td></tr></table></figure></p>
+<p>2.初始化按键对象，绑定按键的GPIO电平读取接口read_button_pin() ，后一个参数设置有效触发电平<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">button_init(&amp;button1, read_button_pin, <span class="number">0</span>);</span><br></pre></td></tr></table></figure></p>
+<p>3.注册按键事件<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">button_attach(&amp;button1, SINGLE_CLICK, Callback_SINGLE_CLICK_Handler);</span><br><span class="line">button_attach(&amp;button1, DOUBLE_CLICK, Callback_DOUBLE_Click_Handler);</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>4.启动按键<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">button_start(&amp;button1);</span><br></pre></td></tr></table></figure></p>
+<p>5.设置一个5ms间隔的定时器循环调用后台处理函数<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">if</span>(timer_ticks == <span class="number">5</span>) &#123;</span><br><span class="line">        timer_ticks = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        button_ticks();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><p>MultiButton 使用C语言实现，基于面向对象方式设计思路，每个按键对象单独用一份数据结构管理：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">struct Button &#123;</span><br><span class="line">	uint16_t ticks;</span><br><span class="line">	uint8_t  repeat: 4;</span><br><span class="line">	uint8_t  event : 4;</span><br><span class="line">	uint8_t  state : 3;</span><br><span class="line">	uint8_t  debounce_cnt : 3; </span><br><span class="line">	uint8_t  active_level : 1;</span><br><span class="line">	uint8_t  button_level : 1;</span><br><span class="line">	uint8_t  (*hal_button_Level)(void);</span><br><span class="line">	BtnCallback  cb[number_of_event];</span><br><span class="line">	struct Button* next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>这样每个按键使用单向链表相连，依次进入 button_handler(struct Button* handle) 状态机处理，所以每个按键的状态彼此独立。</p>
+<h2 id="按键事件"><a href="#按键事件" class="headerlink" title="按键事件"></a>按键事件</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PRESS_DOWN</td>
+<td>按键按下，每次按下都触发</td>
+</tr>
+<tr>
+<td>PRESS_UP</td>
+<td>按键弹起，每次松开都触发</td>
+</tr>
+<tr>
+<td>PRESS_REPEAT</td>
+<td>重复按下触发，变量repeat计数连击次数</td>
+</tr>
+<tr>
+<td>SINGLE_CLICK</td>
+<td>单击按键事件</td>
+</tr>
+<tr>
+<td>DOUBLE_CLICK</td>
+<td>双击按键事件</td>
+</tr>
+<tr>
+<td>LONG_RRESS_START</td>
+<td>达到长按时间阈值时触发一次</td>
+</tr>
+<tr>
+<td>LONG_PRESS_HOLD</td>
+<td>长按期间一直触发</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"button.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Button</span> <span class="title">btn1</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read_button1_GPIO</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	button_init(&amp;btn1, read_button1_GPIO, <span class="number">0</span>);</span><br><span class="line">	button_attach(&amp;btn1, PRESS_DOWN,       BTN1_PRESS_DOWN_Handler);</span><br><span class="line">	button_attach(&amp;btn1, PRESS_UP,         BTN1_PRESS_UP_Handler);</span><br><span class="line">	button_attach(&amp;btn1, PRESS_REPEAT,     BTN1_PRESS_REPEAT_Handler);</span><br><span class="line">	button_attach(&amp;btn1, SINGLE_CLICK,     BTN1_SINGLE_Click_Handler);</span><br><span class="line">	button_attach(&amp;btn1, DOUBLE_CLICK,     BTN1_DOUBLE_Click_Handler);</span><br><span class="line">	button_attach(&amp;btn1, LONG_RRESS_START, BTN1_LONG_RRESS_START_Handler);</span><br><span class="line">	button_attach(&amp;btn2, LONG_PRESS_HOLD,  BTN1_LONG_PRESS_HOLD_Handler);</span><br><span class="line">	button_start(&amp;btn1);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//make the timer invoking the button_ticks() interval 5ms.</span></span><br><span class="line">	<span class="comment">//This function is implemented by yourself.</span></span><br><span class="line">	__timer_start(button_ticks, <span class="number">0</span>, <span class="number">5</span>); </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>) </span><br><span class="line">	&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BTN1_PRESS_DOWN_Handler</span><span class="params">(<span class="keyword">void</span>* btn)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//do something...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BTN1_PRESS_UP_Handler</span><span class="params">(<span class="keyword">void</span>* btn)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//do something...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>MultiButton模块下载地址：<a href="https://github.com/0x1abin/MultiButton" target="_blank" rel="noopener">https://github.com/0x1abin/MultiButton</a></p>
+
     </div>
     <div>
 		
@@ -335,6 +423,15 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/开源代码/" rel="tag"><i class="fa fa-tag"></i> 开源代码</a>
+            
+          </div>
+        
 
         
 
@@ -350,6 +447,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/04/21/超精简的软件定时器-multitimer/" rel="prev" title="超精简的软件定时器:multitimer">
+                  超精简的软件定时器:multitimer <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -398,6 +499,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">2.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">3.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按键事件"><span class="nav-number">4.</span> <span class="nav-text">按键事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">5.</span> <span class="nav-text">示例</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -415,7 +518,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -428,7 +531,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -441,7 +544,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

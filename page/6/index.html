@@ -272,7 +272,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/简单实用的双向电平转换电路/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JackLu">
@@ -286,7 +286,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2018/01/08/经典电路之惠斯通电桥原理及应用/" class="post-title-link" itemprop="url">经典电路之惠斯通电桥原理及应用</a>
+            <a href="/2018/01/08/简单实用的双向电平转换电路/" class="post-title-link" itemprop="url">简单实用的双向电平转换电路</a>
           
         </h1>
 
@@ -312,7 +312,116 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-26 17:38:27" itemprop="dateModified" datetime="2020-03-26T17:38:27+08:00">2020-03-26</time>
+                <time title="修改时间：2018-01-17 21:21:06" itemprop="dateModified" datetime="2018-01-17T21:21:06+08:00">2018-01-17</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/电平转换电路/" itemprop="url" rel="index"><span itemprop="name">电平转换电路</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>当你使用3.3V的单片机的时候，电平转换就在所难免了，经常会遇到3.3转5V或者5V转3.3V的情况，这里介绍一个简单的电路，他可以实现两个电平的相互转换(注意是相互哦，双向的，不是单向的!).电路十分简单，仅由3个电阻加一个MOS管构成。</p>
+<p>　　电路图如下:<br> <img src="1.png" alt="1"></p>
+<p>上图中，S1，S2为两个信号端，VCC_S1和VCC_S2为这两个信号的高电平电压.另外限制条件为:<br>　　1，VCC_S1&lt;=VCC_S2.<br>　　2，S1的低电平门限大于0.7V左右(视NMOS内的二极管压降而定).<br>　　3，Vgs&lt;=VCC_S1.<br>　　4，Vds&lt;=VCC_S2<br>　　对于3.3V和5V/12V等电路的相互转换，NMOS管选择AP2306即可.原理比较简单，大家自行分析吧!此电路我已在多处应用，效果很好.</p>
+<p> <img src="2.png" alt="2"></p>
+<p>I2C<br>　　类似这种吧，只是不知道这种电路的速率能达到多少<br>　　电平转换器的操作<br>　　在电平转换器的操作中要考虑下面的三种状态：<br>　　1 没有器件下拉总线线路。“低电压”部分的总线线路通过上拉电阻Rp 上拉至3.3V。 MOS-FET 管的门极和源极都是3.3V， 所以它的VGS 低于阀值电压，MOS-FET 管不导通。这就允许“高电压”部分的总线线路通过它的上拉电阻Rp 拉到5V。 此时两部分的总线线路都是高电平，只是电压电平不同。<br>　　2 一个3.3V器件下拉总线线路到低电平。MOS-FET管的源极也变成低电平，而门极是3.3V。VGS上升高于阀值，MOS-FET管开始导通。然后“高电压”部分的总线线路通过导通的MOS-FET管被3.3V器件下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　3 一个5V的器件下拉总线线路到低电平。MOS-FET管的漏极基底二极管“低电压”部分被下拉直到VGS超过阀值，MOS-FET管开始导通。“低电压”部分的总线线路通过导通的MOS-FET管被5V的器件进一步下拉到低电平。此时，两部分的总线线路都是低电平，而且电压电平相同。<br>　　这三种状态显示了逻辑电平在总线系统的两个方向上传输，与驱动的部分无关。状态1执行了电平转换功能。状态2和3按照I2C总线规范的要求在两部分的总线线路之间实现“线与”的功能。<br>　　除了3.3V VDD1和5V VDD2的电源电压外，还可以是例如：2V VDD1和10V VDD2。在正常操作中，VDD2必须等于或高于VDD1(在开关电源时允许VDD2低于VDD1)。<br>　　MOS-N场效应管双向电平转换电路—适用于低频信号电平转换的简单应用</p>
+<p> <img src="3.png" alt="3"></p>
+<p>如上图所示，是MOS-N场效应管双向电平转换电路。<br>　　双向传输原理：<br>　　为了方便讲述，定义 3.3V 为 A 端，5.0V 为 B 端。<br>　　A端输出低电平时(0V)，MOS管导通，B端输出是低电平(0V)<br>　　A端输出高电平时(3.3V)，MOS管截至，B端输出是高电平(5V)<br>　　A端输出高阻时(OC) ，MOS管截至，B端输出是高电平(5V)<br>　　B端输出低电平时(0V)，MOS管内的二极管导通，从而使MOS管导通，A端输出是低电平(0V)<br>　　B端输出高电平时(5V)，MOS管截至，A端输出是高电平(3.3V)<br>　　B端输出高阻时(OC) ，MOS管截至，A端输出是高电平(3.3V)<br>　　优点：<br>　　1、适用于低频信号电平转换，价格低廉。<br>　　2、导通后，压降比三极管小。<br>　　3、正反向双向导通，相当于机械开关。<br>　　4、电压型驱动，当然也需要一定的驱动电流，而且有的应用也许比三极管大。</p>
+
+        
+      
+    </div>
+    <div>
+		
+	</div>
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之运算放大器基本电路/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/08/经典电路之运算放大器基本电路/" class="post-title-link" itemprop="url">经典电路之运算放大器基本电路</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-23 16:17:48" itemprop="dateModified" datetime="2018-01-23T16:17:48+08:00">2018-01-23</time>
               </span>
             
           
@@ -348,18 +457,68 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="1-电阻桥定义解释"><a href="#1-电阻桥定义解释" class="headerlink" title="1. 电阻桥定义解释"></a>1. 电阻桥定义解释</h2><p>   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。</p>
-<p> <img src="110945pzcuhva3gm2cpncy.jpg" alt="110945pzcuhva3gm2cpncy"></p>
-<p>   在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通过采集电压的变化就可以知道环境中物理量的变化，而从实现测量的目的。下面举例介绍电桥电路的计算方式。</p>
-<h2 id="2-电阻桥相关计算"><a href="#2-电阻桥相关计算" class="headerlink" title="2. 电阻桥相关计算"></a>2. 电阻桥相关计算</h2><p>   假设流过R1，R2桥臂的电流为I1，流过R3，Rx桥臂的电流为I2，电桥供电电压为VCC，如下图所示。<br><img src="fig1.png" alt="fig1"><br>   通过欧姆定律可以计算出每个电阻两端的电压。在R1和R2这两个桥臂上，R1，R2将VCC电压分压，R2电阻两端得到的电压即为V1；在R3和Rx这个桥臂上，R3，Rx将VCC电压分压，R3电阻两端得到的电压即为V2。下面分别用欧姆定律计算V1和V2。</p>
-<p>   流过电阻R1和R2的电流I1: </p>
-<script type="math/tex; mode=display">\ I1=\frac{VCC}{R1+R2}</script><p>   R2两端的电压V1：</p>
-<script type="math/tex; mode=display">\ V1=I1\cdot R2=VCC\cdot\frac{R2}{R1+R2}</script><p>   流过电阻R3和Rx的电流I2:</p>
-<script type="math/tex; mode=display">\ I2=\frac{VCC}{R3+Rx}</script><p>   R3两端的电压：</p>
-<script type="math/tex; mode=display">\ V2=I2\cdot R3=VCC\cdot\frac{R3}{R3+Rx}</script><p>   V1和V2的电压差：</p>
-<script type="math/tex; mode=display">\Delta V=V1-V2=VCC\cdot(\frac{R2}{R1+R2}-\frac{R3}{R3+Rx})</script><p>进一步计算得到：</p>
-<script type="math/tex; mode=display">\Delta V=VCC\cdot(\frac{R2\cdot Rx-R3\cdot R1}{(R1+R2)(R3+Rx)})</script><p>由此可以看出：<br>如果4个电阻都相等，即R1=R2=R3=Rx，那么ΔV=0，即电桥处于平衡状态；　Rx发生变化会导致△V发生变化；</p>
-<h2 id="3-电阻桥的应用"><a href="#3-电阻桥的应用" class="headerlink" title="3.电阻桥的应用"></a>3.电阻桥的应用</h2><p>   在实际使用中，我们通常将其中三个电阻值固定，而将另外一个电阻换成热敏电阻、压敏电阻、PT100等，这时候就可以用电桥来测物理量了。如果将PT100接入电桥，随着环境温度的变化，PT100的阻值发生变化导致ΔV发生变化，将差分电压ΔV通过差分运放放大后进入单片机的AD采样，再对照PT100的电阻-温度对应表就可以知道当前环境的温度了。</p>
+          <h2 id="虚短和虚断的概念"><a href="#虚短和虚断的概念" class="headerlink" title="虚短和虚断的概念"></a>虚短和虚断的概念</h2><p>由于运放的电压放大倍数很大，一般通用型运算放大器的开环电压放大倍数都在80 dB以上。而运放的输出电压是有限的，一般在 10 V～14 V。因此运放的差模输入电压不足1 mV，两输入端近似等电位，相当于 “短路”。开环电压放大倍数越大，两输入端的电位越接近相等。</p>
+<p><strong>  “虚短”是指在分析运算放大器处于线性状态时，可把两输入端视为等电位，这一特性称为虚假短路，简称虚短。显然不能将两输入端真正短路。 </strong></p>
+<p>由于运放的差模输入电阻很大，一般通用型运算放大器的输入电阻都在1MΩ以上。因此流入运放输入端的电流往往不足1uA，远小于输入端外电路的电流。故 通常可把运放的两输入端视为开路，且输入电阻越大，两输入端越接近开路。</p>
+<p><strong>  “虚断”是指在分析运放处于线性状态时，可以把两输入端视为等效开路，这一特性 称为虚假开路，简称虚断。显然不能将两输入端真正断路。 </strong></p>
+<p>在分析运放电路工作原理时，首先请各位暂时忘掉什么同向放大、反向放大，什么加法器、减法器，什么差动输入……暂时忘掉那些输入输出关系的公式……这些东东只会干扰你，让你更糊涂﹔也请各位暂时不要理会输入偏置电流、共模抑制比、失调电压等电路参数，这是设计者要考虑的事情。我们理解的就是理想放大器（其实在维修中和大多数设计过程中，把实际放大器当做理想放大器来分析也不会有问题）。</p>
+<h2 id="1-反向放大器"><a href="#1-反向放大器" class="headerlink" title="1.反向放大器"></a>1.反向放大器</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/2058bef8c165b781f37ad61ddfea2273.jpg" alt="img"></p>
+<p>图一运放的同向端接地=0V，反向端和同向端虚短，所以也是0V，反向输入端输入电阻很高，虚断，几乎没有电流注入和流出，那么R1和R2相当于是串联的，流过一个串联电路中的每一只组件的电流是相同的，即流过R1的电流和流过R2的电流是相同的。<br>流过R1的电流</p>
+<script type="math/tex; mode=display">I1 =\frac{V_i - V_-}{R1}</script><p>流过R2的电流</p>
+<script type="math/tex; mode=display">I2 =\frac{V_-- Vout}{R2}</script><p>由虚短得</p>
+<script type="math/tex; mode=display">V_- = V_+ = 0</script><p>由虚断得</p>
+<script type="math/tex; mode=display">I1 = I2</script><p>求解上面的初中代数方程得</p>
+<script type="math/tex; mode=display">Vout = -\frac{R2}{R1} \cdot Vi</script><p>这就是传说中的反向放大器的输入输出关系式了。</p>
+<h2 id="2-正向放大器"><a href="#2-正向放大器" class="headerlink" title="2.正向放大器"></a>2.正向放大器</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/30f445811662fd9bb5ede4e8a0bdfcff.jpg" alt="img"><br>图二中Vi与V-虚短，则</p>
+<script type="math/tex; mode=display">V_i = V_-</script><p>因为虚断，反向输入端没有电流输入输出，通过R1和R2 的电流相等，设此电流为I，由欧姆定律得：</p>
+<script type="math/tex; mode=display">I = \frac{Vout}{R1+R2}</script><p>Vi等于R2上的分压， 即：</p>
+<script type="math/tex; mode=display">Vi = I\cdot R2</script><p>由上得</p>
+<script type="math/tex; mode=display">Vout=Vi\cdot \frac{R1+R2}{R2}</script><p>这就是传说中的同向放大器的公式了。</p>
+<h2 id="3-加法器"><a href="#3-加法器" class="headerlink" title="3.加法器"></a>3.加法器</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/305e521499284d03efea95e20be26542.jpg" alt="img"><br>图三中，<br>由虚断及基尔霍夫定律知，通过R2与R1的电流之和等于通过R3的电流，故 </p>
+<script type="math/tex; mode=display">\frac{V_1 – V_-}{R1} + \frac{V_2 – V_-}{R2} = \frac{ V_-–V_{out} }{R3} \cdot\cdot\cdot\cdot\cdot\cdot(1)</script><p>由虚短知： </p>
+<script type="math/tex; mode=display">V_- = V_+ = 0            \cdot\cdot\cdot\cdot\cdot\cdot(2)</script><p>代入(2)式，(1)式变为</p>
+<script type="math/tex; mode=display">\frac{V_1}{R1} + \frac{V_2}{R2} = \frac{ –V_{out} }{R3}</script><p>如果取$R1=R2=R3$，则上式变为</p>
+<script type="math/tex; mode=display">V_{out}=-(V_1+V_2)</script><p>这就是传说中的加法器了。</p>
+<p><img src="http://uphotos.eepw.com.cn/jackwang/pics/5a50c7dc8d8cf952cea6b74ac514a3aa.jpg" alt="img"></p>
+<p>由虚断知：运放同向端没有电流流过，则流过R1和R2的电流相等，同理流过R4和R3的电流也相等。故</p>
+<script type="math/tex; mode=display">\frac{V_1 – V_+}{R1} =\frac{V_+ - V_2}{R2}</script><script type="math/tex; mode=display">\frac{V_{out} – V_-}{R3} = \frac{V_-}{R4}</script><p>由虚短知：<script type="math/tex">V_+ = V_-</script><br>如果 <script type="math/tex">R1=R2，R3=R4</script>，则由以上式子可以推导出</p>
+<script type="math/tex; mode=display">V_+ = (V1 + V2)/2</script><script type="math/tex; mode=display">V_- = V_{out}/2</script><p>故</p>
+<script type="math/tex; mode=display">V_{out} = V_1 + V_2</script><p>也是一个加法器！</p>
+<h2 id="4-减法器"><a href="#4-减法器" class="headerlink" title="4.减法器"></a>4.减法器</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/328abf957180223f595872ad166f0973.jpg" alt="img"><br>图五由虚断知，通过R1的电流等于通过R2的电流，同理通过R4的电流等于R3的电流，故有</p>
+<script type="math/tex; mode=display">(V_2 – V_+)/R1 = V_+/R2</script><script type="math/tex; mode=display">(V_1 – V_-)/R4 = (V_- - V_{out})/R3</script><p>如果$R1=R2$， 则</p>
+<script type="math/tex; mode=display">V_+ = V_2/2</script><p>如果$R3=R4$， 则</p>
+<script type="math/tex; mode=display">V_- = (V_{out} + V_1)/2</script><p>由虚短知 <script type="math/tex">V_+ = V_-</script><br>所以</p>
+<script type="math/tex; mode=display">V_{out}=V_2-V_1</script><p>这就是传说中的减法器了。</p>
+<h2 id="5-积分电路"><a href="#5-积分电路" class="headerlink" title="5.积分电路"></a>5.积分电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/1ecbce047b1868098b7b25aa82324113.jpg" alt="img"><br>图六电路中<br>由虚短知，反向输入端的电压与同向端相等<br>由虚断知，通过R1的电流与通过C1的电流相等。<br>通过R1的电流</p>
+<script type="math/tex; mode=display">i= \frac{V_1}{R_1}</script><p>通过C1的电流</p>
+<script type="math/tex; mode=display">i=C\cdot \frac{dU_c}{dt}=-C1\cdot \frac{dV_{out}}{dt}</script><p>所以</p>
+<script type="math/tex; mode=display">Vout=\frac{-1}{R1*C1}\cdot \int V_1dt</script><p>输出电压与输入电压对时间的积分成正比,这就是传说中的积分电路了。<br>若V1为恒定电压U，则上式变换为</p>
+<script type="math/tex; mode=display">Vout = -\frac{U*t}{R1*C1}</script><p>t 是时间，则Vout输出电压是一条从0至负电源电压按时间变化的直线。 </p>
+<h2 id="6-微分电路"><a href="#6-微分电路" class="headerlink" title="6.微分电路"></a>6.微分电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/57422ac64debc71a6ef231f3643096d8.jpg" alt="img"><br>图七中<br>由虚断知，通过电容C1和电阻R2的电流是相等的<br>由虚短知，运放同向端与反向端电压是相等的。则：</p>
+<script type="math/tex; mode=display">V_{out} = -i \cdot R2 = -(R2*C1)\frac{dV_1}{dt}</script><p>这是一个微分电路。<br>如果V1是一个突然加入的直流电压，则输出Vout对应一个方向与V1相反的脉冲。</p>
+<h2 id="7-差分放大电路"><a href="#7-差分放大电路" class="headerlink" title="7.差分放大电路"></a>7.差分放大电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/71f69b4788c78b18c48dbdf9b34f9fdd.jpg" alt="img"><br>图八.由虚短知 </p>
+<script type="math/tex; mode=display">Vx = V1 \cdot\cdot\cdot\cdot\cdot\cdot(1)</script><script type="math/tex; mode=display">Vy = V2 \cdot\cdot\cdot\cdot\cdot\cdot(2)</script><p>由虚断知，运放输入端没有电流流过，则R1、R2、R3可视为串联，通过每一个电阻的电流是相同的， 则电流</p>
+<script type="math/tex; mode=display">I=\frac{V_x-V_y}{R2} \cdot\cdot\cdot\cdot\cdot\cdot(3)</script><p>则：</p>
+<script type="math/tex; mode=display">V_{o1}-V_{o2}=I\cdot (R1+R2+R3) =\frac{(V_x-V_y)(R1+R2+R3)}{R2} \cdot\cdot\cdot\cdot\cdot\cdot(4)</script><p>由虚断知，流过R6与流过R7的电流相等,若$R6=R7$， 则</p>
+<script type="math/tex; mode=display">V_w = \frac{V_{o2}}2 \cdot\cdot\cdot\cdot\cdot\cdot(5)</script><p>同理若$R4=R5$，则</p>
+<script type="math/tex; mode=display">V_{out} – V_u = V_u – V_{o1} \cdot\cdot\cdot\cdot\cdot\cdot(6)</script><p>故</p>
+<script type="math/tex; mode=display">V_u = \frac{V_{out}+V_{o1}}2 \cdot\cdot\cdot\cdot\cdot\cdot(7)</script><p>由虚短知，</p>
+<script type="math/tex; mode=display">V_u = V_w \cdot\cdot\cdot\cdot\cdot\cdot(8)</script><p>由(5)(7)(8)得</p>
+<script type="math/tex; mode=display">V_{out} = V_{o2} – V_{o1}\cdot\cdot\cdot\cdot\cdot\cdot(9)</script><p>由(4)(9)得 </p>
+<script type="math/tex; mode=display">V_{out} = \frac{(V_y –V_x)(R1+R2+R3)}{R2}</script><p>上式中 $\frac{R1+R2+R3}{R2}$是定值，此值确定了差值$(V_y –V_x)$的放大倍数。</p>
+<p>这个电路就是传说中的差分放大电路了。</p>
+<h2 id="8-电流采集电路"><a href="#8-电流采集电路" class="headerlink" title="8.电流采集电路"></a>8.电流采集电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/22579387c644bd80ccbc24ac4127edad.jpg" alt="img"><br>分析一个大家接触得较多的电路。很多控制器接受来自各种检测仪表的0~20mA或4~20mA电流，电路将此电流转换成电压后再送ADC转换成数字信号，图九就是这样一个典型电路。如图4~20mA电流流过采样100Ω电阻R1，在R1上会产生0.4~2V的电压差。<br>由虚断知，运放输入端没有电流流过，则流过R3和R5的电流相等，流过R2和R4的电流相等。故： </p>
+<script type="math/tex; mode=display">\frac{V_2-V_y}{R3} =\frac{V_y}{R5} \cdot\cdot\cdot\cdot\cdot\cdot(1)</script><script type="math/tex; mode=display">\frac{V_1-V_x}{R2} =\frac{V_x-V_{out}}{R4} \cdot\cdot\cdot\cdot\cdot\cdot(2)</script><p>由虚短知：</p>
+<script type="math/tex; mode=display">V_x = V_y \cdot\cdot\cdot\cdot\cdot\cdot(3)</script><p>电流从0~20mA变化，则</p>
+<script type="math/tex; mode=display">V_1 = V_2 + \Delta I\cdot R1 \cdot\cdot\cdot\cdot\cdot\cdot(4)</script><p>由(3)(4)式代入(2)式得</p>
+<script type="math/tex; mode=display">\frac{V_2 + \Delta I\cdot R1-V_y}{R2} = \frac{V_y-V_{out}}{R4} \cdot\cdot\cdot\cdot\cdot\cdot(5)</script><p>如果R3=R2，R4=R5，则由(5)-(1)得</p>
+<script type="math/tex; mode=display">V_{out} = -\frac{\Delta I\cdot  R1\cdot R4}{R2}</script><p>图九中R4/R2=22k/10k=2.2，则f式Vout = -(0.88~4.4)V<br>即是说，将4~20mA电流转换成了-0.88 ~ -4.4V电压，此电压可以送ADC去处理。</p>
+<h2 id="9-恒流源电路"><a href="#9-恒流源电路" class="headerlink" title="9.恒流源电路"></a>9.恒流源电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/0d28d87b2927fcff4fe820c34d4c7b90.jpg" alt="img"><br>电流可以转换成电压，电压也可以转换成电流。图十就是这样一个电路。上图的负反馈没有通过电阻直接反馈，而是串联了三极管Q1的发射结，大家可不要以为是一个比较器就是了。只要是放大电路，虚短虚断的规律仍然是符合的！<br>由虚断知，运放输入端没有电流流过，<br>则             </p>
+<script type="math/tex; mode=display">\frac{V_i – V_1}{R2} = \frac{V_1 – V_4}{R6}  \cdot\cdot\cdot\cdot\cdot\cdot(1)</script><p>同理           </p>
+<script type="math/tex; mode=display">\frac{V_3 – V_2}{R5} =  \frac{V_2}{R4}    \cdot\cdot\cdot\cdot\cdot\cdot(2)</script><p>由虚短知   $ V1 = V2  \cdot\cdot\cdot\cdot\cdot\cdot(3)  $<br>如果  $ R2=R6，R4=R5 $，则由(1)(2)(3)式得</p>
+<script type="math/tex; mode=display">V_3-V_4=V_i</script><p>上式说明R7两端的电压和输入电压Vi相等，则通过R7的电流</p>
+<script type="math/tex; mode=display">I=V_i/R7</script><p>如果负载<strong>RL&lt;&lt;100KΩ</strong>，则通过Rl和通过R7的电流基本相同。</p>
+<h2 id="10-三线制PT100前置放大电路"><a href="#10-三线制PT100前置放大电路" class="headerlink" title="10.三线制PT100前置放大电路"></a>10.三线制PT100前置放大电路</h2><p><img src="http://uphotos.eepw.com.cn/jackwang/pics/36e6042c7ef601d35393aee859d5399c.jpg" alt="img"><br>图十一是一个三线制PT100前置放大电路。<br>PT100传感器引出三根材质、线径、长度完全相同的线，接法如图所示。有2V的电压加在由R14、R20、R15、Z1、PT100及其线电阻组成的桥电路上。Z1、Z2、Z3、D11、D12、D83及各电容在电路中起滤波和保护作用，静态分析时可不予理会，Z1、Z2、Z3可视为短路，D11、D12、D83及各电容可视为开路。<br>由电阻分压知， V3=2<em>R20/(R14+20)=200/1100=2/11 ……a<br>由虚短知，U8B第6、7脚 电压和第5脚电压相等 V4=V3 ……b<br>由虚断知，U8A第2脚没有电流流过，则流过R18和R19上的电流相等。<br>(V2-V4)/R19=(V5-V2)/R18 ……c<br>由虚断知，U8A第3脚没有电流流过， V1=V7 ……d<br>在桥电路中R15和Z1、PT100及线电阻串联，PT100与线电阻串联分得的电压通过电阻R17加至U8A的第3脚， V7=2</em>(Rx+2R0)/(R15+Rx+2R0) …..e<br>由虚短知，U8A第3脚和第2脚电压相等， V1=V2 ……f<br>由abcdef得， (V5-V7)/100=(V7-V3)/2.2 化简得 V5=(102.2<em>V7-100V3)/2.2 即 V5=204.4(Rx+2R0)/(1000+Rx+2R0) – 200/11 ……g<br>上式输出电压V5是Rx的函数我们再看线电阻的影响。Pt100最下端线电阻上产生的电压降经过中间的线电阻、Z2、R22，加至U8C的第10脚，<br>由虚断知， V5=V8=V9=2</em>R0/(R15+Rx+2R0) ……a<br>(V6-V10)/R25=V10/R26 ……b<br>由虚短知， V10=V5 ……c<br>由式abc得 V6=(102.2/2.2)V5=204.4R0/[2.2(1000+Rx+2R0)] ……h<br>由式gh组成的方程组知，如果测出V5、V6的值，就可算出Rx及R0，知道Rx，查pt100分度表就知道温度的大小了。</p>
 
         
       
@@ -1659,117 +1818,6 @@ _   底线
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/06/STM32F103x教程之按键操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/06/STM32F103x教程之按键操作/" class="post-title-link" itemprop="url">STM32F103x教程之按键操作</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-06 19:58:51" itemprop="dateCreated datePublished" datetime="2018-01-06T19:58:51+08:00">2018-01-06</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-07 14:27:56" itemprop="dateModified" datetime="2018-01-07T14:27:56+08:00">2018-01-07</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/STM32相关/" itemprop="url" rel="index"><span itemprop="name">STM32相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/STM32相关/STM32F1教程/" itemprop="url" rel="index"><span itemprop="name">STM32F1教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          按键基本操作
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/01/06/STM32F103x教程之按键操作/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-		
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1823,7 +1871,7 @@ _   底线
         
           <a href="/archives">
         
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1836,7 +1884,7 @@ _   底线
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1849,7 +1897,7 @@ _   底线
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -2036,8 +2084,6 @@ if (document.querySelectorAll('div.pdf').length) {
   
     
       
-        
-      
     
       
     
@@ -2056,56 +2102,6 @@ if (document.querySelectorAll('div.pdf').length) {
       
     
       
-    
-  
-    
-      
-<script type="text/x-mathjax-config">
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') {
-          next = next.nextSibling;
-        }
-        if (next && next.nodeName.toLowerCase() === 'br') {
-          next.parentNode.removeChild(next);
-        }
-      }
-    });
-  });
-
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
-      if (element.nodeName.toLowerCase() == 'li') {
-        element = element.parentNode;
-      }
-      element.classList.add('has-jax');
-    }
-  });
-</script>
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
-    MathJax.Hub.Typeset();
-  }, window.MathJax);
-</script>
-
     
   
 
