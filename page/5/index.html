@@ -272,6 +272,112 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/10/物联网技术之服务器端数据采集环境简单搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/10/物联网技术之服务器端数据采集环境简单搭建/" class="post-title-link" itemprop="url">物联网技术之服务器端数据采集环境简单搭建</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-10 23:56:33" itemprop="dateCreated datePublished" datetime="2018-01-10T23:56:33+08:00">2018-01-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-12 00:02:22" itemprop="dateModified" datetime="2018-01-12T00:02:22+08:00">2018-01-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网相关/" itemprop="url" rel="index"><span itemprop="name">物联网相关</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/物联网相关/服务器端相关/" itemprop="url" rel="index"><span itemprop="name">服务器端相关</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h2><p>在MySql数据库中创建一个名为<code>Sensor_server</code>的数据库，如下图：<br><img src="微信截图_20180111003012.png" alt="微信截图_20180111003012.png"><br>在数据库中创建一个名为<code>sensor_test</code>的数据表，使用如下SQL语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS `sensor_test` (</span><br><span class="line">  `id` int(11) NOT NULL,</span><br><span class="line">  `sen_id` int(11) NOT NULL,</span><br><span class="line">  `temp` int(11) NOT NULL,</span><br><span class="line">  `humi` int(11) NOT NULL,</span><br><span class="line">  `pm25` int(11) NOT NULL,</span><br><span class="line">  `pm10` int(11) NOT NULL,</span><br><span class="line">  `pm100` int(11) NOT NULL,</span><br><span class="line">  `co2` int(11) NOT NULL,</span><br><span class="line">  `ze08` int(11) NOT NULL,</span><br><span class="line">  `tvoc` int(11) NOT NULL,</span><br><span class="line">  `timeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</span><br><span class="line">) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;</span><br></pre></td></tr></table></figure></p>
+<p><img src="微信截图_20180111001007.png" alt="微信截图_20180111001007.png"></p>
+<h2 id="2-创建PHP文件"><a href="#2-创建PHP文件" class="headerlink" title="2.创建PHP文件"></a>2.创建PHP文件</h2><h3 id="2-1-创建数据库连接PHP文件"><a href="#2-1-创建数据库连接PHP文件" class="headerlink" title="2.1 创建数据库连接PHP文件"></a>2.1 创建数据库连接PHP文件</h3><p>创建名为<code>database.php</code> 的文件，写入以下代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$connect=mysqli_connect(<span class="string">'localhost'</span>,<span class="string">'用户名（最好不用root）'</span>,<span class="string">'数据库密码'</span>,<span class="string">'sensor_server'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>(mysqli_connect_errno($connect)) printf(<span class="string">"Failed to connect"</span>);</span><br><span class="line"><span class="keyword">else</span> printf(<span class="string">"Success to Connect\r\n"</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="2-2-创建数据库操作PHP文件"><a href="#2-2-创建数据库操作PHP文件" class="headerlink" title="2.2 创建数据库操作PHP文件"></a>2.2 创建数据库操作PHP文件</h3><p>创建名为<code>process.php</code> 的文件，写入以下代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">"Content-type:text/html;charset=utf-8"</span>);</span><br><span class="line">date_default_timezone_set(<span class="string">"Asia/Shanghai"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"当前时间是 "</span> . date(<span class="string">"H:i:s"</span>).<span class="string">"&lt;br&gt;"</span>;</span><br><span class="line"><span class="keyword">include</span>(<span class="string">"database.php"</span>);</span><br><span class="line">	$sen_id=$_POST[<span class="string">'sen_id'</span>];</span><br><span class="line">	$pm25=$_POST[<span class="string">'pm25'</span>];</span><br><span class="line">	$pm10=$_POST[<span class="string">'pm10'</span>];</span><br><span class="line">	$co2=$_POST[<span class="string">'co2'</span>];</span><br><span class="line">	$tvoc=$_POST[<span class="string">'tvoc'</span>];</span><br><span class="line">	$pm100=$_POST[<span class="string">'pm100'</span>];</span><br><span class="line">	$ze08=$_POST[<span class="string">'ze08'</span>];</span><br><span class="line">	$temp=$_POST[<span class="string">'temp'</span>];</span><br><span class="line">	$humi=$_POST[<span class="string">'humi'</span>];</span><br><span class="line">	$id=$_POST[<span class="string">'id'</span>];</span><br><span class="line">	print_r($_POST);</span><br><span class="line">	mysqli_query($connect,<span class="string">"INSERT INTO sensor_test(pm25,pm10,pm100,co2,tvoc,temp,humi,ze08,id,sen_id) VALUES('$pm25','$pm10','$pm100','$co2','$tvoc','$temp','$humi','$ze08','$id','$sen_id')"</span>);</span><br><span class="line"></span><br><span class="line">	mysqli_close($connect);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+
+        
+      
+    </div>
+    <div>
+		
+	</div>
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/10/c语言教程之枚举类型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -382,232 +488,6 @@
 <p>输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">match 2 <span class="built_in">times</span></span><br><span class="line">count of letters: 10</span><br><span class="line">Press any key to <span class="built_in">continue</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="4-枚举类型与sizeof运算符"><a href="#4-枚举类型与sizeof运算符" class="headerlink" title="4. 枚举类型与sizeof运算符"></a>4. 枚举类型与sizeof运算符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum escapes</span><br><span class="line">&#123; </span><br><span class="line">    BELL      = <span class="string">'\a'</span>,</span><br><span class="line">    BACKSPACE = <span class="string">'\b'</span>,</span><br><span class="line">    HTAB      = <span class="string">'\t'</span>,</span><br><span class="line">    RETURN    = <span class="string">'\r'</span>,</span><br><span class="line">    NEWLINE   = <span class="string">'\n'</span>, </span><br><span class="line">    VTAB      = <span class="string">'\v'</span>,</span><br><span class="line">    SPACE     = <span class="string">' '</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">enum BOOLEAN &#123; FALSE = 0, TRUE &#125; match_flag;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum escapes)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(escapes)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(enum BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(BOOLEAN)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(match_flag)); //4 bytes</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(SPACE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(NEWLINE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(FALSE)); //4 bytes</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes \n"</span>, sizeof(0)); //4 bytes</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="5-综合举例"><a href="#5-综合举例" class="headerlink" title="5. 综合举例"></a>5. 综合举例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">enum Season</span><br><span class="line">&#123;</span><br><span class="line">    spring, summer=100, fall=96, winter</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">typedef enum</span><br><span class="line">&#123;</span><br><span class="line">    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</span><br><span class="line">&#125;</span><br><span class="line">Weekday;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    /* Season */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, spring); // 0</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %c \n"</span>, summer, summer); // 100, d</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d \n"</span>, fall+winter); // 193</span><br><span class="line">    </span><br><span class="line">    Season mySeason=winter;</span><br><span class="line">    <span class="keyword">if</span>(winter==mySeason)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"mySeason is winter \n"</span>); // mySeason is winter</span><br><span class="line">    </span><br><span class="line">    int x=100;</span><br><span class="line">    <span class="keyword">if</span>(x==summer)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"x is equal to summer\n"</span>); // x is equal to summer</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d bytes\n"</span>, sizeof(spring)); // 4 bytes</span><br><span class="line">    </span><br><span class="line">    /* Weekday */</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"sizeof Weekday is: %d \n"</span>, sizeof(Weekday)); //sizeof Weekday is: 4</span><br><span class="line">    </span><br><span class="line">    Weekday today = Saturday;</span><br><span class="line">    Weekday tomorrow;</span><br><span class="line">    <span class="keyword">if</span>(today == Monday)</span><br><span class="line">        tomorrow = Tuesday;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        tomorrow = (Weekday) (today + 1); //remember to convert from int to Weekday</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-    <div>
-		
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/09/linux命令之关机命令/" class="post-title-link" itemprop="url">linux命令之关机命令</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-07 15:27:46" itemprop="dateModified" datetime="2020-01-07T15:27:46+08:00">2020-01-07</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ubuntu关机和重启命令</p>
-<p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。<br>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2018/01/09/linux命令之关机命令/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-    <div>
-		
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之ubuntu查看系统信息/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" class="post-title-link" itemprop="url">linux命令之ubuntu查看系统信息</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-01-16 21:09:58" itemprop="dateModified" datetime="2018-01-16T21:09:58+08:00">2018-01-16</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
-<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure></p>
-<p>输出结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-46-51屏幕截图.png" alt="2018-01-16 20-46-51屏幕截图.png"><br>也可以输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure></p>
-<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux jacklu 4.13.0-26-generic <span class="comment">#29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-47-17屏幕截图.png" alt="2018-01-16 20-47-17屏幕截图.png"></p>
-<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure></p>
-<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 16.04.3 LTS \n \l</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-48-47屏幕截图.png" alt="2018-01-16 20-48-47屏幕截图.png"></p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br></pre></td></tr></table></figure></p>
-<p>将输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04.3 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure></p>
-<p><img src="2018-01-16 20-48-27屏幕截图.png" alt="2018-01-16 20-48-27屏幕截图.png"></p>
-
         
       
     </div>
@@ -860,6 +740,232 @@
 <p>　　到此为至，我们已经介绍过linux下的tar、gzip、gunzip、bzip2、bunzip2、compress、uncompress、 zip、unzip、rar、unrar等程式，你应该已经能够使用它们对.tar、.gz、.tar.gz、.tgz、.bz2、.tar.bz2、. Z、.tar.Z、.zip、.rar这10种压缩文件进行解压了，以后应该不需要为下载了一个软件而不知道如何在Linux下解开而烦恼了。而且以上方 法对于Unix也基本有效。</p>
 <p>　　本文介绍了linux下的压缩程式tar、gzip、gunzip、bzip2、bunzip2、 compress、uncompress、zip、unzip、rar、unrar等程式，以及如何使用它们对.tar、.gz、.tar.gz、. tgz、.bz2、.tar.bz2、.Z、.tar.Z、.zip、.rar这10种压缩文件进行操作</p>
 
+        
+      
+    </div>
+    <div>
+		
+	</div>
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之ubuntu查看系统信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/09/linux命令之ubuntu查看系统信息/" class="post-title-link" itemprop="url">linux命令之ubuntu查看系统信息</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-01-16 21:09:58" itemprop="dateModified" datetime="2018-01-16T21:09:58+08:00">2018-01-16</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>要查看Ubuntu操作系统的位数是32位还是64位，可以通过以下命令来查看：</p>
+<h1 id="查看long的位数，返回32或64"><a href="#查看long的位数，返回32或64" class="headerlink" title="查看long的位数，返回32或64"></a>查看long的位数，返回32或64</h1><p>可以在终端terminal下输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getconf LONG_BIT</span><br></pre></td></tr></table></figure></p>
+<p>输出结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-46-51屏幕截图.png" alt="2018-01-16 20-46-51屏幕截图.png"><br>也可以输入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure></p>
+<p>输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux jacklu 4.13.0-26-generic <span class="comment">#29~16.04.2-Ubuntu SMP Tue Jan 9 21:38:24 UTC 2018 i686 i686 i686 GNU/Linux</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-47-17屏幕截图.png" alt="2018-01-16 20-47-17屏幕截图.png"></p>
+<h1 id="查看Ubuntu版本："><a href="#查看Ubuntu版本：" class="headerlink" title="查看Ubuntu版本："></a>查看Ubuntu版本：</h1><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>在终端中执行下列指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/issue</span><br></pre></td></tr></table></figure></p>
+<p>可以查看当前正在运行的 Ubuntu 的版本号。其输出结果类似下面的内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu 16.04.3 LTS \n \l</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-48-47屏幕截图.png" alt="2018-01-16 20-48-47屏幕截图.png"></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>使用 lsb_release 命令也可以查看 Ubuntu 的版本号，与方法一相比，内容更为详细。执行指令如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsb_release -a</span><br></pre></td></tr></table></figure></p>
+<p>将输出结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 16.04.3 LTS</span><br><span class="line">Release:	16.04</span><br><span class="line">Codename:	xenial</span><br></pre></td></tr></table></figure></p>
+<p><img src="2018-01-16 20-48-27屏幕截图.png" alt="2018-01-16 20-48-27屏幕截图.png"></p>
+
+        
+      
+    </div>
+    <div>
+		
+	</div>
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/09/linux命令之关机命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackLu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IOTTS">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/01/09/linux命令之关机命令/" class="post-title-link" itemprop="url">linux命令之关机命令</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2018-01-09 23:46:23" itemprop="dateCreated datePublished" datetime="2018-01-09T23:46:23+08:00">2018-01-09</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-07 15:27:46" itemprop="dateModified" datetime="2020-01-07T15:27:46+08:00">2020-01-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/linux命令/" itemprop="url" rel="index"><span itemprop="name">linux命令</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>ubuntu关机和重启命令</p>
+<p>linux下常用的关机命令有：shutdown、halt、poweroff、init；重启命令有：reboot。下面本文就主要介绍一些常用的关机命令以及各种关机命令之间的区别和具体用法。<br>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2018/01/09/linux命令之关机命令/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1419,120 +1525,6 @@ f(x) &=a+b+a\\
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之惠斯通电桥原理及应用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JackLu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IOTTS">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2018/01/08/经典电路之惠斯通电桥原理及应用/" class="post-title-link" itemprop="url">经典电路之惠斯通电桥原理及应用</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-08 18:09:04" itemprop="dateCreated datePublished" datetime="2018-01-08T18:09:04+08:00">2018-01-08</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-26 17:38:27" itemprop="dateModified" datetime="2020-03-26T17:38:27+08:00">2020-03-26</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/" itemprop="url" rel="index"><span itemprop="name">电路设计相关</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/电路设计相关/经典电路/" itemprop="url" rel="index"><span itemprop="name">经典电路</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-电阻桥定义解释"><a href="#1-电阻桥定义解释" class="headerlink" title="1. 电阻桥定义解释"></a>1. 电阻桥定义解释</h2><p>   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。</p>
-<p> <img src="110945pzcuhva3gm2cpncy.jpg" alt="110945pzcuhva3gm2cpncy"></p>
-<p>   在电桥中有三个电阻阻值是固定的分别为R1，R2，R3，第四个电阻是可变的为Rx，Rx发生变化时，图中B,D两点之间的电压发生变化，通过采集电压的变化就可以知道环境中物理量的变化，而从实现测量的目的。下面举例介绍电桥电路的计算方式。</p>
-<h2 id="2-电阻桥相关计算"><a href="#2-电阻桥相关计算" class="headerlink" title="2. 电阻桥相关计算"></a>2. 电阻桥相关计算</h2><p>   假设流过R1，R2桥臂的电流为I1，流过R3，Rx桥臂的电流为I2，电桥供电电压为VCC，如下图所示。<br><img src="fig1.png" alt="fig1"><br>   通过欧姆定律可以计算出每个电阻两端的电压。在R1和R2这两个桥臂上，R1，R2将VCC电压分压，R2电阻两端得到的电压即为V1；在R3和Rx这个桥臂上，R3，Rx将VCC电压分压，R3电阻两端得到的电压即为V2。下面分别用欧姆定律计算V1和V2。</p>
-<p>   流过电阻R1和R2的电流I1: </p>
-<script type="math/tex; mode=display">\ I1=\frac{VCC}{R1+R2}</script><p>   R2两端的电压V1：</p>
-<script type="math/tex; mode=display">\ V1=I1\cdot R2=VCC\cdot\frac{R2}{R1+R2}</script><p>   流过电阻R3和Rx的电流I2:</p>
-<script type="math/tex; mode=display">\ I2=\frac{VCC}{R3+Rx}</script><p>   R3两端的电压：</p>
-<script type="math/tex; mode=display">\ V2=I2\cdot R3=VCC\cdot\frac{R3}{R3+Rx}</script><p>   V1和V2的电压差：</p>
-<script type="math/tex; mode=display">\Delta V=V1-V2=VCC\cdot(\frac{R2}{R1+R2}-\frac{R3}{R3+Rx})</script><p>进一步计算得到：</p>
-<script type="math/tex; mode=display">\Delta V=VCC\cdot(\frac{R2\cdot Rx-R3\cdot R1}{(R1+R2)(R3+Rx)})</script><p>由此可以看出：<br>如果4个电阻都相等，即R1=R2=R3=Rx，那么ΔV=0，即电桥处于平衡状态；　Rx发生变化会导致△V发生变化；</p>
-<h2 id="3-电阻桥的应用"><a href="#3-电阻桥的应用" class="headerlink" title="3.电阻桥的应用"></a>3.电阻桥的应用</h2><p>   在实际使用中，我们通常将其中三个电阻值固定，而将另外一个电阻换成热敏电阻、压敏电阻、PT100等，这时候就可以用电桥来测物理量了。如果将PT100接入电桥，随着环境温度的变化，PT100的阻值发生变化导致ΔV发生变化，将差分电压ΔV通过差分运放放大后进入单片机的AD采样，再对照PT100的电阻-温度对应表就可以知道当前环境的温度了。</p>
-
-        
-      
-    </div>
-    <div>
-		
-	</div>
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://iotts.top/2018/01/08/经典电路之运算放大器基本电路/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1745,7 +1737,7 @@ f(x) &=a+b+a\\
         
           <a href="/archives">
         
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1758,7 +1750,7 @@ f(x) &=a+b+a\\
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1968,9 +1960,9 @@ if (document.querySelectorAll('div.pdf').length) {
       
     
       
-        
-      
     
+      
+        
       
     
       
