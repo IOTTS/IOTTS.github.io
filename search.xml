@@ -922,6 +922,27 @@
       </tags>
   </entry>
   <entry>
+    <title>Allegro修改shape网络</title>
+    <url>/2018/05/13/Allegro%E4%BF%AE%E6%94%B9shape%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h6 id="Allegro修改shape网络节点"><a href="#Allegro修改shape网络节点" class="headerlink" title="Allegro修改shape网络节点"></a>Allegro修改shape网络节点</h6><p>使用Allegro时修改shape的网络节点方法：</p>
+<p>①选择shape-&gt;Select Shape or Void/Cavity</p>
+<p>   <img src="fig1" alt="img"></p>
+<p>②选择要修改的shape</p>
+<p>③点击（…）修改网络节点的名字</p>
+<p>   <img src="fig2" alt="img"></p>
+<p>④修改完成</p>
+]]></content>
+      <categories>
+        <category>PCB相关</category>
+        <category>Cadence</category>
+        <category>Allegro小技巧</category>
+      </categories>
+      <tags>
+        <tag>PCB</tag>
+        <tag>Allegro</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ATX电源接口线序定义</title>
     <url>/2020/04/03/ATX%E7%94%B5%E6%BA%90%E6%8E%A5%E5%8F%A3%E7%BA%BF%E5%BA%8F%E5%AE%9A%E4%B9%89/</url>
     <content><![CDATA[<p>ATX电源简介</p>
@@ -1322,15 +1343,16 @@
       </tags>
   </entry>
   <entry>
-    <title>Allegro修改shape网络</title>
-    <url>/2018/05/13/Allegro%E4%BF%AE%E6%94%B9shape%E7%BD%91%E7%BB%9C/</url>
-    <content><![CDATA[<h6 id="Allegro修改shape网络节点"><a href="#Allegro修改shape网络节点" class="headerlink" title="Allegro修改shape网络节点"></a>Allegro修改shape网络节点</h6><p>使用Allegro时修改shape的网络节点方法：</p>
-<p>①选择shape-&gt;Select Shape or Void/Cavity</p>
-<p>   <img src="fig1" alt="img"></p>
-<p>②选择要修改的shape</p>
-<p>③点击（…）修改网络节点的名字</p>
-<p>   <img src="fig2" alt="img"></p>
-<p>④修改完成</p>
+    <title>Allegro封装焊盘编号修改(引脚编号修改)</title>
+    <url>/2020/06/02/Allegro%E5%B0%81%E8%A3%85%E7%84%8A%E7%9B%98%E7%BC%96%E5%8F%B7%E4%BF%AE%E6%94%B9-%E5%BC%95%E8%84%9A%E7%BC%96%E5%8F%B7%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<ol>
+<li><p>菜单栏edit - text</p>
+</li>
+<li><p>在底部编辑栏修改成需要的编号即可</p>
+</li>
+</ol>
+<a id="more"></a>
+<p><img src="1.png" alt="1"></p>
 ]]></content>
       <categories>
         <category>PCB相关</category>
@@ -2356,6 +2378,22 @@ f(x) &=a+b+a\\
       </categories>
   </entry>
   <entry>
+    <title>TMP35构成的4--20mA温度变送器电路图</title>
+    <url>/2019/12/19/TMP35%E6%9E%84%E6%88%90%E7%9A%844-20mA%E6%B8%A9%E5%BA%A6%E5%8F%98%E9%80%81%E5%99%A8%E7%94%B5%E8%B7%AF%E5%9B%BE/</url>
+    <content><![CDATA[<p>　　由TMP35构成的4～20mA温度变送器电路如图所示。该电路可将TMP35输出的电压信号变换成4～20mA的标准电流信号，供自动化仪表使用，进行工业温度控制。<br><a id="more"></a><br>这里是以4mA作为零刻度值，20mA为满刻度值。REF193为3V基准电压源，OP193为运算放大器。RP1、RP2分别为校准满刻度和零点的电位器，二者可独立调节，互不影响。VD1采用肖特基二极管，它能防止OP193开环电压的升高。电源电压可取+9～+18V。变送器的输出电流表达式为:</p>
+<p><img src="20191031114218280.jpg" alt="img"></p>
+<p><img src="20191031114218486.jpg" alt="TMP35构成的4～20mA温度变送器电路图"></p>
+]]></content>
+      <categories>
+        <category>电路设计相关</category>
+        <category>传感器电路设计</category>
+      </categories>
+      <tags>
+        <tag>PCB</tag>
+        <tag>电路设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>STM32FXX之Lua解释器移植</title>
     <url>/2019/09/30/STM32FXX%E4%B9%8BLua%E8%A7%A3%E9%87%8A%E5%99%A8%E7%A7%BB%E6%A4%8D/</url>
     <content><![CDATA[<p>将Lua解释器移植到STM32</p>
@@ -2381,22 +2419,6 @@ f(x) &=a+b+a\\
       <tags>
         <tag>单片机</tag>
         <tag>STM32</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TMP35构成的4--20mA温度变送器电路图</title>
-    <url>/2019/12/19/TMP35%E6%9E%84%E6%88%90%E7%9A%844-20mA%E6%B8%A9%E5%BA%A6%E5%8F%98%E9%80%81%E5%99%A8%E7%94%B5%E8%B7%AF%E5%9B%BE/</url>
-    <content><![CDATA[<p>　　由TMP35构成的4～20mA温度变送器电路如图所示。该电路可将TMP35输出的电压信号变换成4～20mA的标准电流信号，供自动化仪表使用，进行工业温度控制。<br><a id="more"></a><br>这里是以4mA作为零刻度值，20mA为满刻度值。REF193为3V基准电压源，OP193为运算放大器。RP1、RP2分别为校准满刻度和零点的电位器，二者可独立调节，互不影响。VD1采用肖特基二极管，它能防止OP193开环电压的升高。电源电压可取+9～+18V。变送器的输出电流表达式为:</p>
-<p><img src="20191031114218280.jpg" alt="img"></p>
-<p><img src="20191031114218486.jpg" alt="TMP35构成的4～20mA温度变送器电路图"></p>
-]]></content>
-      <categories>
-        <category>电路设计相关</category>
-        <category>传感器电路设计</category>
-      </categories>
-      <tags>
-        <tag>PCB</tag>
-        <tag>电路设计</tag>
       </tags>
   </entry>
   <entry>
@@ -2461,6 +2483,21 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
+    <title>WINDOWS命令行关闭本地占用的端口</title>
+    <url>/2020/04/02/WINDOWS%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%85%B3%E9%97%AD%E6%9C%AC%E5%9C%B0%E5%8D%A0%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3/</url>
+    <content><![CDATA[<p>1.查找对应的端口占用的进程：netstat  -aon|findstr  “8080”    ，找到占用8080端口对应的程序的PID号；<br><a id="more"></a><br><img src="1.png" alt="1.png"></p>
+<p>2.根据PID号找到对应的程序：tasklist|findstr “PID号”    ，找到对应的程序名；</p>
+<p><img src="2.png" alt="2.png"></p>
+<p>3.结束该进程：taskkill /f /t /im ApplicationWebServer.exe；或者taskkill /pid 7644 /F。</p>
+]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows下搭建MQTT服务器</title>
     <url>/2019/10/01/Windows%E4%B8%8B%E6%90%AD%E5%BB%BAMQTT%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在项目中要使用MQTT协议，需要搭建一个MQTT服务器来进行调试，在网络上找了一天，找到的大多数都是MQTT客户端，最后发现这篇博客写的教程可以使用，特此记录。</p>
@@ -2489,21 +2526,6 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
-    <title>WINDOWS命令行关闭本地占用的端口</title>
-    <url>/2020/04/02/WINDOWS%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%85%B3%E9%97%AD%E6%9C%AC%E5%9C%B0%E5%8D%A0%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3/</url>
-    <content><![CDATA[<p>1.查找对应的端口占用的进程：netstat  -aon|findstr  “8080”    ，找到占用8080端口对应的程序的PID号；<br><a id="more"></a><br><img src="1.png" alt="1.png"></p>
-<p>2.根据PID号找到对应的程序：tasklist|findstr “PID号”    ，找到对应的程序名；</p>
-<p><img src="2.png" alt="2.png"></p>
-<p>3.结束该进程：taskkill /f /t /im ApplicationWebServer.exe；或者taskkill /pid 7644 /F。</p>
-]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>YModem协议详解</title>
     <url>/2020/04/07/YModem%E5%8D%8F%E8%AE%AE%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<p>协议简介：<br>​        <strong>YModem</strong>协议是由<strong>XModem</strong>协议演变而来的，每包数据可以达到1024字节，是一个非常高效的文件传输协议。<strong>Ymodem</strong>是一种错误纠正协议。使用较大数据块的调制解调采用这种协议，以获得更高的工作效率。采用<strong>Ymodem</strong>协议的调制解调器以1024字节数的块发送数据。成功接收的不会被确认。有错误的块被确认（NAK），并重发。<strong>Ymodem</strong>类似于<strong>Xmodem-1K</strong>，不同之处是提供批处理模式（batch mode）。在批处理模式下，可以使用一个命令发送一些文件。<strong>Ymodem</strong>使用循环冗余码校验作为错误校验方式。<br><a id="more"></a></p>
@@ -2515,11 +2537,54 @@ f(x) &=a+b+a\\
 <p>添加一个命令frecv，这个命令接受一个参数，就是超级终端所要索取的文件。当开发板接收到这个命令后，就等待终端发送索取文件的协商要求。</p>
 <h1 id="Ymodem协议分析"><a href="#Ymodem协议分析" class="headerlink" title="Ymodem协议分析"></a><strong>Ymodem</strong>协议分析</h1><h2 id="明确概念"><a href="#明确概念" class="headerlink" title="明确概念"></a>明确概念</h2><p>一步一步来，先把概念搞清楚。</p>
 <p><strong>Ymodem</strong>协议是一种发送并等待的协议。即发送方发送一个数据包以后，都要等待接收方的确认。如果是ACK信号，则可以发送新的包。如果是NAK信号，则重发或者错误退出。</p>
-<h2 id="文件传输过程"><a href="#文件传输过程" class="headerlink" title="文件传输过程"></a>文件传输过程</h2><p>文件传输过程的开启：</p>
+<h2 id="文件传输过程"><a href="#文件传输过程" class="headerlink" title="文件传输过程"></a>文件传输过程</h2><p>​     接收方：发出0x43                       表示请求对方发送数据</p>
+<p>​     发送方：发出第0个数据包</p>
+<p>​             数据包构成：</p>
+<p>​                      1：0x01或者0x02；         0x01表示128字节，0x02表示1024字节</p>
+<p>​                      2：0x00                    表示第0个数据包</p>
+<p>​                      3：0xff                     第几个数据包的补码</p>
+<p>​                      4 ～ 4 + 文名的长度         文件名，以0x00结束</p>
+<p>​                      4 + 文件名的长度 + 1        文件大小，以0x00结束</p>
+<p>​                      正文不足128字节 补0x00</p>
+<p>​                      Crc校验</p>
+<p>​     接收方：0x06或者0x15                        0x06应答，0x15非应签</p>
+<p>​    </p>
+<p>​     接收方：0x43                         请求对方发送正文</p>
+<p>​     发送方：发出第1个数据包</p>
+<p>​             数据包构成：</p>
+<p>​                     1：0x01或者0x02；         0x01表示128字节，0x02表示1024字节</p>
+<p>​                     2：0x01                    表示第1个数据包</p>
+<p>​                     3：0xfe                     第几个数据包的补码</p>
+<p>​                     4：正文</p>
+<p>​                     Crc校验</p>
+<p>接收方：0x06或者0x15</p>
+<p>​         注：发送方收到应答后马上发送第二个数据包直到数据包发送结束后发出0x04</p>
+<p>发送方：发出第2个数据包</p>
+<p>​             数据包构成：</p>
+<p>​                     1：0x01或者0x02；         0x01表示128字节，0x02表示1024字节</p>
+<p>​                     2：0x02                    表示第2个数据包</p>
+<p>​                     3：0xfd                     第几个数据包的补码</p>
+<p>​                     4：正文</p>
+<p>​                     正文不足128位补0x1a</p>
+<p>​                     Crc校验</p>
+<p>接收方：0x06或者0x15</p>
+<p>发送方：0x04             传送结束</p>
+<p>接收方：0x06             应答</p>
+<p>接收方：0x43                再次请求</p>
+<p>发送方：发送全零数据包</p>
+<p>​        数据包的构成：</p>
+<p>​                 1：0x01</p>
+<p>​                 2：0x00</p>
+<p>​                 3：0xff</p>
+<p>​                 4：128个0x00</p>
+<p>​                 Crc校验</p>
+<p>接收方：0x06</p>
+<p>数据通信结束</p>
+<p>文件传输过程的开启：</p>
 <p>（1）开启是由接收方开启传输，它发一个大写字母C开启传输。然后进入等待（SOH）状态，如果没有回应，就会超时退出。</p>
 <p>（2）发送方开始时处于等待过程中，等待C。收到C以后，发送（SOH）数据包开始信号，发送序号（00），补码（FF），“文件名”，“空格”“文件大小”“除去序号外，补满128字节”，CRC校验两个字节。进入等待（ACK）状态。</p>
 <p>（3）接收方收到以后，CRC校验满足，则发送ACK。发送方接收到ACK，又进入等待“文件传输开启”信号，即重新进入等待“C”的状态。</p>
-<p>（4）前面接收方只是收到了一个文件名，限制正式开启文件传输，Ymodem支持128字节和1024字节一个数据包。128字节以（SOH）开始，１０２４字节以（STX）开始。</p>
+<p>（4）前面接收方只是收到了一个文件名，限制正式开启文件传输，Ymodem支持128字节和1024字节一个数据包。128字节以（SOH）开始，1024字节以（STX）开始。</p>
 <p>接收方又发出一个“Ｃ”信号，开始准备接收文件。进入等待“SOH”或者“STX”状态。</p>
 <p>（５）发送接收到“Ｃ”以后，发送数据包，（SOH）（01序号）（FE补码）（128位数据）（CRC校验），等待接收方“ACK”。</p>
 <p>（６）文件发送完以后，发送方发出一个“EOT”信号，接收方也以“ACK”回应。</p>
@@ -2998,6 +3063,23 @@ f(x) &=a+b+a\\
       </tags>
   </entry>
   <entry>
+    <title>经典电路之减法器</title>
+    <url>/2018/01/08/%E7%BB%8F%E5%85%B8%E7%94%B5%E8%B7%AF%E4%B9%8B%E5%87%8F%E6%B3%95%E5%99%A8/</url>
+    <content><![CDATA[<p>减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现</p>
+<h3 id="1-输入信号实现反相实现减法器"><a href="#1-输入信号实现反相实现减法器" class="headerlink" title="1.输入信号实现反相实现减法器"></a>1.输入信号实现反相实现减法器</h3><p><img src="543cf225x7ca35edcb97b&amp;690.jpg" alt="543cf225x7ca35edcb97b&amp;690.jpg"></p>
+<h3 id="2-差分电路实现减法器"><a href="#2-差分电路实现减法器" class="headerlink" title="2.差分电路实现减法器"></a>2.差分电路实现减法器</h3><p><img src="543cf225x72dd2aab7ff5&amp;690.jpg" alt="543cf225x72dd2aab7ff5&amp;690.jpg"><br>我使用差分减法器比较多，主要用于电流、电压的测量<br>其计算输出电压的公式如下：</p>
+<script type="math/tex; mode=display">V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})</script><p>若令<strong>R1=R2,R3=R4</strong>,上式可简化为：</p>
+<script type="math/tex; mode=display">V_o=\frac{R3}{R2}(V_{i2}-V_{i1})</script>]]></content>
+      <categories>
+        <category>电路设计相关</category>
+        <category>经典电路</category>
+      </categories>
+      <tags>
+        <tag>电路设计</tag>
+        <tag>减法器电路</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>经典电路之惠斯通电桥原理及应用</title>
     <url>/2018/01/08/%E7%BB%8F%E5%85%B8%E7%94%B5%E8%B7%AF%E4%B9%8B%E6%83%A0%E6%96%AF%E9%80%9A%E7%94%B5%E6%A1%A5%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[<h2 id="1-电阻桥定义解释"><a href="#1-电阻桥定义解释" class="headerlink" title="1. 电阻桥定义解释"></a>1. 电阻桥定义解释</h2><p>   惠斯通电桥是由四个电阻组成的电桥电路，这四个电阻分别叫做电桥的桥臂，惠斯通电桥利用电阻的变化来测量物理量的变化，单片机采集可变电阻两端的电压然后处理，就可以计算出相应的物理量的变化，是一种精度很高的测量方式。其电路形式如下图所示。</p>
@@ -3020,23 +3102,6 @@ f(x) &=a+b+a\\
       <tags>
         <tag>电路设计</tag>
         <tag>电阻测量</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>经典电路之减法器</title>
-    <url>/2018/01/08/%E7%BB%8F%E5%85%B8%E7%94%B5%E8%B7%AF%E4%B9%8B%E5%87%8F%E6%B3%95%E5%99%A8/</url>
-    <content><![CDATA[<p>减法器有两种：一种是先对输入信号实现反相，然后再做加法运算；另一种是直接利用差分电路实现</p>
-<h3 id="1-输入信号实现反相实现减法器"><a href="#1-输入信号实现反相实现减法器" class="headerlink" title="1.输入信号实现反相实现减法器"></a>1.输入信号实现反相实现减法器</h3><p><img src="543cf225x7ca35edcb97b&amp;690.jpg" alt="543cf225x7ca35edcb97b&amp;690.jpg"></p>
-<h3 id="2-差分电路实现减法器"><a href="#2-差分电路实现减法器" class="headerlink" title="2.差分电路实现减法器"></a>2.差分电路实现减法器</h3><p><img src="543cf225x72dd2aab7ff5&amp;690.jpg" alt="543cf225x72dd2aab7ff5&amp;690.jpg"><br>我使用差分减法器比较多，主要用于电流、电压的测量<br>其计算输出电压的公式如下：</p>
-<script type="math/tex; mode=display">V_o=\frac{R1+R4}{R1}(V_{i2}\frac{R3}{R2+R3}-V_{i1}\frac{R4}{R1+R4})</script><p>若令<strong>R1=R2,R3=R4</strong>,上式可简化为：</p>
-<script type="math/tex; mode=display">V_o=\frac{R3}{R2}(V_{i2}-V_{i1})</script>]]></content>
-      <categories>
-        <category>电路设计相关</category>
-        <category>经典电路</category>
-      </categories>
-      <tags>
-        <tag>电路设计</tag>
-        <tag>减法器电路</tag>
       </tags>
   </entry>
   <entry>

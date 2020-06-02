@@ -64,7 +64,7 @@
 <meta property="og:description" content="协议简介：​        YModem协议是由XModem协议演变而来的，每包数据可以达到1024字节，是一个非常高效的文件传输协议。Ymodem是一种错误纠正协议。使用较大数据块的调制解调采用这种协议，以获得更高的工作效率。采用Ymodem协议的调制解调器以1024字节数的块发送数据。成功接收的不会被确认。有错误的块被确认（NAK），并重发。Ymodem类似于Xmodem-1K，不同之处是提供">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://iotts.top/images/994acc07cb01bccb289a785091e9eb27.jpg">
-<meta property="og:updated_time" content="2020-04-07T18:29:05.809Z">
+<meta property="og:updated_time" content="2020-04-23T12:37:40.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YModem协议详解">
 <meta name="twitter:description" content="协议简介：​        YModem协议是由XModem协议演变而来的，每包数据可以达到1024字节，是一个非常高效的文件传输协议。Ymodem是一种错误纠正协议。使用较大数据块的调制解调采用这种协议，以获得更高的工作效率。采用Ymodem协议的调制解调器以1024字节数的块发送数据。成功接收的不会被确认。有错误的块被确认（NAK），并重发。Ymodem类似于Xmodem-1K，不同之处是提供">
@@ -319,7 +319,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-08 02:29:05" itemprop="dateModified" datetime="2020-04-08T02:29:05+08:00">2020-04-08</time>
+                <time title="修改时间：2020-04-23 20:37:40" itemprop="dateModified" datetime="2020-04-23T20:37:40+08:00">2020-04-23</time>
               </span>
             
           
@@ -365,11 +365,54 @@
 <p>添加一个命令frecv，这个命令接受一个参数，就是超级终端所要索取的文件。当开发板接收到这个命令后，就等待终端发送索取文件的协商要求。</p>
 <h1 id="Ymodem协议分析"><a href="#Ymodem协议分析" class="headerlink" title="Ymodem协议分析"></a><strong>Ymodem</strong>协议分析</h1><h2 id="明确概念"><a href="#明确概念" class="headerlink" title="明确概念"></a>明确概念</h2><p>一步一步来，先把概念搞清楚。</p>
 <p><strong>Ymodem</strong>协议是一种发送并等待的协议。即发送方发送一个数据包以后，都要等待接收方的确认。如果是ACK信号，则可以发送新的包。如果是NAK信号，则重发或者错误退出。</p>
-<h2 id="文件传输过程"><a href="#文件传输过程" class="headerlink" title="文件传输过程"></a>文件传输过程</h2><p>文件传输过程的开启：</p>
+<h2 id="文件传输过程"><a href="#文件传输过程" class="headerlink" title="文件传输过程"></a>文件传输过程</h2><p>​     接收方：发出0x43                       表示请求对方发送数据</p>
+<p>​     发送方：发出第0个数据包</p>
+<p>​             数据包构成：</p>
+<p>​                      1：0x01或者0x02；         0x01表示128字节，0x02表示1024字节</p>
+<p>​                      2：0x00                    表示第0个数据包</p>
+<p>​                      3：0xff                     第几个数据包的补码</p>
+<p>​                      4 ～ 4 + 文名的长度         文件名，以0x00结束</p>
+<p>​                      4 + 文件名的长度 + 1        文件大小，以0x00结束</p>
+<p>​                      正文不足128字节 补0x00</p>
+<p>​                      Crc校验</p>
+<p>​     接收方：0x06或者0x15                        0x06应答，0x15非应签</p>
+<p>​    </p>
+<p>​     接收方：0x43                         请求对方发送正文</p>
+<p>​     发送方：发出第1个数据包</p>
+<p>​             数据包构成：</p>
+<p>​                     1：0x01或者0x02；         0x01表示128字节，0x02表示1024字节</p>
+<p>​                     2：0x01                    表示第1个数据包</p>
+<p>​                     3：0xfe                     第几个数据包的补码</p>
+<p>​                     4：正文</p>
+<p>​                     Crc校验</p>
+<p>接收方：0x06或者0x15</p>
+<p>​         注：发送方收到应答后马上发送第二个数据包直到数据包发送结束后发出0x04</p>
+<p>发送方：发出第2个数据包</p>
+<p>​             数据包构成：</p>
+<p>​                     1：0x01或者0x02；         0x01表示128字节，0x02表示1024字节</p>
+<p>​                     2：0x02                    表示第2个数据包</p>
+<p>​                     3：0xfd                     第几个数据包的补码</p>
+<p>​                     4：正文</p>
+<p>​                     正文不足128位补0x1a</p>
+<p>​                     Crc校验</p>
+<p>接收方：0x06或者0x15</p>
+<p>发送方：0x04             传送结束</p>
+<p>接收方：0x06             应答</p>
+<p>接收方：0x43                再次请求</p>
+<p>发送方：发送全零数据包</p>
+<p>​        数据包的构成：</p>
+<p>​                 1：0x01</p>
+<p>​                 2：0x00</p>
+<p>​                 3：0xff</p>
+<p>​                 4：128个0x00</p>
+<p>​                 Crc校验</p>
+<p>接收方：0x06</p>
+<p>数据通信结束</p>
+<p>文件传输过程的开启：</p>
 <p>（1）开启是由接收方开启传输，它发一个大写字母C开启传输。然后进入等待（SOH）状态，如果没有回应，就会超时退出。</p>
 <p>（2）发送方开始时处于等待过程中，等待C。收到C以后，发送（SOH）数据包开始信号，发送序号（00），补码（FF），“文件名”，“空格”“文件大小”“除去序号外，补满128字节”，CRC校验两个字节。进入等待（ACK）状态。</p>
 <p>（3）接收方收到以后，CRC校验满足，则发送ACK。发送方接收到ACK，又进入等待“文件传输开启”信号，即重新进入等待“C”的状态。</p>
-<p>（4）前面接收方只是收到了一个文件名，限制正式开启文件传输，Ymodem支持128字节和1024字节一个数据包。128字节以（SOH）开始，１０２４字节以（STX）开始。</p>
+<p>（4）前面接收方只是收到了一个文件名，限制正式开启文件传输，Ymodem支持128字节和1024字节一个数据包。128字节以（SOH）开始，1024字节以（STX）开始。</p>
 <p>接收方又发出一个“Ｃ”信号，开始准备接收文件。进入等待“SOH”或者“STX”状态。</p>
 <p>（５）发送接收到“Ｃ”以后，发送数据包，（SOH）（01序号）（FE补码）（128位数据）（CRC校验），等待接收方“ACK”。</p>
 <p>（６）文件发送完以后，发送方发出一个“EOT”信号，接收方也以“ACK”回应。</p>
@@ -491,7 +534,7 @@
         
           <a href="/archives">
         
-          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-count">65</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
